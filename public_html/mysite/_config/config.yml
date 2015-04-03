@@ -3,6 +3,7 @@ Name: mysite
 After:
   - 'framework/*'
   - 'cms/*'
+  - 'bootstrap-forms/*'
 ---
 # YAML configuration for SilverStripe
 # See http://doc.silverstripe.org/framework/en/topics/configuration
