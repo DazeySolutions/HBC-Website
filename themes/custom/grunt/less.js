@@ -3,7 +3,8 @@ module.exports = {
     // Development settings
     dev: {
         files: {
-	    "dist/css/main.css": "src/less/main.less"
+        "dist/css/main.css": "src/less/main.less",
+        "dist/css/signin.css": "src/less/signin.less"
         }
     },
 
@@ -13,7 +14,8 @@ module.exports = {
             compress: true
         },
 	files: {
-	    "dist/css/main.css": "src/less/main.less"
+        "dist/css/main.css": "src/less/main.less",
+        "dist/css/signin.css": "src/less/signin.less"
         }
     }
 };

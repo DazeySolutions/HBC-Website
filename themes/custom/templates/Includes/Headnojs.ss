@@ -10,6 +10,7 @@
 
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <link href="$ThemeDir/css/main.css" rel="stylesheet">
+    <link href="$ThemeDir/css/signin.css" rel="stylesheet">
 
     <script src="$ThemeDir/js/dependencies.min.js"></script>
 
