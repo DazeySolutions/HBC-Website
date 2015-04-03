@@ -13,9 +13,12 @@ SSViewer:
 
 Director:
   environment_type: 'dev'
-
+SiteConfig:
+  extensions:
+    - CustomSiteConfig
 Injector:
   ChangePasswordForm:
     class: BootstrapChangePasswordForm
   MemberLoginForm:
     class: BootstrapLoginForm
+
