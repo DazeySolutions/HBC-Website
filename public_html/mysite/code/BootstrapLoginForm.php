@@ -8,7 +8,8 @@ class BootstrapLoginForm extends MemberLoginForm {
 		$emailField = new EmailField("Email", $label, null, null, $this);
 		$this->Fields()->replaceField("Email", $emailField);
 		$this->Fields()->bootstrapify();
-		$actionSubmit = new BootstrapFormAction('dologin', "Log in")->setStyle('primary');
+		$actionSubmit = new BootstrapFormAction('dologin', "Log in");
+		$actionSubmit->setStyle('primary');
 		$actionSubmit->setSize('lg');
 		$this->Actions()->replaceField('dologin', $actionSubmit);
 		$this->Actions()->bootstrapify();
