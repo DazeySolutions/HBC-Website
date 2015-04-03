@@ -1,10 +1,9 @@
 <% include Headnojs %>
 <body >
-    <% include Headernojs %>
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-6">
-		<h2>CMS Password Change</h2>
+		        <h2>CMS Password Change</h2>
                 $Form
             </div>
             <div class="col-xs-12 col-sm-6">
@@ -12,5 +11,4 @@
             </div>
         </div>
     </div>
-    <% include Footer %>
 </body>
