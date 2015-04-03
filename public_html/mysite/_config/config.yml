@@ -21,4 +21,6 @@ Injector:
     class: BootstrapChangePasswordForm
   MemberLoginForm:
     class: BootstrapLoginForm
-
+DateField:
+  default_config:
+    showcalendar: true
