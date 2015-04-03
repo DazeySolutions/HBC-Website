@@ -16,6 +16,8 @@ class Alerts extends DataObject {
 	}
 	private static $summary_fields = array(
 		'Title' => 'Title',
-		'Description'=>'Description'
+		'Description'=>'Description',
+		'Start'=>'Start',
+		'End'=>'End'
 	);
 }
