@@ -12,3 +12,7 @@ SSViewer:
 
 Director:
   environment_type: 'dev'
+
+Injector:
+  ChangePasswordForm:
+    Class: BootstrapChangePasswordForm
