@@ -17,3 +17,5 @@ Director:
 Injector:
   ChangePasswordForm:
     class: BootstrapChangePasswordForm
+  MemberLoginForm:
+    class: BootstrapLoginForm
