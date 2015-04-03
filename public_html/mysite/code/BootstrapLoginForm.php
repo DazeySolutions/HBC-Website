@@ -9,7 +9,7 @@ class BootstrapLoginForm extends MemberLoginForm {
 		$this->Fields()->replaceField("Email", $emailField);
 		$this->Fields()->bootstrapify();
 		$actionSubmit = new FormAction('dologin', "Log in");
-		$this->Actions()->replaceField('dologin', $actionSubmit);
+		$this->Actions()->replaceField('action_dologin', $actionSubmit);
 		$this->Actions()->bootstrapify();
 		$this->setTemplate("BootstrapForm");
 		$actionSubmit->setStyle('primary');
