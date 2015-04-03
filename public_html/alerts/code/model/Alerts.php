@@ -4,7 +4,9 @@ class Alerts extends DataObject {
 	private static $db = array(
 		'Title' => 'Text',
 		'Description' => 'Text',
-		'Severity'=>'Text'
+		'Severity'=>'Text',
+		'Start'=>'Date',
+		'End'=>'Date'
 	);
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
