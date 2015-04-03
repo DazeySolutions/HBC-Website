@@ -20,4 +20,7 @@ class Alerts extends DataObject {
 		'Start'=>'Start',
 		'End'=>'End'
 	);
+	function getCMSValidator() {
+	    return new RequiredFields(array('Title','Description','Severity','Start','End'));
+	}
 }
