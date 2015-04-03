@@ -9,8 +9,6 @@ class BootstrapLoginForm extends MemberLoginForm {
 		$this->Fields()->replaceField("Email", $emailField);
 		$this->Fields()->bootstrapify();
 		$this->Actions()->bootstrapify();
-		$this->Actions()->fieldByName('dologin').setStyle('primary');
-		$this->Actions()->fieldByName('dologin').setSize('lg');
 		$this->setTemplate("BootstrapForm");
 		$this->invokeWithExtensions('updateBoostrapMemberLoginForm', $this);
 	}
