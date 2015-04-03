@@ -45,3 +45,6 @@ bower_components
 
 # Theme assets
 themes/custom/dist
+themes/custom/.bowe*
+themes/custom/.edit*
+themes/custom/.jshint*
