@@ -41,10 +41,10 @@ private static $allowed_children = array(
 class CustomPage_Controller extends ContentController {
 
 	public function getSlideShowImages(){
-		return $this->SlideShowImages();
+		return $this->SlideShowImages()->sort("SortOrder");
 	}
 	public function getContentSections(){
-		return $this->ContentSections();
+		return $this->ContentSections()->sort("SortOrder");
 	}
 
 	private static $allowed_actions = array (

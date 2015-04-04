@@ -10,7 +10,7 @@ class ContentSection extends DataObject {
         "Versioned('Stage', 'Live')"
     );
 	private static $has_one = array(
-		
+		"CustomPage"=>"CustomPage"
 	);
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
