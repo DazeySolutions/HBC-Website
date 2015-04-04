@@ -3,7 +3,7 @@
 class CustomUserDefinedForm extends UserDefinedForm {
     private static $allowed_children = array(
 			"*Page",
-			"CustomUserDefinedForm",
+			"UserDefinedForm",
 			"CustomPage",
 			"HomePage",
 			"Blog",

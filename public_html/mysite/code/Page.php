@@ -10,7 +10,7 @@ class Page extends SiteTree {
 
 	private static $allowed_children = array(
 			"*Page",
-			"CustomUserDefinedForm",
+			"UserDefinedForm",
 			"CustomPage",
 			"HomePage",
 			"Blog",
