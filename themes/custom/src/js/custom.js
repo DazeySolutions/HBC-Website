@@ -15,8 +15,8 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
 				return "/"+stateParams.page+"/ajax";
 			},
 			resolve: {
-                contentSections: function($stateParams, $http){
-                    return $http({method: 'GET', url: "/"+$stateParams.page+"/ajaxContent"});
+                contentSections: function($http, stateParams){
+                    return $http({method: 'GET', url: "/"+ stateParams.page +"/ajaxContent"});
                 }
 			}
 		});
