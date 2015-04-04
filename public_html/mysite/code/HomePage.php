@@ -7,7 +7,15 @@ class HomePage extends CustomPage {
 			);
 	private static $has_one = array(
 			);
-
+    private static $allowed_children = array(
+			"*Page",
+			"CustomUserDefinedForm",
+			"CustomPage",
+			"HomePage",
+			"Blog",
+			"BlogPost",
+			"RedirectorPage"	
+			);	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 

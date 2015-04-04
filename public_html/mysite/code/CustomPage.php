@@ -9,7 +9,15 @@ class CustomPage extends SiteTree {
 			);
 	private static $has_one = array(
 			);
-
+private static $allowed_children = array(
+			"*Page",
+			"CustomUserDefinedForm",
+			"CustomPage",
+			"HomePage",
+			"Blog",
+			"BlogPost",
+			"RedirectorPage"	
+			);	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$gridFieldConfig = GridFieldConfig_RecordEditor::create();

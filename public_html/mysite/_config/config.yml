@@ -4,6 +4,7 @@ After:
   - 'framework/*'
   - 'cms/*'
   - 'bootstrap-forms/*'
+  - 'userforms/*'
 ---
 # YAML configuration for SilverStripe
 # See http://doc.silverstripe.org/framework/en/topics/configuration
@@ -21,6 +22,8 @@ Injector:
     class: BootstrapChangePasswordForm
   MemberLoginForm:
     class: BootstrapLoginForm
+  UserDefinedForm:
+    class: CustomUserDefinedForm
 DateField:
   default_config:
     showcalendar: true

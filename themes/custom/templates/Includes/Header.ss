@@ -1,15 +1,3 @@
-<div id="alerts" class="container">
-<% loop $AlertsConfig.Alerts %>
-    <% if $Start.IsToday || $Start.InPast %>
-        <% if $End.IsToday || $End.InFuture %>
-        <div class="alert alert-dismissible alert-$Severity col-xs-6 col-xs-offset-3 " role="alert">
-                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="fa fa-times"></i></button>
-                <strong>$Title</strong> $Description
-        </div>
-        <% end_if %>
-    <% end_if %>
-<% end_loop %>
-</div>
 <nav class="navbar navbar-inverse">
     <div class="container">
         <div class="navbar-header">
@@ -28,3 +16,17 @@
         </div>
     </div>
 </nav>
+<% if $AlertsConfig.Alerts %>
+<div id="alerts" class="container" style="height: 55px;" >
+<% loop $AlertsConfig.Alerts %>
+    <% if $Start.IsToday || $Start.InPast %>
+        <% if $End.IsToday || $End.InFuture %>
+        <div class="alert alert-dismissible alert-$Severity col-xs-6 col-xs-offset-3 " role="alert" style="height: 50px;">
+                <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="fa fa-times"></i></button>
+                <strong>$Title</strong> $Description
+        </div>
+        <% end_if %>
+    <% end_if %>
+<% end_loop %>
+</div>
+<% end_if %>
