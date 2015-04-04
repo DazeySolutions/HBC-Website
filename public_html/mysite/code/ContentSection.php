@@ -20,6 +20,6 @@ class ContentSection extends DataObject {
 	}
 	private static $summary_fields = array(
 		'Title'=>'Title',
-        'Content'=>'Content',
+        'Content'=>'Content'
 	);
 }
