@@ -38,7 +38,7 @@ private static $allowed_children = array(
 	}
 
 }
-class CustomPage_Controller extends ContentController {
+class CustomPage_Controller extends Page_Controller {
 
 	public function getSlideShowImages(){
 		return $this->SlideShowImages()->sort("SortOrder");

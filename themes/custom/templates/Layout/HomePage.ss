@@ -2,20 +2,18 @@
 <body data-ng-app="hbcWebApp">
 	<% include Header %>
         <div class="container-full" ui-view>
-<section>
-    <article>
+            <section>
+                <article>
         
-        <h1>$Title</h1>
-        
-        <div class="content">
-            $Content
-        </div>
+                    <div class="content">
+                        $Content
+                    </div>
 
-    </article>
+                </article>
 
-    $Form
+                $Form
     
-</section>
+            </section>
         </div>
         <% include Footer %>
     </body>

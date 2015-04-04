@@ -28,11 +28,18 @@ class Page extends SiteTree {
 class Page_Controller extends ContentController {
 
 	private static $allowed_actions = array (
-			'ajax'
+			'ajax',
+			'ajaxContent'
 			);
 
 	public function ajax() {
 		return $this->renderWith('AngularPage');
+	}
+	
+	public function ajaxContent(){
+	    if(isset($this->ContentSections())){
+	        return json_encode($this->ContentSections());
+	    }
 	}
 
 	public function init() {
