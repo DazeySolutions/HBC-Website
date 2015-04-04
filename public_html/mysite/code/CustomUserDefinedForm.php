@@ -1,6 +1,7 @@
 <?php
 
 class CustomUserDefinedForm extends UserDefinedForm {
+    private static $icon = "mysite/images/icon/form.png";
     private static $allowed_children = array(
 			"*Page",
 			"CustomUserDefinedForm",
