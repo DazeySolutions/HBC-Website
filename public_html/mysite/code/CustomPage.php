@@ -1,6 +1,6 @@
 <?php
 class CustomPage extends SiteTree {
-	private static $icon = 'mysite/images/icon/custom.png';
+
 	private static $db = array(
 			);
 	private static $many_many = array(
@@ -38,7 +38,7 @@ private static $allowed_children = array(
 	}
 
 }
-class CustomPage_Controller extends Page_Controller {
+class CustomPage_Controller extends ContentController {
 
 	public function getSlideShowImages(){
 		return $this->SlideShowImages()->sort("SortOrder");
@@ -48,11 +48,18 @@ class CustomPage_Controller extends Page_Controller {
 	}
 
 	private static $allowed_actions = array (
-			'ajax'
+			'ajax',
+			'ajaxContent'
 			);
 
 	public function ajax() {
 		return $this->renderWith('AngularPage');
+	}
+	
+	public function ajaxContent(){
+	    if(isset($this->ContentSections())){
+	        return json_encode($this->ContentSections());
+	    }
 	}
 
 	public function init() {

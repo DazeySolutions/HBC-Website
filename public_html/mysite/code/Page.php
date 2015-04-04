@@ -1,7 +1,6 @@
 <?php
 class Page extends SiteTree {
 
-	private static $icon = 'mysite/images/icon/custom.png';
 	private static $db = array(
 			);
 	private static $has_many = array(
@@ -29,19 +28,14 @@ class Page extends SiteTree {
 class Page_Controller extends ContentController {
 
 	private static $allowed_actions = array (
-			'ajax',
-			'ajaxContent'
+			'ajax'
 			);
 
 	public function ajax() {
 		return $this->renderWith('AngularPage');
 	}
 	
-	public function ajaxContent(){
-	    if(isset($this->ContentSections())){
-	        return json_encode($this->ContentSections());
-	    }
-	}
+	
 
 	public function init() {
 		parent::init();
