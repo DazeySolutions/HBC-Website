@@ -1,6 +1,7 @@
 <?php
 class Page extends SiteTree {
 
+	private static $icon = 'mysite/images/icon/custom.png';
 	private static $db = array(
 			);
 	private static $has_many = array(
