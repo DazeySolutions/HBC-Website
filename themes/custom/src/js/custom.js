@@ -15,7 +15,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
 				return "/"+stateParams.page+"/ajax";
 			},
 			controllerProvider: function(stateParams){
-                return stateParmas.controller;
+                return stateParams.controller;
 			}
 		});
 }] );
