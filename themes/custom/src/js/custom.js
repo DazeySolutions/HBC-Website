@@ -13,9 +13,19 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
 			url: "/:page",
 			templateUrl: function(stateParams){
 				return "/"+stateParams.page+"/ajax";
+			},
+			controllerProvider: function(stateParams){
+                return stateParmas.controller;
 			}
 		});
 }] );
+hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.init =  function init(){
+      $http.get("/"+$stateParams.state+"/ajaxContent").success(function(data){
+          $scope.content = data;
+      });
+    };
+}]);
 hbcWebApp.config(['$locationProvider', function($locationProvider){
 	$locationProvider.html5Mode(true);
 }]);
