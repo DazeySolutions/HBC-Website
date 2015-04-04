@@ -3,7 +3,7 @@ class CustomPage extends SiteTree {
 
 	private static $db = array(
 			);
-	private static $many_many = array(
+	private static $has_many = array(
 			'SlideShowImages' => 'SlideShowImage',
 			'ContentSections' => 'ContentSection'
 			);
