@@ -10,8 +10,7 @@ class SlideShowImage extends DataObject {
         "Versioned('Stage', 'Live')"
     );
 	private static $has_one = array(
-		'Image' => 'Image',
-		'Page' => 'Page'
+		'Image' => 'Image'
 	);
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
