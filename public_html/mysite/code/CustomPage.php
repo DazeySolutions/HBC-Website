@@ -57,7 +57,7 @@ class CustomPage_Controller extends ContentController {
 	}
 	
 	public function ajaxContent(){
-	    if(isset($this->ContentSections())){
+	    if(null !== ($this->ContentSections())){
 	        return json_encode($this->ContentSections());
 	    }
 	}
