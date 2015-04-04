@@ -15,7 +15,8 @@ class Page extends SiteTree {
 			"HomePage",
 			"Blog",
 			"BlogPost",
-			"RedirectorPage"	
+			"RedirectorPage",
+			"GalleryPage"
 			);	
 
 	public function getCMSFields(){
