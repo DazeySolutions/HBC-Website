@@ -6,7 +6,7 @@ class GalleryPage extends CustomPage {
     public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$fields->addFieldToTab("Root.Main",new TextField("GalleryTitle","Gallery Title"), 'MenuTitle');
-		$fields->removeFieldToTab("Root.Main", 'ContentSections');
+		$fields->removeFieldFromTab("Root.Main", 'ContentSections');
 		$fields->removeFieldFromTab("Root.Main", 'Content');
 		return $fields;
 	}
