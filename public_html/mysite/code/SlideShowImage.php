@@ -18,7 +18,9 @@ class SlideShowImage extends DataObject {
 		$fields->removeFieldFromTab("Root.Main","PageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");
         $fields->removeFieldFromTab("Root.Main","Link");
+        $fields->removeFieldFromTab("Root.Main","CustomPage");
         $fields->addFieldToTab("Root.Main", TextField::create("Link"), "Description");
+        $fields->addFieldToTab("Root.Main", new ReadOnlyField("CustomPage", "Parent"), "Link");
 		return $fields;
 	}
 	private static $summary_fields = array(
