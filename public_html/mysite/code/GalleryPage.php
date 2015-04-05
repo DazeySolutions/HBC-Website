@@ -5,8 +5,23 @@ class GalleryPage extends CustomPage {
 		);
     public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->fieldByName('SlideShowImages')->setTitle("Gallery Image");
-		$fields->fieldByName('SlideShowImages')->setName("GalleryImage");
+		$gridFieldConfig = new GridFieldConfig();
+		$gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
+		$gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+		$addButton->setButtonName('Add Galery Image');
+        $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
+		$gridFieldConfig->addComponent($sort = new GridFieldSortableHeader());
+		$gridFieldConfig->addComponent($filter = new GridFieldFilterHeader());
+		$gridFieldConfig->addComponent(new GridFieldDataColumns());
+		$gridFieldConfig->addComponent(new GridFieldEditButton());
+		$gridFieldConfig->addComponent(new GridFieldDeleteAction());
+		$gridFieldConfig->addComponent(new GridFieldPageCount('toolbar-header-right'));
+		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
+		$gridFieldConfig->addComponent(new GridFieldDetailForm());
+		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		
+		$gridFieldSlideShowImages = new GridField("SlideShowImages", "Gallery Images", $this->SlideShowImages()->sort("SortOrder"), $gridFieldConfig);
+		$fields->replaceField("SlideShowImages", $gridFieldSlideShowImages);
 		$fields->addFieldToTab("Root.Main",new TextField("GalleryTitle","Gallery Title"), 'MenuTitle');
 		$fields->removeFieldFromTab("Root.Main", 'ContentSections');
 		$fields->removeFieldFromTab("Root.Main", 'Content');
