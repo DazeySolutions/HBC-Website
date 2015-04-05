@@ -32,4 +32,11 @@ class GalleryPage_Controller extends CustomPage_Controller {
     public function init() {
 		parent::init();
 	}
+	private static $allowed_actions = array (
+			'ajax'
+			);
+
+	public function ajax() {
+		return $this->renderWith('AngularGallery');
+	}
 }

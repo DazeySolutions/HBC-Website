@@ -1,14 +1,17 @@
-<section>
-    <article>
-        
-        <h1>$Title</h1>
-        
-        <div class="content">
-            $Content
+<div class="row">
+    <div class="col-xs-12">
+        <h1>$GalleryTitle</h1>
+    </div>
+</div>
+
+<div class="row">
+<% loop getSlideShowImages %>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+        <div class="image-padding">
+            $Image.SetWidth(400)
         </div>
-
-    </article>
-
-    $Form
+    </div>
+<% end_loop %>
+</div>
     
 </section>
