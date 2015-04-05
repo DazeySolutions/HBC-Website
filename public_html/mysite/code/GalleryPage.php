@@ -11,3 +11,8 @@ class GalleryPage extends CustomPage {
 		return $fields;
 	}
 }
+class GalleryPage_Controller extends CustomPage_Controller {
+    public function init() {
+		parent::init();
+	}
+}
