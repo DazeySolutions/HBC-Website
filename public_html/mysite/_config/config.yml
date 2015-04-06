@@ -17,6 +17,9 @@ Director:
 SiteConfig:
   extensions:
     - CustomSiteConfig
+HtmlEditorField_Toolbar:
+  extensions:
+   - CustomHTMLEditorField
 Injector:
   ChangePasswordForm:
     class: BootstrapChangePasswordForm
