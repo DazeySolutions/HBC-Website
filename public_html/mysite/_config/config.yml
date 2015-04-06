@@ -17,7 +17,7 @@ Director:
 SiteConfig:
   extensions:
     - CustomSiteConfig
-HtmlEditorField_Toolbar:
+Framework:
   extensions:
    - CustomHTMLEditorField
 Injector:
