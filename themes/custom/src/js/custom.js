@@ -48,7 +48,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', f
     $scope.init =  function init(){
         var location = "home";
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
-        $http.get("/"+$locationProvider+"/ajaxContent").success(function(data){
+        $http.get("/"+location+"/ajaxContent").success(function(data){
             $scope.content = data;
         });
     };
