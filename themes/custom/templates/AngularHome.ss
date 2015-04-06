@@ -1,6 +1,5 @@
 <div class="content">
-    <div data-ng-repeat="image in images">
-        <img ng-src="/{{image.Filename}}">
+    <div class="imageSlider"  data-ng-style="imageSliderStyle">
     </div>
     <div data-ng-repeat="section in content" class="section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
         <div class="container">

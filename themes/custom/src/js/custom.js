@@ -51,15 +51,20 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
     $scope.init =  function init(){
         var location = "home";
+        var maxHeight = $window.innerWidth/(2.39);
+        $scope.imageSliderStyle="{'height':'"+maxHeight+"px', 'background-color':'#222'}";
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
         $http.get("/"+location+"/ajaxContent").success(function(data){
             $scope.content = data;
         });
         $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
             $scope.images = data;
+            $scope.currImage = $scope.images[0];
+            $scope.imageSliderStyle="{'height':'"+maxHeight+"px', 'background-image':'"+$scope.currImage.Filename+"', 'background-size':'cover'}";
         });
         
     };
+    $scope.imageSliderStyle = "";
     $scope.content = {};
     $scope.images = {};
     $scope.init();
