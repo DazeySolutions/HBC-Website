@@ -50,6 +50,8 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', f
           $scope.content = data;
       });
     };
+    
+    $scope.init();
 }]);
 
 hbcWebApp.controller('PageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){

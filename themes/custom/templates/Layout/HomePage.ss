@@ -1,10 +1,10 @@
 <% include Head %>
 <body data-ng-app="hbcWebApp">
 	<% include Header %>
-        <div class="container-full" ui-view>
-            <div class="content">
-                $Content
-            </div>
+    <div class="container-full" ui-view>
+        <div class="content">
+            $Content
         </div>
-        <% include Footer %>
-    </body>
+    </div>
+    <% include Footer %>
+</body>
