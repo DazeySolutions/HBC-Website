@@ -11,4 +11,4 @@ require_once('conf/ConfigureFromEnv.php');
 i18n::set_locale('en_US');
 
 HtmlEditorConfig::get('cms')->setOption('content_css','themes/custom/css/main.css');
-HtmlEditorConfig::get('cms')->setOption('body_class','section-row even');
+HtmlEditorConfig::get('cms')->setOption('body_class','section-row odd');
