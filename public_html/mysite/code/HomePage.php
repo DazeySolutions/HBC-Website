@@ -45,15 +45,15 @@ class HomePage_Controller extends CustomPage_Controller {
 	
 	public function ajaxImages($request){
 	    if(null !== ($this->SlideShowImages())){
-	        $width = $request.getVar('width');
+	        //$width = $request.getVar('width');
 	        $imageUrlArray = array();
 	        $counter = 0;
 	        $images = $this->SlideShowImages()->sort("SortOrder");
 	        foreach($images as $bgImage){
-	            $imageUrlArray[$counter] = $bgImage->Image()->setWidth($width);
+	            $imageUrlArray[$counter] = $bgImage->Image();
 	            $counter++;
 	        }
-	        return $imageUrlArray;
+	        return json_encode($imageUrlArray);
 	    }
 	}
     
