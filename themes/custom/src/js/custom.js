@@ -46,11 +46,13 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 */
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){
-      $http.get("/"+$stateParams.page+"/ajaxContent").success(function(data){
-          $scope.content = data;
-      });
+        var location = "home";
+        location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
+        $http.get("/"+$stateParams.page+"/ajaxContent").success(function(data){
+            $scope.content = data;
+        });
     };
-    
+    $scope.content = {};
     $scope.init();
 }]);
 
