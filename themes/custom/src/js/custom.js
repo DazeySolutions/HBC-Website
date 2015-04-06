@@ -14,32 +14,23 @@ angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.otherwise("/");
-    
+    var controlName = 'HomePageController';
     $stateProvider
         .state('site', {
             url: "/:page",
-            templateProvider: function($http, $q, stateParams){
+            templateUrl: function(stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
                     location = "/"+stateParams.page+"/ajax";
                 }
-                var defer = $q.defer();
-                
-                $http.get(location).
-                    success(function(data, status, headers, config) {
-                        defer.resolve(data);
-                    }).
-                    error(function(data, status, headers, config) {
-                        defer.resolve("<h1>An error has occurred!  Try refreshing the page, if you have seen this multiple times <a href='mailto:webmaster@hbc-ky.com'>email the webmaster</a></h1>");
-                    });
-                return defer.promise;
-            },
-            controllerProvider: function(stateParams){
-                if(angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
-                    return 'HomePageController';
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
+                    controlName = stateParams.controller;
                 }else{
-                    return stateParams.controller;
+                    controlName = 'HomePageController';
                 }
+                return location;
+            },
+            controller: controlName
             } 
         });
 }] );
