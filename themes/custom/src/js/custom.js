@@ -7,7 +7,11 @@ angular.isUndefinedOrNull = function undefinedOrNull(value){
 angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
     return angular.isUndefined(value) || value === null || value === "";
 };
-
+hbcWebApp.filter('to_trusted', ['$sce', function($sce){
+        return function(text) {
+            return $sce.trustAsHtml(text);
+        };
+    }]);
 /**
 * UI ROUTER CONFIG FILE
 * router.js
