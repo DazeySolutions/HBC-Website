@@ -63,7 +63,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             $scope.images = data;
             $scope.prevImageNum = data.length-1;
             $scope.currImage = $scope.images[0];
-            angular.element(".imageSlider").css("background-image", $scope.currImage.Filename);
+            angular.element(".imageSlider").css("background-image","'url(\""+$scope.currImage.Filename+"\")'");
         });
         
     };
