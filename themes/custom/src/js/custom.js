@@ -6,20 +6,32 @@ var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 * router.js
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+    angular.isUndefinedOrNull = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null;
+    };
+    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null || value === "";
+    };
     $urlRouterProvider.otherwise("/");
     
     $stateProvider
         .state('site', {
             url: "/:page",
-            templateUrl: function(stateParams){
-                if(stateParams.page == ""  || stateParams.page == undefined){
-                    return "/home/ajax";
-                }else{
-                    return "/"+stateParams.page+"/ajax";
+            templateProvider: function(stateParams, $http){
+                var location = "/home/ajax";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
+                    location = "/"+stateParams.page+"/ajax";
                 }
+                $http.get(location).
+                    success(function(data, status, headers, config) {
+                        return data;
+                    }).
+                    error(function(data, status, headers, config) {
+                        return "<h1>An error has occurred!  Try refreshing the page, if you have seen this multiple times <a href='mailto:webmaster@hbc-ky.com'>email the webmaster</a></h1>";
+                    });
             },
             controllerProvider: function(stateParams){
-                if(stateParams.controller == undefined){
+                if(angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
                     return 'HomePageController';
                 }else{
                     return stateParams.controller;
