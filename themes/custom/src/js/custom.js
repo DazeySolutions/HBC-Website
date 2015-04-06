@@ -12,10 +12,8 @@ angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
 * UI ROUTER CONFIG FILE
 * router.js
 */
-hbcWebApp.config(['$stateProvider','$urlRouterProvider','$rootScope', function($stateProvider, $urlRouterProvider, $rootScope){
-    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
-        
-    });
+hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+
     $urlRouterProvider.otherwise("/");
     var controlName = 'HomePageController';
     $stateProvider
