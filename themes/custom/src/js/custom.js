@@ -51,7 +51,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
     $scope.init =  function init(){
         var location = "home";
-        var maxHeight = $window.innerWidth/(3.75);
+        var maxHeight = $window.innerWidth/(3.25);
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
