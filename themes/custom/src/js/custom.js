@@ -18,7 +18,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
     $stateProvider
         .state('site', {
             url: "/:page",
-            templateProvider: function(stateParams, $http){
+            templateProvider: function($http, stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
                     location = "/"+stateParams.page+"/ajax";
