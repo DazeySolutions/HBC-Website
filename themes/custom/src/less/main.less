@@ -4,6 +4,9 @@
 @fa-font-path:          "../assets/fonts";
 @icon-font-path:        "../assets/fonts";
 
+@odd-bg:                #222;
+@even-bg:               #fafafa;
+
 @navbar-height:         85px;
 @border-radius-base:    0px;
 .nav{
@@ -34,5 +37,19 @@
     img {
         max-width: 100%;
         max-height: 250px;
+    }
+}
+.content{
+    width:   100%
+    margin:  0px;
+    padding: 0px;
+    .row{
+        width:   100%;
+        &.odd {
+            background: @odd-bg;
+        }
+        &.even{
+            background: @even-bg;
+        }
     }
 }
