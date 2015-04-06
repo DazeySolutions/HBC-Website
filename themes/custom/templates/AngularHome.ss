@@ -1,7 +1,7 @@
 <div class="content">
     $Content
     <div data-ng-repeat="image in images">
-        <img ng-src="/{{image.FileName}}">
+        <img ng-src="/{{image.Filename}}">
     </div>
     <div data-ng-repeat="section in content">
         <h2>{{section.Title}}</h2>
