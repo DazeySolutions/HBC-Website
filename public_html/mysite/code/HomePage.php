@@ -53,7 +53,7 @@ class HomePage_Controller extends CustomPage_Controller {
 	            $imageUrlArray[$counter] = $bgImage->Image()->setWidth($width);
 	            $counter++;
 	        }
-	        return json_encode($imageUrlArray);
+	        return $imageUrlArray;
 	    }
 	}
     
