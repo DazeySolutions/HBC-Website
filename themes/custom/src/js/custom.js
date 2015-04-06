@@ -31,7 +31,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                 return location;
             },
             controller: controlName
-            } 
+            
         });
 }] );
 hbcWebApp.config(['$locationProvider', function($locationProvider){
