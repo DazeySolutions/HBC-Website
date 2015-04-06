@@ -68,7 +68,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         
     };
     
-    $scope.currImage;
+    $scope.currImage = undefined;
     $scope.currImageNum = 0;
     $scope.nextImageNum = 1;
     $scope.prevImageNum = -1;
