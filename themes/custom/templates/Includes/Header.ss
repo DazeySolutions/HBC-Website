@@ -22,5 +22,5 @@
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="fa fa-times"></i></button>
             <strong>$Title</strong> $Description
     </div>
+<% end_loop %>
 </div>
-<% end_if %>
