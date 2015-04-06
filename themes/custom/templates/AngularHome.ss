@@ -5,7 +5,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
-                    <h2>{{section.Title}}</h2>
                     <div  ng-bind-html="section.Content | to_trusted"></div> 
                 </div>
             </div>
