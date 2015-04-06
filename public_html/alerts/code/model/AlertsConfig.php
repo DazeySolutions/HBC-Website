@@ -27,9 +27,6 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
         'Alerts' => 'Alerts'
     );
     
-    public function validAlerts() {
-        return Alerts::get()->where("Start <= CURDATE() AND END >= CURDATE()")->sort("End DESC");
-    }
     /**
      * @config
      *

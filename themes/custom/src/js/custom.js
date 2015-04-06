@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
@@ -48,6 +48,14 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', function ($scope, toaster, $window){
+    $scope.init = function init(){
+        $http.get("/home/validAlerts").success(function(data){
+            $scope.toastData = data;
+        }); 
+    };
+    $scope.init();
+}]);
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
     $scope.init =  function init(){
         var location = "home";

@@ -30,9 +30,14 @@ class HomePage_Controller extends CustomPage_Controller {
 	private static $allowed_actions = array (
 			'ajax',
 			'ajaxContent',
-			'ajaxImages'
+			'ajaxImages',
+			'validAlerts'
 			);
 
+    public function validAlerts() {
+        return json_encode(Alerts::get()->where("Start <= CURDATE() AND END >= CURDATE()")->sort("End DESC")->toNestedArray());
+    }
+    
     public function ajax() {
 		return $this->renderWith('AngularHome');
 	}
