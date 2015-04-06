@@ -27,6 +27,12 @@ class HomePage extends CustomPage {
 }
 class HomePage_Controller extends CustomPage_Controller {
 
+	private static $allowed_actions = array (
+			'ajax',
+			'ajaxContent',
+			'ajaxImages'
+			);
+
     public function ajax() {
 		return $this->renderWith('AngularHome');
 	}
