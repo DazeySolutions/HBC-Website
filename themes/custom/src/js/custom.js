@@ -48,7 +48,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', function ($scope, toaster, $window){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', function ($scope, toaster, $window, $http){
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
