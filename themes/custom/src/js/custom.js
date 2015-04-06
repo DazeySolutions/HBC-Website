@@ -18,18 +18,21 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
     $stateProvider
         .state('site', {
             url: "/:page",
-            templateProvider: function($http, stateParams){
+            templateProvider: function($http, $q, stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
                     location = "/"+stateParams.page+"/ajax";
                 }
+                var defer = $q.defer();
+                
                 $http.get(location).
                     success(function(data, status, headers, config) {
-                        return data;
+                        defer.resolve(data);
                     }).
                     error(function(data, status, headers, config) {
-                        return "<h1>An error has occurred!  Try refreshing the page, if you have seen this multiple times <a href='mailto:webmaster@hbc-ky.com'>email the webmaster</a></h1>";
+                        defer.resolve("<h1>An error has occurred!  Try refreshing the page, if you have seen this multiple times <a href='mailto:webmaster@hbc-ky.com'>email the webmaster</a></h1>");
                     });
+                return defer.promise;
             },
             controllerProvider: function(stateParams){
                 if(angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
