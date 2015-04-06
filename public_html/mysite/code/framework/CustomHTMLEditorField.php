@@ -7,5 +7,4 @@ class CustomHTMLEditorField extends DataExtension {
 		$form->Fields()->removeByName('FromWeb');
 	}
 
- 
 }
