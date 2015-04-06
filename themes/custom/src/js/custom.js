@@ -38,11 +38,15 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
     $locationProvider.html5Mode(true);
 }]);
 
-/*hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+/**
+* CONTROLLERS FILE
+* controllers.js
+*/
+hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){
       $http.get("/"+$stateParams.page+"/ajaxContent").success(function(data){
           $scope.content = data;
       });
     };
 }]);
-*/
+
