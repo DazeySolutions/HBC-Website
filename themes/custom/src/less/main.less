@@ -49,28 +49,26 @@
     padding: 0px;
     .section-row{
         width:   100%;
+        hr{
+            display: block; 
+            height: 1px;
+            border: 0; 
+            margin: 35px 0; 
+            padding: 0;
+            border-top: 1px solid @even-bg;
+        }
         &.odd {
             background: @odd-bg;
             color:      @even-bg;
             hr{
-                display: block; 
-                height: 1px;
-                border: 0; 
-                border-top: 1px solid @even-bg;
-                margin: 1em 0; 
-                padding: 0;
+                border-color: lighten(@even-bg, 5%);
             }
         }
         &.even{
             background: @even-bg;
             color:      @odd-bg;
             hr{
-                display: block; 
-                height: 1px;
-                border: 0; 
-                border-top: 1px solid @odd-bg;
-                margin: 1em 0; 
-                padding: 0;
+                border-color: lighten(@odd-bg, 10%);
             }
         }
     }
