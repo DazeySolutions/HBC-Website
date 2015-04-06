@@ -27,6 +27,9 @@ class GalleryPage extends CustomPage {
 		$fields->removeFieldFromTab("Root.Main", 'Content');
 		return $fields;
 	}
+	public function AngularController(){
+	    return "GalleryPageController";
+	}
 }
 class GalleryPage_Controller extends CustomPage_Controller {
     public function init() {

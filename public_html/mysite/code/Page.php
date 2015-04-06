@@ -11,8 +11,6 @@ class Page extends SiteTree {
 	private static $allowed_children = array(
 			"*Page",
 			"CustomUserDefinedForm",
-			"CustomPage",
-			"HomePage",
 			"Blog",
 			"BlogPost",
 			"RedirectorPage",
@@ -23,6 +21,9 @@ class Page extends SiteTree {
 		$fields = parent::getCMSFields();
 
 		return $fields;
+	}
+	public function AngularController(){
+	    return "PageController";
 	}
 
 }

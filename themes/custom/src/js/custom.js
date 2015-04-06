@@ -52,3 +52,20 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
+hbcWebApp.controller('PageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.init =  function init(){
+      
+    };
+}]);
+
+hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.init =  function init(){
+      
+    };
+}]);
+
+hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.init =  function init(){
+      
+    };
+}]);

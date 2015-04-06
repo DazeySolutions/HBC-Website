@@ -5,7 +5,7 @@
 
     <% base_tag %>
     
-    <title>$SiteConfig.Title : $Title</title>
+    <title>$SiteConfig.Title</title>
     $MetaTags
 
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />

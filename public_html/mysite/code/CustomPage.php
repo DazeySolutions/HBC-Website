@@ -12,8 +12,6 @@ class CustomPage extends SiteTree {
 private static $allowed_children = array(
 			"*Page",
 			"CustomUserDefinedForm",
-			"CustomPage",
-			"HomePage",
 			"Blog",
 			"BlogPost",
 			"RedirectorPage"	

@@ -1,14 +1,4 @@
-<section>
-    <article>
-        
-        <h1>$Title</h1>
-        
-        <div class="content">
-            $Content
-        </div>
-
-    </article>
-
-    $Form
-    
-</section>
+<div class="content">
+    $Content
+</div>
+$Form
