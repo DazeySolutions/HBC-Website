@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="imageSlider"  data-ng-style="imageSliderStyle">
+    <div class="imageSlider">
     </div>
     <div data-ng-repeat="section in content" class="section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
         <div class="container">

@@ -51,20 +51,27 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
     $scope.init =  function init(){
         var location = "home";
-        var maxHeight = $window.innerWidth/(2.39);
-        $scope.imageSliderStyle="{'height':'"+maxHeight+"px', 'background-color':'#222'}";
+        var maxHeight = $window.innerWidth/(3.75);
+        angular.element(".imageSlider").css('height',maxHeight+"px");
+        angular.element(".imageSlider").css('background-color','#222');
+        angular.element(".imageSlider").css('background-size','cover');
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
         $http.get("/"+location+"/ajaxContent").success(function(data){
             $scope.content = data;
         });
         $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
             $scope.images = data;
+            $scope.prevImageNum = data.length-1;
             $scope.currImage = $scope.images[0];
-            $scope.imageSliderStyle="{'height':'"+maxHeight+"px', 'background-image':'"+$scope.currImage.Filename+"', 'background-size':'cover'}";
+            angular.element(".imageSlider").css("background-image", $scope.currImage.Filename);
         });
         
     };
-    $scope.imageSliderStyle = "";
+    
+    $scope.currImage;
+    $scope.currImageNum = 0;
+    $scope.nextImageNum = 1;
+    $scope.prevImageNum = -1;
     $scope.content = {};
     $scope.images = {};
     $scope.init();
