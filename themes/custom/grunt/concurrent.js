@@ -12,8 +12,8 @@ module.exports = {
     ],
     devSecond: [
         'less:dev',
-        'uglify',
-	'copy'
+        'concat',
+        'copy'
     ],
 
     // Production tasks
@@ -24,7 +24,7 @@ module.exports = {
     prodSecond: [
         'less:prod',
         'uglify',
-	'copy'
+        'copy'
     ],
 
     // Image tasks
