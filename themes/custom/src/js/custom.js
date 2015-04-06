@@ -1,17 +1,18 @@
 var appDependencies = ['ui.router'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
+angular.isUndefinedOrNull = function undefinedOrNull(value){
+    return angular.isUndefined(value) || value === null;
+};
+angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+    return angular.isUndefined(value) || value === null || value === "";
+};
+
 /**
 * UI ROUTER CONFIG FILE
 * router.js
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
-    angular.isUndefinedOrNull = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null;
-    };
-    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null || value === "";
-    };
     $urlRouterProvider.otherwise("/");
     
     $stateProvider
