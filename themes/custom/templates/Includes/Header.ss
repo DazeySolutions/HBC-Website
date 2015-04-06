@@ -16,13 +16,11 @@
         </div>
     </div>
 </nav>
-<% if $AlertsConfig.validAlerts.length %>
 <div id="alerts" class="container" style="height: 55px;" >
 <% loop $AlertsConfig.validAlerts %>
     <div class="alert alert-dismissible alert-$Severity col-xs-6 col-xs-offset-3 " role="alert" style="height: 50px;">
             <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true"><i class="fa fa-times"></i></button>
             <strong>$Title</strong> $Description
     </div>
-<% end_loop %>
 </div>
 <% end_if %>
