@@ -47,32 +47,32 @@
     width:   100%
     margin:  0px;
     padding: 0px;
-    .section-row{
-        width:   100%;
-        h2{
-            text-align: center;
-        }
+}
+.section-row{
+    width:   100%;
+    h2{
+        text-align: center;
+    }
+    hr{
+        display: block; 
+        height: 1px;
+        border: 0; 
+        margin: 35px 0; 
+        padding: 0;
+        border-top: 1px solid @even-bg;
+    }
+    &.odd {
+        background: @odd-bg;
+        color:      @even-bg;
         hr{
-            display: block; 
-            height: 1px;
-            border: 0; 
-            margin: 35px 0; 
-            padding: 0;
-            border-top: 1px solid @even-bg;
+            border-color: lighten(@even-bg, 5%);
         }
-        &.odd {
-            background: @odd-bg;
-            color:      @even-bg;
-            hr{
-                border-color: lighten(@even-bg, 5%);
-            }
-        }
-        &.even{
-            background: @even-bg;
-            color:      @odd-bg;
-            hr{
-                border-color: lighten(@odd-bg, 10%);
-            }
+    }
+    &.even{
+        background: @even-bg;
+        color:      @odd-bg;
+        hr{
+            border-color: lighten(@odd-bg, 10%);
         }
     }
 }
