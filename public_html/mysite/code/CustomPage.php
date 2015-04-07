@@ -52,7 +52,7 @@ private static $allowed_children = array(
 		$gridFieldSlideShowImages = new GridField("SlideShowImages", "Background Slides", $this->SlideShowImages()->sort("SortOrder"), $gridFieldConfig2);
 
 		$gridFieldContentSections = new GridField("ContentSections", "Page Content Sections", $this->ContentSections()->sort("SortOrder"), $gridFieldConfig);
-
+        $gridFieldContentSections->getConfig()->getComponentByType("GridFieldDataColumns")->setFieldCasting(array("Content"=>"HTMLText"));
 		$fields->addFieldToTab("Root.Main", $gridFieldContentSections, 'Content');
 		$fields->addFieldToTab("Root.Main", $gridFieldSlideShowImages, 'Content');
 
