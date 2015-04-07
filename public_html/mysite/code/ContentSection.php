@@ -20,11 +20,6 @@ class ContentSection extends DataObject {
 	}
 	private static $summary_fields = array(
 		'Title'=>'Title',
-        'ContentNice'=>'Content'
+        'Content.BigSummary'=>'Content'
 	);
-	public function ContentNice(){
-	    $obj = HTMLText::create();
-	    $obj->setValue($this->Content()->getValue());
-	    return $obj;
-	}
 }
