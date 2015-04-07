@@ -10,8 +10,6 @@ class HomePage extends CustomPage {
     private static $allowed_children = array(
 			"*Page",
 			"CustomUserDefinedForm",
-			"Blog",
-			"BlogPost",
 			"RedirectorPage"	
 			);	
 	public function getCMSFields(){

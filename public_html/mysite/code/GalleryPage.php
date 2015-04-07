@@ -3,6 +3,8 @@ class GalleryPage extends CustomPage {
 	private static $db = array(
 	    "GalleryTitle"=>"Text"
 		);
+		private static $allowed_children = array(	
+			);
     public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$gridFieldConfig = new GridFieldConfig();
