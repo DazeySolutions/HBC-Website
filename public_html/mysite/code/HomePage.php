@@ -44,7 +44,7 @@ class HomePage_Controller extends CustomPage_Controller {
 	
 	public function ajaxContent(){
 	    if(null !== ($this->ContentSections())){
-	        return json_encode($this->ContentSections()->toNestedArray());
+	        return json_encode($this->ContentSections()->sort('SortOrder')->toNestedArray());
 	    }
 	}
 	
