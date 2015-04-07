@@ -18,7 +18,7 @@ hbcWebApp.filter('to_trusted', ['$sce', function($sce){
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
 
-    $urlRouterProvider.otherwise("/");
+    $urlRouterProvider.otherwise("/home");
     var controlName = 'HomePageController';
     $stateProvider
         .state('site', {
