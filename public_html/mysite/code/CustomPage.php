@@ -18,10 +18,36 @@ private static $allowed_children = array(
 			);	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$gridFieldConfig = GridFieldConfig_RecordEditor::create();
-		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
-		$gridFieldConfig2 = GridFieldConfig_RecordEditor::create();
+		
+		$gridFieldConfig2 = new GridFieldConfig();
+		$gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
+		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+		$addButton->setButtonName('Add Background Slide');
+        $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
+		$gridFieldConfig2->addComponent($sort = new GridFieldSortableHeader());
+		$gridFieldConfig2->addComponent($filter = new GridFieldFilterHeader());
+		$gridFieldConfig2->addComponent(new GridFieldDataColumns());
+		$gridFieldConfig2->addComponent(new GridFieldEditButton());
+		$gridFieldConfig2->addComponent(new GridFieldDeleteAction());
+		$gridFieldConfig2->addComponent(new GridFieldPageCount('toolbar-header-right'));
+		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
+		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
+		
+		$gridFieldConfig = new GridFieldConfig();
+		$gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
+		$gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+		$addButton->setButtonName('Add Content Section');
+        $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
+		$gridFieldConfig->addComponent($sort = new GridFieldSortableHeader());
+		$gridFieldConfig->addComponent($filter = new GridFieldFilterHeader());
+		$gridFieldConfig->addComponent(new GridFieldDataColumns());
+		$gridFieldConfig->addComponent(new GridFieldEditButton());
+		$gridFieldConfig->addComponent(new GridFieldDeleteAction());
+		$gridFieldConfig->addComponent(new GridFieldPageCount('toolbar-header-right'));
+		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
+		$gridFieldConfig->addComponent(new GridFieldDetailForm());
+		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
 
 		$gridFieldSlideShowImages = new GridField("SlideShowImages", "Background Slides", $this->SlideShowImages()->sort("SortOrder"), $gridFieldConfig2);
 
