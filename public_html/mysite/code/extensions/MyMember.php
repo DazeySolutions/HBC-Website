@@ -22,4 +22,11 @@ class MyMember extends DataExtension {
     private static $many_many = array(); 
     private static $belongs_many_many = array(); 
 
+    public static function currentMemberFTP(){
+        $id = Member::currentUserID();
+        if($id) {
+            return DataObject::get_one("Member", "\"Member\".\"ID\" = $id", true, 1)->ftpUser;
+        }
+    }
+
 }
