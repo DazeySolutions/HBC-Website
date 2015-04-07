@@ -25,3 +25,6 @@ Injector:
 DateField:
   default_config:
     showcalendar: true
+Member:
+  extensions:
+    - MyMember
