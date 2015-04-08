@@ -209,8 +209,8 @@
 		&.current { //need to apply current stlye to flyout also (at least line height)
 			a {
 				color: darken($header-font, 10%);
-				border-top: 1px solid lighten($header, 15%);
-				border-bottom: 1px solid darken($header, 20%);
+				border-top: 1px solid lighten($header-border, 15%);
+			    border-bottom: 1px solid lighten($header-border, 5%);
 				background-color: lighten($header, 10%);
 				
 				.toggle-children {
