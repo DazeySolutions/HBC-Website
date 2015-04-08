@@ -24,13 +24,17 @@
 		padding-left:26px;
 
 		a {
-			color: $color-text-light;
+			color: $color-text-dark-link;
 			display: inline;
 		}
 	}
 	.greeting{
 	    color: $color-text-light;
 		display: block;
+		a {
+			color: $color-text-dark-link;
+			display: inline;
+		}
 	}
 }
 
