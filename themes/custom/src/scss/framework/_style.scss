@@ -94,7 +94,7 @@ body.cms {
     z-index: 60;
     min-height: 40px;
     background: lighten($header, 20%);
-    color:  darken($header-font, 20%) !important;
+    color:  $header-font !important;
 
     a {
         color: $primary;
