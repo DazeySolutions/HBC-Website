@@ -1,8 +1,15 @@
 module.exports = {
-    dev: {
+    admin: {
         options: {
-            sassDir: 'src/scss',
-            cssDir: 'dist/css',
+            sassDir: 'src/scss/framework',
+            cssDir: 'dist/css/framework',
+            environment: 'development'
+        },
+    },
+    cms: {
+        options: {
+            sassDir: 'src/scss/cms',
+            cssDir: 'dist/css/cms',
             environment: 'development'
         },
     }
