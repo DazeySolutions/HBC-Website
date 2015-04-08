@@ -88,10 +88,10 @@
 
 .cms-menu {
 	z-index: 80;
-	background: $color-base;
+	background: $color-menu-bg;
 	width: ($grid-x * 20);
 
-	@include box-shadow($color-shadow-blacker 0 0 3px);
+	@include box-shadow($color-menu-bg-light-border 0 0 3px);
 	a {
 		text-decoration: none;
 	}
@@ -158,43 +158,28 @@
 			line-height: $grid-y * 2;
 			min-height: $grid-y * 2;
 			font-size: $font-base-size;
-			text-shadow: lighten($color-base, 5%) 1px 1px 0;
-			color: $color-text-dark;
+			color: $heading-font-color;
 			padding: (1.5 * $grid-y - 1) 5px (1.5 * $grid-y - 1) 8px;
-			background-color: $color-base;
+			background-color: $color-menu-bg;
 			cursor: pointer;
 			position: relative;
 
-			@include background-image(linear-gradient(
-				$color-base,
-				darken($color-base, 10%)
-			));
-
-			border-top: 1px solid lighten($color-base, 6%);
-			border-bottom: 1px solid darken($color-base, 20%);
+			border-top: 1px solid $color-menu-bg-light-border;
+			border-bottom: 1px solid $color-menu-bg-dark-border;
 			
 			&:hover {
 				text-decoration: none;
-				background-color: lighten($color-base, 2%);
-				border-bottom: 1px solid darken($color-base, 15%);
-				color: lighten($color-text-dark, 5%);
-				
-				@include background-image(linear-gradient(
-					lighten($color-base, 5%),
-					$color-base
-				));
+				background-color: $brand-info;
+				border-bottom: 1px solid darken($brand-info, 15%);
+				color: lighten($heading-font-color, 5%);
 			}
 			&:focus,
 			&:active {
-				border-top: 1px solid darken($color-base, 5%);
+				border-top: 1px solid darken($brand-primary, 5%);
 				text-decoration: none;
-				background-color: darken($color-base, 5%);
-				color: lighten($color-text-dark, 10%);
+				background-color: $brand-primary;
+				color: $heading-font-color;
 				
-				@include background-image(linear-gradient(
-					darken($color-base, 10%),
-					darken($color-base, 5%)
-				));			
 			}
 			
 			.icon {

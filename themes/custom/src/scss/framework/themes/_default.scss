@@ -18,6 +18,10 @@ $color-medium-separator: #808080 !default;
 $color-separator: #C0C0C0  !default;
 $color-light-separator: #f0f0f0 !default; 
 
+$color-menu-bg: lighten($color-dark-bg, 20%) !default;
+$color-menu-bg-dark-border: darken($color-menu-bg, 5%) !default;
+$color-menu-bg-light-border: lighten($color-menu-bg-dark-border, 10%) !default;
+
 $color-tab: #d9d9d9 !default;
 $color-dark-grey: #7B8C91 !default;
 
@@ -97,3 +101,9 @@ $grid-x: 8px !default;
 $application-logo-small: url("../images/logo_small.png") !default;
 
 $heading-font-color: #f2f2f2;
+$default:                               #3e3f3a;
+$brand-primary:                         #325d88;
+$brand-success:                         #93C54B;
+$brand-info:                            #29ABE0;
+$brand-warning:                         #f47c3c;
+$brand-danger:                          #d9534f;
