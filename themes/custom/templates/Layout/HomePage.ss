@@ -5,5 +5,8 @@
         <div class="content">
         </div>
     </div>
-    <% include Footer %>
+    <div class="container-full">
+        <% include Connection %>
+        <% include Footer %>
+    </div>
 </body>

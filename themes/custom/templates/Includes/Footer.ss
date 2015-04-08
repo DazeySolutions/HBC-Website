@@ -1,6 +1,6 @@
 <footer id="bottom" class="footer">
 	<div class="container">
-		<div class="row">
+		<div class="section-row even">
 			<div class="col-xs-12 col-sm-6">
 
 			</div>
