@@ -1181,10 +1181,10 @@ form.member-profile-form {
 .cms-panel {
     overflow: hidden;
     .cms-panel-toggle {
-        @include box-shadow(0 0 1px $box-shadow-shine);
+        color: $header-font;
         &.south {
-            border-top: 1px solid darken($color-base, 6%);
-            @include box-shadow(lighten($color-base, 4%) 0 1px 0px inset);
+            border-top: 1px solid $header-border;
+            @include box-shadow(lighten($header-border, 10%) 0 1px 0px inset);
             position: absolute;
             bottom: 0;
             width:100%;
@@ -1210,8 +1210,8 @@ form.member-profile-form {
     }
     &.cms-content-tools .cms-panel-toggle {
         &.south {
-            border-top: 1px solid darken($tab-panel-texture-color,10%);
-            @include box-shadow($box-shadow-shine 0 1px 0px inset);
+            border-top: 1px solid $header-border;
+            @include box-shadow(lighten($header-border, 10%) 0 1px 0px inset);
         }
     }   
     &.collapsed {
