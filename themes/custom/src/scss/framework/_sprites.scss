@@ -14,64 +14,64 @@
     }
     .ui-icon{
         padding-left: 5px;
-        .btn-icon-accept{
+        &.btn-icon-accept{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-check-circle;
             color:  $success;
         }
-        .btn-icon-accept_disabled{
+        &.btn-icon-accept_disabled{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-check-circle;
         }
-        .btn-icon-add{
+        &.btn-icon-add{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-plus-circle;
             color:  white;
         }
-        .btn-icon-add_disabled{
+        &.btn-icon-add_disabled{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-plus-circle;
         }
-        .btn-icon-addpage{
+        &.btn-icon-addpage{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-plus;
             color:  white;
         }
-        .btn-icon-addpage_disabled{
+        &.btn-icon-addpage_disabled{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-plus;
         }
-        .btn-icon-arrow-circle-135-left{
+        &.btn-icon-arrow-circle-135-left{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-undo;
             color:  $info;
         }
-        .btn-icon-arrow-circle-double{
+        &.btn-icon-arrow-circle-double{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-refresh;
             color:  $info;
         }
-        .btn-icon-back{
+        &.btn-icon-back{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-arrow-circle-left;
             color:  $info;
         }
-        .btn-icon-addMedia{
+        &.btn-icon-addMedia{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-plus-square;
             color:  white;
         }
-        .btn-icon-back_disabled{
+        &.btn-icon-back_disabled{
             @extend .fa;
             @extend .fa-fw;
             @extend .fa-arrow-circle-left;
