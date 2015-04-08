@@ -76,6 +76,9 @@
 	}
 	.greeting {
 		color: $header-font;
+		a{
+		    color: $header-font;    
+		}
 		padding: 0px;
 		display: initial;
 	}
