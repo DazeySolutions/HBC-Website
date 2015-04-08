@@ -93,12 +93,8 @@ body.cms {
     padding-left: $grid-x * 2;
     z-index: 60;
     min-height: 40px;
-    background: {
-        image: url(../images/textures/cms_content_header.png);
-        repeat: repeat;
-        position: left bottom;
-        color: $color-darker-bg;
-    }
+    background: lighten($header, 20%);
+    border-bottom: 1px solid lighten($header-border, 20%);
 
     a {
         color: $color-text-blue-link;
