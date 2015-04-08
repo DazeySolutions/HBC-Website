@@ -247,25 +247,25 @@ body.cms {
 		}
 
 		li.cms-tabset-icon {
-			text-indent:-9999em;
+			//text-indent:-9999em;
 
 			a {
-				display: block;
-				padding-left: 40px; // icon width
-				padding-right: 0;
+               i.list{
+                   @extend .fa;
+                   @extend .fa-lg;
+                   @extend .fa-menuicon;
+               } 
+               i.tree{
+                   @extend .fa;
+                   @extend .fa-lg;
+                   @extend .fa-leaf;
+               }
+                span{
+                    display:none;
+                }
+                
 			}
 
-			&.list a {background: sprite($sprites64, tab-list) no-repeat;}
-			&.tree a {background: sprite($sprites64, tab-tree) no-repeat;}
-			&.gallery a {background: sprite($sprites64, tab-gallery) no-repeat;}
-			&.edit a {background: sprite($sprites64, tab-edit) no-repeat;}
-			&.search a {background: sprite($sprites64, tab-search) no-repeat;}
-
-			&.list.ui-state-active a {background: sprite($sprites64, tab-list-hover) no-repeat;}
-			&.tree.ui-state-active a {background: sprite($sprites64, tab-tree-hover) no-repeat;}
-			&.gallery.ui-state-active a {background: sprite($sprites64, tab-gallery-hover) no-repeat;}
-			&.edit.ui-state-active a {background: sprite($sprites64, tab-edit-hover) no-repeat;}
-			&.search.ui-state-active a {background: sprite($sprites64, tab-search-hover) no-repeat;}
 		}
 	}
 		
