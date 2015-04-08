@@ -13,25 +13,22 @@
 	height:auto !important;
 	padding: 0 8px;
 	line-height: 24px;
-	background-color: lighten($color-dark-bg,10%);
-	@include background-image(
-		linear-gradient(lighten($color-dark-bg,20%), $color-dark-bg)
-	);
+	background-color: $header;
 
 	span {
-		color: $color-text-light;
+		color: $header-font;
 		display: block;
 		padding-left:26px;
 
 		a {
-			color: $color-text-dark-link;
+			color: darken($header-font, 5%);
 			display: inline;
 		}
 	}
 }
 
 .cms-logo {
-	border-bottom: 1px solid lighten($color-dark-bg,4%);
+	border-bottom: 1px solid $header-border;
 	overflow: hidden;
 	padding: $grid-y+2 0 $grid-y+1; /* should come to 40px with border bottom and line-height */
 	position: relative;
@@ -66,19 +63,19 @@
 }
 
 .cms-login-status {
-	border-top: 1px solid $color-dark-separator;
+	border-top: 1px solid lighten($header-border, 5%);
 	padding: $grid-y*1 0 $grid-y*1.2;
 	line-height: 16px;
 	font-size: $font-base-size - 1;
 
 	.logout-link {
-		color: white;		
+		color: darken($header-font, 5%);		
 		&:hover, &:focus{
 			opacity:1;
 		}
 	}
 	.greeting {
-		color: white;
+		color: $header-font;
 		padding: 0px;
 		display: initial;
 	}
