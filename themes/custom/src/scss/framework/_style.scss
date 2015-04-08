@@ -746,7 +746,7 @@ body.cms {
         margin: 10px 0 $grid-y - 1;
         padding-bottom: 2px;
         line-height: $grid-y * 3;
-        border-bottom:1px solid lighten($header, 64%);
+        @include doubleborder(bottom, lighten($header-border, 64%), lighten($header-border, 54%))
     }
     
     .cms-panel-content {
