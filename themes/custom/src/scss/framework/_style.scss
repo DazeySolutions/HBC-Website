@@ -261,31 +261,31 @@ body.cms {
                 @extend .fa;
                 @extend .fa-navicon;
                 @extend .fa-fw;
-                @extend .fa-2x;
+                @extend .fa-lg;
             }
             i.tree {
                 @extend .fa;
                 @extend .fa-leaf;
                 @extend .fa-fw;
-                @extend .fa-2x;
+                @extend .fa-lg;
             }
             i.gallery {
 				@extend .fa;
 				@extend .fa-picture-o;
 				@extend .fa-fw;
-				@extend .fa-2x;
+				@extend .fa-lg;
             }
             i.edit {
 				@extend .fa;
 				@extend .fa-eraser;
 				@extend .fa-fw;
-				@extend .fa-2x;
+				@extend .fa-lg;
             }
             i.search {
 				@extend .fa;
 				@extend .fa-search;
 				@extend .fa-fw;
-				@extend .fa-2x;
+				@extend .fa-lg;
             }
         }
     }
