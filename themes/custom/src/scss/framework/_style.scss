@@ -134,10 +134,9 @@ body.cms {
     
     // Reset to default styles
     .ss-ui-button {
-        line-height: $grid-x*3;
-
+        
         .ui-button-text {
-            line-height: 1.4;
+        
         }
     }
 }
@@ -711,6 +710,7 @@ body.cms {
     }
     
     .ss-ui-button {
+        @extend .btn;
         margin-bottom: $grid-y;
     }
 }
@@ -969,16 +969,16 @@ body.cms {
             }
         }
         .Actions .ss-ui-button {
-            padding-top: 4px;
-            padding-bottom: 4px;
-            height: 28px;
-            margin-left: -1px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+            @extend .btn-lg;
+            // padding-top: 4px;
+            // padding-bottom: 4px;
+            // height: 28px;
+            // margin-left: -1px;
+            // border-top-left-radius: 0;
+            // border-bottom-left-radius: 0;
 
             &.ui-state-disabled {
-                opacity: 1;
-                color: #ccc;
+                @extend .btn-default;
             }
         }
     }
