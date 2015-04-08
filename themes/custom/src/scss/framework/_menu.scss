@@ -13,22 +13,25 @@
 	height:auto !important;
 	padding: 0 8px;
 	line-height: 24px;
-	background-color: $header;
+	background-color: lighten($color-dark-bg,10%);
+	@include background-image(
+		linear-gradient(lighten($color-dark-bg,20%), $color-dark-bg)
+	);
 
 	span {
-		color: $header-font;
+		color: $color-text-light;
 		display: block;
 		padding-left:26px;
 
 		a {
-			color: darken($header-font, 5%);
+			color: $color-text-dark-link;
 			display: inline;
 		}
 	}
 }
 
 .cms-logo {
-	border-bottom: 1px solid $header-border;
+	border-bottom: 1px solid lighten($color-dark-bg,4%);
 	overflow: hidden;
 	padding: $grid-y+2 0 $grid-y+1; /* should come to 40px with border bottom and line-height */
 	position: relative;
@@ -63,32 +66,36 @@
 }
 
 .cms-login-status {
-	border-top: 1px solid lighten($header-border, 5%);
+	border-top: 1px solid $color-dark-separator;
 	padding: $grid-y*1 0 $grid-y*1.2;
 	line-height: 16px;
 	font-size: $font-base-size - 1;
 
 	.logout-link {
-		color: darken($header-font, 5%);		
+		display: inline-block;
+		height: 16px;
+		width: 16px;
+		float: left;
+		margin: 0 8px 0 5px;
+		background: sprite($sprites32, logout) no-repeat;
+		text-indent: -9999em;
+		opacity:0.9;
 		&:hover, &:focus{
 			opacity:1;
 		}
-	}
-	.greeting {
-		color: $header-font;
-		a{
-		    color: $header-font;    
-		}
-		padding: 0px;
-		display: initial;
 	}
 }
 
 .cms-menu {
 	z-index: 80;
-	background: $header;
+	background: $color-base;
 	width: ($grid-x * 20);
 
+	@include box-shadow($color-shadow-blacker 0 0 3px);
+	a {
+		text-decoration: none;
+	}
+	
 	.cms-panel-content {
 		width: ($grid-x * 20);
 		overflow-x: hidden;
@@ -151,32 +158,58 @@
 			line-height: $grid-y * 2;
 			min-height: $grid-y * 2;
 			font-size: $font-base-size;
-			color: $header-font;
+			text-shadow: lighten($color-base, 5%) 1px 1px 0;
+			color: $color-text-dark;
 			padding: (1.5 * $grid-y - 1) 5px (1.5 * $grid-y - 1) 8px;
-			background-color: $header;
+			background-color: $color-base;
 			cursor: pointer;
 			position: relative;
 
-			border-top: 1px solid lighten($header-border, 5%);
-			border-bottom: 1px solid $header-border;
+			@include background-image(linear-gradient(
+				$color-base,
+				darken($color-base, 10%)
+			));
+
+			border-top: 1px solid lighten($color-base, 6%);
+			border-bottom: 1px solid darken($color-base, 20%);
 			
 			&:hover {
 				text-decoration: none;
-				background-color: lighten($header, 3%);
-				border-bottom: 1px solid darken($header, 15%);
-				color: darken($header-font, 5%);
+				background-color: lighten($color-base, 2%);
+				border-bottom: 1px solid darken($color-base, 15%);
+				color: lighten($color-text-dark, 5%);
+				
+				@include background-image(linear-gradient(
+					lighten($color-base, 5%),
+					$color-base
+				));
 			}
 			&:focus,
 			&:active {
+				border-top: 1px solid darken($color-base, 5%);
 				text-decoration: none;
-				background-color: darken($header, 5%);
-				color: darken($header-font, 10%);
+				background-color: darken($color-base, 5%);
+				color: lighten($color-text-dark, 10%);
+				
+				@include background-image(linear-gradient(
+					darken($color-base, 10%),
+					darken($color-base, 5%)
+				));			
 			}
 			
 			.icon {
+				display: block;
+				position: absolute;
+				top: 50%;
+				margin-left: $grid-x / 2;
+				margin-top: -8px;
+
+				@include opacity(0.7);
 			}
 			
 			.text {
+				display: block;
+				margin-left: 30px;
 			}
 
 			.toggle-children {
@@ -203,16 +236,21 @@
 			
 		}
 		ul li a {
-			border-top: 1px solid lighten($header-border, 5%);
+			border-top: 1px solid lighten($color-base, 2%);
 		}
 	
 		&.current { //need to apply current stlye to flyout also (at least line height)
 			a {
-				color: darken($header-font, 10%);
-				border-top: 1px solid lighten($header-border, 15%);
-			    border-bottom: 1px solid lighten($header-border, 5%);
-				background-color: lighten($header, 10%);
-				
+				color: $color-text-light;
+				text-shadow: darken($color-menu-button, 20%) 0 -1px 0;
+				border-top: 1px solid lighten($color-menu-button, 10%);
+				border-bottom: 1px solid darken($color-menu-button, 15%);
+				background-color: $color-menu-button;
+				@include background-image(linear-gradient(
+					$color-menu-button, 
+					darken($color-menu-button, 10%)
+				));
+
 				.toggle-children {
 					.toggle-children-icon {
 						background: sprite($sprites32, menu-arrow-down) no-repeat;
@@ -232,35 +270,39 @@
 			}
 			
 			li {
-				background-color: $info;
+				background-color: darken($color-menu-button, 10%);
 				a {
 					font-size: $font-base-size - 1;
 					padding: 0 10px 0 40px;
 					height: 32px;
 					line-height: 32px;
-					color: $header-font;
+					color: lighten($color-menu-button, 45%);
 				 	background: none;
-					border-top: 1px solid darken($info,4%);
-					border-bottom: 1px solid darken($info, 20%);
+					border-top: 1px solid darken($color-menu-button,4%);
+					border-bottom: 1px solid darken($color-menu-button, 20%);
 					
 					&.current,
 					&:hover {
-						background: darken($info, 5%);
-						color: $header-font;
+						background: darken($color-menu-button, 5%);
+						border-top: 1px solid darken($color-menu-button, 5%);
+						color: $color-text-light;
 					}
 					
 					&:focus {
-						background: darken($info, 5%);
-						color: $header-font;
+						background: darken($color-menu-button, 15%);
+						border-top: 1px solid darken($color-menu-button, 20%);
+						color: lighten($color-menu-button, 60%);
 					}
 
 				}
 				
 				&.current {
-					background: darken($info, 5%);
+					background: darken($color-menu-button, 5%);
+					border-top: 1px solid darken($color-menu-button, 5%);
+					border-top: none;
 					a {
 						font-weight: bold;
-						color: $header-font;
+						color: $color-text-light;
 					}
 				}
 				

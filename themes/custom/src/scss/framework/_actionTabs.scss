@@ -302,8 +302,12 @@ $border: 1px solid darken(#D9D9D9, 15%);
 					}
 				}
 				button.ss-ui-button{
-					@extend .btn;
-					@extend .btn-default;
+					width: 100%;
+					&:hover, &:focus, &:active{
+						@include box-shadow(none);
+						background-color: darken($tab-panel-texture-color,4%);
+						outline:none;
+					}
 				}
 			}
 			/* Re-align last tab */
