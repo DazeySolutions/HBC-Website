@@ -95,14 +95,3 @@ $grid-x: 8px !default;
  * Application Logo (CMS Logo) Must be 24px x 24px
  * ------------------------------------------------ */
 $application-logo-small: url("../images/logo_small.png") !default;
-
-$success:   #5cb85c;
-$primary:   darken(#428bca, 6.5%);
-$info:      #5bc0de;
-$danger:    #d9534f;
-$warning:   #f0ad4e;
-
-$header:    #222;
-$header-font: #f2f2f2;
-
-$header-border: darken($header, 5%);
