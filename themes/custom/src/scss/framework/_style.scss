@@ -728,13 +728,12 @@ body.cms {
  * panel
  */
 .cms-content-tools {
-    background: $tab-panel-texture-color;
+    background: lighten($header, 59%);
     width: $grid-x * 25;
     overflow-y: auto;   
     overflow-x: hidden;
     z-index: 70;
-    border-right: 1px solid $color-separator;
-    @include box-shadow($box-shadow-shine -1px 0 0 inset, 0 0 1px $color-shadow-light);
+    border-right: 1px solid lighten($header, 73%);
     float: left;
     position: relative;
 
@@ -747,8 +746,7 @@ body.cms {
         margin: 10px 0 $grid-y - 1;
         padding-bottom: 2px;
         line-height: $grid-y * 3;
-        
-        @include doubleborder(bottom, $color-light-separator, $box-shadow-shine);
+        border-bottom:1px solid lighten($header, 64%);
     }
     
     .cms-panel-content {
@@ -1510,8 +1508,8 @@ body.cms-dialog {
             }
         }
         .field{
-            border-bottom: 1px solid $color-shadow-light;
-            @include box-shadow(0 1px 0 lighten($color-shadow-light, 95%));
+            border-bottom: 1px solid lighten($header, 64%);
+            @include box-shadow(0 1px 0 lighten($header, 54%));
             &.last{             
                 border-bottom:none;
                 @include box-shadow(0 0 0 rgba(0, 0, 0, 0));
