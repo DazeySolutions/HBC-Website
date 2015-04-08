@@ -2,7 +2,13 @@
  * Helper SCSS file for generating sprites for the interface.
  */
 @import "compass/utilities/sprites/base";
-
+.ui-button-text-only .ui-button-text{
+    padding: none !important;
+}
+.ui-button .ui-button-text{
+    display: initial;
+    line-height: initial;
+}
 @import "btn-icon/*.png";
 .ui-state-default, .ui-widget-content {
 //	@include all-btn-icon-sprites;
