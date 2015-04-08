@@ -37,7 +37,7 @@ $color-menu-background: #c6d7df !default;
 $color-menu-border: #8c99a1 !default;
 $color-panel-background: #c6d7df !default;
 
-$color-text: #f2f2f2 !default;
+$color-text: #444 !default;
 $color-text-light: white !default;
 $color-text-light-link: white !default;
 $color-text-disabled: #aaa !default;
@@ -95,3 +95,5 @@ $grid-x: 8px !default;
  * Application Logo (CMS Logo) Must be 24px x 24px
  * ------------------------------------------------ */
 $application-logo-small: url("../images/logo_small.png") !default;
+
+$heading-font-color: #f2f2f2;
