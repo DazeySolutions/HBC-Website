@@ -86,14 +86,9 @@
 
 .cms-menu {
 	z-index: 80;
-	background: $color-base;
+	background: $header;
 	width: ($grid-x * 20);
 
-	@include box-shadow($color-shadow-blacker 0 0 3px);
-	a {
-		text-decoration: none;
-	}
-	
 	.cms-panel-content {
 		width: ($grid-x * 20);
 		overflow-x: hidden;
@@ -213,7 +208,7 @@
 	
 		&.current { //need to apply current stlye to flyout also (at least line height)
 			a {
-				color: $header;
+				color: darken($header-font, 10%);
 				border-top: 1px solid lighten($header, 15%);
 				border-bottom: 1px solid darken($header, 20%);
 				background-color: lighten($header, 10%);
