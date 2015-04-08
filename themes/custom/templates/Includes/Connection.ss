@@ -1,4 +1,4 @@
-<div class="section-row odd">
+<div class="section-row odd connection">
     <div class="container">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <hr class="col-xs-2 col-sm-3" />

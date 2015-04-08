@@ -66,6 +66,12 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
         $http.get("/"+location+"/ajaxContent").success(function(data){
             $scope.content = data;
+            if($scope.content.length % 2 === 1){
+                angular.element(".content").removeClass("odd");
+                angular.element(".content").addClass("even");
+                angular.element("footer .section-row").removeClass("odd");
+                angular.element("footer .section-row").addClass("even");
+            }
         });
         $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
             $scope.images = data;
