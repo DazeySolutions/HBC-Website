@@ -1509,11 +1509,11 @@ body.cms-dialog {
             }
         }
         .field{
-            @include doubleborder(bottom, lighten($header-border, 64%), lighten($header-border, 54%))
             &.last{             
                 border-bottom:none;
                 margin-bottom:0;
             }   
+            @include doubleborder(bottom, lighten($header-border, 64%), lighten($header-border, 54%));
         }
     }
 
