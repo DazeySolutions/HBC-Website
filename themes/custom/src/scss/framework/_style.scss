@@ -1455,8 +1455,6 @@ body.cms-dialog {
                 height:20px;
             }
             .ui-button-text{
-                margin-left:10px;
-                padding-top:10px;
             }
             &:hover, &:active{
                 border:none;
@@ -1785,7 +1783,6 @@ form.import-form {
  * Buttons for FileUpload
  * -------------------------------------------- */
 .ss-uploadfield-item-edit-all .ui-button-text{
-    padding-right:0;
 }
     
 .toggle-details-icon {
