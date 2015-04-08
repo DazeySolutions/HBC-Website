@@ -14,8 +14,10 @@
 					</a>
 				</li>
 				<li class="content-listview cms-tabset-icon">
-					<i class="<% if ViewState == list %> ui-tabs-active ss-tabs-force-active<% end_if %> cms-tabset-icon list"></i>
-					<a href="#cms-content-listview" class="cms-panel-link" data-href="$LinkListView"><% _t('CMSPagesController.ListView', 'List View') %></a>
+					<a href="#cms-content-listview" class="cms-panel-link" data-href="$LinkListView">
+					    <i class="<% if ViewState == list %> ui-tabs-active ss-tabs-force-active<% end_if %> cms-tabset-icon list"></i>
+					    <span><% _t('CMSPagesController.ListView', 'List View') %></span>
+				    </a>
 				</li>
 			</ul>
 		</div>
