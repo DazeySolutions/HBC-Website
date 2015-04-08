@@ -13,7 +13,7 @@
 			<div class="cms-content-header-tabs cms-tabset-nav-primary">
 				<ul>
 				<% loop $Tabs %>
-					<li<% if $extraClass %> class="$extraClass"<% end_if %>><a href="#$id">$Title</a></li>
+					<li<% if $extraClass %> class="$extraClass"<% end_if %>><a href="#$id"><i <% if $extraClass %> class="$extraClass"<% end_if %>></i>$Title</a></li>
 				<% end_loop %>
 				</ul>
 			</div>
