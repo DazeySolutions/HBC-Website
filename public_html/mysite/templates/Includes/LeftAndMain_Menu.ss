@@ -8,14 +8,14 @@
 		</div>
 	
 		<div class="cms-login-status">
-			<a href="Security/logout" class="logout-link" title="<% _t('LeftAndMain_Menu_ss.LOGOUT','Log out') %>"><% _t('LeftAndMain_Menu_ss.LOGOUT','Log out') %></a>
+			<a href="Security/logout" class="logout-link" title="<% _t('LeftAndMain_Menu_ss.LOGOUT','Log out') %>"><i class="fa fa-fw fa-lg fa-sign-out"></i></a>
 			<% with $CurrentMember %>
-				<span>
+				<div class="greeting">
 					<% _t('LeftAndMain_Menu_ss.Hello','Hi') %>
 					<a href="{$AbsoluteBaseURL}admin/myprofile" class="profile-link">
 						<% if $FirstName && $Surname %>$FirstName $Surname<% else_if $FirstName %>$FirstName<% else %>$Email<% end_if %>
 					</a>
-				</span>
+				</div>
 			<% end_with %>
 		</div>
 	</div>
