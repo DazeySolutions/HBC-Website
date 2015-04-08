@@ -243,7 +243,9 @@ body.cms {
 
         li.cms-tabset-icon {
             a {
-		text-indent: -99999px;	
+                span{
+		            text-indent: -99999px;	
+                }
                 padding-left: 10px; // icon width
                 padding-right: 0;
             }
