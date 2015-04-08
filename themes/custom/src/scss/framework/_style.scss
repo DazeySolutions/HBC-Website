@@ -94,10 +94,10 @@ body.cms {
     z-index: 60;
     min-height: 40px;
     background: lighten($header, 20%);
-    border-bottom: 1px solid lighten($header-border, 20%);
+    color:  darken($header-font, 20%) !important;
 
     a {
-        color: $color-text-blue-link;
+        color: $primary;
     }
     
     .backlink {
