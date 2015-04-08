@@ -72,17 +72,15 @@
 	font-size: $font-base-size - 1;
 
 	.logout-link {
-		display: inline-block;
-		height: 16px;
-		width: 16px;
-		float: left;
-		margin: 0 8px 0 5px;
-		background: sprite($sprites32, logout) no-repeat;
-		text-indent: -9999em;
-		opacity:0.9;
+		color: white;		
 		&:hover, &:focus{
 			opacity:1;
 		}
+	}
+	.greeting {
+		color: white;
+		padding: 0px;
+		display: initial;
 	}
 }
 
@@ -198,18 +196,9 @@
 			}
 			
 			.icon {
-				display: block;
-				position: absolute;
-				top: 50%;
-				margin-left: $grid-x / 2;
-				margin-top: -8px;
-
-				@include opacity(0.7);
 			}
 			
 			.text {
-				display: block;
-				margin-left: 30px;
 			}
 
 			.toggle-children {
