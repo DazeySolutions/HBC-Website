@@ -1162,8 +1162,8 @@ form.member-profile-form {
 	.cms-panel-toggle {
 		@include box-shadow(0 0 1px $box-shadow-shine);
 		&.south {
-			border-top: 1px solid darken($color-base, 6%);
-			@include box-shadow(lighten($color-base, 4%) 0 1px 0px inset);
+			border-top: 1px solid $color-menu-bg-dark-border;
+			@include box-shadow($color-menu-bg-light-border 0 1px 0px inset);
 			position: absolute;
 			bottom: 0;
 			width:100%;
@@ -1285,6 +1285,9 @@ form.member-profile-form {
 
 #page-title-heading{
     color: $heading-font-color;
+    .cms-panel-link{
+        color: $color-text-dark-link;
+    }
 }
 
 /** ------------------------------------------------------------------
