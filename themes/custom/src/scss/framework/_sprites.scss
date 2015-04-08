@@ -5,12 +5,14 @@
 
 @import "btn-icon/*.png";
 .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text{
-    padding: 1px 8px !important;
+    padding: 4px 8px !important;
 }
 .ui-state-default, .ui-widget-content {
 //	@include all-btn-icon-sprites;
     .ui-icon{
         @extend .reset-this;
+    }
+    .ui-icon{
         padding-left: 5px;
         .btn-icon-accept{
             @extend .fa;
