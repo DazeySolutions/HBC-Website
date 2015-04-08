@@ -59,7 +59,6 @@ form.nostyle {
 			padding: $grid-y $grid-x $grid-y 0;
 			line-height: $grid-y * 2;
 			font-weight: bold;
-			@include text-shadow(1px 1px 0 $color-text-shadow);
 		}		
 		&.right {
 			cursor: pointer;
@@ -382,7 +381,6 @@ form.small .field, .field.small {
 			))
 		);
 
-		@include text-shadow(lighten($color-button-generic, 20%) 0 1px 1px);
 
 		&.ui-state-hover, &:hover {
 			text-decoration: none;
@@ -429,7 +427,6 @@ form.small .field, .field.small {
 					$color-button-constructive
 				))
 			);
-			@include text-shadow(darken($color-button-constructive, 3%) 0 -1px -1px);
 	
 			&.ui-state-hover, &:hover {
 				border-color: darken($color-button-constructive-border, 10%);
@@ -560,7 +557,6 @@ form.small .field, .field.small {
 			@include background-image(
 				linear-gradient(lighten($color-shadow-light, 15%), $color-shadow-light)
 			);
-			text-shadow: 0 1px 0 rgba(255, 255, 255, .5);
 		}
 		.ui-accordion-header-icon {
 			margin-top: -9px;
@@ -718,7 +714,6 @@ fieldset.switch-states{
 		
 		label{
 			@include hide-text-overflow;
-			@include text-shadow(0 1px 0 rgba(255,255,255,0.5));	
 			color:lighten($color-text-dark,40%);
 			color:rgba($color-text-dark,0.5);
 			cursor: pointer;
@@ -754,7 +749,6 @@ fieldset.switch-states{
 			&:checked + label {
 				@include transition(all 0.3s ease-out 0s); 	
 				color: #fff;
-				text-shadow: 0 -1px 0 darken($color-menu-button,10%);
 			}
 		}
 		.slide-button{
@@ -764,7 +758,6 @@ fieldset.switch-states{
 			));		
 			@include border-radius(3px);
 			@include box-shadow(inset 0 2px 6px rgba(0, 0, 0, 0.3), 0 1px 0px rgba(255, 255, 255, 0.2));
-			@include text-shadow(0 1px 0 rgba(255,255,255,0.5));
 			@include transition(all 0.3s ease-out 0s); 	
 			background-color: #2b9c32; 
 			display:block;
