@@ -1285,10 +1285,8 @@ form.member-profile-form {
 
 #page-title-heading{
     color: $heading-font-color;
-    .cms-panel-link{
-        a{
-            color: $color-text-dark-link;
-        }
+    a.cms-panel-link{
+        color: $color-text-dark-link;
     }
 }
 
