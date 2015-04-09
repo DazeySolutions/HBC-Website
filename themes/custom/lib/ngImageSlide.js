@@ -17,6 +17,7 @@
 		function($scope, $timeout, $http, $window){
 			$scope.images = {};
 			$scope.curImageNum = 0;
+			$scope.divHeight = $window.innerWidth/2.39;
 			$scope.init = function init(){
 				$http.get($scope.path+"?width="+$window.innerWidth)
 					.success(function(data){
@@ -51,7 +52,7 @@
 		}]);
 	app.run(['$templateCache', function ($templateCache) {
 		$templateCache.put('imageslide.html', 
-			'<div class="imageSlider" style="background-image: url(\'{{images[currImageNum].Filename}}\');">'+
+			'<div class="imageSlider" style="background-image: url(\'{{images[currImageNum].Filename}}\'); height:{{divHeight}}px;">'+
 			'	<div class="hidden-xs col-xs-12 dots">'+
 			'		<span>'+
 			'			<i data-ng-repeat="image in images track by $index" class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'}"></i>'+
