@@ -1,11 +1,9 @@
 <div class="section-row odd connection">
     <div class="container">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
-            <hr class="col-xs-2 col-sm-3" />
-            <span class="col-xs-1 visible-xs"></span>
-            <h2 class="col-xs-6">Connecting</h2>
-            <span class="col-xs-1 visible-xs"></span>
-            <hr class="col-xs-2 col-sm-3" />
+            <hr class="hidden-xs col-sm-3" />
+            <h2 class="col-xs-12 col-sm-6">Connecting</h2>
+            <hr class="hidden-xs col-sm-3" />
         </div>
         <div class="col-xs-12 col-md-6">
             <h4 class="col-xs-12">Facebook</h4>
