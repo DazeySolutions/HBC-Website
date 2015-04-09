@@ -16,8 +16,9 @@ hbcWebApp.filter('to_trusted', ['$sce', function($sce){
 * UI ROUTER CONFIG FILE
 * router.js
 */
-hbcWebApp.config(['$stateProvider','$urlRouterProvider','$state', function($stateProvider, $urlRouterProvider, $state){
-
+hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.when('','/home');
+    $urlRouterProvider.when('/','/home');
     $urlRouterProvider.otherwise("/home");
     var controlName = 'HomePageController';
     $stateProvider
@@ -27,7 +28,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider','$state', function($stat
             templateUrl: function(stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
-                    $state.go('site',{'page':'home','controller':'HomePageController'});
+                    location = "/"+stateParams.page+"/ajax";
                 }
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
                     controlName = stateParams.controller;
