@@ -48,8 +48,11 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', function ($scope, toaster, $window, $http){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state', function ($scope, toaster, $window, $http, $stateParams, $state){
     $scope.init = function init(){
+        if(angular.isUndefinedOrNullOrEmpty($stateParams.page)){
+            $state.go('site', {'page':'home','controller':'HomePageController'});
+        }
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
         }); 
