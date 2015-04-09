@@ -65,6 +65,7 @@
 		}]);
 	app.run(['$templateCache', function ($templateCache) {
 		$templateCache.put('imageslide.html', 
+            '<div class="holder" style="height:{{divHeight}}px; z-index: -2;"></div>'+
 			'<div class="imageSlider" ng-style="imageStyle()">'+
 			'	<div class="hidden-xs col-xs-12 dots">'+
 			'		<span>'+
