@@ -55,7 +55,7 @@
 			'<div class="imageSlider" style="background-image: url(\'{{images[curImageNum].Filename}}\'); height:{{divHeight}}px;">'+
 			'	<div class="hidden-xs col-xs-12 dots">'+
 			'		<span>'+
-			'			<i data-ng-repeat="image in images track by $index" class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'}"></i>'+
+			'			<i data-ng-repeat="image in images track by $index" class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'"></i>'+
 			'		</span>'+
 			'	</div>'+
 			'</div>'
