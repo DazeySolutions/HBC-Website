@@ -10,7 +10,7 @@ module.exports = {
     },
     depend: {
         files : {
-            'dist/js/dependencies.min.js': [ 'lib/instafeed.js', 'bower_components/jquery/dist/jquery.js',  'bower_components/angular/angular.js',  'bower_components/angular-ui-router/release/angular-ui-router.js',  'bower_components/bootstrap/dist/js/bootstrap.js',  ]
+            'dist/js/dependencies.min.js': [ 'lib/instafeed.js', 'bower_components/jquery/dist/jquery.js',  'bower_components/angular/angular.js',  'bower_components/angular-ui-router/release/angular-ui-router.js',  'bower_components/bootstrap/dist/js/bootstrap.js', 'bower_components/ng-lodash/build/ng-lodash.js','bower_components/angularjs-toaster/toaster.js' ]
         }
     }
 };
