@@ -80,7 +80,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             
             angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
             lodash.forEach($scope.images, function(image, index){
-                angular.element(".imageSlider .dots span").append("<i class='dot"+index+"fa fa-fw fa-circle-o'></i>");
+                angular.element(".imageSlider .dots span").append("<i class='dot"+index+" fa fa-fw fa-circle-o'></i>");
             });
             angular.element(".imageSlider .dots span i.dot0").removeClass('fa-circle-o');
             angular.element(".imageSlider .dots span i.dot0").addClass('fa-circle');
