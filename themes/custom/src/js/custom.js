@@ -23,9 +23,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
     $urlRouterProvider.when('/',['$state', function($state){
         $state.go('site',{page:'home',controller:'HomePageController'});
     }]);
-    $urlRouterProvider.otherwise(['$state', function($state){
-        $state.go('site',{page:'home',controller:'HomePageController'});
-    }]);
+    $urlRouterProvider.otherwise('/home');
     var controlName = 'HomePageController';
     $stateProvider
         .state('site', {
