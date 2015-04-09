@@ -34,6 +34,18 @@
 					});
 			};
 			
+			$scope.imageStyle = function imageStyle(){
+                var data = {
+                    "background-size":"cover",
+                    "height":$scope.divHeight
+                };
+                if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].Filename !== '' || $scope.images[$scope.curImageNum].Filename !== null || $scope.images[$scope.curImageNum].Filename !== undefined)){
+                    data["background-image"] = $scope.images[$scope.curImageNum].Filename;
+                }
+                
+                return data;
+			};
+			
 			$scope.init();
 		}
 	]);
@@ -52,7 +64,7 @@
 		}]);
 	app.run(['$templateCache', function ($templateCache) {
 		$templateCache.put('imageslide.html', 
-			'<div class="imageSlider" style="background-image: url(\'{{images[curImageNum].Filename}}\'); height:{{divHeight}}px;">'+
+			'<div class="imageSlider" ng-style="imageStyle()">'+
 			'	<div class="hidden-xs col-xs-12 dots">'+
 			'		<span>'+
 			'			<i data-ng-repeat="image in images track by $index" class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'"></i>'+
