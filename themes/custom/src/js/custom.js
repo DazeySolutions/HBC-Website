@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
@@ -56,7 +56,7 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     };
     $scope.init();
 }]);
-hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window', function($scope, $http, $stateParams, $window){
+hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout', function($scope, $http, $stateParams, $window, lodash, $timeout){
     $scope.init =  function init(){
         var location = "home";
         var maxHeight = $window.innerWidth/(2.39);
@@ -78,10 +78,32 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             $scope.prevImageNum = data.length-1;
             $scope.currImage = $scope.images[0];
             angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
+            lodash.forEach($scope.images, function(image){
+                angular.element(".imageSlide .dots span").append("<i class='fa fa-fw fa-circle-o'></i>");
+            });
+            angular.element(".imageSlide .dots span:first-child").removeClass('fa-circle-o');
+            angular.element(".imageSlide .dots span:first-child").addClass('fa-circle');
+            $timeout(function(){
+                $scope.currImage = $scope.images[$scope.nextImageNum];
+                angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
+                $scope.incrementImageNums();
+                angular.element(".imageSlide .dots span:nth-child("+$scope.nextImageNum+")").removeClass('fa-circle-o');
+                angular.element(".imageSlide .dots span:first-child").addClass('fa-circle');
+            }, 7000);
         });
         
     };
-    
+    $scope.incrementImageNums = function(){
+        $scope.nextImageNum++;
+        if($scope.nextImageNum >= $scope.images.length){
+            $scope.nextImageNum = 0;
+        }
+        $scope.curImageNum++;
+        $scope.prevImageNum++;
+        if($scope.prevImageNum >= $scope.images.length){
+            $scope.prevImageNum = $scope.images.length-1;
+        }
+    };
     $scope.currImage = undefined;
     $scope.currImageNum = 0;
     $scope.nextImageNum = 1;
