@@ -37,10 +37,10 @@
 			$scope.imageStyle = function imageStyle(){
                 var data = {
                     "background-size":"cover",
-                    "height":$scope.divHeight
+                    "height":$scope.divHeight+"px"
                 };
                 if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].Filename !== '' || $scope.images[$scope.curImageNum].Filename !== null || $scope.images[$scope.curImageNum].Filename !== undefined)){
-                    data["background-image"] = $scope.images[$scope.curImageNum].Filename;
+                    data["background-image"] = "url('"+$scope.images[$scope.curImageNum].Filename+"')";
                 }
                 
                 return data;
