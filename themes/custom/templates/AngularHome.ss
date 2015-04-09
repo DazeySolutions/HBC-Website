@@ -1,5 +1,5 @@
 <div class="content">
-    <div ng-image-slider data-path="locationPath">
+    <div ng-image-slider data-path="{{locationPath}}">
         
         <!--<div class="hidden-xs col-sm-12 dots">
             <span>

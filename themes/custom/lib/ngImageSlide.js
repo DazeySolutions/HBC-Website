@@ -45,6 +45,7 @@
 				scope: {
 					path: '@'
 				},
+				controller: 'ngImageSliderController',
 				templateUrl: 'imageslide.html'
 			};
 		}]);
