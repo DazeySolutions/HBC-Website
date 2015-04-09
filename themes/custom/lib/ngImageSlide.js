@@ -13,8 +13,8 @@
 	
 	var app = angular.module('ngImageSlider', []);
 	
-	app.controller('ngImageSliderController', ['$scope', '$timeout', '$http', '$window',
-		function($scope, $timeout, $http, $window){
+	app.controller('ngImageSliderController', ['$scope', '$interval', '$http', '$window',
+		function($scope, $interval, $http, $window){
 			$scope.images = [];
 			$scope.curImageNum = 0;
 			$scope.divHeight = $window.innerWidth/2.39;
@@ -23,7 +23,7 @@
 					.success(function(data){
 						$scope.images = data;
 						if($scope.images.length > 1){
-							$timeout(function(){
+							$interval(function(){
 								var tempNum = $scope.curImageNum + 1;
 								if(tempNum>=$scope.images.length){
 									tempNum = 0;
@@ -68,7 +68,10 @@
 			'<div class="imageSlider" ng-style="imageStyle()">'+
 			'	<div class="hidden-xs col-xs-12 dots">'+
 			'		<span>'+
-			'			<i data-ng-repeat="image in images track by $index" class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'"></i>'+
+			'           <div data-ng-repeat="image in images track by $index">'+
+            '               <i class="fa fa-fw" data-ng-class="$index==curImageNum ?\'fa-circle\':\'fa-circle-o\'"></i>'+
+			'               <br />'+
+			'           </div>'+
 			'		</span>'+
 			'	</div>'+
 			'</div>'
