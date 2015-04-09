@@ -1,7 +1,7 @@
 <div class="content">
     <div class="imageSlider">
-        <div class="hidden-xs col-sm-11"></div>
-        <div class="hidden-xs col-sm-1 dots">
+        
+        <div class="hidden-xs col-sm-12 dots">
             <span>
             </span>
         </div>

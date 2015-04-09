@@ -6,7 +6,7 @@
 
 @odd-bg:                #FAFAFA;
 @even-bg:               #222;
-
+@brand-blue:            rgb(0,150,255);
 @navbar-height:         51px;
 @border-radius-base:    0px;
 .navbar-inverse{
@@ -25,7 +25,7 @@
         a{
             p{
 		padding-bottom: 2px;
-                border-bottom: 2px solid rgb(0,150,255);
+                border-bottom: 2px solid @brand-blue;
             }
         }
     }
@@ -73,6 +73,25 @@
         color:      @odd-bg;
         hr{
             border-color: lighten(@odd-bg, 10%);
+        }
+    }
+}
+
+.dots{
+    background: rgba(255,255,255,0);
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(84,84,84,0) 67%, rgba(0,0,0,0.83) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,0)), color-stop(67%, rgba(84,84,84,0)), color-stop(100%, rgba(0,0,0,0.83)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(84,84,84,0) 67%, rgba(0,0,0,0.83) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(84,84,84,0) 67%, rgba(0,0,0,0.83) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(84,84,84,0) 67%, rgba(0,0,0,0.83) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(84,84,84,0) 67%, rgba(0,0,0,0.83) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000', GradientType=1 );
+    span{
+        text-align: right;
+        color: @brand-blue;
+        i{
+            text-align: right;
+            color: @brand-blue;
         }
     }
 }
