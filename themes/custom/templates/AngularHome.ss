@@ -1,10 +1,10 @@
 <div class="content">
-    <div class="imageSlider">
+    <div ng-image-slider data-path="{{locationPath}}">
         
-        <div class="hidden-xs col-sm-12 dots">
+        <!--<div class="hidden-xs col-sm-12 dots">
             <span>
             </span>
-        </div>
+        </div>-->
     </div>
     <div data-ng-repeat="section in content" class="section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
         <div class="container">

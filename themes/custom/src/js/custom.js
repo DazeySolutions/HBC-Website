@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlide'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
@@ -78,29 +78,30 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
                 angular.element("footer .section-row").addClass("even");
             }
         });
-        $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
-            $scope.images = data;
-            $scope.prevImageNum = data.length-1;
-            $scope.currImage = $scope.images[0];
+        $scope.imagePath = "/"+location+"/ajaxImages";
+        // $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
+        //     $scope.images = data;
+        //     $scope.prevImageNum = data.length-1;
+        //     $scope.currImage = $scope.images[0];
             
-            angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
-            lodash.forEach($scope.images, function(image, index){
-                angular.element(".imageSlider .dots span").append("<i class='dot"+index+" fa fa-fw fa-circle-o'></i>");
-            });
-            angular.element(".imageSlider .dots span i.dot0").removeClass('fa-circle-o');
-            angular.element(".imageSlider .dots span i.dot0").addClass('fa-circle');
-            if($scope.images.length > 1){
-                $timeout(function(){
-                    $scope.currImage = $scope.images[$scope.nextImageNum];
-                    angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
-                    $scope.incrementImageNums();
-                    angular.element(".imageSlider .dots span i.fa-circle").addClass('fa-circle-o');
-                    angular.element(".imageSlider .dots span i.fa-circle").removeClass('fa-circle');
-                    angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).addClass('fa-circle');
-                    angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).removeClass('fa-circle-o');
-                }, 7000);
-            }
-        });
+        //     angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
+        //     lodash.forEach($scope.images, function(image, index){
+        //         angular.element(".imageSlider .dots span").append("<i class='dot"+index+" fa fa-fw fa-circle-o'></i>");
+        //     });
+        //     angular.element(".imageSlider .dots span i.dot0").removeClass('fa-circle-o');
+        //     angular.element(".imageSlider .dots span i.dot0").addClass('fa-circle');
+        //     if($scope.images.length > 1){
+        //         $timeout(function(){
+        //             $scope.currImage = $scope.images[$scope.nextImageNum];
+        //             angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
+        //             $scope.incrementImageNums();
+        //             angular.element(".imageSlider .dots span i.fa-circle").addClass('fa-circle-o');
+        //             angular.element(".imageSlider .dots span i.fa-circle").removeClass('fa-circle');
+        //             angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).addClass('fa-circle');
+        //             angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).removeClass('fa-circle-o');
+        //         }, 7000);
+        //     }
+        // });
         
     };
     $scope.incrementImageNums = function(){
