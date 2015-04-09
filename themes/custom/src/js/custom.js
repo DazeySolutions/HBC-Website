@@ -79,18 +79,20 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             $scope.currImage = $scope.images[0];
             
             angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
-            lodash.forEach($scope.images, function(image){
-                angular.element(".imageSlider .dots span").append("<i class='fa fa-fw fa-circle-o'></i>");
+            lodash.forEach($scope.images, function(image, index){
+                angular.element(".imageSlider .dots span").append("<i class='dot"+index+"fa fa-fw fa-circle-o'></i>");
             });
-            angular.element(".imageSlider .dots span:first-child").removeClass('fa-circle-o');
-            angular.element(".imageSlider .dots span:first-child").addClass('fa-circle');
+            angular.element(".imageSlider .dots span i.dot0").removeClass('fa-circle-o');
+            angular.element(".imageSlider .dots span i.dot0").addClass('fa-circle');
             if($scope.images.length > 1){
                 $timeout(function(){
                     $scope.currImage = $scope.images[$scope.nextImageNum];
                     angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
                     $scope.incrementImageNums();
-                    angular.element(".imageSlider .dots span:nth-child("+$scope.nextImageNum+")").removeClass('fa-circle-o');
-                    angular.element(".imageSlider .dots span:first-child").addClass('fa-circle');
+                    angular.element(".imageSlider .dots span i.fa-circle").addClass('fa-circle-o');
+                    angular.element(".imageSlider .dots span i.fa-circle").removeClass('fa-circle');
+                    angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).addClass('fa-circle');
+                    angular.element(".imageSlider .dots span i.dot"+$scope.currImageNum).removeClass('fa-circle-o');
                 }, 7000);
             }
         });
