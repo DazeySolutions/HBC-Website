@@ -77,19 +77,22 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             $scope.images = data;
             $scope.prevImageNum = data.length-1;
             $scope.currImage = $scope.images[0];
+            
             angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
             lodash.forEach($scope.images, function(image){
-                angular.element(".imageSlide .dots span").append("<i class='fa fa-fw fa-circle-o'></i>");
+                angular.element(".imageSlider .dots span").append("<i class='fa fa-fw fa-circle-o'></i>");
             });
-            angular.element(".imageSlide .dots span:first-child").removeClass('fa-circle-o');
-            angular.element(".imageSlide .dots span:first-child").addClass('fa-circle');
-            $timeout(function(){
-                $scope.currImage = $scope.images[$scope.nextImageNum];
-                angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
-                $scope.incrementImageNums();
-                angular.element(".imageSlide .dots span:nth-child("+$scope.nextImageNum+")").removeClass('fa-circle-o');
-                angular.element(".imageSlide .dots span:first-child").addClass('fa-circle');
-            }, 7000);
+            angular.element(".imageSlider .dots span:first-child").removeClass('fa-circle-o');
+            angular.element(".imageSlider .dots span:first-child").addClass('fa-circle');
+            if($scope.images.length > 1){
+                $timeout(function(){
+                    $scope.currImage = $scope.images[$scope.nextImageNum];
+                    angular.element(".imageSlider").css('background-image','url("/'+$scope.currImage.Filename+'")');
+                    $scope.incrementImageNums();
+                    angular.element(".imageSlider .dots span:nth-child("+$scope.nextImageNum+")").removeClass('fa-circle-o');
+                    angular.element(".imageSlider .dots span:first-child").addClass('fa-circle');
+                }, 7000);
+            }
         });
         
     };
