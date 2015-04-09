@@ -16,7 +16,7 @@ hbcWebApp.filter('to_trusted', ['$sce', function($sce){
 * UI ROUTER CONFIG FILE
 * router.js
 */
-hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
+hbcWebApp.config(['$stateProvider','$urlRouterProvider','$state', function($stateProvider, $urlRouterProvider, $state){
 
     $urlRouterProvider.otherwise("/home");
     var controlName = 'HomePageController';
@@ -27,7 +27,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             templateUrl: function(stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
-                    location = "/"+stateParams.page+"/ajax";
+                    $state.go('site',{'page':'home','controller':'HomePageController'});
                 }
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
                     controlName = stateParams.controller;
@@ -50,9 +50,6 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 */
 hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state', function ($scope, toaster, $window, $http, $stateParams, $state){
     $scope.init = function init(){
-        if(angular.isUndefinedOrNullOrEmpty($stateParams.page)){
-            $state.go('site', {'page':'home','controller':'HomePageController'});
-        }
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
         }); 
