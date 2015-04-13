@@ -77,29 +77,20 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
                 angular.element(".footer .section-row").removeClass("even");
                 angular.element(".footer .section-row").addClass("odd");
             }
-            if(!angular.isUndefinedOrNullOrEmpty(events)){
-                if(events === -1){
-                    angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
+            $http.get("http://beta.hbc-ky.com:3000/a").success(function(data){
+                if(angular.isUndefinedOrNullOrEmpty(data)){
+                    events = -1;
                 }else{
-                    angular.element(".event-section").html(events);
+                    events = data;
                 }
-            }else{
-                angular.element(".event-section").html("<h4 class='text-center'>Loading upcoming events...</h4>");
-            }
-        });
-        $http.get("http://beta.hbc-ky.com:3000/a").success(function(data){
-            if(angular.isUndefinedOrNullOrEmpty(data)){
-                events = -1;
-            }else{
-                events = data;
-            }
-            if(!angular.isUndefinedOrNull($scope.content)){
-                if(events === -1){
-                    angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
-                }else{
-                    angular.element(".event-section").html(events);
+                if(!angular.isUndefinedOrNull($scope.content)){
+                    if(events === -1){
+                        angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
+                    }else{
+                        angular.element(".event-section").html(events);
+                    }
                 }
-            }
+            });
         });
         $scope.imagePath = "/"+location+"/ajaxImages";
         // $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
