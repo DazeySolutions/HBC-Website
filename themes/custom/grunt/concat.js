@@ -13,5 +13,9 @@ module.exports = {
     basic: {
       src: ['src/js/custom.js'],
       dest: 'dist/js/custom.min.js',
+    },
+    inst: {
+      src: ['src/js/instagram.js'],
+      dest: 'dist/js/instagram.min.js',
     }
 };
