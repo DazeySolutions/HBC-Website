@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
