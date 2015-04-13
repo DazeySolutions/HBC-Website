@@ -1,11 +1,11 @@
 <% include Head %>
 <body data-ng-app="hbcWebApp" ng-controller="SiteController">
 	<% include Header %>
-    <div class="container-full fixed-margin" ui-view>
+    <div class="container-fluid fixed-margin" ui-view>
         <div class="content">
         </div>
     </div>
-    <div class="container-full">
+    <div class="container-fluid">
         <% include Connection %>
         <% include Footer %>
     </div>
