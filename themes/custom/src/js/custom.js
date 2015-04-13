@@ -74,8 +74,8 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
             if($scope.content.length % 2 === 1){
                 angular.element(".connection").removeClass("odd");
                 angular.element(".connection").addClass("even");
-                angular.element("footer .section-row").removeClass("odd");
-                angular.element("footer .section-row").addClass("even");
+                angular.element(".footer .section-row").removeClass("odd");
+                angular.element(".footer .section-row").addClass("even");
             }
             if(!angular.isUndefinedOrNullOrEmpty(events)){
                 if(events === -1){
