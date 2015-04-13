@@ -6,11 +6,19 @@
             <hr class="hidden-xs col-sm-3" />
         </div>
         <div class="col-xs-12 col-md-6">
-            <h4 class="col-xs-12">Facebook</h4>
+            <div class="row">
+                <h4 class="col-xs-12">Facebook</h4>
+                <div class="row">
+                </div>
+            </div>
         </div>
         <div class="col-xs-12 col-md-6">
-            <h4 class="col-xs-12">Instagram</h4>
-            <div class="col-xs-12" id="instafeed"></div>
+            <div class="row">
+                <h4 class="col-xs-12">Instagram</h4>
+                <div class="row">
+                    <div class="col-xs-12" id="instafeed"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

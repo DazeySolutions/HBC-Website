@@ -11,7 +11,7 @@
 }(window.angular || null, function(angular) {
     'use strict';
 	
-	var app = angular.module('ngImageSlider', []);
+	var app = angular.module('ngContact', []);
 	
 	app.controller('ngContactController', ['$scope', '$interval', '$http', '$window',
 		function($scope, $interval, $http, $window){
