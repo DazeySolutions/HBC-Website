@@ -77,6 +77,29 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
                 angular.element("footer .section-row").removeClass("odd");
                 angular.element("footer .section-row").addClass("even");
             }
+            if(!angular.isUndefinedOrNullOrEmpty(events)){
+                if(events === -1){
+                    angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
+                }else{
+                    angular.element(".event-section").html(events);
+                }
+            }else{
+                angular.element(".event-section").html("<h4 class='text-center'>Loading upcoming events...</h4>");
+            }
+        });
+        $http.get("http://beta.hbc-ky.com:3000/a").success(function(data){
+            if(angular.isUndefinedOrNullOrEmpty(data)){
+                events = -1;
+            }else{
+                events = data;
+            }
+            if(!angular.isUndefinedOrNull($scope.content)){
+                if(events === -1){
+                    angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
+                }else{
+                    angular.element(".event-section").html(events);
+                }
+            }
         });
         $scope.imagePath = "/"+location+"/ajaxImages";
         // $http.get("/"+location+"/ajaxImages?width="+$window.innerWidth).success(function(data){
@@ -104,6 +127,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         // });
         
     };
+    var events;
     $scope.incrementImageNums = function(){
         $scope.nextImageNum++;
         if($scope.nextImageNum >= $scope.images.length){
@@ -119,7 +143,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     $scope.currImageNum = 0;
     $scope.nextImageNum = 1;
     $scope.prevImageNum = -1;
-    $scope.content = {};
+    $scope.content = undefined;
     $scope.images = {};
     $scope.init();
 }]);

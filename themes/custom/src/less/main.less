@@ -4,7 +4,8 @@
 @fa-font-path:          "../assets/fonts";
 @icon-font-path:        "../assets/fonts";
 
-@odd-bg:                #FAFAFA;
+@odd-bg:                #eaeaea;
+@light-test:            #f2f2f2;
 @even-bg:               #222;
 @brand-blue:            rgb(0,150,255);
 @navbar-height:         57px;
@@ -80,7 +81,7 @@
     }
     &.even{
         background: @even-bg;
-        color:      @odd-bg;
+        color:      @light-text;
         hr{
             border-color: lighten(@odd-bg, 10%);
         }
@@ -109,6 +110,26 @@
         i{
             text-align: right;
             color: @brand-blue;
+        }
+    }
+}
+
+.start {
+      background:           @brand-blue;
+      color:                @light-text;
+      position:             absolute;
+      width:                64px;
+      height:               64px;
+    p{
+       margin:              0;
+       margin-bottom:       4px;
+        &.num {
+            font-size:      32px;
+            line-height:    32px;
+        }
+        &.month {
+            font-size:      24px;
+            line-height:    24px;
         }
     }
 }
