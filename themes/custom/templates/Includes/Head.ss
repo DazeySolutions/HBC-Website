@@ -14,5 +14,6 @@
     <script src="$ThemeDir/js/dependencies.min.js"></script>
 
     <script src="$ThemeDir/js/custom.min.js"></script>
+    <script src="$ThemeDir/js/instagram.min.js"></script>
 
 </head>
