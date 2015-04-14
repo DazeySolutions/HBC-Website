@@ -35,7 +35,7 @@
 		//background: sprite($sprites32, preview_mobile) no-repeat;
 	}
 	.icon-split:before {
-		//background: sprite($sprites32, preview_split) no-repeat;
+		@extend .fa-columns;
 	}
 	.icon-edit:before {
 		//background: sprite($sprites32, preview_edit) no-repeat;
