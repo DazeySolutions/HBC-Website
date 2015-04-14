@@ -56,6 +56,16 @@
         @extend .fa-fw;
         @extend .fa-file-o;
     }
+    .btn-icon-disk{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-floppy;
+    }
+    .btn-icon-disk_disabled{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-floppy-o;
+    }
 }
 
 //$icon24: sprite-map("menu-icons/24x24/*.png");
