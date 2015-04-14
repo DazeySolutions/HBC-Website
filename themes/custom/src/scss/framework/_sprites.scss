@@ -39,12 +39,22 @@
     .btn-icon-accept{
         @extend .fa;
         @extend .fa-fw;
-        @extend .fa-check-circle-o;
+        @extend .fa-check-circle;
     }
     .btn-icon-accept_disabled{
         @extend .fa;
         @extend .fa-fw;
         @extend .fa-check-circle-o;
+    }
+    .btn-icon-addpage{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-file;
+    }
+    .btn-icon-addpage_disabled{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-file-o;
     }
 }
 
