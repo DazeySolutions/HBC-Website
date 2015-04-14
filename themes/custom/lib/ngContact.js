@@ -20,14 +20,14 @@
 				$http.get($scope.path)
 					.success(function(data){
 						$scope.contact = data;
-						angular.element("div:has(.other-subject)").hide();
+						angular.element("div:has(>.other-subject)").hide();
 						angular.element(".subject-select").change(function(){
                             if(angular.element(".subject-select")[0].value === 'Other'){
-                                angular.element("div:has(.other-subject)").show();
+                                angular.element("div:has(>.other-subject)").show();
                             }
                             else
                             {
-                                angular.element("div:has(.other-subject)").hide();
+                                angular.element("div:has(>.other-subject)").hide();
                             }
                         });
 					});
