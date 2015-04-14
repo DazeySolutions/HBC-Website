@@ -28,7 +28,7 @@
                 $http.get($scope.path.replace("ajax","ping"));
 			}, 180*1000);
 			
-			$scope.$watch('contact', function(){
+			$scope.customForm = function customForm(){
                 angular.element("div:has(>.other-subject)").hide();
 				angular.element(".subject-select").change(function(){
                     if(angular.element(".subject-select")[0].value === 'Other'){
@@ -52,7 +52,7 @@
                         $scope.contact = data;
                     });
                 });
-			});
+			};
 		}
 	]);
 	
@@ -76,7 +76,7 @@
 	app.run(['$templateCache', function ($templateCache) {
 		$templateCache.put('contact.html', 
             '<div class="col-xs-12">'+
-            '        <div  ng-bind-html="contact | to_trusted"></div>'+
+            '        <div ng-bind-html="contact | to_trusted; customForm()"></div>'+
             '</div>'
             );
         }]);
