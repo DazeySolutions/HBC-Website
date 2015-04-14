@@ -20,6 +20,15 @@
 				$http.get($scope.path)
 					.success(function(data){
 						$scope.contact = data;
+						angular.element("#Form_Form #EditableDropdown4 select").change(function(){
+                            if(angular.element("#Form_Form #EditableDropdown4 select")[0].value === 'Other'){
+                                angular.element("#Form_Form #EditableTextField5").show();
+                            }
+                            else
+                            {
+                                angular.element("#Form_Form #EditableTextField5").hide();
+                            }
+                        });
 					});
 			};
 			$scope.init();
