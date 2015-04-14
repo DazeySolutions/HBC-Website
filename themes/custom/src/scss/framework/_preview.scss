@@ -23,28 +23,28 @@
 		} 
 	}
 	.icon-auto:before {
-		background: sprite($sprites32, preview_auto) no-repeat;	
+		//background: sprite($sprites32, preview_auto) no-repeat;	
 	}
 	.icon-desktop:before {
-		background: sprite($sprites32, preview_desktop) no-repeat;
+		//background: sprite($sprites32, preview_desktop) no-repeat;
 	}
 	.icon-tablet:before {
-		background: sprite($sprites32, preview_tablet) no-repeat;
+		//background: sprite($sprites32, preview_tablet) no-repeat;
 	}
 	.icon-mobile:before {
-		background: sprite($sprites32, preview_mobile) no-repeat;
+		//background: sprite($sprites32, preview_mobile) no-repeat;
 	}
 	.icon-split:before {
-		background: sprite($sprites32, preview_split) no-repeat;
+		//background: sprite($sprites32, preview_split) no-repeat;
 	}
 	.icon-edit:before {
-		background: sprite($sprites32, preview_edit) no-repeat;
+		//background: sprite($sprites32, preview_edit) no-repeat;
 	}
 	.icon-preview:before {
-		background: sprite($sprites32, preview_preview) no-repeat;
+		//background: sprite($sprites32, preview_preview) no-repeat;
 	}
 	.icon-window:before {
-		background: sprite($sprites32, preview_dual_window) no-repeat;
+		//background: sprite($sprites32, preview_dual_window) no-repeat;
 	}
 	.cms-navigator{
 		width: 100%;
@@ -234,7 +234,7 @@
 		left: 50%;
 		width: 300px;			
 		span {
-			background: sprite($sprites64, preview) no-repeat;
+			//background: sprite($sprites64, preview) no-repeat;
 			display: block;
 			height: 41px;
 			margin: 0 auto 20px;

@@ -85,7 +85,7 @@
 		width: 16px;
 		float: left;
 		margin: 0 8px 0 5px;
-		background: sprite($sprites32, logout) no-repeat;
+		//background: sprite($sprites32, logout) no-repeat;
 		text-indent: -9999em;
 		opacity:0.9;
 		&:hover, &:focus{
@@ -216,13 +216,13 @@
 					display: inline-block;
 					width: 8px;
 					height: 8px;
-					background: sprite($sprites32, menu-arrow-deselected-down) no-repeat;
+					//background: sprite($sprites32, menu-arrow-deselected-down) no-repeat;
 					vertical-align: middle;
 				}
 				
 				&.opened {
 					.toggle-children-icon {
-						background: sprite($sprites32, menu-arrow-deselected-up) no-repeat;
+					//	background: sprite($sprites32, menu-arrow-deselected-up) no-repeat;
 					}
 				}
 			}
@@ -241,12 +241,12 @@
 
 				.toggle-children {
 					.toggle-children-icon {
-						background: sprite($sprites32, menu-arrow-down) no-repeat;
+					//	background: sprite($sprites32, menu-arrow-down) no-repeat;
 					}
 					
 					&.opened {
 						.toggle-children-icon {
-							background: sprite($sprites32, menu-arrow-up) no-repeat;
+					//		background: sprite($sprites32, menu-arrow-up) no-repeat;
 						}
 					}
 				}

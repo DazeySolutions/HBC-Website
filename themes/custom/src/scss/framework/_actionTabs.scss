@@ -1,3 +1,4 @@
+
 /********************************************
 * Defines the styles for .ss-ui-action-tabset:
 * * Site tree action tabs (to perform actions on the site tree)
@@ -243,7 +244,7 @@ $border: 1px solid darken(#D9D9D9, 15%);
 						}
 						/* Arrow */
 						&:after {
-							background: sprite($sprites32, arrow_down_lighter) no-repeat;
+					//		background: sprite($sprites32, arrow_down_lighter) no-repeat;
 							border-bottom: 0;
 							content: "";
 							display: inline-block;
@@ -252,16 +253,16 @@ $border: 1px solid darken(#D9D9D9, 15%);
 							width: 16px;
 						}
 						&:hover:after {
-							background: sprite($sprites32, arrow_down_darker) no-repeat;
+				//			background: sprite($sprites32, arrow_down_darker) no-repeat;
 						}
 					}
 					/* Make arrow point in up when nav open */
 					&.ui-state-active a {
 						&:after {
-							background: sprite($sprites32, arrow_up_lighter) no-repeat;
+				//			background: sprite($sprites32, arrow_up_lighter) no-repeat;
 						}
 						&:hover:after {
-							background: sprite($sprites32, arrow_up_darker) no-repeat;
+				//			background: sprite($sprites32, arrow_up_darker) no-repeat;
 						}
 					}
 				}
