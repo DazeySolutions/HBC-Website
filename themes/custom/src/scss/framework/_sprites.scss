@@ -3,18 +3,30 @@
  */
 @import "compass/utilities/sprites/base";
 
-@import "btn-icon/*.png";
+//@import "btn-icon/*.png";
 
 .ui-state-default, .ui-widget-content {
 	@include all-btn-icon-sprites;
 }
 
-$icon24: sprite-map("menu-icons/24x24/*.png");
-$icon16: sprite-map("menu-icons/16x16/*.png");
+//$icon24: sprite-map("menu-icons/24x24/*.png");
+//$icon16: sprite-map("menu-icons/16x16/*.png");
 
-$btn-icon: sprite-map("btn-icon/*.png", $spacing: 10px);
-$sprites32: sprite-map("sprites-32x32/*.png", $spacing: 10px);
-$sprites64: sprite-map("sprites-64x64/*.png", $spacing: 10px);
+.btn-icon-add{
+    @extend .fa;
+    @extend .fa-fw;
+    @extend .fa-plus-square;
+}
+.btn-icon-add_disabled{
+    @extend .fa;
+    @extend .fa-fw;
+    @extend .fa-plus-square;
+    color: #999;
+}
+
+//$btn-icon: sprite-map("btn-icon/*.png", $spacing: 10px);
+//$sprites32: sprite-map("sprites-32x32/*.png", $spacing: 10px);
+//$sprites64: sprite-map("sprites-64x64/*.png", $spacing: 10px);
 
 .icon {
     &.icon-assetadmin {
