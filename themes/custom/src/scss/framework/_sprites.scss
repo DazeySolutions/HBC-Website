@@ -7,7 +7,12 @@
 .ui-state-default .ui-icon{
     background-image: initial !important;
 }
-
+.ui-icon {
+  display: initial;
+  text-indent: 0px; 
+  overflow: initial;
+  background-repeat: initial;
+}
 .ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon{
     position:initial;
     top:initial;
