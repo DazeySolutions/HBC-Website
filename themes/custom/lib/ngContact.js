@@ -28,7 +28,7 @@
                 $http.get($scope.path.replace("ajax","ping"));
 			}, 180*1000);
 			
-			$scope.$watch('content', function(){
+			$scope.$watch('contact', function(){
                 angular.element("div:has(>.other-subject)").hide();
 				angular.element(".subject-select").change(function(){
                     if(angular.element(".subject-select")[0].value === 'Other'){
