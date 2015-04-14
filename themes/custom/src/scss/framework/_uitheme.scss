@@ -6,7 +6,7 @@
  * TODO Add theme reference
  * 
  * Use _style.scss to add more generic style information,
- * and read the jQuery UI theming API: http://jqueryui.com/docs/Theming/API
+ * and read the jQuery UI theming API: http://j/spritesqueryui.com/docs/Theming/API
  */
 
 .ui-widget-content,
@@ -50,12 +50,12 @@
 		background: transparent;
 		
 		.ui-icon-closethick {
-			background: sprite($sprites32, dialog-close-over) no-repeat;
+			//background: sprite($sprites32, dialog-close-over) no-repeat;
 		}
 	}
 	
 	.ui-icon-closethick {
-		background: sprite($sprites32, dialog-close) no-repeat;
+		//background: sprite($sprites32, dialog-close) no-repeat;
 		width: 30px;
 		height:  30px;
 	}
