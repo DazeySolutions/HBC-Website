@@ -1625,7 +1625,7 @@ body.cms-dialog {
 	.arrow {
 		height: 26px;
 		width: 10px;
-		background: sprite($sprites32, numeric-label) no-repeat;
+		//background: sprite($sprites32, numeric-label) no-repeat;
 		margin-right: 4px;
 	}
 
@@ -1786,9 +1786,9 @@ form.import-form {
 }
 	
 .toggle-details-icon {
-	background: sprite($sprites32, menu-arrow-down) no-repeat;
+	//background: sprite($sprites32, menu-arrow-down) no-repeat;
 	.ss-uploadfield-item-edit-all &{
-		background: sprite($sprites32, menu-arrow-deselected-down) no-repeat;
+		//background: sprite($sprites32, menu-arrow-deselected-down) no-repeat;
 		display:inline-block;
 		width:8px;
 		height:8px;
@@ -1796,9 +1796,9 @@ form.import-form {
 	}
 
 	&.opened {					
-		background: sprite($sprites32, menu-arrow-up) no-repeat;	
+		//background: sprite($sprites32, menu-arrow-up) no-repeat;	
 		.ss-uploadfield-item-edit-all &{
-			background: sprite($sprites32, menu-arrow-deselected-up) no-repeat;			
+		//	background: sprite($sprites32, menu-arrow-deselected-up) no-repeat;			
 		}		
 	}
 }
