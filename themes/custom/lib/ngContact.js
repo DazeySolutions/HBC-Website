@@ -19,20 +19,40 @@
 			$scope.init = function init(){
 				$http.get($scope.path)
 					.success(function(data){
-						$scope.$apply($scope.contact = data);
-						angular.element("div:has(>.other-subject)").hide();
-						angular.element(".subject-select").change(function(){
-                            if(angular.element(".subject-select")[0].value === 'Other'){
-                                angular.element("div:has(>.other-subject)").show();
-                            }
-                            else
-                            {
-                                angular.element("div:has(>.other-subject)").hide();
-                            }
-                        });
+                        $scope.contact = data;
 					});
 			};
 			$scope.init();
+			
+			$interval(function(){
+                $http.get($scope.path.replace("ajax","ping"));
+			}, 180*1000);
+			
+			$scope.$watch('content', function(){
+                angular.element("div:has(>.other-subject)").hide();
+				angular.element(".subject-select").change(function(){
+                    if(angular.element(".subject-select")[0].value === 'Other'){
+                        angular.element("div:has(>.other-subject)").show();
+                    }
+                    else
+                    {
+                        angular.element("div:has(>.other-subject)").hide();
+                    }
+                });
+                angular.element(".contactForm button[type=submit]").click(function(e){
+                    e.preventDefault();
+                    var params = '';
+                    var obParams = 
+                    $http({
+                        method: 'POST',
+                        url: $scope.path.replace("ajax","Form"),
+                        data: angular.element(".contactForm #Form_Form").serialize(),
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).success(function(data){
+                        $scope.contact = data;
+                    });
+                });
+			});
 		}
 	]);
 	

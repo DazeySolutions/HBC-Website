@@ -4,7 +4,7 @@
     		<div class="col-xs-12 col-sm-4">
     		    <h4>Connect With Us</h4>
     		    <p class="small">Have a question? A prayer request?  Or something else?  Send us an email and let us know how we can help you!</p>
-                <div data-ng-contact data-path="/forms/contact-form/ajax"></div>
+                <div class="contactForm" data-ng-contact data-path="/forms/contact-form/ajax"></div>
     		</div>
     		<div class="col-xs-12 col-sm-4">
     		</div>
