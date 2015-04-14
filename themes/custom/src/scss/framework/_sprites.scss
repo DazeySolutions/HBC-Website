@@ -34,8 +34,17 @@
     .btn-icon-add_disabled{
         @extend .fa;
         @extend .fa-fw;
-        @extend .fa-plus-square;
-        color: #999;
+        @extend .fa-plus-square-o;
+    }
+    .btn-icon-accept{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-check-circle-o;
+    }
+    .btn-icon-accept_disabled{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-check-circle-o;
     }
 }
 
