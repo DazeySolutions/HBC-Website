@@ -15,5 +15,6 @@
 
     <script src="$ThemeDir/js/custom.min.js"></script>
     <script src="$ThemeDir/js/instagram.min.js"></script>
-
+    <script src="/userforms/thirdparty/jquery-validate/jquery.validate.min.js"></script>
+    <script src="/userforms/javascript/UserForm_frontend.js"></script>
 </head>
