@@ -20,6 +20,9 @@
 				$http.get($scope.path)
 					.success(function(data){
                         $scope.contact = data;
+                        setTimeout(function(){
+                            customForm();
+                        }, 1000);
 					});
 			};
 			$scope.init();
@@ -28,7 +31,7 @@
                 $http.get($scope.path.replace("ajax","ping"));
 			}, 180*1000);
 			
-			$scope.customForm = function customForm(){
+			var customForm = function customForm(){
                 angular.element("div:has(>.other-subject)").hide();
 				angular.element(".subject-select").change(function(){
                     if(angular.element(".subject-select")[0].value === 'Other'){
@@ -76,7 +79,7 @@
 	app.run(['$templateCache', function ($templateCache) {
 		$templateCache.put('contact.html', 
             '<div class="col-xs-12">'+
-            '        <div ng-bind-html="contact | to_trusted; customForm()"></div>'+
+            '        <div ng-bind-html="contact | to_trusted"></div>'+
             '</div>'
             );
         }]);
