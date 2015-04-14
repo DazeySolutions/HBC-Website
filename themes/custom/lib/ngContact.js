@@ -44,15 +44,13 @@
                 });
                 angular.element(".contactForm button[type=submit]").click(function(e){
                     e.preventDefault();
-                    var params = '';
-                    var obParams = 
                     $http({
                         method: 'POST',
                         url: $scope.path.replace("ajax","Form"),
                         data: angular.element(".contactForm #Form_Form").serialize(),
                         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).success(function(data){
-                        $scope.contact = data;
+                        $scope.contact = "<h4>Thank you we have received your email!  Someone will be in contact with you shortly</h4";
                     });
                 });
 			};
