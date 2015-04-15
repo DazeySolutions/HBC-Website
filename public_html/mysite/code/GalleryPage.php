@@ -1,5 +1,5 @@
 <?php
-class GalleryPage extends CustomPage {
+class GalleryPage extends ContentPage {
 	private static $db = array(
 	    "GalleryTitle"=>"Text"
 		);
@@ -33,7 +33,7 @@ class GalleryPage extends CustomPage {
 	    return "GalleryPageController";
 	}
 }
-class GalleryPage_Controller extends CustomPage_Controller {
+class GalleryPage_Controller extends ContentPage_Controller {
     public function init() {
 		parent::init();
 	}

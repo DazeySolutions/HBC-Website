@@ -10,7 +10,7 @@ class SlideShowImage extends DataObject {
         "Versioned('Stage', 'Live')"
     );
 	private static $has_one = array(
-	    "CustomPage"=>"CustomPage",
+	    "ContentPage"=>"ContentPage",
 		'Image' => 'Image'
 	);
 	public function getCMSFields(){
@@ -18,7 +18,7 @@ class SlideShowImage extends DataObject {
 		$fields->removeFieldFromTab("Root.Main","PageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");
         $fields->removeFieldFromTab("Root.Main","Link");
-        $fields->removeFieldFromTab("Root.Main","CustomPageID");
+        $fields->removeFieldFromTab("Root.Main","ContentPageID");
         $fields->removeFieldFromTab("Root.Main","Description");
         $fields->addFieldToTab("Root.Main", TextField::create("Link", "Link (optional)"), "Image");
         $fields->addFieldToTab("Root.Main", TextField::create("Description"), "Image");

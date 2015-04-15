@@ -3,23 +3,22 @@
 class ContentSection extends DataObject {
 	private static $db = array(
 		'SortOrder' => 'Int',
-        'Title' => 'Varchar',
+	        'Title' => 'Varchar',
 		'Content' => 'HTMLText'
 	);
     private  static $extensions = array(
         "Versioned('Stage', 'Live')"
     );
 	private static $has_one = array(
-		"CustomPage"=>"CustomPage"
+		"ContentPage"=>"ContentPage"
 	);
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeFieldFromTab("Root.Main","PageID");
+		$fields->removeFieldFromTab("Root.Main","ContentPageID");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Title'=>'Title',
-        'Content.BigSummary'=>'Content'
+		'Title.UpperCase'=>'Title',
 	);
 }
