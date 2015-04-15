@@ -139,7 +139,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     $scope.init();
 }]);
 
-hbcWebApp.controller('PageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){
       
     };
