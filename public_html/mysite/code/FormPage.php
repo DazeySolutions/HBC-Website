@@ -1,6 +1,6 @@
 <?php
 
-class CustomUserDefinedForm extends UserDefinedForm {
+class FormPage extends UserDefinedForm {
     private static $icon = "mysite/images/icon/form.png";
     private static $allowed_children = array(
 	);	
@@ -9,7 +9,7 @@ class CustomUserDefinedForm extends UserDefinedForm {
 	}
 }
 
-class CustomUserDefinedForm_Controller extends UserDefinedForm_Controller{
+class FormPage_Controller extends UserDefinedForm_Controller{
 
 	private static $allowed_actions = array (
 			'ajax'

@@ -1,5 +1,5 @@
 <?php
-class HomePage extends CustomPage {
+class HomePage extends ContentPage {
 
 	private static $db = array(
 			);
@@ -8,9 +8,7 @@ class HomePage extends CustomPage {
 	private static $has_one = array(
 			);
     private static $allowed_children = array(
-			"*Page",
-			"CustomUserDefinedForm",
-			"RedirectorPage"	
+			"ContentPage"
 			);	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
@@ -23,7 +21,7 @@ class HomePage extends CustomPage {
 	}
 
 }
-class HomePage_Controller extends CustomPage_Controller {
+class HomePage_Controller extends ContentPage_Controller {
 
 	private static $allowed_actions = array (
 			'ajax',

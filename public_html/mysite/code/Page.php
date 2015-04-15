@@ -8,15 +8,6 @@ class Page extends SiteTree {
 	private static $has_one = array(
 			);
 
-	private static $allowed_children = array(
-			"*Page",
-			"CustomUserDefinedForm",
-			"Blog",
-			"BlogPost",
-			"RedirectorPage",
-			"GalleryPage"
-			);	
-
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 

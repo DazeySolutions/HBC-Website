@@ -1,19 +1,21 @@
 <?php
-class CustomPage extends SiteTree {
+class ContentPage extends SiteTree {
 
 	private static $db = array(
-			);
+	);
+			
 	private static $has_many = array(
-			'SlideShowImages' => 'SlideShowImage',
-			'ContentSections' => 'ContentSection'
-			);
+		'SlideShowImages' => 'SlideShowImage',
+		'ContentSections' => 'ContentSection'
+	);
+
 	private static $has_one = array(
-			);
+	);
+
     private static $allowed_children = array(
-			"*Page",
-			"CustomUserDefinedForm",
-			"RedirectorPage"	
-			);	
+		"ContentPage"
+	);	
+
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		
@@ -58,9 +60,13 @@ class CustomPage extends SiteTree {
 
 		return $fields;
 	}
+	public function AngularController(){
+	    return "ContentPageController";
+	}
 
 }
-class CustomPage_Controller extends ContentController {
+
+class ContentPage_Controller extends ContentController {
 
 	public function getSlideShowImages(){
 		return $this->SlideShowImages()->sort("SortOrder");
