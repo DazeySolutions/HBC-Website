@@ -3,12 +3,12 @@
 /**
  * @package siteconfig
  */
-class AlertsLeftAndMain extends LeftAndMain {
+class EventsLeftAndMain extends LeftAndMain {
 
 	/**
 	 * @var string
 	 */
-	private static $url_segment = 'alerts';
+	private static $url_segment = 'events';
 
 	/**
 	 * @var string
@@ -23,17 +23,17 @@ class AlertsLeftAndMain extends LeftAndMain {
 	/**
 	 * @var string
 	 */
-	private static $menu_title = 'Alerts';
+	private static $menu_title = 'Events';
 
 	/**
 	 * @var string
 	 */
-	private static $tree_class = 'Alerts';
+	private static $tree_class = 'Events';
 
 	/**
 	 * @var array
 	 */
-	private static $required_permission_codes = array('EDIT_ALERTS');
+	private static $required_permission_codes = array('EDIT_EVENTS');
 
 
 	public function getResponseNegotiator() {
@@ -55,8 +55,8 @@ class AlertsLeftAndMain extends LeftAndMain {
 	 * @return Form
 	 */
 	public function getEditForm($id = null, $fields = null) {
-		$alerts = AlertsConfig::current_alerts_config();
-		$fields = $alerts->getCMSFields();
+		$events = EventsConfig::current_alerts_config();
+		$fields = $events->getCMSFields();
 
 		// Tell the CMS what URL the preview should show
 		$home = Director::absoluteBaseURL();
@@ -66,7 +66,7 @@ class AlertsLeftAndMain extends LeftAndMain {
 		$fields->push($navField = new LiteralField('SilverStripeNavigator', $this->getSilverStripeNavigator()));
 		$navField->setAllowHTML(true);
 
-		$actions = $alerts->getCMSActions();
+		$actions = $events->getCMSActions();
 		$form = CMSForm::create( 
 			$this, 'EditForm', $fields, $actions
 		)->setHTMLID('Form_EditForm');
@@ -76,7 +76,7 @@ class AlertsLeftAndMain extends LeftAndMain {
 
 		if($form->Fields()->hasTabset()) $form->Fields()->findOrMakeTab('Root')->setTemplate('CMSTabSet');
 		$form->setHTMLID('Form_EditForm');
-		$form->loadDataFrom($alerts);
+		$form->loadDataFrom($events);
 		$form->setTemplate($this->getTemplatesWithSuffix('_EditForm'));
 
 		// Use <button> to allow full jQuery UI styling
@@ -105,11 +105,11 @@ class AlertsLeftAndMain extends LeftAndMain {
 	 * @return String
 	 */
 	public function save_alerts($data, $form) {
-		$alerts = AlertsConfig::current_alerts_config();
-		$form->saveInto($alerts);
+		$events = EventsConfig::current_alerts_config();
+		$form->saveInto($events);
 		
 		try {
-			$alerts->write();
+			$events->write();
 		} catch(ValidationException $ex) {
 			$form->sessionMessage($ex->getResult()->message(), 'bad');
 			return $this->getResponseNegotiator()->respond($this->request);

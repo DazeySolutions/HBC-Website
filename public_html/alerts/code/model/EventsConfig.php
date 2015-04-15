@@ -16,7 +16,7 @@
  *
  * @package siteconfig
  */
-class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider {
+class EventsConfig extends DataObject implements PermissionProvider, TemplateGlobalProvider {
 
     private static $db = array(
     );
@@ -24,7 +24,6 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
     );
 
     private static $many_many = array(
-        'Alerts' => 'Alerts'
     );
     
     /**
@@ -36,7 +35,6 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
     
 
     public function populateDefaults() {
-        parent::populateDefaults();
     }
 
     /**
@@ -47,32 +45,7 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      * @return FieldList
      */
     public function getCMSFields() {
-            $gridFieldConfigAlert = GridFieldConfig_RecordEditor::create();
-        
-        $fields = new FieldList(
-            new TabSet("Root",
-                $tabMain = new Tab('Main',
-                    $gridFieldAlert = new GridField("Alerts", "Alert messages", $this->Alerts(), $gridFieldConfigAlert)
-                )
-            ),
-            new HiddenField('ID')
-        );
-
-       	$tabMain->addExtraClass('padding-15'); 
-       	$tabMain->addExtraClass('panel-top-border'); 
-        if (!Permission::check('EDIT_ALERTS')) {
-            $fields->makeFieldReadonly($gridFieldAlert);
-        }
-
-        if(file_exists(BASE_PATH . '/install.php')) {
-            $fields->addFieldToTab("Root.Main", new LiteralField("InstallWarningHeader", 
-                "<p class=\"message warning\">" . _t("SiteTree.REMOVE_INSTALL_WARNING", 
-                "Warning: You should remove install.php from this SilverStripe install for security reasons.")
-                . "</p>"), "Title");
-        }
-        
-        $this->extend('updateCMSFields', $fields);
-        
+        $fields = new FieldList();
         return $fields;
     }
 
@@ -85,20 +58,7 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      * @return FieldList
      */
     public function getCMSActions() {
-        if (Permission::check('ADMIN') || Permission::check('EDIT_ALERTS')) {
-            $actions = new FieldList(
-                $saveBtn = FormAction::create('save_siteconfig', _t('CMSMain.SAVE','Save'))
-                    ->addExtraClass('ss-ui-action-constructive')->setAttribute('data-icon', 'accept')
-            );
-            $saveBtn->addExtraClass('btn');
-            $saveBtn->addExtraClass('btn-primary');
-            $saveBtn->addExtraClass('col-xs-12');
-            $saveBtn->addExtraClass('margin-15');
-        } else {
-            $actions = new FieldList();
-        }
-        
-        $this->extend('updateCMSActions', $actions);
+        $actions = new FieldList();
         
         return $actions;
     }
@@ -117,7 +77,7 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      * @return SiteConfig
      */
     public static function current_alerts_config() {
-        if ($siteConfig = DataObject::get_one('AlertsConfig')) return $siteConfig;
+        if ($siteConfig = DataObject::get_one('EventsConfig')) return $siteConfig;
         
         return self::make_alerts_confgi();
     }
@@ -128,12 +88,12 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
     public function requireDefaultRecords() {
         parent::requireDefaultRecords();
 
-        $config = DataObject::get_one('AlertsConfig');
+        $config = DataObject::get_one('EventsConfig');
         
         if(!$config) {
             self::make_alerts_confgi();
 
-            DB::alteration_message("Added default alerts config","created");
+            DB::alteration_message("Added default events config","created");
         }
     }
     
@@ -143,7 +103,7 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      * @return SiteConfig
      */
     public static function make_alerts_confgi() {
-        $config = AlertsConfig::create();
+        $config = EventsConfig::create();
         $config->write();
 
         return $config;
@@ -229,11 +189,11 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      */
     public function providePermissions() {
         return array(
-            'EDIT_ALERTS' => array(
-                'name' => _t('SiteConfig.EDIT_PERMISSION', 'Manage site alerts'),
+            'EDIT_EVENTS' => array(
+                'name' => _t('SiteConfig.EDIT_PERMISSION', 'Manage Events'),
                 'category' => _t('Permissions.PERMISSIONS_CATEGORY', 'Roles and access permissions'),
-                'help' => _t('SiteConfig.EDIT_PERMISSION_HELP', 'Ability to edit global alerts.'),
-                'sort' => 450
+                'help' => _t('SiteConfig.EDIT_PERMISSION_HELP', 'Ability to edit events.'),
+                'sort' => 460
             )
         );
     }
@@ -282,7 +242,7 @@ class AlertsConfig extends DataObject implements PermissionProvider, TemplateGlo
      */
     public static function get_template_global_variables() {
         return array(
-            'AlertsConfig' => 'current_alerts_config',
+            'EventsConfig' => 'current_events_config',
         );
     }
 }
