@@ -88,6 +88,9 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
                         angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
                     }else{
                         angular.element(".event-section").html(events);
+                        if(!$scope.$$phase) {
+                            $scope.$apply();
+                        }
                     }
                 }
             });
