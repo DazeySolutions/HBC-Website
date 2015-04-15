@@ -82,7 +82,7 @@ class ContentPage_Controller extends ContentController {
 			);
 
 	public function ajax() {
-		return $this->renderWith('AngularPage');
+		return $this->renderWith('AngularCPage');
 	}
 	
 	public function ajaxContent(){
