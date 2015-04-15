@@ -77,7 +77,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
                 angular.element(".footer .section-row").removeClass("even");
                 angular.element(".footer .section-row").addClass("odd");
             }
-            $http.get("http://beta.hbc-ky.com:3000/a").success(function(data){
+            $http.get("http://events.hbc-ky.com/a").success(function(data){
                 if(angular.isUndefinedOrNullOrEmpty(data)){
                     events = -1;
                 }else{
