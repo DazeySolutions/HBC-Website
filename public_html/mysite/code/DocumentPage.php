@@ -21,11 +21,13 @@ class DocumentPage extends DataObject {
 	}
 	 public function getDocFolder()
       {       
-          if ( $this->DocumentHolderID )
+           $parentID = Session::get('CMSMain')['currentPage'];
+
+          if ( $parentID )
           {
-            $doc = $this->DocumentHolder();
+            $gallery = Page::get()->byID( $parentID );
             $filter = new URLSegmentFilter();
-            return $filter->filter( $doc->Title );
+            return $filter->filter( $gallery->Title );
           }
           else{
             return 'default';
