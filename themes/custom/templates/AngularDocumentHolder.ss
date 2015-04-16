@@ -1,5 +1,5 @@
 <div class="content" ng-controller="$AngularController">
-    <div ng-image-slider path="{{imagePath}}">
+    <div ng-image-slider path="/home/ajaxImages">
     </div>
     <div class="row section-row even">
         <% loop getDocumentPages %>
