@@ -30,15 +30,18 @@
 								}
 								$scope.curImageNum = tempNum;
 							},7000);
+						}else{
+                            $scope.divHeight = "58";
+                            bgColor = "#222";
 						}
 					});
 			};
-			
+			var bgColor = "black";
 			$scope.imageStyle = function imageStyle(){
                 var data = {
                     "background-size":"cover",
                     "height":$scope.divHeight+"px",
-                    "background":"black"
+                    "background": bgColor
                 };
                 if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].Filename !== '' || $scope.images[$scope.curImageNum].Filename !== null || $scope.images[$scope.curImageNum].Filename !== undefined)){
                     data["background-image"] = "url('"+$scope.images[$scope.curImageNum].Filename+"')";
