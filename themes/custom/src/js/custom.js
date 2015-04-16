@@ -40,15 +40,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                     controlName = 'HomePageController';
                 }
                 return location;
-            },
-            controllerProvider: function(stateParams){
-                if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
-                    return stateParams.controller;
-                }else{
-                    return 'HomePageController';
-                }
             }
-            
         });
 }] );
 hbcWebApp.config(['$locationProvider', function($locationProvider){

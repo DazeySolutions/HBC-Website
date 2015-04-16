@@ -1,4 +1,4 @@
-<div class="content">
+<div class="content" ng-controller="ContentPageController">
     <div ng-image-slider path="{{imagePath}}">
     </div>
     <div data-ng-repeat="section in content" class="row section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
