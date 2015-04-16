@@ -194,6 +194,12 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
+hbcWebApp.controller('DocumentPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.init =  function init(){
+      
+    };
+}]);
+
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){
       
