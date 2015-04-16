@@ -17,7 +17,7 @@
 		function($scope, $interval, $http, $window){
 			$scope.images = [];
 			$scope.curImageNum = 0;
-			$scope.divHeight = $window.innerWidth/2.39;
+			$scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
 			$scope.init = function init(){
 				$http.get($scope.path+"?width="+$window.innerWidth)
 					.success(function(data){
