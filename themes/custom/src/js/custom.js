@@ -60,11 +60,11 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
         }); 
         angular.element($window).on('scroll', function(){
            if(angular.element("div.section-row:first")[0].getBoundingClientRect().top<58) {
-               angular.element(".navbar-inverse").css("background-color", "#222");
-               angular.element(".navbar-inverse").css("border-color", "#222");
+               angular.element(".navbar-inverse").css("background-color", "#222 !important");
+               angular.element(".navbar-inverse").css("border-color", "#222  !important");
            }else{
-               angular.element(".navbar-inverse").css("background-color", "rgba(0,0,0,0)");
-               angular.element(".navbar-inverse").css("border-color", "rgba(0,0,0,0)");
+               angular.element(".navbar-inverse").css("background-color", "rgba(0,0,0,0)  !important");
+               angular.element(".navbar-inverse").css("border-color", "rgba(0,0,0,0)  !important");
            }
         });
     };
