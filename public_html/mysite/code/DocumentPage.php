@@ -18,7 +18,7 @@ class DocumentPage extends DataObject {
 		$fields->removeFieldFromTab("Root.Main","Document");
         $fields->addFieldToTab("Root.Main", $uploadField = UploadField::create("Document", "Document"));
         $uploadField->setAllowedExtensions("pdf");
-        $uploadField->setFolderName("Uploads/Documents/".$this->DocumentHolder()->DocumentType());
+        $uploadField->setFolderName("Uploads/Documents/".$this->DocumentHolder()->dbObject('DocumentType'));
 		return $fields;
 	}
 	
