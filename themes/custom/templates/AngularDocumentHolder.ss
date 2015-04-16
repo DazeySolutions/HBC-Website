@@ -1,6 +1,6 @@
 <% if $Documents.Exists %>
     <% loop $Documents %>
-        <%= $Document.Filename %>
+        <%= $Document.getFilename %>
     <% end_loop %>
 <% else %>
     <p>There are no Documents</p>
