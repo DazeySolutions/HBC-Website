@@ -27,7 +27,7 @@ class DocumentHolder extends Page {
 		$gridFieldConfig2->addComponent(new GridFieldPageCount('toolbar-header-right'));
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
-		$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
+		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
 		
 		$gridFieldDocuments = new GridField("Documents", "Documents", $this->Documents()->sort("Date.Format('U')"), $gridFieldConfig2);
 		$ddField = new DropdownField('DocumentType', 'Document Type', array('Bulletin'=>'Bulletin','Newsletter'=>'Newsletter','Forms'=>'Forms'));
