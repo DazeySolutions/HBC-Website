@@ -1,6 +1,8 @@
 @import "bower_components/bootstrap/less/bootstrap.less";
 @import "bower_components/fontawesome/less/font-awesome.less";
 
+@import url(http://fonts.googleapis.com/css?family=Alegreya+Sans:900,900italic);
+
 @fa-font-path:          "../assets/fonts";
 @icon-font-path:        "../assets/fonts";
 
@@ -13,9 +15,17 @@
 @brand-blue:            rgb(0,150,255);
 @navbar-height:         57px;
 @border-radius-base:    0px;
+
 .navbar-inverse{
     border-color: @even-bg;
     margin: 0px;
+
+    li {
+        font-family: 'Alegreya Sans', sans-serif;    text-transform: uppercase;
+        font-weight: 900;
+        font-size: 16px;
+    }
+    
 }
 .fixed-margin{
     margin-top: 58px; //navbarheight + border
