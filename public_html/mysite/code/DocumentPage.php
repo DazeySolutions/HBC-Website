@@ -13,8 +13,6 @@ class DocumentPage extends DataObject {
 
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->removeFieldFromTab("Root.Main","PageID");
-		$fields->removeFieldFromTab("Root.Main","DocumentHolderID");
 		$fields->removeFieldFromTab("Root.Main","Document");
         $fields->addFieldToTab("Root.Main", $uploadField = UploadField::create("Document", "Document"));
         $uploadField->setAllowedExtensions("pdf");
