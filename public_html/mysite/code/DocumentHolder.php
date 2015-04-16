@@ -2,7 +2,6 @@
 
 class DocumentHolder extends Page {
     private static $db = array(
-        'DocumentType'=>'Varchar'
 	);
 	private static $has_many = array(
 	    'Documents'=>'DocumentPage'
@@ -30,9 +29,7 @@ class DocumentHolder extends Page {
 		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
 		
 		$gridFieldDocuments = new GridField("Documents", "Documents", $this->Documents()->sort("Date.Format('U')"), $gridFieldConfig2);
-		$ddField = new DropdownField('DocumentType', 'Document Type', array('Bulletin'=>'Bulletin','Newsletter'=>'Newsletter','Forms'=>'Forms'));
 		
-		$fields->addFieldToTab("Root.Main", $ddField, "Content");
 		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
 		
 		$fields->removeFieldFromTab("Root.Main", 'Content');

@@ -25,7 +25,7 @@ class DocumentPage extends DataObject {
           {
             $doc = $this->DocumentHolder();
             $filter = new URLSegmentFilter();
-            return $filter->filter( $doc->DocumentType );
+            return $filter->filter( $doc->Title );
           }
           else{
             return 'default';
