@@ -28,7 +28,7 @@ class DocumentHolder extends Page {
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
 		
-		$gridFieldDocuments = new GridField("Documents", "Documents", $this->Documents()->sort("Date.Format('U')"), $gridFieldConfig2);
+		$gridFieldDocuments = new GridField("Documents", "Documents", $this->Documents(), $gridFieldConfig2);
 		
 		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
 		
