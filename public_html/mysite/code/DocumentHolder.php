@@ -4,7 +4,7 @@ class DocumentHolder extends Page {
     private static $db = array(
 	);
 	private static $has_many = array(
-	    'Documents'=>'DocumentPage'
+	    'DocumentPages'=>'DocumentPage'
 	);
 	private static $has_one = array(
 	);
@@ -28,7 +28,7 @@ class DocumentHolder extends Page {
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
 		
-		$gridFieldDocuments = new GridField("Documents", "Documents", $this->Documents(), $gridFieldConfig2);
+		$gridFieldDocuments = new GridField("DocumentPages", "Documents", $this->DocumentPages(), $gridFieldConfig2);
 		
 		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
 		

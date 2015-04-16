@@ -1,3 +1,3 @@
-<% loop getDocuments %>
+<% loop getDocumentPages %>
     $Document.getFilename()
 <% end_loop %>
