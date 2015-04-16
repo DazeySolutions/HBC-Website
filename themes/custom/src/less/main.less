@@ -7,16 +7,23 @@
 @icon-font-path:        "../assets/fonts";
 
 @brand-blue:            rgb(0,150,255);
-
+@offblack:              #222222;
 @odd-bg:                #eaeaea;
 @even-bg:               @brand-blue;
 
 @light-text:            #f2f2f2;
-@dark-text:             #222;
+@dark-text:             @offblack;
 @transparent:           rgba(0,0,0,0);
 
 @navbar-height:         57px;
 @border-radius-base:    0px;
+
+@media (max-width: 767px){
+    .navbar-inverse{
+        background-color:   @offblack !important;
+        border-color:       @offblack !important;
+    }
+}
 
 .navbar-inverse{
     margin: 0px;
