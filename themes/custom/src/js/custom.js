@@ -129,7 +129,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     $scope.init();
 }]);
 
-hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout', function($scope, $http, $stateParams, $window, lodash, $timeout){
     $scope.init =  function init(){
         var location = '';
         var maxHeight = $window.innerWidth/(2.39);
