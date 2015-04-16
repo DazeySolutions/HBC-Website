@@ -18,10 +18,23 @@ class DocumentPage extends DataObject {
 		$fields->removeFieldFromTab("Root.Main","Document");
         $fields->addFieldToTab("Root.Main", $uploadField = UploadField::create("Document", "Document"));
         $uploadField->setAllowedExtensions("pdf");
-        $uploadField->setFolderName("Uploads/Documents/".$this->DocumentHolder()->DocumentType);
+        $uploadField->setFolderName("Uploads/Documents/".$this->getDocFolder());
 		return $fields;
 	}
-	
+	 public function getDocFolder()
+      {       
+          if ( $this->DocumentHolderID )
+          {
+            $doc = $this->DocumentHolder();
+            $filter = new URLSegmentFilter();
+            return $filter->filter( $doc->DocumentType );
+          }
+          else{
+            return 'default';
+          }
+    
+      }
+
 	private static $summary_fields = array(
 		'Document.Filename'=>'File',
 		'Date'=>'Date'
