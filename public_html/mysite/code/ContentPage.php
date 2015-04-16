@@ -101,6 +101,8 @@ class ContentPage_Controller extends ContentController {
 	            $counter++;
 	        }
 	        return json_encode($imageUrlArray);
+	    }else{
+	        return json_encode(array());
 	    }
 	}
 

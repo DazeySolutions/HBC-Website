@@ -41,7 +41,13 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                 }
                 return location;
             },
-            controller: controlName
+            controllerProvider: function(stateParams){
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
+                    return stateParams.controller;
+                }else{
+                    return 'HomePageController';
+                }
+            }
             
         });
 }] );
