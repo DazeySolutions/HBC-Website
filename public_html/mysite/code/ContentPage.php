@@ -92,7 +92,7 @@ class ContentPage_Controller extends ContentController {
 	}
 	public function ajaxImages($request){
 	    if(null !== ($this->SlideShowImages())){
-	        $width = $request.getVar('width');
+	        $width = $request->getVar('width');
 	        $imageUrlArray = array();
 	        $counter = 0;
 	        $images = $this->SlideShowImages()->sort("SortOrder");
@@ -100,7 +100,8 @@ class ContentPage_Controller extends ContentController {
 	            $imageUrlArray[$counter] = $bgImage->Image()->setWidth($width);
 	            $counter++;
 	        }
-	        return json_encode($imageUrlArray);
+	        $arList = new ArrayList($imageUrlArray);
+	        return json_encode($arList->toNestedArray());
 	    }else{
 	        return json_encode(array());
 	    }
