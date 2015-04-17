@@ -2,7 +2,7 @@
     <div ng-image-slider path="/home/ajaxImages">
     </div>
     <div class="row section-row even">
-        <% loop getDocumentPages %>
+        <% loop DocumentPages %>
             $Document.getFilename()
         <% end_loop %>
     </div>
