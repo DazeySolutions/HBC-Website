@@ -6,14 +6,14 @@
             <ul class="nav nav-pills">
                 <% loop OrganizeDocuments %>
                 <li role="presentation" class="dropdown"> 
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">$Year<span class="fa fa-fw fa-chevron-down"></span></a>
+                    <span class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">$Year<span class="fa fa-fw fa-chevron-down"></span></span>
                     <ul class="dropdown-menu" role="menu">
                         <% loop Months %>
                         <li>
-                            <i class="fa fa-fw fa-plus-square-o"></i>$Month 
+                            <i class="fa fa-fw fa-plus"></i>$Month 
                         </li>
                         <% loop Days %>
-                        <li><a href="$Link"><i class="fa fa-fw fa-minius-square-o"></i>$Num</a></li>
+                        <li><a href="$Link"><i class="fa fa-fw fa-minus"></i>$Num</a></li>
                         <% end_loop %>
                         <li class="divider"></li>
                         <% end_loop %>
