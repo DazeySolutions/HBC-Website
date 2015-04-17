@@ -35,7 +35,7 @@ class DocumentPage extends DataObject {
     
       }
     public function getDocYear(){
-        return $this->Date()->Year();
+        return $this->Date().Year();
     }
     public function getDocMonth(){
         return $this->Date()->Month();
