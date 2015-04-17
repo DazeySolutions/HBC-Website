@@ -7,6 +7,10 @@ class FormPage extends UserDefinedForm {
 	public function AngularController(){
 	    return "FormPageController";
 	}
+	
+	private static $can_be_root = false;
+	
+	private static $show_in_sitetree = false;
 }
 
 class FormPage_Controller extends UserDefinedForm_Controller{
