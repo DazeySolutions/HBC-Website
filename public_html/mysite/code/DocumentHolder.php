@@ -63,23 +63,23 @@ class DocumentHolder extends Page {
 	                            }
 	                        }
 	                        if(!$found){
-	                            $monthArr['days'] = array("num"=>$day, "link"=>$doc->Document()->Filename);
+	                            $monthArr['days'] = new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename));
 	                            $found = true;
 	                        }
 	                    }
 	                }
 	                if(!$found){
-	                    $currArr['months'] = array("month"=>$month, "days"=>array("num"=>$day, "link"=>$doc->Document()->Filename));
+	                    $currArr['months'] = new ArrayData(array("month"=>$month, "days"=> new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename))));
 	                    $found = true;
 	                }
 	                $found = true;
 	            }
 	        }
 	        if(!$found){
-	            $retArr[] = array('year'=>$year, "months"=>array("month"=>$month, "days"=>array("num"=>$day, "link"=>$doc->Document()->Filename)));
+	            $retArr[] = new ArrayData(array('year'=>$year, "months"=>new ArrayData(array("month"=>$month, "days"=>new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename))))));
 	        }
 	    }
-	    return $retarr;
+	    return new ArrayList($retarr);
 	}
 }
 
