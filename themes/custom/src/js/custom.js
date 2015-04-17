@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf'];
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
@@ -195,9 +195,52 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
 }]);
 
 hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
-    $scope.init =  function init(){
-      
+     $scope.init =  function init(){
+        var location = '';
+        var maxHeight = $window.innerWidth/(2.39);
+        angular.element(".imageSlider").css('height',maxHeight+"px");
+        angular.element(".imageSlider").css('background-color','#222');
+        angular.element(".imageSlider").css('background-size','cover');
+        location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
+        if(location !== ''){
+            $http.get("/"+location+"/ajaxContent").success(function(data){
+                $scope.content = data;
+                angular.element(".connection").removeClass("odd");
+                angular.element(".connection").addClass("even");
+                angular.element(".footer .section-row").removeClass("even");
+                angular.element(".footer .section-row").addClass("odd");
+            });
+            $scope.imagePath = "/home/ajaxImages";
+        }
     };
+    
+    $scope.url;
+    
+    $scope.haveUrl = function haveURL(){
+      return !angular.isUndefinedOrNullOrEmpty($scope.url);
+    };
+    $scope.loadDoc = function loadDoc(link){
+      $scope.url = link;  
+    };
+    
+    $scope.incrementImageNums = function(){
+        $scope.nextImageNum++;
+        if($scope.nextImageNum >= $scope.images.length){
+            $scope.nextImageNum = 0;
+        }
+        $scope.curImageNum++;
+        $scope.prevImageNum++;
+        if($scope.prevImageNum >= $scope.images.length){
+            $scope.prevImageNum = $scope.images.length-1;
+        }
+    };
+    $scope.currImage = undefined;
+    $scope.currImageNum = 0;
+    $scope.nextImageNum = 1;
+    $scope.prevImageNum = -1;
+    $scope.content = undefined;
+    $scope.images = {};
+    $scope.init();
 }]);
 
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){

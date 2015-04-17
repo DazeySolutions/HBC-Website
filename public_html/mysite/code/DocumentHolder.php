@@ -88,10 +88,15 @@ class DocumentHolder_Controller extends Page_Controller{
 		parent::init();
 	}
     private static $allowed_actions = array (
-	    'ajax'
+	    'ajax',
+	    'ajaxContent'
 	);
 
     public function ajax() {
 		return $this->renderWith('AngularDocumentHolder');
+	}
+	
+	public function ajaxContent() {
+	    return $this->renderWith('DocumentHolderContent_A');
 	}
 }
