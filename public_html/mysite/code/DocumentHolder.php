@@ -47,14 +47,11 @@ class DocumentHolder extends Page {
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
 	        $date->setValue($doc->DocumentDate);
-	        echo $date;
+	        echo $date->Year();
 	        $year = $date->Year;
 	        $month = $date->Month;
 	        $day = $date->Day;
 	        $found = false;
-	        echo $year;
-	        echo $month;
-	        echo $day;
 	        foreach($retarr as $curArr){
 	            if($curArr['Year'] == $year){
 	                foreach($currArr['Months'] as $monthArr){
