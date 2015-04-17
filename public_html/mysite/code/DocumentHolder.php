@@ -79,7 +79,6 @@ class DocumentHolder extends Page {
 	            $retarr[] = new ArrayData(array('Year'=>$year, "Months"=>new ArrayData(array("Month"=>$month, "Days"=>new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));
 	        }
 	    }
-	    print_r ($retarr);
 	    return new ArrayList($retarr);
 	}
 }
