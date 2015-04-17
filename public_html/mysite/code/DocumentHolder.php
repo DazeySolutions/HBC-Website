@@ -43,6 +43,7 @@ class DocumentHolder extends Page {
 	
 	public function OrganizeDocuments(){
 	    $retarr = array();
+	    
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
 	        $date->setValue($doc->DocumentDate);
@@ -50,13 +51,33 @@ class DocumentHolder extends Page {
 	        $year = $date->Year;
 	        $month = $date->Month;
 	        $day = $date->Day;
-	        if(!isset($retarr[$year])){
-	            $retarr[$year] = array();
+	        $found = false;
+	        foreach($retarr as $curArr){
+	            if($curArr['year'] == $year){
+	                foreach($currArr['months'] as $monthArr){
+	                    if($monthArr['month'] == $month){
+	                        foreach($monthArr['days'] as $day){
+	                            if($day['num'] == $day){
+	                                $day['link'] = $doc->Document()->Filename;
+	                                $found = true;
+	                            }
+	                        }
+	                        if(!$found){
+	                            $monthArr['days'] = array("num"=>$day, "link"=>$doc->Document()->Filename);
+	                            $found = true;
+	                        }
+	                    }
+	                }
+	                if(!$found){
+	                    $currArr['months'] = array("month"=>$month, "days"=>array("num"=>$day, "link"=>$doc->Document()->Filename));
+	                    $found = true;
+	                }
+	                $found = true;
+	            }
 	        }
-	        if(!isset($retarr[$year][$month])){
-	            $retarr[$year][$month] = array();
+	        if(!$found){
+	            $retArr[] = array('year'=>$year, "months"=>array("month"=>$month, "days"=>array("num"=>$day, "link"=>$doc->Document()->Filename)));
 	        }
-	        $retarr[$year][$month][$day] = $doc->Document()->Filename;
 	    }
 	    return $retarr;
 	}
