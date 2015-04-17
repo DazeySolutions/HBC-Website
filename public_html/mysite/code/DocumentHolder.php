@@ -45,7 +45,7 @@ class DocumentHolder extends Page {
 	    $retarr = array();
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
-	        $date.setValue($doc->DocumentDate);
+	        $date->setValue($doc->DocumentDate);
 	        echo $date;
 	        $year = $date->Year;
 	        $month = $date->Month;
