@@ -44,7 +44,8 @@ class DocumentHolder extends Page {
 	public function OrganizeDocuments(){
 	    $retarr = array();
 	    foreach($this->DocumentPages() as $doc) {
-	        $date = Date::setValue($doc->DocumentDate);
+	        $date = new Date();
+	        $date.setValue($doc->DocumentDate);
 	        echo $date;
 	        $year = $date->Year;
 	        $month = $date->Month;
