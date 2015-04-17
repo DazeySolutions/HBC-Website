@@ -2,7 +2,12 @@
     <div ng-image-slider path="/home/ajaxImages">
     </div>
     <div class="row section-row odd">
-        <div class="col-xs-12">
+        <div class="col-xs-12 col-md-10 col-md-offset-1" style="min-height: 200px;">
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <hr class="hidden-xs col-sm-3">
+                <h2 class="col-xs-12 col-sm-6">Connecting</h2>
+                <hr class="hidden-xs col-sm-3">
+            </div>
             <ul class="nav nav-pills">
                 <% loop OrganizeDocuments %>
                 <li role="presentation" class="dropdown"> 
