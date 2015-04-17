@@ -52,6 +52,9 @@ class DocumentHolder extends Page {
 	        $month = $date->Month;
 	        $day = $date->Day;
 	        $found = false;
+	        echo $year;
+	        echo $month;
+	        echo $day;
 	        foreach($retarr as $curArr){
 	            if($curArr['Year'] == $year){
 	                foreach($currArr['Months'] as $monthArr){
