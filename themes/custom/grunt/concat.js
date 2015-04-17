@@ -10,7 +10,7 @@ module.exports = {
               'lib/ngImageSlide.js', 
               'lib/ngContact.js', 
               'bower_components/pdfjs-dist/build/pdf.js',
-              'bower_components/angular-pdf/dist/angular-pdf-viewer.js',
+              'bower_components/angular-pdf/dist/angular-pdf-viewer.min.js',
               'bower_components/angular-ui-router/release/angular-ui-router.js',  
               'bower_components/angular-animate/angular-animate.js', 
               'bower_components/angularjs-toaster/toaster.js',
