@@ -53,33 +53,33 @@ class DocumentHolder extends Page {
 	        $day = $date->Day;
 	        $found = false;
 	        foreach($retarr as $curArr){
-	            if($curArr['year'] == $year){
-	                foreach($currArr['months'] as $monthArr){
-	                    if($monthArr['month'] == $month){
-	                        foreach($monthArr['days'] as $day){
-	                            if($day['num'] == $day){
-	                                $day['link'] = $doc->Document()->Filename;
+	            if($curArr['Year'] == $year){
+	                foreach($currArr['Months'] as $monthArr){
+	                    if($monthArr['Month'] == $month){
+	                        foreach($monthArr['Days'] as $day){
+	                            if($day['Num'] == $day){
+	                                $day['Link'] = $doc->Document()->Filename;
 	                                $found = true;
 	                            }
 	                        }
 	                        if(!$found){
-	                            $monthArr['days'] = new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename));
+	                            $monthArr['Days'] = new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename));
 	                            $found = true;
 	                        }
 	                    }
 	                }
 	                if(!$found){
-	                    $currArr['months'] = new ArrayData(array("month"=>$month, "days"=> new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename))));
+	                    $currArr['Months'] = new ArrayData(array("Month"=>$month, "Days"=> new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))));
 	                    $found = true;
 	                }
 	                $found = true;
 	            }
 	        }
 	        if(!$found){
-	            $retarr[] = new ArrayData(array('year'=>$year, "months"=>new ArrayData(array("month"=>$month, "days"=>new ArrayData(array("num"=>$day, "link"=>$doc->Document()->Filename))))));
+	            $retarr[] = new ArrayData(array('Year'=>$year, "Months"=>new ArrayData(array("Month"=>$month, "Days"=>new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));
 	        }
 	    }
-	    
+	    print_r ($retarr);
 	    return new ArrayList($retarr);
 	}
 }
