@@ -36,8 +36,23 @@ class DocumentHolder extends Page {
 		
 		return $fields;
 	}
+	
 	public function AngularController(){
 	    return "DocumentHolderController";
+	}
+	
+	public function OrganizeDocuments(){
+	    $retarr = array();
+	    foreach($this->DocumentPages() as $doc) {
+	        if(!isset($retarr[$doc->Date()->Year()])){
+	            $retarr[$doc->Date()->Year()] = array();
+	        }
+	        if(!isset($retarr[$doc->Date()->Year()][$doc->Date()->Month()])){
+	            $retarr[$doc->Date()->Year()][$doc->Date()->Month()] = array();
+	        }
+	        $retarr[$doc->Date()->Year()][$doc->Date()->Month()][$doc->Date()->Day()] = $doc->Document()->getFilename();
+	    }
+	    return $retarr;
 	}
 }
 
