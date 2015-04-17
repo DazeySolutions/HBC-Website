@@ -56,7 +56,7 @@ class DocumentHolder extends Page {
 	        if(!isset($retarr[$year][$month])){
 	            $retarr[$year][$month] = array();
 	        }
-	        $retarr[$year][$month][$day] = $doc->Document.Filename;
+	        $retarr[$year][$month][$day] = $doc->Document->Filename;
 	    }
 	    return $retarr;
 	}
