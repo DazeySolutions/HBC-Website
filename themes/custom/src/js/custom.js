@@ -214,7 +214,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         }
     };
     
-    $scope.url;
+    $scope.url = undefined;
     
     $scope.haveUrl = function haveURL(){
       return !angular.isUndefinedOrNullOrEmpty($scope.url);
