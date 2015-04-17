@@ -3,7 +3,7 @@
 	<% include Header %>
     <div class="container-fluid fixed-margin" ui-view>
         <div class="content">
-            <div class="row section-row odd">
+            <div class="row section-row even">
                 <div class="col-xs-12 col-md-10 col-md-offset-1" style="min-height: 200px;">
                     <div class="col-xs-12 col-md-6 col-md-offset-3">
                         <hr class="hidden-xs col-sm-3">

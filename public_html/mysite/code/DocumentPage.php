@@ -34,17 +34,9 @@ class DocumentPage extends DataObject {
         }
 
     }
-    public function getDocYear(){
-        return $this->Date().Year();
-    }
-    public function getDocMonth(){
-        return $this->Date()->Month();
-    }
-    public function getDocDay(){
-        return $this->Date()->Day();
-    }
+    
 	private static $summary_fields = array(
 		'Document.Filename'=>'File',
-		'Date'=>'Date'
+		'DocumentDate'=>'Date'
 	);
 }

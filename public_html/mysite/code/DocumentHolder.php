@@ -50,7 +50,7 @@ class DocumentHolder extends Page {
 	        
 	        $year = $date->Year();
 	        $month = $date->Month();
-	        $day = $date->Day();
+	        $day = $date->DayOfMonth();
 	        $found = false;
 	        foreach($retarr as $curArr){
 	            if($curArr['Year'] == $year){
