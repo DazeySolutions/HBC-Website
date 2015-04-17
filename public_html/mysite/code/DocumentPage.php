@@ -1,7 +1,7 @@
 <?php
 class DocumentPage extends DataObject {
     private static $db = array(
-        'Date'=>'SS_Datetime'
+        'DocumentDate'=>'Date'
 	);
     private   static $extensions = array(
         "Versioned('Stage', 'Live')"
@@ -19,21 +19,21 @@ class DocumentPage extends DataObject {
         $uploadField->setFolderName("Uploads/Documents/".$this->getDocFolder());
 		return $fields;
 	}
-	 public function getDocFolder()
-      {       
-           $parentID = Session::get('CMSMain')['currentPage'];
-
-          if ( $parentID )
-          {
+    public function getDocFolder()
+    {       
+        $parentID = Session::get('CMSMain')['currentPage'];
+        
+        if ( $parentID )
+        {
             $gallery = Page::get()->byID( $parentID );
             $filter = new URLSegmentFilter();
             return $filter->filter( $gallery->Title );
-          }
-          else{
+        }
+        else{
             return 'default';
-          }
-    
-      }
+        }
+
+    }
     public function getDocYear(){
         return $this->Date().Year();
     }
