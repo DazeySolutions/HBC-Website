@@ -20,6 +20,10 @@ class HomePage extends ContentPage {
 	    return "HomePageController";
 	}
 
+	public function canCreate(){
+    	return false; 
+    }
+
 }
 class HomePage_Controller extends ContentPage_Controller {
 
