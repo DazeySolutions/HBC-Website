@@ -50,6 +50,6 @@ class DocumentHolder_Controller extends Page_Controller{
 	);
 
     public function ajax() {
-		return $this->renderWith('DocumentHolder_A');
+		return $this->renderWith('AngularDocumentHolder');
 	}
 }
