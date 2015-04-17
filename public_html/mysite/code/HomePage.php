@@ -20,7 +20,7 @@ class HomePage extends ContentPage {
 	    return "HomePageController";
 	}
 
-	public function canCreate(){
+	public function canCreate($member=null){
     	return false; 
     }
 
