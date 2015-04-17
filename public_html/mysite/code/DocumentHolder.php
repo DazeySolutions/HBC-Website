@@ -41,7 +41,7 @@ class DocumentHolder extends Page {
 	    return "DocumentHolderController";
 	}
 	
-	public function OrganizeDocuments(){
+	public function getOrganizeDocuments(){
 	    $retarr = array();
 	    
 	    foreach($this->DocumentPages() as $doc) {
