@@ -103,6 +103,6 @@ class DocumentHolder_Controller extends Page_Controller{
 	}
 	
 	public function ajaxContent() {
-	    return json_encode($this->getOrganizeDocuments());
+	    return json_encode($this->getOrganizeDocuments(), JSON_FORCE_OBJECT);
 	}
 }
