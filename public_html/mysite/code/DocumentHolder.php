@@ -44,7 +44,6 @@ class DocumentHolder extends Page {
 	
 	public function getOrganizeDocuments(){
 	    $retarr = new ArrayList();
-	    
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
 	        $date->setValue($doc->DocumentDate);
@@ -82,10 +81,12 @@ class DocumentHolder extends Page {
                     $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));   
                 }
 	        }
-	    }
-	    if(!$retarr->exists()){
+	        
+	        if(!$retarr->exists()){
 	            $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));  
-        }
+            }
+            print_r($retarr);
+	    }
 	    return $retarr;
 	}
 }
