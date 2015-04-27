@@ -14,7 +14,7 @@
                     <i class="fa fa-fw fa-plus"></i>$Month 
                 </li>
                 <% loop Days %>
-                <li><a href="$Link" ng-click="loadDoc($Link)"><i class="fa fa-fw fa-minus"></i>$Num</a></li>
+                <li><a ng-click="loadDoc('$Link')"><i class="fa fa-fw fa-minus"></i>$Num</a></li>
                 <% end_loop %>
                 <li class="divider"></li>
                 <% end_loop %>
