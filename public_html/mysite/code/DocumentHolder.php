@@ -59,7 +59,6 @@ class DocumentHolder extends Page {
     	            if($curYear === $year){
     	                foreach($months as $curMonth=>$days){
     	                    if($curMonth === $month){
-    	                        $found = true;
     	                        foreach($days as $curDay=>$link){
     	                            if($curDay === $day){
     	                                $link = $doc->Document()->Filename;
