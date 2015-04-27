@@ -59,6 +59,7 @@ class DocumentHolder extends Page {
     	        foreach($retarr as $curYear=>$months){
     	            if($curYear === $year){
     	                foreach($months as $curMonth=>$days){
+    	                    echo $curMonth." ".$month;
     	                    if($curMonth === $month){
     	                        foreach($days as $curDay=>$link){
     	                            if($curDay === $day){
