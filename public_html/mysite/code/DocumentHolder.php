@@ -66,19 +66,22 @@ class DocumentHolder extends Page {
     	                            }
     	                        }
     	                    }
+    	                    ksort($retarr[$curYear][$curMonth]);
     	                }
     	                if(!$found){
     	                    $retarr[$year][$month][$day]=$doc->Document()->Filename;
+    	                    ksort($retarr[$year][$month]);
     	                }
     	                $found = true;
     	            }
         	        if(!$found){
         	            $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
+        	            ksort($retarr[$year][$month]);
         	        }
     	        }
 	        }
 	    }
-	    array_multisort($retarr);
+	    ksort($retarr);
 	    return $retarr;
 	}
 }
