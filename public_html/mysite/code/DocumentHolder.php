@@ -54,30 +54,31 @@ class DocumentHolder extends Page {
 	        $day = $date->DayOfMonth();
 	        $found = false;
 	        foreach($retarr as $curArr){
-	            if($curArr.getField('Year') == $year){
-	                foreach($currArr.getField('Months') as $monthArr){
-	                    if($monthArr.getField('Month') == $month){
-	                        foreach($monthArr.getField('Days') as $day){
-	                            if($day.getField('Num') == $day){
-	                                $day.setField('Link', $doc->Document()->Filename);
-	                                $found = true;
-	                            }
-	                        }
-	                        if(!$found){
-	                            $monthArr.setField('Days', new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)));
-	                            $found = true;
-	                        }
-	                    }
-	                }
-	                if(!$found){
-	                    $currArr.setField('Months', new ArrayData(array("Month"=>$month, "Days"=> new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))));
-	                    $found = true;
-	                }
-	                $found = true;
+	            if($curArr.hasField('Year')){
+    	            if($curArr.getField('Year') == $year){
+    	                foreach($currArr.getField('Months') as $monthArr){
+    	                    if($monthArr.getField('Month') == $month){
+    	                        foreach($monthArr.getField('Days') as $day){
+    	                            if($day.getField('Num') == $day){
+    	                                $day.setField('Link', $doc->Document()->Filename);
+    	                                $found = true;
+    	                            }
+    	                        }
+    	                        if(!$found){
+    	                            $monthArr.setField('Days', new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)));
+    	                            $found = true;
+    	                        }
+    	                    }
+    	                }
+    	                if(!$found){
+    	                    $currArr.setField('Months', new ArrayData(array("Month"=>$month, "Days"=> new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))));
+    	                    $found = true;
+    	                }
+    	                $found = true;
+    	            }
+	            }else{
+	                $retarr[] = new ArrayData(array('Year'=>$year, "Months"=>new ArrayData(array("Month"=>$month, "Days"=>new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));   
 	            }
-	        }
-	        if(!$found){
-	            $retarr[] = new ArrayData(array('Year'=>$year, "Months"=>new ArrayData(array("Month"=>$month, "Days"=>new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));
 	        }
 	    }
 	    return new ArrayList($retarr);
