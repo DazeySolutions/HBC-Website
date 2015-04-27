@@ -49,7 +49,7 @@ class DocumentHolder extends Page {
 	        $date->setValue($doc->DocumentDate);
 	        
 	        $year = $date->Year();
-	        $month = $date->Month();
+	        $month = $date->Format('m');
 	        $day = $date->DayOfMonth();
 	        $found = false;
 	        if(sizeof($retarr)===0){
@@ -78,7 +78,7 @@ class DocumentHolder extends Page {
     	        }
 	        }
 	    }
-	    return $retarr;
+	    return ksort($retarr);
 	}
 }
 
