@@ -207,16 +207,18 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
                 $scope.jsonData = data;
                 var dropDowns = angular.element("<ul class='nav nav-pills'></ul>");
                 lodash.each($scope.jsonData, function(months, year){
-                    var years = dropDowns.append("<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></al>");
-                    var monthDD = years.append("<ul class='dropdown-menu' role='menu'></ul>");
+                    
+                    var monthDD = "<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></a><ul class='dropdown-menu' role='menu'>";
                     lodash.each(months, function(days, month){
-                        monthDD.append("<li><span><i class='fa fa-fw fa-plus'></i>"+month+"</span></li>");
-                        monthDD.append("<li class='divider'></li>");
+                        monthDD += "<li><span><i class='fa fa-fw fa-plus'></i>"+month+"</span></li>";
+                        monthDD += "<li class='divider'></li>";
                         lodash.each(days, function(link, day){    
-                            monthDD.append("<li><a href='#' ng-click='loadDoc(\""+link+"\")'><i class='fa fa-fw fa-minus'></i>"+day+"</a></li>");
+                            monthDD += "<li><a href='#' ng-click='loadDoc(\""+link+"\")'><i class='fa fa-fw fa-minus'></i>"+day+"</a></li>";
                         });
-                        monthDD.append("<li class='divider'></li>");
+                        monthDD += "<li class='divider'></li>";
                     });
+                    monthDD += "</ul></li>";
+                    dropDowns.append(monthDD);
                 });
                 angular.element(".menu-holder").append(dropDowns);
                 angular.element(".connection").removeClass("odd");
