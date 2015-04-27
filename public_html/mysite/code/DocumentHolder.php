@@ -52,33 +52,36 @@ class DocumentHolder extends Page {
 	        $month = $date->Month();
 	        $day = $date->DayOfMonth();
 	        $found = false;
-	        foreach($retarr as $curYear=>$months){
-	            if($curYear === $year){
-	                foreach($months as $curMonth=>$days){
-	                    if($curMonth === $month){
-	                        $found = true;
-	                        foreach($days as $curDay=>$link){
-	                            if($curDay === $day){
-	                                $link = $doc->Document()->Filename;
-	                                $found = true;
-	                            }
-	                        }
-	                        if(!$found){
-	                            $days[$day]=$doc->Document()->Filename;
-	                        }
-	                        $found = true;
-	                    }
-	                }
-	                if(!$found){
-	                    $months[$month]=array($day=>$doc->Document()->Filename);
-	                }
-	                $found = true;
-	            }
-    	        if(!$found){
-    	            $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
+	        if(sizeof($retarr)===0){
+	           $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
+	        }else{
+    	        foreach($retarr as $curYear=>$months){
+    	            if($curYear === $year){
+    	                foreach($months as $curMonth=>$days){
+    	                    if($curMonth === $month){
+    	                        $found = true;
+    	                        foreach($days as $curDay=>$link){
+    	                            if($curDay === $day){
+    	                                $link = $doc->Document()->Filename;
+    	                                $found = true;
+    	                            }
+    	                        }
+    	                        if(!$found){
+    	                            $days[$day]=$doc->Document()->Filename;
+    	                        }
+    	                        $found = true;
+    	                    }
+    	                }
+    	                if(!$found){
+    	                    $months[$month]=array($day=>$doc->Document()->Filename);
+    	                }
+    	                $found = true;
+    	            }
+        	        if(!$found){
+        	            $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
+        	        }
     	        }
 	        }
-	      
 	    }
 	    return $retarr;
 	}
