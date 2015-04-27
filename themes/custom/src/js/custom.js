@@ -208,7 +208,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
                 var dropDowns = angular.element("<ul class='nav nav-pills'></ul>");
                 lodash.each($scope.jsonData, function(months, year){
                     
-                    var monthDD = "<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></a><ul class='dropdown-menu' role='menu'>";
+                    var monthDD = "<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></a><ul class='dropdown-menu' role='menu'>";
                     lodash.each(months, function(days, month){
                         monthDD += "<li><span><i class='fa fa-fw fa-plus'></i>"+month+"</span></li>";
                         monthDD += "<li class='divider'></li>";
