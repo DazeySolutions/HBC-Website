@@ -78,7 +78,8 @@ class DocumentHolder extends Page {
     	        }
 	        }
 	    }
-	    return ksort($retarr);
+	    ksort($retarr);
+	    return $retarr;
 	}
 }
 
