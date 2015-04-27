@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-md-6 col-md-offset-3">
     <hr class="hidden-xs col-sm-3">
-    <h2 class="col-xs-12 col-sm-6">Connecting</h2>
+    <h2 class="col-xs-12 col-sm-6">$Header</h2>
     <hr class="hidden-xs col-sm-3">
 </div>
 <div class="col-xs-12 col-md-8 col-md-offset-2">

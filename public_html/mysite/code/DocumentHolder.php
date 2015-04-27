@@ -2,6 +2,7 @@
 
 class DocumentHolder extends Page {
     private static $db = array(
+        'Header'=>'Varchar'
 	);
 	private static $has_many = array(
 	    'DocumentPages'=>'DocumentPage'
@@ -31,7 +32,8 @@ class DocumentHolder extends Page {
 		$gridFieldDocuments = new GridField("DocumentPages", "Documents", $this->DocumentPages(), $gridFieldConfig2);
 		
 		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
-		
+		$fields->addFieldToTab("Root.Main", $headTextField = new TextField("Header","Header"), "Content");
+		$headTextField->LeftTitle("Enter header i.e. \"Bulletins\" or \"Forms\"");
 		$fields->removeFieldFromTab("Root.Main", 'Content');
 		
 		return $fields;
