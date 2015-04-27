@@ -57,7 +57,6 @@ class DocumentHolder extends Page {
 	           print_r($retarr);
 	        }else{
     	        foreach($retarr as $curYear=>$months){
-    	            print_r($retarr);
     	            if($curYear === $year){
     	                foreach($months as $curMonth=>$days){
     	                    if($curMonth === $month){
@@ -71,6 +70,7 @@ class DocumentHolder extends Page {
     	                            $days[$day]=$doc->Document()->Filename;
     	                        }
     	                        $found = true;
+    	                        print_r($retarr);
     	                    }
     	                }
     	                if(!$found){
