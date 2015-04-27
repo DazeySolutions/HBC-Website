@@ -194,7 +194,7 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
-hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window' function($scope, $http, $stateParams, $window){
+hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window', function($scope, $http, $stateParams, $window){
      $scope.init =  function init(){
         var location = '';
         var maxHeight = $window.innerWidth/(2.39);
