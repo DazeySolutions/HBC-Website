@@ -2,15 +2,24 @@
     "title": $Header,
     "documents":{
         <% loop OrganizeDocuments %>
-        "year": $year,
-        "months": {
-            <% loop Months %>
-            "month":$Month,
-            "days": {
-                <% loop Days %>
-                "day":$Num,
-                "link":$Link
+        {
+            "year": $year,
+            "months": {
+                <% loop Months %>
+                {
+                    "month":$Month,
+                    "days": {
+                        <% loop Days %>
+                        {
+                            "day":$Num,
+                            "link":$Link
+                        },
+                        <% end_loop %>
+                    }
+                },
+                <% end_loop %>
             }
-        }
+        },
+        <% end_loop %>
     }
 }
