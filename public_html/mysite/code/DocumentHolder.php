@@ -43,7 +43,7 @@ class DocumentHolder extends Page {
 	}
 	
 	public function getOrganizeDocuments(){
-	    $retarr = array();
+	    $retarr = new ArrayList();
 	    
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
@@ -53,35 +53,40 @@ class DocumentHolder extends Page {
 	        $month = $date->Month();
 	        $day = $date->DayOfMonth();
 	        $found = false;
-	        foreach($retarr as $curArr){
-	            if($curArr.hasField('Year')){
-    	            if($curArr.getField('Year') == $year){
-    	                foreach($currArr.getField('Months') as $monthArr){
-    	                    if($monthArr.getField('Month') == $month){
-    	                        foreach($monthArr.getField('Days') as $day){
-    	                            if($day.getField('Num') == $day){
-    	                                $day.setField('Link', $doc->Document()->Filename);
-    	                                $found = true;
-    	                            }
-    	                        }
-    	                        if(!$found){
-    	                            $monthArr.setField('Days', new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)));
-    	                            $found = true;
-    	                        }
-    	                    }
-    	                }
-    	                if(!$found){
-    	                    $currArr.setField('Months', new ArrayData(array("Month"=>$month, "Days"=> new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))));
-    	                    $found = true;
-    	                }
-    	                $found = true;
-    	            }
-	            }else{
-	                $retarr[] = new ArrayData(array('Year'=>$year, "Months"=>new ArrayData(array("Month"=>$month, "Days"=>new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));   
-	            }
+	        if($retarr->exists()){
+                foreach($retarr->getIterator() as $item){
+                    if($item->getField('Year') === $year){
+                        $months = $item->getField('Months');
+                        foreach($months->getIterator() as $monthItem){
+                            if($monthItem->getField('Month') === $month){
+                                $days = $monthItem->getField('Days');
+                                foreach($days->getIterator() as $dayItem){
+                                    if($dayItem->getField('Num') === $day){
+                                        $dayItem->setField('Link', $doc->Document()->Filename)  ;
+                                        $found = true;
+                                    }
+                                }
+                                if(!$found){
+                                    $days->add(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)));
+                                }
+                                $found = true;
+                            }
+                        }
+                        if(!$found){
+                            $months->add(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))));   
+                        }
+                        $found = true;
+                    }
+                }
+                if(!$found){
+                    $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));   
+                }
+	        }else{
+	            $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));  
 	        }
+	        
 	    }
-	    return new ArrayList($retarr);
+	    return $retarr;
 	}
 }
 
