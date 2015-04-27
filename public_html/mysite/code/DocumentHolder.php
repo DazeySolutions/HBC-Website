@@ -81,11 +81,11 @@ class DocumentHolder extends Page {
                 if(!$found){
                     $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));   
                 }
-	        }else{
-	            $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));  
 	        }
-	        
 	    }
+	    if(!$retarr->exists()){
+	            $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));  
+        }
 	    return $retarr;
 	}
 }
