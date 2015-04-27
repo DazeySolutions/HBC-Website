@@ -57,6 +57,7 @@ class DocumentHolder extends Page {
 	           print_r($retarr);
 	        }else{
     	        foreach($retarr as $curYear=>$months){
+    	            print_r($retarr);
     	            if($curYear === $year){
     	                foreach($months as $curMonth=>$days){
     	                    if($curMonth === $month){
