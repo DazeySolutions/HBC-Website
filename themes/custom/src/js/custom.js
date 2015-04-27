@@ -204,7 +204,8 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
         if(location !== ''){
             $http.get("/"+location+"/ajaxContent").success(function(data){
-                $scope.content = data;
+                $scope.jsonData = data;
+                
                 angular.element(".connection").removeClass("odd");
                 angular.element(".connection").addClass("even");
                 angular.element(".footer .section-row").removeClass("even");
