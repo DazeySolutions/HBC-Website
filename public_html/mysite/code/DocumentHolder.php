@@ -74,43 +74,11 @@ class DocumentHolder extends Page {
 	                }
 	                $found = true;
 	            }
+    	        if(!$found){
+    	            $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
+    	        }
 	        }
-	        if(!$found){
-	            $retarr[$year] = array($month=>array($day=>$doc->Document()->Filename));
-	        }
-	       // if(sizeof($retarr)>0){
-        //         foreach($retarr as $arY => $item){
-        //             if($arY === $year){
-        //                 $months = $item['Months'];
-        //                 foreach($months as $monthItem){
-        //                     if($monthItem['Month'] === $month){
-        //                         $days = $monthItem['Days'];
-        //                         foreach($days as $dayItem){
-        //                             if($dayItem['Num'] === $day){
-        //                                 $dayItem['Link'] = $doc->Document()->Filename;
-        //                                 $found = true;
-        //                             }
-        //                         }
-        //                         if(!$found){
-        //                             $t = array($day=>array("link"=>$doc->Document()->Filename));
-        //                             array_push($days, $t);
-        //                         }
-        //                         $found = true;
-        //                     }
-        //                 }
-        //                 if(!$found){
-        //                     array_push($months, array($month=>array($day=>array("link"=>$doc->Document()->Filename))));   
-        //                 }
-        //                 $found = true;
-        //             }
-        //         }
-        //         if(!$found){
-        //             array_push($retarr, array($year=>array($month=>array($day=>array("link"=>$doc->Document()->Filename)))));   
-        //         }
-	       // }
-	       // else {
-	            //array_push($retarr, array($year=>array($month=>array($day=>array("link"=>$doc->Document()->Filename)))));   
-            // }
+	      
 	    }
 	    return $retarr;
 	}
