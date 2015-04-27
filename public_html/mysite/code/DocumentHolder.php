@@ -30,10 +30,9 @@ class DocumentHolder extends Page {
 		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
 		
 		$gridFieldDocuments = new GridField("DocumentPages", "Documents", $this->DocumentPages(), $gridFieldConfig2);
-		
-		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
 		$fields->addFieldToTab("Root.Main", $headTextField = new TextField("Header","Header"), "Content");
-		$headTextField->LeftTitle("Enter header i.e. \"Bulletins\" or \"Forms\"");
+		$headTextField->RightTitle("Enter header i.e. \"Bulletins\" or \"Forms\"");
+		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
 		$fields->removeFieldFromTab("Root.Main", 'Content');
 		
 		return $fields;
