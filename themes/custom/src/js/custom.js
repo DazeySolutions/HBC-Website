@@ -205,22 +205,6 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         if(location !== ''){
             $http.get("/"+location+"/ajaxContent").success(function(data){
                 $scope.jsonData = data;
-                // var dropDowns = angular.element("<ul class='nav nav-pills'></ul>");
-                // lodash.each($scope.jsonData, function(months, year){
-                    
-                //     var monthDD = "<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false' class='dropdown-toggle' data-toggle='dropdown'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></a><ul class='dropdown-menu' role='menu'>";
-                //     lodash.each(months, function(days, month){
-                //         monthDD += "<li><span><i class='fa fa-fw fa-plus'></i>"+month+"</span></li>";
-                //         monthDD += "<li class='divider'></li>";
-                //         lodash.each(days, function(link, day){    
-                //             monthDD += "<li><a href='#' ng-click='loadDoc(\""+link+"\")'><i class='fa fa-fw fa-minus'></i>"+day+"</a></li>";
-                //         });
-                //         monthDD += "<li class='divider'></li>";
-                //     });
-                //     monthDD += "</ul></li>";
-                //     dropDowns.append(monthDD);
-                // });
-                // angular.element(".menu-holder").append(dropDowns);
                 angular.element(".connection").removeClass("odd");
                 angular.element(".connection").addClass("even");
                 angular.element(".footer .section-row").removeClass("even");
@@ -229,7 +213,8 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
             $scope.imagePath = "/home/ajaxImages";
         }
     };
-    
+    $scope.curPage = 1;
+    $scope.totalPages = 1;
     $scope.url = undefined;
     
     $scope.haveUrl = function haveURL(){

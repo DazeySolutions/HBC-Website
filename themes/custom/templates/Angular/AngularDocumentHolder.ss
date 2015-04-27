@@ -19,16 +19,18 @@
     <div class="row section-row odd">
         <div class="col-xs-12 col-md-10 col-md-offset-1 doc-page" style="min-height: 200px;">
             <div ng-if="haveUrl()">
+            
                 <div class="row">
-                    <div class="col-xs-12 col-md-6">
-                        <button class="btn btn-default col-xs-3" ng-click="goBack()">Previous</button>
-                        <span class="col-xs-4 col-xs-offset-1">
-                            <p class="col-xs-2 text-right">Page</p>
-                            <input class="form-control col-xs-4" ng-model="curPage">
-                            <p class="col-xs-1 text-center">of</p>
-                            <p class="col-xs-5 text-center">{{getPages()}}</p>
-                        </span>
-                        <button class="btn btn-default col-xs-3 col-xs-offset-1" ng-click="goNext()">Next</button>
+                    <div class="col-xs-12 col-md-6 col-md-offset-3">
+                        <div class="row">
+                            <button class="btn btn-info col-xs-3" ng-click="goBack()">Previous</button>
+                            <span class="col-xs-6">
+                                <div class="row">
+                                    <p class="col-xs-12 col-md-8 col-md-offset-2 text-center">Page {{curPage}} of {{totalPages}}</p>
+                                </div>
+                            </span>
+                            <button class="btn btn-primary col-xs-3" ng-click="goNext()">Next</button>
+                        </div>
                     </div>
                     <pdf-viewer delegate-handle="my-pdf-container" url="url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
                 </div>
