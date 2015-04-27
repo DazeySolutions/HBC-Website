@@ -104,6 +104,6 @@ class DocumentHolder_Controller extends Page_Controller{
 	}
 	
 	public function ajaxContent() {
-	    return json_encode(getOrganizeDocuments()->toNestedArray());
+	    return json_encode($this->OrganizeDocuments()->toNestedArray());
 	}
 }
