@@ -43,7 +43,7 @@ class DocumentHolder extends Page {
 	}
 	
 	public function getOrganizeDocuments(){
-	    $retarr = new ArrayList();
+	    $retarr = array();
 	    foreach($this->DocumentPages() as $doc) {
 	        $date = new Date();
 	        $date->setValue($doc->DocumentDate);
@@ -52,38 +52,37 @@ class DocumentHolder extends Page {
 	        $month = $date->Month();
 	        $day = $date->DayOfMonth();
 	        $found = false;
-	        if($retarr->exists()){
-                foreach($retarr->getIterator() as $item){
-                    if($item->getField('Year') === $year){
-                        $months = $item->getField('Months');
-                        foreach($months->getIterator() as $monthItem){
-                            if($monthItem->getField('Month') === $month){
-                                $days = $monthItem->getField('Days');
-                                foreach($days->getIterator() as $dayItem){
-                                    if($dayItem->getField('Num') === $day){
-                                        $dayItem->setField('Link', $doc->Document()->Filename)  ;
+	        if(sizeof($retarr)>0){
+                foreach($retarr as $item){
+                    if($item['Year'] === $year){
+                        $months = $item['Months'];
+                        foreach($months as $monthItem){
+                            if($monthItem['Month'] === $month){
+                                $days = $monthItem['Days'];
+                                foreach($days as $dayItem){
+                                    if($dayItem['Num'] === $day){
+                                        $dayItem['Link'] = $doc->Document()->Filename;
                                         $found = true;
                                     }
                                 }
                                 if(!$found){
-                                    $days->add(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)));
+                                    array_push($days, array("Num"=>$day, "Link"=>$doc->Document()->Filename));
                                 }
                                 $found = true;
                             }
                         }
                         if(!$found){
-                            $months->add(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))));   
+                            array_push($months, array("Month"=>$month, "Days"=>array(array("Num"=>$day, "Link"=>$doc->Document()->Filename))));   
                         }
                         $found = true;
                     }
                 }
                 if(!$found){
-                    $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));   
+                    array_push($retarr, array('Year'=>$year, "Months"=>array(array("Month"=>$month, "Days"=>array(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));   
                 }
 	        }
-	        
-	        if(!$retarr->exists()){
-	            $retarr->add(new ArrayData(array('Year'=>$year, "Months"=>new ArrayList(array(new ArrayData(array("Month"=>$month, "Days"=>new ArrayList(array(new ArrayData(array("Num"=>$day, "Link"=>$doc->Document()->Filename)))))))))));  
+	        else {
+	            array_push($retarr, array('Year'=>$year, "Months"=>array(array("Month"=>$month, "Days"=>array(array("Num"=>$day, "Link"=>$doc->Document()->Filename))))));   
             }
 	    }
 	    return $retarr;
@@ -104,6 +103,6 @@ class DocumentHolder_Controller extends Page_Controller{
 	}
 	
 	public function ajaxContent() {
-	    return json_encode($this->getOrganizeDocuments()->toNestedArray());
+	    return json_encode($this->getOrganizeDocuments());
 	}
 }
