@@ -9,7 +9,7 @@
                     <ul class="dropdown-menu" role="menu" ng-repeat="(month, days) in months">
                         <li><i class="fa fa-fw fa-plus"></i>{{month}}</li>
                         <li class="divider"></li>
-                        <li ng-repeat="(day, link) in days"><a href="#" ng-click="loadDoc(link, $event)"><i class="fa fa-fw fa-minus"></i>{{day}}</a></li>
+                        <li ng-repeat="(day, link) in days"><a href="#" ng-click="loadDoc(link, $index, $event)"><i class="fa fa-fw fa-minus"></i>{{day}}</a></li>
                         <li class="divider"></li>
                     </ul>
                 </li>
