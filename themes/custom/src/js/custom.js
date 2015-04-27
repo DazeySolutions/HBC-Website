@@ -235,8 +235,9 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.haveUrl = function haveURL(){
       return !angular.isUndefinedOrNullOrEmpty($scope.url);
     };
-    $scope.loadDoc = function loadDoc(link){
-      $scope.url = link;  
+    $scope.loadDoc = function loadDoc(event, link){
+        event.preventDefault();
+        $scope.url = link;  
     };
     
     $scope.incrementImageNums = function(){
