@@ -194,7 +194,7 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
-hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window', function($scope, $http, $stateParams, $window){
+hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash', function($scope, $http, $stateParams, $window, lodash){
      $scope.init =  function init(){
         var location = '';
         var maxHeight = $window.innerWidth/(2.39);
@@ -205,7 +205,20 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         if(location !== ''){
             $http.get("/"+location+"/ajaxContent").success(function(data){
                 $scope.jsonData = data;
-                
+                var dropDowns = angular.element("<ul class='nav nav-pills'></ul>");
+                lodash.each($scope.jsonData, function(months, year){
+                    var years = dropDowns.append("<li role='presentation' class='dropdown'><a href='#' role='button' aria-expanded='false'>"+year+"<i class='fa fa-fw fa-chevron-down'></i></al>");
+                    var monthDD = years.append("<ul class='dropdown-menu' role='menu'></ul>");
+                    lodash.each(months, function(days, month){
+                        monthDD.append("<li><span><i class='fa fa-fw fa-plus'></i>"+month+"</span></li>");
+                        monthDD.append("<li class='divider'></li>");
+                        lodash.each(days, function(link, day){    
+                            monthDD.append("<li><a href='#' ng-click='loadDoc(\""+link+"\")'><i class='fa fa-fw fa-minus'></i>"+day+"</a></li>");
+                        });
+                        monthDD.append("<li class='divider'></li>");
+                    });
+                });
+                angular.element(".menu-holder").append(dropDowns);
                 angular.element(".connection").removeClass("odd");
                 angular.element(".connection").addClass("even");
                 angular.element(".footer .section-row").removeClass("even");
