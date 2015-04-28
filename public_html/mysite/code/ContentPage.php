@@ -2,8 +2,10 @@
 class ContentPage extends SiteTree {
 
 	private static $db = array(
+	    "ImagePath"=>"Varchar",
+	    "OverrideImagePath"=>"Boolean"
 	);
-			
+    
 	private static $has_many = array(
 		'SlideShowImages' => 'SlideShowImage',
 		'ContentSections' => 'ContentSection'
@@ -15,7 +17,30 @@ class ContentPage extends SiteTree {
     private static $allowed_children = array(
 		"ContentPage"
 	);	
-
+    public function onBeforeWrite(){
+        parent::onBeforeWrite();
+        if(!$this->OverrideImagePath){
+            if((!$this->ImagePath || $this->ImagePath == 'new-page') && $this->URLSegment){
+                $this->ImagePath = $this->URLSegment;
+            }else if($this->isChanged('URLSegment', 2)){
+                $this->ImagePath = $this->URLSegment;
+            }
+        }
+        
+    }
+    
+    function getSettingsFields() {
+        $fields = parent::getSettingsFields();
+        $fieldGroup = new FieldGroup(
+            new CheckboxField('OverrideImagePath', 'Override Default Image Path?'),
+            new TextField('ImagePath', 'Path to page containing images: (Base path ex. home)')
+        );
+        $fieldGroup->setTitle("Header Image Settings");
+        $fieldGroup->setName("ImagePathSettings");
+        $fields->addFieldToTab("Root.Settings", $fieldGroup);
+        return $fields;
+    }
+    
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		
@@ -60,9 +85,6 @@ class ContentPage extends SiteTree {
 
 		return $fields;
 	}
-	public function AngularController(){
-	    return "ContentPageController";
-	}
 
 }
 
@@ -77,20 +99,20 @@ class ContentPage_Controller extends ContentController {
 
 	private static $allowed_actions = array (
 			'ajax',
-			'ajaxContent',
-			'ajaxImages'
+			'IMAGES',
+			'JSON'
 			);
 
 	public function ajax() {
 		return $this->renderWith('AngularCPage');
 	}
 	
-	public function ajaxContent(){
+	private function ajaxContent(){
 	    if(null !== ($this->ContentSections())){
-	        return json_encode($this->ContentSections()->toNestedArray());
+            return $this->ContentSections()->sort('SortOrder')->toNestedArray();
 	    }
 	}
-	public function ajaxImages($request){
+	public function IMAGES($request){
 	    if(null !== ($this->SlideShowImages())){
 	        $width = $request->getVar('width');
 	        $imageUrlArray = array();
@@ -106,6 +128,14 @@ class ContentPage_Controller extends ContentController {
 	        return json_encode(array());
 	    }
 	}
+
+    public function JSON(){
+        $retval = array();
+        $retval["controller"] = "ContentPageController";
+        $retval["content"] = $this->ajaxContent();
+        $retval["imagepath"] = $this->ImagePath."/IMAGES";
+        return json_encode($retval, JSON_FORCE_OBJECT);
+    }
 
 	public function init() {
 		parent::init();

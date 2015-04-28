@@ -54,7 +54,9 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state', function ($scope, toaster, $window, $http, $stateParams, $state){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','EventsService', function ($scope, toaster, $window, $http, $stateParams, $state, EventsService){
+    
+    EventsService.get();
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
@@ -75,119 +77,49 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     };
     $scope.init();
 }]);
-hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout', function($scope, $http, $stateParams, $window, lodash, $timeout){
+hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','EventsService', function($scope, $http, $stateParams, $window, lodash, $timeout, EventsService){
+    $scope.content = jsonData.data.content;
+    $scope.imagePath = jsonData.data.imagepath;
+    $scope.content = undefined;
+    
     $scope.init =  function init(){
-        var location = "home";
         var maxHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
-        $http.get("/"+location+"/ajaxContent").success(function(data){
-            $scope.content = data;
-            if($scope.content.length % 2 === 1){
-                angular.element(".connection").removeClass("odd");
-                angular.element(".connection").addClass("even");
-                angular.element(".footer .section-row").removeClass("even");
-                angular.element(".footer .section-row").addClass("odd");
-            }
-            $http.get("http://events.hbc-ky.com/a").success(function(data){
-                if(angular.isUndefinedOrNullOrEmpty(data)){
-                    events = -1;
-                }else{
-                    events = data;
-                }
-                if(!angular.isUndefinedOrNull($scope.content)){
-                    if(events === -1){
-                        angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
-                    }else{
-                        angular.element(".event-section").html(events);
-                        if(!$scope.$$phase) {
-                            $scope.$apply();
-                        }
-                    }
-                }
-            });
-        });
-        $scope.imagePath = "/"+location+"/ajaxImages";
-    };
-    var events;
-    $scope.incrementImageNums = function(){
-        $scope.nextImageNum++;
-        if($scope.nextImageNum >= $scope.images.length){
-            $scope.nextImageNum = 0;
-        }
-        $scope.curImageNum++;
-        $scope.prevImageNum++;
-        if($scope.prevImageNum >= $scope.images.length){
-            $scope.prevImageNum = $scope.images.length-1;
+        if(!angular.isUndefinedOrNullOrEmpty(EventsService.model) && !angular.isUndefinedOrNullOrEmpty(EventsService.model.html)){
+            angular.element(".event-section").html(EventsService.model.html);
+            if(!$scope.$$phase) {
+                $scope.$apply();
+            }   
+        }else{
+            angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
         }
     };
-    $scope.currImage = undefined;
-    $scope.currImageNum = 0;
-    $scope.nextImageNum = 1;
-    $scope.prevImageNum = -1;
-    $scope.content = undefined;
-    $scope.images = {};
+    
     $scope.init();
 }]);
 
-hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout', function($scope, $http, $stateParams, $window, lodash, $timeout){
+hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData){
+    $scope.content = jsonData.data.content;
+    $scope.imagePath = jsonData.data.imagepath;
+    $scope.content = undefined;
+    
     $scope.init =  function init(){
-        var location = '';
         var maxHeight = $window.innerWidth/(2.39);
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
-        if(location !== ''){
-            $http.get("/"+location+"/ajaxContent").success(function(data){
-                $scope.content = data;
-                if($scope.content.length % 2 === 1){
-                    angular.element(".connection").removeClass("odd");
-                    angular.element(".connection").addClass("even");
-                    angular.element(".footer .section-row").removeClass("even");
-                    angular.element(".footer .section-row").addClass("odd");
-                }
-                $http.get("http://events.hbc-ky.com/a").success(function(data){
-                    if(angular.isUndefinedOrNullOrEmpty(data)){
-                        events = -1;
-                    }else{
-                        events = data;
-                    }
-                    if(!angular.isUndefinedOrNull($scope.content)){
-                        if(events === -1){
-                            angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
-                        }else{
-                            angular.element(".event-section").html(events);
-                            if(!$scope.$$phase) {
-                                $scope.$apply();
-                            }
-                        }
-                    }
-                });
-            });
-            $scope.imagePath = "/"+location+"/ajaxImages";
+        if(!angular.isUndefinedOrNullOrEmpty(EventsService.model) && !angular.isUndefinedOrNullOrEmpty(EventsService.model.html)){
+            angular.element(".event-section").html(EventsService.model.html);
+            if(!$scope.$$phase) {
+                $scope.$apply();
+            }   
+        }else{
+            angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
         }
     };
-    var events;
-    $scope.incrementImageNums = function(){
-        $scope.nextImageNum++;
-        if($scope.nextImageNum >= $scope.images.length){
-            $scope.nextImageNum = 0;
-        }
-        $scope.curImageNum++;
-        $scope.prevImageNum++;
-        if($scope.prevImageNum >= $scope.images.length){
-            $scope.prevImageNum = $scope.images.length-1;
-        }
-    };
-    $scope.currImage = undefined;
-    $scope.currImageNum = 0;
-    $scope.nextImageNum = 1;
-    $scope.prevImageNum = -1;
-    $scope.content = undefined;
-    $scope.images = {};
+    
     $scope.init();
 }]);
 
@@ -202,8 +134,11 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.documents = jsonData.data.documents.data;
     $scope.title = jsonData.data.documents.title;
     $scope.imagePath = jsonData.data.imagepath;
+    $scope.curPage = 1;
+    $scope.totalPages = 1;
+    $scope.url = undefined;
     
-     $scope.init =  function init(){
+    $scope.init =  function init(){
         var maxHeight = $window.innerWidth/(2.39);
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
@@ -212,29 +147,21 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         angular.element(".connection").addClass("even");
         angular.element(".footer .section-row").removeClass("even");
         angular.element(".footer .section-row").addClass("odd");
+        if(!angular.isUndefinedOrNullOrEmpty(EventsService.model) && !angular.isUndefinedOrNullOrEmpty(EventsService.model.html)){
+            angular.element(".event-section").html(EventsService.model.html);
+            if(!$scope.$$phase) {
+                $scope.$apply();
+            }   
+        }else{
+            angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
+        }
     };
-    
-    $scope.curPage = 1;
-    $scope.totalPages = 1;
-    $scope.url = undefined;
-    
+
     $scope.haveUrl = function haveURL(){
       return !angular.isUndefinedOrNullOrEmpty($scope.url);
     };
     $scope.loadDoc = function loadDoc(link){
         $scope.url = link;  
-    };
-    
-    $scope.incrementImageNums = function(){
-        $scope.nextImageNum++;
-        if($scope.nextImageNum >= $scope.images.length){
-            $scope.nextImageNum = 0;
-        }
-        $scope.curImageNum++;
-        $scope.prevImageNum++;
-        if($scope.prevImageNum >= $scope.images.length){
-            $scope.prevImageNum = $scope.images.length-1;
-        }
     };
     
     $scope.getMonth = function getMonth(number){
@@ -280,16 +207,30 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         
         return month;
     };
-    
-    $scope.currImage = undefined;
-    $scope.currImageNum = 0;
-    $scope.nextImageNum = 1;
-    $scope.prevImageNum = -1;
-    $scope.content = undefined;
-    $scope.images = {};
+
     $scope.init();
     
 }]);
+
+hbcWebApp.factory("EventsService", function($http){
+    var factory = {};
+    factory.model;
+    
+    factory.get = function get(){
+        if(angular.isUndefinedOrNullOrEmpty(factory.model)){
+            $http.get("http://events.hbc-ky.com/a").success(function(data){
+                if(!angular.isUndefinedOrNullOrEmpty(data)){
+                    factory.model = {
+                        html: data
+                    };
+                }
+            });
+        }
+    };
+    
+    return factory;
+    
+});
 
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){

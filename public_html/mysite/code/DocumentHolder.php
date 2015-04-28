@@ -2,7 +2,8 @@
 
 class DocumentHolder extends Page {
     private static $db = array(
-        'Header'=>'Varchar'
+        'Header'=>'Varchar',
+        'ImagePath'=>'Varchar'
 	);
 	private static $has_many = array(
 	    'DocumentPages'=>'DocumentPage'
@@ -11,6 +12,27 @@ class DocumentHolder extends Page {
 	);
     private static $allowed_children = array(
 	);	
+	
+	public function onBeforeWrite(){
+        parent::onBeforeWrite();
+     
+        if(!$this->ImagePath){
+           $this->ImagePath = "home";
+        }
+        
+    }
+	
+	function getSettingsFields() {
+        $fields = parent::getSettingsFields();
+        $fieldGroup = new FieldGroup(
+            new TextField('ImagePath', 'Path to page containing images: (Base path ex. home)')
+        );
+        $fieldGroup->setTitle("Header Image Settings");
+        $fieldGroup->setName("ImagePathSettings");
+        $fields->addFieldToTab("Root.Settings", $fieldGroup);
+        return $fields;
+    }
+	
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
     	
@@ -104,7 +126,7 @@ class DocumentHolder_Controller extends Page_Controller{
 	public function JSON() {
 	    $retval = array();
 	    $retval["documents"] = array("title"=>$this->Header, "data"=>$this->getOrganizeDocuments());
-	    $retval["imagepath"] = "/home/ajaxImages";
+	    $retval["imagepath"] = $this->ImagePath."/IMAGES";
 	    $retval["controller"] = "DocumentHolderController";
 	    return json_encode($retval, JSON_FORCE_OBJECT);
 	}

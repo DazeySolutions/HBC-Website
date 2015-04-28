@@ -10,14 +10,15 @@ class HomePage extends ContentPage {
     private static $allowed_children = array(
 			"ContentPage"
 			);	
+	function getSettingsFields() {
+        $fields = parent::getSettingsFields();
+        $fields->removeFieldFromTab("Root.Settings", "ImagePathSettings");
+        return $fields;
+    }
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
 
 		return $fields;
-	}
-	
-	public function AngularController(){
-	    return "HomePageController";
 	}
 
 	public function canCreate($member=null){
@@ -29,8 +30,8 @@ class HomePage_Controller extends ContentPage_Controller {
 
 	private static $allowed_actions = array (
 			'ajax',
-			'ajaxContent',
-			'ajaxImages',
+			'JSON',
+			'IMAGES',
 			'validAlerts'
 			);
 
@@ -42,26 +43,35 @@ class HomePage_Controller extends ContentPage_Controller {
 		return $this->renderWith('AngularHome');
 	}
 	
-	public function ajaxContent(){
-	    if(null !== ($this->ContentSections())){
-	        return json_encode($this->ContentSections()->sort('SortOrder')->toNestedArray());
-	    }
-	}
-	
-	public function ajaxImages($request){
-	    if(null !== ($this->SlideShowImages())){
-	        $width = $request->getVar('width');
-	        $imageUrlArray = array();
-	        $counter = 0;
-	        $images = $this->SlideShowImages()->sort("SortOrder");
-	        foreach($images as $bgImage){
-	            $imageUrlArray[$counter] = $bgImage->Image()->setWidth($width);
-	            $counter++;
-	        }
-	        $arList = new ArrayList($imageUrlArray);
-	        return json_encode($arList->toNestedArray());
-	    }
-	}
+// 	private function ajaxContent(){
+// 	    if(null !== ($this->ContentSections())){
+// 	        return $this->ContentSections()->sort('SortOrder')->toNestedArray();
+// 	    }
+// 	}
+// 	public function IMAGES($request){
+// 	    if(null !== ($this->SlideShowImages())){
+// 	        $width = $request->getVar('width');
+// 	        $imageUrlArray = array();
+// 	        $counter = 0;
+// 	        $images = $this->SlideShowImages()->sort("SortOrder");
+// 	        foreach($images as $bgImage){
+// 	            $imageUrlArray[$counter] = $bgImage->Image()->setWidth($width);
+// 	            $counter++;
+// 	        }
+// 	        $arList = new ArrayList($imageUrlArray);
+// 	        return json_encode($arList->toNestedArray());
+// 	    }else{
+// 	        return json_encode(array());
+// 	    }
+// 	}
+    
+    public function JSON(){
+        $retval = array();
+        $retval["controller"] = "HomePageController";
+        $retval["content"] = $this->ajaxContent();
+        $retval["imagepath"] = $this->URLSegment."/IMAGES";
+        return json_encode($retval, JSON_FORCE_OBJECT);
+    }
     
 	public function init() {
 		parent::init();
