@@ -100,7 +100,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     $scope.init();
 }]);
 
-hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData){
+hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout','jsonData','EventsService', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData, EventsService){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
     $scope.content = undefined;
@@ -129,7 +129,7 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
-hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData', function($scope, $http, $stateParams, $window, lodash, jsonData){
+hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData','EventsService', function($scope, $http, $stateParams, $window, lodash, jsonData, EventsService){
     
     $scope.documents = jsonData.data.documents.data;
     $scope.title = jsonData.data.documents.title;
