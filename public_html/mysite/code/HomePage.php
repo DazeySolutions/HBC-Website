@@ -68,7 +68,7 @@ class HomePage_Controller extends ContentPage_Controller {
     public function JSON(){
         $retval = array();
         $retval["controller"] = "HomePageController";
-        $retval["content"] = $this->ajaxContent();
+        $retval["content"] = parent::ajaxContent();
         $retval["imagepath"] = $this->URLSegment."/IMAGES";
         return json_encode($retval, JSON_FORCE_OBJECT);
     }

@@ -107,7 +107,7 @@ class ContentPage_Controller extends ContentController {
 		return $this->renderWith('AngularCPage');
 	}
 	
-	private function ajaxContent(){
+	protected function ajaxContent(){
 	    if(null !== ($this->ContentSections())){
             return $this->ContentSections()->sort('SortOrder')->toNestedArray();
 	    }
