@@ -3,17 +3,28 @@
     </div>
     <div class="row section-row even">
         <div class="col-xs-12 col-md-10 col-md-offset-1 menu-holder" style="min-height: 200px;">
-            <ul class="nav nav-pills" ng-repeat="(year, months) in jsonData">
-                <li role="presentation" class="dropdown active">
-                    <a role="button" class="dropdown-toggle" data-toggle="dropdown">{{year}} <i class="fa fa-fw fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu" role="menu" ng-repeat="(month, days) in months">
-                        <li><i class="fa fa-fw fa-plus"></i>{{month}}</li>
-                        <li class="divider"></li>
-                        <li ng-repeat="(day, link) in days"><a ng-click="loadDoc(link)"><i class="fa fa-fw fa-minus"></i>{{day}}</a></li>
-                        <li class="divider"></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <hr class="hidden-xs col-sm-3" />
+                <h2 class="col-xs-12 col-sm-6">{{title}}</h2>
+                <hr class="hidden-xs col-sm-3" />
+            </div>
+            <div class="col-xs-12 col-md-6 col-md-offset-3">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <ul class="nav nav-pills" ng-repeat="(year, months) in documents">
+                            <li role="presentation" class="dropdown active">
+                                <a role="button" class="dropdown-toggle" data-toggle="dropdown">{{year}} <i class="fa fa-fw fa-chevron-down"></i></a>
+                                <ul class="dropdown-menu" role="menu" ng-repeat="(month, days) in months">
+                                    <li><i class="fa fa-fw fa-plus"></i>{{month}}</li>
+                                    <li class="divider"></li>
+                                    <li ng-repeat="(day, link) in days"><a ng-click="loadDoc(link)"><i class="fa fa-fw fa-minus"></i>{{day}}</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row section-row odd">

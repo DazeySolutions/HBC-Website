@@ -100,6 +100,9 @@ class DocumentHolder_Controller extends Page_Controller{
 	}
 	
 	public function ajaxContent() {
-	    return json_encode($this->getOrganizeDocuments(), JSON_FORCE_OBJECT);
+	    $retval = array();
+	    $retval["documents"] =array("title"=>$this->Header(), "data"=>$this->getOrganizeDocuments());
+	    $retval["imagepath"] = "/home/ajaxImages";
+	    return json_encode($retval, JSON_FORCE_OBJECT);
 	}
 }

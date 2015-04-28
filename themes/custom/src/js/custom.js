@@ -195,6 +195,10 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
 }]);
 
 hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash', function($scope, $http, $stateParams, $window, lodash){
+    
+    $scope.documents = [];
+    
+    
      $scope.init =  function init(){
         var location = '';
         var maxHeight = $window.innerWidth/(2.39);
@@ -204,13 +208,14 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
         if(location !== ''){
             $http.get("/"+location+"/ajaxContent").success(function(data){
-                $scope.jsonData = data;
+                $scope.documents = data.documents.data;
+                $scope.title = data.documents.title;
+                $scope.imagePath = data.imagepath;
                 angular.element(".connection").removeClass("odd");
                 angular.element(".connection").addClass("even");
                 angular.element(".footer .section-row").removeClass("even");
                 angular.element(".footer .section-row").addClass("odd");
             });
-            $scope.imagePath = "/home/ajaxImages";
         }
     };
     $scope.curPage = 1;
