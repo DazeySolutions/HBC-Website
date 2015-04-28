@@ -34,13 +34,16 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
                     location = "/"+stateParams.page+"/ajax";
                 }
-                if(!angular.isUndefinedOrNullOrEmpty(stateParams.controller)){
-                    controlName = stateParams.controller;
-                }else{
-                    controlName = 'HomePageController';
-                }
                 return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    return $http.get("/"+$stateParams.page+"/JSON").success(function(data){
+                        return data;
+                    });
+                }
             }
+            
         });
 }] );
 hbcWebApp.config(['$locationProvider', function($locationProvider){

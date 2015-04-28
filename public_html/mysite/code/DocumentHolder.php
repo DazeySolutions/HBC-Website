@@ -94,14 +94,14 @@ class DocumentHolder_Controller extends Page_Controller{
 	}
     private static $allowed_actions = array (
 	    'ajax',
-	    'ajaxContent'
+	    'JSON'
 	);
 
     public function ajax() {
 		return $this->renderWith('AngularDocumentHolder');
 	}
 	
-	public function ajaxContent() {
+	public function JSON() {
 	    $retval = array();
 	    $retval["documents"] = array("title"=>$this->Header, "data"=>$this->getOrganizeDocuments());
 	    $retval["imagepath"] = "/home/ajaxImages";
