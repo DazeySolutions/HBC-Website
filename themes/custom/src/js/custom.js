@@ -80,7 +80,6 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','EventsService','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, EventsService, jsonData){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
-    $scope.content = undefined;
     
     $scope.init =  function init(){
         var maxHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
@@ -103,7 +102,6 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
 hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams','$window','lodash', '$timeout','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
-    $scope.content = undefined;
     
     $scope.init =  function init(){
         var maxHeight = $window.innerWidth/(2.39);
