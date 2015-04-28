@@ -41,7 +41,9 @@ class DocumentHolder extends Page {
 	public function AngularController(){
 	    return "DocumentHolderController";
 	}
-	
+	public function getHeader(){
+	    return $this->Header()->getValue();
+	}
 	public function getOrganizeDocuments(){
 	    $retarr = array();
 	    foreach($this->DocumentPages() as $doc) {
@@ -101,7 +103,7 @@ class DocumentHolder_Controller extends Page_Controller{
 	
 	public function ajaxContent() {
 	    $retval = array();
-	    $retval["documents"] =array("title"=>$this->Header(), "data"=>$this->getOrganizeDocuments());
+	    $retval["documents"] = array("title"=>$this->getHeader(), "data"=>$this->getOrganizeDocuments());
 	    $retval["imagepath"] = "/home/ajaxImages";
 	    return json_encode($retval, JSON_FORCE_OBJECT);
 	}
