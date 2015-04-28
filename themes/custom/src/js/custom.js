@@ -98,7 +98,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        if(objectSize($scope.content)%1){
+        if(objectSize($scope.content)%2){
             angular.element(".connection").removeClass("odd");
             angular.element(".connection").addClass("even");
             angular.element(".footer .section-row").removeClass("even");
@@ -123,7 +123,7 @@ hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams'
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        if(objectSize($scope.content)%1){
+        if(objectSize($scope.content)%2){
             angular.element(".connection").removeClass("odd");
             angular.element(".connection").addClass("even");
             angular.element(".footer .section-row").removeClass("even");
