@@ -214,7 +214,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
 
 hbcWebApp.factory("EventsService", function($http){
     var factory = {};
-    factory.model;
+    factory.model = undefined;
     
     factory.get = function get(){
         if(angular.isUndefinedOrNullOrEmpty(factory.model)){
