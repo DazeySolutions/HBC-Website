@@ -197,30 +197,23 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
-hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash', function($scope, $http, $stateParams, $window, lodash){
+hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData', function($scope, $http, $stateParams, $window, lodash, jsonData){
     
-    $scope.documents = [];
-    
+    $scope.documents = jsonData.documents.data;
+    $scope.title = jsonData.documents.title;
+    $scope.imagePath = jsonData.imagepath;
     
      $scope.init =  function init(){
-        var location = '';
         var maxHeight = $window.innerWidth/(2.39);
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        location = !angular.isUndefinedOrNullOrEmpty($stateParams.page) ? $stateParams.page : location;
-        if(location !== ''){
-            $http.get("/"+location+"/ajaxContent").success(function(data){
-                $scope.documents = data.documents.data;
-                $scope.title = data.documents.title;
-                $scope.imagePath = data.imagepath;
-                angular.element(".connection").removeClass("odd");
-                angular.element(".connection").addClass("even");
-                angular.element(".footer .section-row").removeClass("even");
-                angular.element(".footer .section-row").addClass("odd");
-            });
-        }
+        angular.element(".connection").removeClass("odd");
+        angular.element(".connection").addClass("even");
+        angular.element(".footer .section-row").removeClass("even");
+        angular.element(".footer .section-row").addClass("odd");
     };
+    
     $scope.curPage = 1;
     $scope.totalPages = 1;
     $scope.url = undefined;
@@ -250,6 +243,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.content = undefined;
     $scope.images = {};
     $scope.init();
+    
 }]);
 
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
