@@ -15,7 +15,7 @@
                             <li role="presentation" class="dropdown active">
                                 <a role="button" class="dropdown-toggle" data-toggle="dropdown">{{year}} <i class="fa fa-fw fa-chevron-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" ng-repeat="(month, days) in months">
-                                    <li><i class="fa fa-fw fa-plus"></i>{{month}}</li>
+                                    <li><a><i class="fa fa-fw fa-plus"></i>{{getMonth(month)}}</a></li>
                                     <li class="divider"></li>
                                     <li ng-repeat="(day, link) in days"><a ng-click="loadDoc(link)"><i class="fa fa-fw fa-minus"></i>{{day}}</a></li>
                                     <li class="divider"></li>
