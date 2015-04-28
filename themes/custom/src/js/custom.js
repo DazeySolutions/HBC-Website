@@ -1,4 +1,16 @@
 var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf'];
+
+var objectSize = function countProperties(obj) {
+    var count = 0;
+
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            ++count;
+    }
+
+    return count;
+};
+
 var hbcWebApp = angular.module("hbcWebApp", appDependencies);
 
 angular.isUndefinedOrNull = function undefinedOrNull(value){
@@ -86,8 +98,17 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        angular.element(".event-section").html("<div ng-repeat='event in events'><div  ng-bind-html='event | to_trusted'></div></div>");
-        
+        if(objectSize($scope.content)%1){
+            angular.element(".connection").removeClass("odd");
+            angular.element(".connection").addClass("even");
+            angular.element(".footer .section-row").removeClass("even");
+            angular.element(".footer .section-row").addClass("odd");
+        }else{
+            angular.element(".connection").removeClass("even");
+            angular.element(".connection").addClass("odd");
+            angular.element(".footer .section-row").removeClass("odd");
+            angular.element(".footer .section-row").addClass("even");
+        }
     };
     
     $scope.init();
@@ -102,6 +123,17 @@ hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams'
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
+        if(objectSize($scope.content)%1){
+            angular.element(".connection").removeClass("odd");
+            angular.element(".connection").addClass("even");
+            angular.element(".footer .section-row").removeClass("even");
+            angular.element(".footer .section-row").addClass("odd");
+        }else{
+            angular.element(".connection").removeClass("even");
+            angular.element(".connection").addClass("odd");
+            angular.element(".footer .section-row").removeClass("odd");
+            angular.element(".footer .section-row").addClass("even");
+        }
     };
     
     $scope.init();
