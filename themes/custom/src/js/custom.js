@@ -37,13 +37,11 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             },
             resolve: {
                 jsonData: function($stateParams, $http){
-                    return $http.get("/"+$stateParams.page+"/JSON").success(function(data){
-                        return data.data;
-                    });
+                    return $http.get("/"+$stateParams.page+"/JSON");
                 }
             },
             controllerProvider: function(jsonData){
-                return jsonData.controller;
+                return jsonData.data.controller;
             }
             
         });
@@ -201,9 +199,9 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
 
 hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData', function($scope, $http, $stateParams, $window, lodash, jsonData){
     
-    $scope.documents = jsonData.documents.data;
-    $scope.title = jsonData.documents.title;
-    $scope.imagePath = jsonData.imagepath;
+    $scope.documents = jsonData.data.documents.data;
+    $scope.title = jsonData.data.documents.title;
+    $scope.imagePath = jsonData.data.imagepath;
     
      $scope.init =  function init(){
         var maxHeight = $window.innerWidth/(2.39);
