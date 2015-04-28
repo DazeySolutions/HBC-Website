@@ -38,7 +38,7 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             resolve: {
                 jsonData: function($stateParams, $http){
                     return $http.get("/"+$stateParams.page+"/JSON").success(function(data){
-                        return data;
+                        return data.data;
                     });
                 }
             },
