@@ -42,6 +42,9 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                         return data;
                     });
                 }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.controller;
             }
             
         });

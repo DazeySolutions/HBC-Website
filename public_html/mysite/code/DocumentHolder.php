@@ -105,6 +105,7 @@ class DocumentHolder_Controller extends Page_Controller{
 	    $retval = array();
 	    $retval["documents"] = array("title"=>$this->Header, "data"=>$this->getOrganizeDocuments());
 	    $retval["imagepath"] = "/home/ajaxImages";
+	    $retval["controller"] = "DocumentHolderController";
 	    return json_encode($retval, JSON_FORCE_OBJECT);
 	}
 }

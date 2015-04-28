@@ -1,4 +1,4 @@
-<div class="content" ng-controller="$AngularController">
+<div class="content">
     <div ng-image-slider path="{{imagePath}}">
     </div>
     <div class="row section-row even">
