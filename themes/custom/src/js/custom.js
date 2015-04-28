@@ -80,20 +80,14 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','EventsService','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, EventsService, jsonData){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
-    
+    $scope.events = EventsService.model.html;
     $scope.init =  function init(){
         var maxHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        if(!angular.isUndefinedOrNullOrEmpty(EventsService.model) && !angular.isUndefinedOrNullOrEmpty(EventsService.model.html)){
-            angular.element(".event-section").html(EventsService.model.html);
-            if(!$scope.$$phase) {
-                $scope.$apply();
-            }   
-        }else{
-            angular.element(".event-section").html("<h4 class='text-center'>More events coming soon!</h4>");
-        }
+        angular.element(".event-section").html("<div ng-repeat='event in events'><div  ng-bind-html='event | to_trusted'></div></div>");
+        
     };
     
     $scope.init();
