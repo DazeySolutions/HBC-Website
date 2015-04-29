@@ -45,8 +45,10 @@
 			
 			$scope.init = function init(){
                 ngChurchManagementService.get($scope.basePath);
-                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                var count = 0;
+                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model) && count < 100){
                     console.log("waiting on data");
+                    count ++;
                 }
                 $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
                 totalSermons = ngChurchManagementService.model.sermons.length;
@@ -88,8 +90,10 @@
 			
 			$scope.init = function init(){
                 ngChurchManagementService.get($scope.basePath);
-                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                var count = 0;
+                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model) && count < 100){
                     console.log("waiting on data");
+                    count++;
                 }
                 $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
                 totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2;
