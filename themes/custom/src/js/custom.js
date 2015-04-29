@@ -88,6 +88,20 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     };
     $scope.init();
 }]);
+
+hbcWebApp.directive('dynamic', function($compile){
+    return {
+        restrict: 'A',
+        replace: true,
+        link: function(scope, ele, attrs){
+            scope.$watch(attrs.dynamic, function(html){
+               ele.html(html);
+               $compile(ele.contents())(scope);
+            });
+        }
+    };
+});
+
 hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
@@ -95,8 +109,6 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     
     $scope.init =  function init(){
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
-        $compile(angular.element(".ng-church-event"))($scope);
-        $compile(angular.element(".ng-church-sermon"))($scope);
     };
     
     $scope.init();
