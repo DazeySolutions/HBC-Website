@@ -1,4 +1,4 @@
-<div class="row section-row odd connection">
+<div class="row section-row connection" ng-class="{even: evenOdd, odd: !evenOdd}">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <hr class="hidden-xs col-sm-3" />

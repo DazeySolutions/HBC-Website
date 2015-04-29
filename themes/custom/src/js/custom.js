@@ -69,6 +69,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','EventsService', function ($scope, toaster, $window, $http, $stateParams, $state, EventsService){
     
     EventsService.get();
+    $scope.evenOdd = false;
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
@@ -98,17 +99,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        if(objectSize($scope.content)%2){
-            angular.element(".connection").removeClass("odd");
-            angular.element(".connection").addClass("even");
-            angular.element(".footer .section-row").removeClass("even");
-            angular.element(".footer .section-row").addClass("odd");
-        }else{
-            angular.element(".connection").removeClass("even");
-            angular.element(".connection").addClass("odd");
-            angular.element(".footer .section-row").removeClass("odd");
-            angular.element(".footer .section-row").addClass("even");
-        }
+        $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
     };
     
     $scope.init();
@@ -123,17 +114,7 @@ hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams'
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        if(objectSize($scope.content)%2){
-            angular.element(".connection").removeClass("odd");
-            angular.element(".connection").addClass("even");
-            angular.element(".footer .section-row").removeClass("even");
-            angular.element(".footer .section-row").addClass("odd");
-        }else{
-            angular.element(".connection").removeClass("even");
-            angular.element(".connection").addClass("odd");
-            angular.element(".footer .section-row").removeClass("odd");
-            angular.element(".footer .section-row").addClass("even");
-        }
+        $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
     };
     
     $scope.init();
@@ -159,10 +140,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         angular.element(".imageSlider").css('height',maxHeight+"px");
         angular.element(".imageSlider").css('background-color','#222');
         angular.element(".imageSlider").css('background-size','cover');
-        angular.element(".connection").removeClass("odd");
-        angular.element(".connection").addClass("even");
-        angular.element(".footer .section-row").removeClass("even");
-        angular.element(".footer .section-row").addClass("odd");
+        $scope.$parent.evenOdd = true;
     };
 
     $scope.haveUrl = function haveURL(){

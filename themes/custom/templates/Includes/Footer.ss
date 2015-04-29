@@ -1,5 +1,5 @@
 <footer id="bottom" class="footer">
-	<div class="row section-row even">
+	<div class="row section-row" ng-class="{even: !evenOdd, odd: evenOdd}">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
     		<div class="col-xs-12 col-sm-4">
     		    <h4>Connect With Us</h4>
