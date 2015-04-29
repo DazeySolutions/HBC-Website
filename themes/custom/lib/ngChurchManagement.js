@@ -16,11 +16,11 @@
 	
     app.factory('ngChurchManagementService', function($http){
         var factory = {};
-        factory.model = {};
+        factory.model = undefined;
         
-        factory.get = function get(){
+        factory.get = function get(basePath){
             if(angular.isUndefinedOrNullOrEmpty(factory.model)){
-                return $http.get($scope.basPath+"/a.json").then(function(data){
+                return $http.get(basePath+"/a.json").then(function(data){
                     factory.model = data;
                     return data;
 				});
@@ -40,7 +40,7 @@
 			$scope.prevDisable = true;
 			
 			$scope.init = function init(){
-                ngChurchManagementService.get().then(function(){
+                ngChurchManagementService.get($scope.basePath).then(function(){
                    $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
                    totalSermons = ngChurchManagementService.model.sermons.length;
                 });
@@ -80,7 +80,7 @@
 			$scope.prevDisable = true;
 			
 			$scope.init = function init(){
-                ngChurchManagementService.get().then(function(){
+                ngChurchManagementService.get($scope.basePath).then(function(){
                    $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
                    totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2;
                 });
