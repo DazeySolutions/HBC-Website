@@ -45,15 +45,14 @@
 			
 			$scope.init = function init(){
                 ngChurchManagementService.get($scope.basePath);
-                var count = 0;
-                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model) && count < 100){
-                    console.log("waiting on data");
-                    count ++;
-                }
-                $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
-                totalSermons = ngChurchManagementService.model.sermons.length;
-                
 			};
+			
+			$scope.$watch('ngChurchManagementService.model', function(){
+                $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
+                totalSermons = ngChurchManagementService.model.sermons.length; 
+                $scope.prevDisable = curSermon > 0;
+                $scope.nextDisable = (curSermon+1) < totalSermons;
+			});
 			
 			$scope.init();
 			
@@ -85,19 +84,19 @@
 			$scope.events = undefined;
 			var curPage = 0;
 			var totalPages = 1;
-			$scope.nextDisable = false;
+			$scope.nextDisable = true;
 			$scope.prevDisable = true;
 			
 			$scope.init = function init(){
                 ngChurchManagementService.get($scope.basePath);
-                var count = 0;
-                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model) && count < 100){
-                    console.log("waiting on data");
-                    count++;
-                }
-                $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
-                totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2;
 			};
+			
+			$scope.$watch('ngChurchManagementService.model', function(){
+                $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2; 
+                $scope.prevDisable = curPage > 0;
+                $scope.nextDisable = (curPage+2) < totalPages;
+			});
 			
 			$scope.next = function next(){
                 if(curPage+2 < totalPages){
@@ -175,8 +174,8 @@
             '</div>                                                                                      '+
             '<div class="row">                                                                           '+
             '    <div class="col-xs-12">                                                                 '+
-            '        <button class="btn bnt-defualt text-center" ng-disabled="prevDisable" ng-click="prev()"><i class="fa fa-fw fa-2x fa-chevron-left"></i></button>'+
-            '        <button class="btn bnt-defualt text-center" ng-disabled="nextDisable" ng-click="next()"><i class="fa fa-fw fa-2x fa-chevron-right"></i></button>'+
+            '        <button class="btn bnt-default text-center" ng-disabled="prevDisable" ng-click="prev()"><i class="fa fa-fw fa-2x fa-chevron-left"></i></button>'+
+            '        <button class="btn bnt-primary text-center" ng-disabled="nextDisable" ng-click="next()"><i class="fa fa-fw fa-2x fa-chevron-right"></i></button>'+
             '    </div>                                                                                  '+
             '</div>                                                                                      '
             );
@@ -198,8 +197,8 @@
             '</div>                                                                                      '+
             '<div class="row">                                                                           '+
             '    <div class="col-xs-12">                                                                 '+
-            '        <button class="btn bnt-defualt text-center" ng-disabled="prevDisable" ng-click="prev()"><i class="fa fa-fw fa-2x fa-chevron-left"></i></button>'+
-            '        <button class="btn bnt-defualt text-center" ng-disabled="nextDisable" ng-click="next()"><i class="fa fa-fw fa-2x fa-chevron-right"></i></button>'+
+            '        <button class="btn bnt-default text-center" ng-disabled="prevDisable" ng-click="prev()"><i class="fa fa-fw fa-2x fa-chevron-left"></i></button>'+
+            '        <button class="btn bnt-primary text-center" ng-disabled="nextDisable" ng-click="next()"><i class="fa fa-fw fa-2x fa-chevron-right"></i></button>'+
             '    </div>                                                                                  '+
             '</div>                                                                                      '
             );
