@@ -12,6 +12,8 @@
     <link href="$ThemeDir/css/main.css" rel="stylesheet">
 
     <script src="$ThemeDir/js/dependencies.min.js"></script>
+    <script src="$ThemeDir/js/libraries.min.js"></script>
+    <script src="$ThemeDir/js/modules.min.js"></script>
 
     <script src="$ThemeDir/js/custom.min.js"></script>
     <script src="$ThemeDir/js/instagram.min.js"></script>
