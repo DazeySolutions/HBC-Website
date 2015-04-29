@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf', 'ngChurchManagement'];
 
 var objectSize = function countProperties(obj) {
     var count = 0;
@@ -66,9 +66,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','EventsService', function ($scope, toaster, $window, $http, $stateParams, $state, EventsService){
-    
-    EventsService.get();
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state', function ($scope, toaster, $window, $http, $stateParams, $state){
     $scope.evenOdd = false;
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
@@ -90,15 +88,12 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     };
     $scope.init();
 }]);
-hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','EventsService','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, EventsService, jsonData){
+hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '$window','lodash', '$timeout','jsonData', function($scope, $http, $stateParams, $window, lodash, $timeout, jsonData){
     $scope.content = jsonData.data.content;
     $scope.imagePath = jsonData.data.imagepath;
-    $scope.events = EventsService.model.html;
+    $scope.churchManagementPath = "http://events.hbc-ky.com";
+    
     $scope.init =  function init(){
-        var maxHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
-        angular.element(".imageSlider").css('height',maxHeight+"px");
-        angular.element(".imageSlider").css('background-color','#222');
-        angular.element(".imageSlider").css('background-size','cover');
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
     };
     
@@ -110,10 +105,6 @@ hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams'
     $scope.imagePath = jsonData.data.imagepath;
     
     $scope.init =  function init(){
-        var maxHeight = $window.innerWidth/(2.39);
-        angular.element(".imageSlider").css('height',maxHeight+"px");
-        angular.element(".imageSlider").css('background-color','#222');
-        angular.element(".imageSlider").css('background-size','cover');
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
     };
     
@@ -136,10 +127,6 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.url = undefined;
     
     $scope.init =  function init(){
-        var maxHeight = $window.innerWidth/(2.39);
-        angular.element(".imageSlider").css('height',maxHeight+"px");
-        angular.element(".imageSlider").css('background-color','#222');
-        angular.element(".imageSlider").css('background-size','cover');
         $scope.$parent.evenOdd = true;
     };
 
@@ -197,26 +184,6 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.init();
     
 }]);
-
-hbcWebApp.factory("EventsService", function($http){
-    var factory = {};
-    factory.model = undefined;
-    
-    factory.get = function get(){
-        if(angular.isUndefinedOrNullOrEmpty(factory.model)){
-            $http.get("http://events.hbc-ky.com/a").success(function(data){
-                if(!angular.isUndefinedOrNullOrEmpty(data)){
-                    factory.model = {
-                        html: data
-                    };
-                }
-            });
-        }
-    };
-    
-    return factory;
-    
-});
 
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
     $scope.init =  function init(){
