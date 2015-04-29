@@ -95,6 +95,8 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     
     $scope.init =  function init(){
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
+        $compile(angular.element(".ng-church-event"))($scope);
+        $compile(angular.element(".ng-church-sermon"))($scope);
     };
     
     $scope.init();
