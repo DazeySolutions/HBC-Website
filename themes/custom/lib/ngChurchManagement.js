@@ -13,17 +13,21 @@
 	
 	var app = angular.module('ngChurchManagement', []);
 	
-	
+	angular.isUndefinedOrNull = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null;
+    };
+    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null || value === "";
+    };
     app.factory('ngChurchManagementService', function($http){
         var factory = {};
         factory.model = undefined;
         
         factory.get = function get(basePath){
             if(angular.isUndefinedOrNullOrEmpty(factory.model)){
-                return $http.get(basePath+"/a.json").then(function(data){
+                $http.get(basePath+"/a.json").then(function(data){
                     factory.model = data;
-                    return data;
-				});
+                });
             }
         };
         
@@ -40,10 +44,13 @@
 			$scope.prevDisable = true;
 			
 			$scope.init = function init(){
-                ngChurchManagementService.get($scope.basePath).then(function(){
-                   $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
-                   totalSermons = ngChurchManagementService.model.sermons.length;
-                });
+                ngChurchManagementService.get($scope.basePath);
+                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                    console.log("waiting on data");
+                }
+                $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
+                totalSermons = ngChurchManagementService.model.sermons.length;
+                
 			};
 			
 			$scope.init();
@@ -80,10 +87,12 @@
 			$scope.prevDisable = true;
 			
 			$scope.init = function init(){
-                ngChurchManagementService.get($scope.basePath).then(function(){
-                   $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
-                   totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2;
-                });
+                ngChurchManagementService.get($scope.basePath);
+                while(angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                    console.log("waiting on data");
+                }
+                $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2;
 			};
 			
 			$scope.next = function next(){
