@@ -133,7 +133,7 @@ angular.monthString = function(curdate){
 			
 			$scope.$watch('ngChurchManagementService.model', function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
-                    if(ngChurchManagementService.model.events.length>=curPage*2){
+                    if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
                         $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
                     }else{
                         $scope.events = {0:ngChurchManagementService.model.events[curPage]};
@@ -144,9 +144,13 @@ angular.monthString = function(curdate){
                 }
 			});
 			
-			$scope.getDay = angular.dayString(curdate);
+			$scope.getDay = function(curdate){
+                return angular.dayString(curdate);
+			};
 			
-			$scope.getMonth = angular.monthString(curdate);
+			$scope.getMonth = function(curdate){
+                return angular.monthString(curdate);
+			};
 			
 			$scope.getFormattedDate = function (curdate){
                 var month = angular.monthString(curdate);
@@ -241,7 +245,7 @@ angular.monthString = function(curdate){
 		$templateCache.put('cmSermon.html', 
             '<div class="col-xs-12 col-md-8 col-md-offset-2">                                            '+
             '    <div class="well" style="padding: 0px;">                                                '+
-            '        <img ng-src="{{basePath+event.image}}" style="width:100%;">                             '+
+            '        <img ng-src="{{basePath+sermon.image}}" style="width:100%;">                             '+
             '        <div class="row">                                                                   '+
             '            <div class="col-xs-12">                                                         '+
             '                <div class="col-xs-12">                                                     '+
