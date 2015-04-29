@@ -79,6 +79,44 @@
 		}
 	]);
 	
+	angular.dayString = function(curdate){
+        var d = new Date(curdate);
+        var day = d.getDate();
+        if(day<10){
+            return "0"+day;
+        }else{
+            return day;
+        }
+	};
+angular.monthString = function(curdate){
+        var d = new Date(curdate);
+        switch(d.getMonth()){
+            case 0:
+                return "Jan";
+            case 1:
+                return "Feb";
+            case 2:
+                return "Mar";
+            case 3:
+                return "Apr";
+            case 4:
+                return "May";
+            case 5:
+                return "Jun";
+            case 6:
+                return "Jul";
+            case 7:
+                return "Aug";
+            case 8:
+                return "Sep";
+            case 9:
+                return "Oct";
+            case 10:
+                return "Nov";
+            case 11:
+                return "Dec";
+        }
+    };
 	app.controller('ngChurchEventController', ['$scope', 'ngChurchManagementService',
 		function($scope, ngChurchManagementService){
 			$scope.events = undefined;
@@ -92,11 +130,28 @@
 			};
 			
 			$scope.$watch('ngChurchManagementService.model', function(){
-                $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                if(ngChurchManagementService.model.events.length>=curPage*2){
+                    $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                }else{
+                    $scope.events = {0:ngChurchManagementService.model.events[curPage]};
+                }
                 totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2; 
                 $scope.prevDisable = curPage > 0;
                 $scope.nextDisable = (curPage+2) < totalPages;
 			});
+			
+			$scope.getDay = angular.dayString(curdate);
+			
+			$scope.getMonth = angular.monthString(curdate);
+			
+			$scope.getFormattedDate = function (curdate){
+                var month = angular.monthString(curdate);
+                var day = angular.dayString(curdate);
+                var date = new Date(curdate);
+                var year = date.getFullYear();
+                var time = date.toLocaleTimeString();
+                return month + " " + day + ", " + year + " " + time;
+			};
 			
 			$scope.next = function next(){
                 if(curPage+2 < totalPages){
@@ -157,7 +212,7 @@
             '            <p class="month">{{getMonth(event.start)}}</p>                                  '+
             '        </div>                                                                              '+
             '        <div>                                                                               '+
-            '           <img ng-src="basePath+event.image" style="width:100%;">                          '+
+            '           <img ng-src="{{basePath+event.image}}" style="width:100%;">                          '+
             '        </div>                                                                              '+
             '        <div class="row">                                                                   '+
             '            <div class="col-xs-12">                                                         '+
@@ -182,7 +237,7 @@
 		$templateCache.put('cmSermon.html', 
             '<div class="col-xs-12 col-md-8 col-md-offset-2">                                            '+
             '    <div class="well" style="padding: 0px;">                                                '+
-            '        <img ng-src="basePath+event.image" style="width:100%;">                             '+
+            '        <img ng-src="{{basePath+event.image}}" style="width:100%;">                             '+
             '        <div class="row">                                                                   '+
             '            <div class="col-xs-12">                                                         '+
             '                <div class="col-xs-12">                                                     '+
