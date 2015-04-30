@@ -113,7 +113,7 @@ hbcWebApp.service('loadGoogleMapAPI', ['$window', '$q',
         // Script loaded callback, send resolve
         $window.initMap = function () {
             deferred.resolve();
-        }
+        };
 
         loadScript();
 
