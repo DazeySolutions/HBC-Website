@@ -22,12 +22,24 @@
     app.factory('ngChurchManagementService', function($http){
         var factory = {};
         factory.model = undefined;
+        factory.registerObserverCallback = function(callback){
+            observerCallbacks.push(callback);
+        };
+        
+        var notifyObservers = function(){
+            angular.forEach(observerCallbacks, function(callback){
+                callback();
+            });
+        };
+        var requested = false;
         
         factory.get = function get(basePath){
-            if(angular.isUndefinedOrNullOrEmpty(factory.model)){
+            if(angular.isUndefinedOrNullOrEmpty(factory.model) && !requested){
                 $http.get(basePath+"/a.json").success(function(data){
                     factory.model = data;
+                    notifyObservers();
                 });
+                requested = true;
             }
         };
         
@@ -47,17 +59,18 @@
                 ngChurchManagementService.get($scope.basePath);
 			};
 			
-			$scope.$watch('ngChurchManagementService.model', function(){
+			var setSermon =  function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
                     $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
                     totalSermons = ngChurchManagementService.model.sermons.length; 
                     $scope.prevDisable = curSermon > 0;
                     $scope.nextDisable = (curSermon+1) < totalSermons;
                 }
-			});
+			};
+			
+			ngChurchManagementService.registerObserverCallback(setSermon);
 			
 			$scope.init();
-			
 			
 			$scope.next = function next(){
                 if(curSermon+1 < totalSermons){
@@ -131,7 +144,7 @@ angular.monthString = function(curdate){
                 ngChurchManagementService.get($scope.basePath);
 			};
 			
-			$scope.$watch('ngChurchManagementService.model', function(){
+			var setEvents = function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
                     if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
                         $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
@@ -142,7 +155,9 @@ angular.monthString = function(curdate){
                     $scope.prevDisable = curPage > 0;
                     $scope.nextDisable = (curPage+2) < totalPages;
                 }
-			});
+			};
+			
+			ngChurchManagementService.registerObserverCallback(setEvents);
 			
 			$scope.getDay = function(curdate){
                 return angular.dayString(curdate);
