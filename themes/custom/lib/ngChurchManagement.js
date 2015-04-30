@@ -254,11 +254,11 @@ angular.monthString = function(curdate){
             '</div>                                                                                      '+
             '<div class="row" ng-if="prevDisable || nextDisable">                                        '+
             '    <div class="col-xs-12">'+
-            '        <div class="col-xs-2 col-xs-offset-3">                                              '+
-            '            <button class="btn bnt-default col-xs-12" ng-disabled="!prevDisable" ng-click="prev()"><i class="fa fa-fw fa-lg fa-chevron-left"></i></button>'+
+            '        <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-3">                     '+
+            '            <button class="btn btn-primary col-xs-12" ng-disabled="!prevDisable" ng-click="prev()"><i class="fa fa-fw fa-lg fa-chevron-left"></i></button>'+
             '        </div>'+
-            '        <div class="col-xs-2 col-xs-offset-2">                                              '+
-            '            <button class="btn bnt-primary col-xs-12" ng-disabled="!nextDisable" ng-click="next()"><i class="fa fa-fw fa-lg fa-chevron-right"></i></button>'+
+            '        <div class="col-xs-4 col-xs-offset-2 col-md-2 col-md-offset-2">                     '+
+            '            <button class="btn btn-primary col-xs-12" ng-disabled="!nextDisable" ng-click="next()"><i class="fa fa-fw fa-lg fa-chevron-right"></i></button>'+
             '        </div>'+
             '    </div>                                                                                  '+
             '</div>                                                                                      '
@@ -281,11 +281,11 @@ angular.monthString = function(curdate){
             '</div>                                                                                      '+
             '<div class="row"  ng-if="prevDisable || nextDisable">                                       '+
             '    <div class="col-xs-12">'+
-            '        <div class="col-xs-2 col-xs-offset-3">                                              '+
-            '            <button class="btn bnt-default col-xs-12" ng-disabled="!prevDisable" ng-click="prev()"><i class="fa fa-fw fa-lg fa-chevron-left"></i></button>'+
+            '        <div class="col-xs-4 col-xs-offset-1 col-md-2 col-md-offset-3">                     '+
+            '            <button class="btn btn-primary col-xs-12" ng-disabled="!prevDisable" ng-click="prev()"><i class="fa fa-fw fa-lg fa-chevron-left"></i></button>'+
             '        </div>'+
-            '        <div class="col-xs-2 col-xs-offset-2">                                              '+
-            '            <button class="btn bnt-primary col-xs-12" ng-disabled="!nextDisable" ng-click="next()"><i class="fa fa-fw fa-lg fa-chevron-right"></i></button>'+
+            '        <div class="col-xs-4 col-xs-offset-2 col-md-2 col-md-offset-2">                     '+
+            '            <button class="btn btn-primary col-xs-12" ng-disabled="!nextDisable" ng-click="next()"><i class="fa fa-fw fa-lg fa-chevron-right"></i></button>'+
             '        </div>'+
             '    </div>                                                                                  '+
             '</div>                                                                                      '
