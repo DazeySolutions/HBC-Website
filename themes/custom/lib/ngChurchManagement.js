@@ -22,6 +22,7 @@
     app.factory('ngChurchManagementService', function($http){
         var factory = {};
         factory.model = undefined;
+        var observerCallbacks = [];
         factory.registerObserverCallback = function(callback){
             observerCallbacks.push(callback);
         };
