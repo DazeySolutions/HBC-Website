@@ -154,7 +154,7 @@ angular.monthString = function(curdate){
                     }
                     totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2; 
                     $scope.prevDisable = curPage > 0;
-                    $scope.nextDisable = (curPage+2) < totalPages;
+                    $scope.nextDisable = (curPage+1) < totalPages;
                 }
 			};
 			
@@ -183,7 +183,7 @@ angular.monthString = function(curdate){
                     $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]}; 
                 }
                 $scope.prevDisable = curPage > 0;
-                $scope.nextDisable = (curPage+2) < totalPages;
+                $scope.nextDisable = (curPage+1) < totalPages;
 			};
 			
 			$scope.prev = function prev(){
@@ -192,7 +192,7 @@ angular.monthString = function(curdate){
                     $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]}; 
                 }
                 $scope.prevDisable = curPage > 0;
-                $scope.nextDisable = (curPage+2) < totalPages;
+                $scope.nextDisable = (curPage+1) < totalPages;
 			};
 			
 			$scope.init();
