@@ -91,6 +91,7 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
            }
         });
     };
+    $scope.done = false;
     $scope.init();
 }]);
 
@@ -114,6 +115,7 @@ hbcWebApp.controller('HomePageController', ['$scope', '$http', '$stateParams', '
     
     $scope.init =  function init(){
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
+        $scope.$parent.done = true;
     };
     
     $scope.init();
@@ -125,6 +127,7 @@ hbcWebApp.controller('ContentPageController', ['$scope', '$http', '$stateParams'
     
     $scope.init =  function init(){
         $scope.$parent.evenOdd = objectSize($scope.content)%2 == 1;
+        $scope.$parent.done = true;
     };
     
     $scope.init();
@@ -147,6 +150,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     
     $scope.init =  function init(){
         $scope.$parent.evenOdd = true;
+        $scope.$parent.done = true;
     };
 
     $scope.haveUrl = function haveURL(){
