@@ -67,12 +67,13 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state', function ($scope, toaster, $window, $http, $stateParams, $state){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI){
     
     $scope.evenOdd = false;
     
     $scope.mapStyle = '[{"featureType":"all","elementType":"all","stylers":[{"saturation":-100},{"gamma":0.5}]}]';
-    
+    $scope.mapsLoaded = false;
+    loadGoogleMapAPI.then(function () { $scope.mapsLoaded = true;});
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
             $scope.toastData = data;
@@ -94,6 +95,30 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     $scope.done = false;
     $scope.init();
 }]);
+
+hbcWebApp.service('loadGoogleMapAPI', ['$window', '$q', 
+    function ( $window, $q ) {
+
+        var deferred = $q.defer();
+
+        // Load Google map API script
+        function loadScript() {  
+            // Use global document since Angular's $document is weak
+            var script = document.createElement('script');
+            script.src = '//maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio&callback=initMap';
+
+            document.body.appendChild(script);
+        }
+
+        // Script loaded callback, send resolve
+        $window.initMap = function () {
+            deferred.resolve();
+        }
+
+        loadScript();
+
+        return deferred.promise;
+    }]);
 
 hbcWebApp.directive('dynamic', function($compile){
     return {

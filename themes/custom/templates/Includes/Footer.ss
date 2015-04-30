@@ -12,9 +12,11 @@
                 <hr class="hidden-xs col-sm-3 h4" />
                 <h4 class="col-xs-12 col-sm-6 text-center">Location</h4>
                 <hr class="hidden-xs col-sm-3 h4" />
-                <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}'>
-                    <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
-                </map>
+                <div ng-if="mapsLoaded">
+                    <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}'>
+                        <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
+                    </map>
+                </div>
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="col-xs-12 col-sm-6">
