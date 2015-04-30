@@ -178,9 +178,10 @@ angular.monthString = function(curdate){
 			};
 			
 			$scope.next = function next(){
-                if(curPage+2 < totalPages){
-                    curPage += 2;    
-                    $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]}; 
+                if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
+                    $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                }else{
+                    $scope.events = {0:ngChurchManagementService.model.events[curPage]};
                 }
                 $scope.prevDisable = curPage > 0;
                 $scope.nextDisable = (curPage+1) < totalPages;
