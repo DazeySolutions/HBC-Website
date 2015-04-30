@@ -11,12 +11,12 @@
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
     <link href="$ThemeDir/css/main.css" rel="stylesheet">
 
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>
-    <script src="$ThemeDir/js/dependencies.min.js"></script>
-    <script src="$ThemeDir/js/libraries.min.js"></script>
-    <script src="$ThemeDir/js/angularuilibraries.min.js"></script>
-    <script src="$ThemeDir/js/modules.min.js"></script>
-    <script src="$ThemeDir/js/custom.min.js"></script>
-    <script src="$ThemeDir/js/instagram.min.js"></script>
-    <script src="/userforms/thirdparty/jquery-validate/jquery.validate.min.js"></script>
+    <script async src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=weather,visualization,panoramio"></script>
+    <script async src="$ThemeDir/js/dependencies.min.js"></script>
+    <script async src="$ThemeDir/js/libraries.min.js"></script>
+    <script async src="$ThemeDir/js/angularuilibraries.min.js"></script>
+    <script async src="$ThemeDir/js/modules.min.js"></script>
+    <script async src="$ThemeDir/js/custom.min.js"></script>
+    <script async src="$ThemeDir/js/instagram.min.js"></script>
+    <script async src="/userforms/thirdparty/jquery-validate/jquery.validate.min.js"></script>
 </head>
