@@ -19,11 +19,15 @@ module.exports = {
     dist2: {
         src: ['bower_components/pdfjs-dist/build/pdf.combined.js',
               'bower_components/angular-pdf-viewer/dist/angular-pdf-viewer.min.js',
-              'bower_components/angular-ui-router/release/angular-ui-router.js',  
               'bower_components/angular-animate/angular-animate.js', 
               'bower_components/angularjs-toaster/toaster.js',
               'bower_components/ng-lodash/build/ng-lodash.js'],
       dest: 'dist/js/libraries.min.js',
+    },
+    dist3: {
+        src: ['bower_components/ngmap/build/scripts/ng-map.js',
+              'bower_components/angular-ui-router/release/angular-ui-router.js'],
+        dest: 'dist/js/angularuilibraries.min.js'
     },
     css: {
       src: ['bower_components/angularjs-toaster/toaster.css', 'dist/css/main.css' ],

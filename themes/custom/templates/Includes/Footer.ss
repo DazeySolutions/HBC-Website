@@ -9,6 +9,9 @@
                 <div class="contactForm" data-ng-contact data-path="/forms/contact-form/ajax"></div>
     		</div>
     		<div class="col-xs-12 col-sm-4">
+    		    <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}'>
+    		        <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
+    		    </map>
     		</div>
     		<div class="col-xs-12 col-sm-4">
     		</div>
