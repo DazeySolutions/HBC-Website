@@ -228,7 +228,7 @@ angular.monthString = function(curdate){
 	]);
 	app.run(['$templateCache', function ($templateCache) {
         $templateCache.put('cmEvent.html', 
-            '<div class="col-xs-10 col-xs-offset-1 col-md-offset-0 col-md-6" ng-repeat="event in events">'+
+            '<div ng-cloak class="col-xs-10 col-xs-offset-1 col-md-offset-0 col-md-6" ng-repeat="event in events">'+
             '  <a ng-href="{{event.url}}">                                                               '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <div class="start text-center">                                                     '+
@@ -263,7 +263,7 @@ angular.monthString = function(curdate){
             '</div>                                                                                      '
             );
 		$templateCache.put('cmSermon.html', 
-            '<div class="col-xs-12 col-md-8 col-md-offset-2">                                            '+
+            '<div ng-cloak class="col-xs-12 col-md-8 col-md-offset-2">                                            '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <img ng-src="{{basePath+sermon.image}}" style="width:100%;">                             '+
             '        <div class="row">                                                                   '+
