@@ -14,7 +14,7 @@
                 <hr class="hidden-xs col-sm-3 h4" />
                 <address class="">
                     <em>
-                        <strong>Highland Baptist Church</strong>
+                        <strong>Highland Baptist Church</strong><br>
                         511 Mount Eden Road<br>
                         P.O. Box 104<br>
                         Shelbyville KY 40066-0104<br>
