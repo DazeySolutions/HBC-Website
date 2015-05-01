@@ -5,7 +5,7 @@
         <div class="content">
         </div>
     </div>
-    <div class="container-fluid" ng-if="done">
+    <div class="container-fluid" ng-hide="!done">
         <% include Connection %>
         <% include Footer %>
     </div>
