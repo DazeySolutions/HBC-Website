@@ -1,5 +1,5 @@
 <footer id="bottom" class="footer">
-	<div class="row section-row" ng-class="{even: !evenOdd, odd: evenOdd}">
+	<div class="row section-row dark">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
     		<div class="col-xs-12 col-sm-3">
                 <hr class="hidden-xs col-sm-3 h4" />
@@ -12,6 +12,15 @@
                 <hr class="hidden-xs col-sm-3 h4" />
                 <h4 class="col-xs-12 col-sm-6 text-center">Location</h4>
                 <hr class="hidden-xs col-sm-3 h4" />
+                <address class="">
+                    <em>
+                        <strong>Highland Baptist Church</strong>
+                        511 Mount Eden Road<br>
+                        P.O. Box 104<br>
+                        Shelbyville KY 40066-0104<br>
+                        <abbr title="Phone">P:</abbr> <a href="tel:+15026333516">502-633-3516</a><br>
+                    </em>
+                </address>
                 <div ng-if="mapsLoaded">
                     <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}'>
                         <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
