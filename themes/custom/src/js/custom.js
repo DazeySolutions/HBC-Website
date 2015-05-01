@@ -164,7 +164,7 @@ hbcWebApp.controller('FormPageController', ['$scope', '$http', '$stateParams', f
     };
 }]);
 
-hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData', function($scope, $http, $stateParams, $window, lodash, jsonData){
+hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$stateParams','$window','lodash','jsonData','pdfDelegate', function($scope, $http, $stateParams, $window, lodash, jsonData, pdfDelegate){
     
     $scope.documents = jsonData.data.documents.data;
     $scope.title = jsonData.data.documents.title;
@@ -172,7 +172,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.curPage = 1;
     $scope.totalPages = 1;
     $scope.url = undefined;
-    
+    var mypdf;
     $scope.init =  function init(){
         $scope.$parent.evenOdd = true;
         $scope.$parent.done = true;
@@ -182,7 +182,10 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
       return !angular.isUndefinedOrNullOrEmpty($scope.url);
     };
     $scope.loadDoc = function loadDoc(link){
-        $scope.url = link;  
+        mypdf = pdfDelegate.$getByHandle('my-pdf-container')  ;
+        mypdf.load(link);
+        $scope.curPage = mypdf.getCurrentPage();
+        $scope.totalPages = mypdf.gettPageCount();
     };
     
     $scope.getMonth = function getMonth(number){
@@ -229,6 +232,27 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         return month;
     };
 
+    $scope.goBack = function goBack(){
+        if($scope.curPage > 1){
+            mypdf.prev();
+            $scope.curPage = mypdf.getCurrentPage();
+        }
+    };
+    
+    $scope.goNext = function goNext(){
+        if($scope.curPage < $scope.totalPages){
+            mypdf.next();
+            $scope.curPage = mypdf.getCurrentPage();
+        }
+    };
+    
+    $scope.disableNext = function(){
+      return $scope.curPage == $scope.totalPages;  
+    };
+    $scope.disablePrev = function(){
+      return $scope.curPage == 1;  
+    };
+    
     $scope.init();
     
 }]);

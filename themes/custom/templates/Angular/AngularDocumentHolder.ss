@@ -31,19 +31,20 @@
         <div class="col-xs-12 col-md-10 col-md-offset-1 doc-page" style="min-height: 200px;">
             <div ng-if="haveUrl()">
             
-                <div class="row">
+                <div class="row pdf">
+                    <pdf-viewer delegate-handle="my-pdf-container" url="url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}">
+                    </pdf-viewer>
                     <div class="col-xs-12 col-md-6 col-md-offset-3">
                         <div class="row">
-                            <button class="btn btn-info col-xs-3" ng-click="goBack()">Previous</button>
+                            <button class="btn btn-info col-xs-3" ng-click="goBack()" ng-disable="disablePrev()">Previous</button>
                             <span class="col-xs-6">
                                 <div class="row">
                                     <p class="col-xs-12 col-md-8 col-md-offset-2 text-center">Page {{curPage}} of {{totalPages}}</p>
                                 </div>
                             </span>
-                            <button class="btn btn-primary col-xs-3" ng-click="goNext()">Next</button>
+                            <button class="btn btn-primary col-xs-3" ng-click="goNext()" ng-disable="disableNext()">Next</button>
                         </div>
                     </div>
-                    <pdf-viewer delegate-handle="my-pdf-container" url="url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}"></pdf-viewer>
                 </div>
             </div>        
         </div>
