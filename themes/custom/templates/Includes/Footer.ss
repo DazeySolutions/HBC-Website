@@ -22,7 +22,7 @@
                     </em>
                 </address>
                 <div ng-if="mapsLoaded">
-                    <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}'>
+                    <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}' scrollwheel="false" disable-default-u-i="true" draggable="false">
                         <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
                     </map>
                 </div>
