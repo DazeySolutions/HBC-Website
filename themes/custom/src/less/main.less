@@ -233,23 +233,15 @@ body{
     }
 }
 
-.nav-pills{
-
-    li{
-        a{
-            color: @dark-text !important;
-            background-color: @odd-bg;
-            &:hover{
-                color: @light-text !important;
-                background-color: @offblack;
-            }
-        }
-        &.open{
-            a{
-                color: @light-text !important;
-                background-color: @offblack;
-            }
-        }
+.nav-pills > li > a{
+    color: @dark-text !important;
+    background-color: @odd-bg;
+    &:hover{
+        color: @light-text !important;
+        background-color: @offblack;
     }
-
+}
+.nav-pills > li.open > a{
+    color: @light-text !important;
+    background-color: @offblack;
 }
