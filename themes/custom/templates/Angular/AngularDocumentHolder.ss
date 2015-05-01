@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <ul class="nav nav-pills" ng-repeat="(year, months) in documents">
-                            <li role="presentation" class="dropdown active">
+                            <li role="presentation" class="dropdown">
                                 <a role="button" class="dropdown-toggle" data-toggle="dropdown">{{year}} <i class="fa fa-fw fa-chevron-down"></i></a>
                                 <ul class="dropdown-menu" role="menu" ng-repeat="(month, days) in months">
                                     <li><a><i class="fa fa-fw fa-plus"></i>{{getMonth(month)}}</a></li>
