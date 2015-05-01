@@ -29,10 +29,14 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="col-xs-12 col-sm-6">
-                <h4>Explore</h4>
+                <hr class="hidden-xs col-sm-3 h4" />
+                <h4 class="col-xs-12 col-sm-6 text-center">Explore</h4>
+                <hr class="hidden-xs col-sm-3 h4" />
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                <h4>Get Involved</h4>
+                <hr class="hidden-xs col-sm-3 h4" />
+                <h4 class="col-xs-12 col-sm-6 text-center">Get Involved</h4>
+                <hr class="hidden-xs col-sm-3 h4" />
                 </div>
             </div>
         </div>
