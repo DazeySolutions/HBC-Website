@@ -232,3 +232,25 @@ body{
     	transition: opacity 100ms ease;
     }
 }
+
+.nav-pills{
+
+    li{
+        a{
+            color: @dark-text;
+            background-color: @odd-bg;
+            &:hover{
+                color: @light-text;
+                background-color: @offblack;
+            }
+        }
+        &.open{
+            a{
+                color: @light-text;
+                background-color: @offblack;
+            }
+        }
+    }
+    
+}
+}
