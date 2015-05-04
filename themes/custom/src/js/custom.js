@@ -178,7 +178,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.imagePath = jsonData.data.imagepath;
     $scope.curPage = 1;
     $scope.totalPages = 1;
-    $scope.url = undefined;
+    $scope.url = "http://beta.hbc-ky.com/assets/Uploads/Documents/bulletin/blank.pdf";
     var mypdf;
     $scope.init =  function init(){
         $scope.$parent.evenOdd = true;
@@ -188,12 +188,15 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     $scope.haveUrl = false;
     
     $scope.loadDoc = function loadDoc(link){
-        $scope.haveUrl = true;
-        $scope.url = link;
-        mypdf = pdfDelegate.$getByHandle('my-pdf-container');
-        mypdf.load(link);
-        $scope.curPage = mypdf.getCurrentPage();
-        $scope.totalPages = mypdf.getPageCount();
+        if(!$scope.haveUrl){
+            $scope.haveUrl = true;    
+            $scope.loadDoc(link);
+        }else{
+            mypdf = pdfDelegate.$getByHandle('my-pdf-container');
+            mypdf.load(link);
+            $scope.curPage = mypdf.getCurrentPage();
+            $scope.totalPages = mypdf.getPageCount();
+        }
     };
     
     $scope.getMonth = function getMonth(number){
