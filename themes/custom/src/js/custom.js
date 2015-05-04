@@ -67,7 +67,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI','ngMap', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI, ngMap){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI){
     
     var marker, map;
     $scope.$on('mapInitialized', function(evt, evtMap) {
