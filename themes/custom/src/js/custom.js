@@ -72,7 +72,7 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     var marker, map;
     $scope.$on('mapInitialized', function(evt, evtMap) {
       map = evtMap;
-      map.setCenter("38.203040, -85.203772");
+      map.setCenter({lat:38.203040, lng:-85.203772});
       marker = map.markers[0];
     });
     
