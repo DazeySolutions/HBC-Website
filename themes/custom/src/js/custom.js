@@ -185,10 +185,10 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         $scope.$parent.done = true;
     };
 
-    $scope.haveUrl = function haveURL(){
-      return !angular.isUndefinedOrNullOrEmpty($scope.url);
-    };
+    $scope.haveUrl = false;
+    
     $scope.loadDoc = function loadDoc(link){
+        $scope.haveUrl = true;
         mypdf = pdfDelegate.$getByHandle('my-pdf-container');
         mypdf.load(link);
         $scope.curPage = mypdf.getCurrentPage();

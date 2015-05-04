@@ -29,8 +29,7 @@
     </div>
     <div class="row section-row odd">
         <div class="col-xs-12 col-md-10 col-md-offset-1 doc-page" style="min-height: 200px;">
-            <div ng-if="haveUrl()">
-            
+            <div ng-if="haveUrl">
                 <div class="row pdf">
                     <pdf-viewer delegate-handle="my-pdf-container" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}">
                     </pdf-viewer>
