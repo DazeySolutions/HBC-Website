@@ -189,7 +189,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
       return !angular.isUndefinedOrNullOrEmpty($scope.url);
     };
     $scope.loadDoc = function loadDoc(link){
-        mypdf = pdfDelegate.$getByHandle('my-pdf-container')  ;
+        mypdf = pdfDelegate.$getByHandle('my-pdf-container');
         mypdf.load(link);
         $scope.curPage = mypdf.getCurrentPage();
         $scope.totalPages = mypdf.getPageCount();

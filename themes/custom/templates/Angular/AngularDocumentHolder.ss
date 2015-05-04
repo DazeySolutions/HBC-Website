@@ -32,7 +32,7 @@
             <div ng-if="haveUrl()">
             
                 <div class="row pdf">
-                    <pdf-viewer delegate-handle="my-pdf-container" url="url" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}">
+                    <pdf-viewer delegate-handle="my-pdf-container" scale="1" show-toolbar="false" headers="{'x-you-know-whats-awesome': 'EVERYTHING'}">
                     </pdf-viewer>
                     <div class="col-xs-12 col-md-6 col-md-offset-3">
                         <div class="row">
