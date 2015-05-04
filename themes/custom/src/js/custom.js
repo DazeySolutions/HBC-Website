@@ -192,7 +192,7 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
         mypdf = pdfDelegate.$getByHandle('my-pdf-container')  ;
         mypdf.load(link);
         $scope.curPage = mypdf.getCurrentPage();
-        $scope.totalPages = mypdf.gettPageCount();
+        $scope.totalPages = mypdf.getPageCount();
     };
     
     $scope.getMonth = function getMonth(number){
