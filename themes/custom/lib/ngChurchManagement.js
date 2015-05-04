@@ -41,6 +41,8 @@
                     notifyObservers();
                 });
                 requested = true;
+            }else{
+                notifyObservers();
             }
         };
         
