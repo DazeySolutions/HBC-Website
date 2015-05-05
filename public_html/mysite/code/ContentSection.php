@@ -3,7 +3,7 @@
 class ContentSection extends DataObject{
 	private static $db = array(
 		'SortOrder' => 'Int',
-	        'Title' => 'Varchar',
+        'Title' => 'Varchar',
 		'Content' => 'HTMLText'
 	);
     private  static $extensions = array(
