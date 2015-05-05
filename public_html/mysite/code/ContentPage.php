@@ -72,11 +72,11 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldContentSections = new GridField("ContentSections", "Page Content Sections", $this->ContentSections()->sort("SortOrder"), $gridFieldConfig);
         
         if(!Permission::check("PAGE_ADD_BACKGROUND_BUTTONS")){
-		    $gridFieldConfig2->removeComponentsByType('GridFieldAddNewInlineButton');
+		    $gridFieldConfig2->removeComponentsByType('GridFieldAddNewButton');
 		}
         
 		if(!Permission::check("PAGE_ADD_CONTENT_BUTTONS")){
-		    $gridFieldConfig->removeComponentsByType('GridFieldAddNewInlineButton');
+		    $gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
 		}
 		
 		$fields->addFieldToTab("Root.Main", $gridFieldContentSections, 'Content');
