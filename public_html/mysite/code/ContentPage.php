@@ -101,11 +101,7 @@ class ContentPage extends SiteTree implements PermissionProvider {
     public function canView($member = null){
 	    return parent::canView($member);
 	}
-
-}
-
-class ContentPage_Controller extends ContentController implements PermissionProvider {
-
+	
     public function providePermissions() {
         return array(
             'PAGE_ADD_CONTENT_BUTTONS' => array(
@@ -122,6 +118,10 @@ class ContentPage_Controller extends ContentController implements PermissionProv
             ),
         );
     }
+
+}
+
+class ContentPage_Controller extends ContentController{
 
 	public function getSlideShowImages(){
 		return $this->SlideShowImages()->sort("SortOrder");
