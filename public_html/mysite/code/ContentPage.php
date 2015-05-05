@@ -43,10 +43,14 @@ class ContentPage extends SiteTree implements PermissionProvider {
     
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
+		return $fields;
+	}
+	
+	public function updateCMSFields($fields){
+	    	$gridFieldConfig2 = new GridFieldConfig();
 		
-		$gridFieldConfig2 = new GridFieldConfig();
-		$gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
 		if(Permission::check("PAGE_ADD_BACKGROUND_BUTTONS")){
+		    $gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
     		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
     		$addButton->setButtonName('Add Background Slide');
 		}else{
@@ -64,8 +68,9 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
 		
 		$gridFieldConfig = new GridFieldConfig();
-		$gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
+		
 		if(Permission::check("PAGE_ADD_CONTENT_BUTTONS")){
+		    $gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
 		    $gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
 		    $addButton->setButtonName('Add Content Section');
 		}else{
@@ -90,8 +95,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$fields->addFieldToTab("Root.Main", $gridFieldSlideShowImages, 'Content');
 
 		$fields->removeFieldFromTab("Root.Main", 'Content');
-
-		return $fields;
 	}
 	
 	public function canEdit($member = null){
