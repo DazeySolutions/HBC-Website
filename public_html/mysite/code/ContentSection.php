@@ -24,7 +24,11 @@ class ContentSection extends DataObject{
 	public function canEdit($member = null){
 	    if(Permission::check('SITETREE_EDIT_ALL')){
             return true;  
-        } else{
+        } 
+        else if(Permission::check('PAGE_ADD_CONTENT_BUTTONS')){
+            return true;  
+        }
+        else{
             return false;
         }
 	}

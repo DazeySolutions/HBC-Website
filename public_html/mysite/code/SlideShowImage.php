@@ -36,7 +36,11 @@ class SlideShowImage extends DataObject{
 	public function canEdit($member = null){
 	    if(Permission::check('SITETREE_EDIT_ALL')){
             return true;  
-        } else{
+        }
+        else if(Permission::check('PAGE_ADD_BACKGROUND_BUTTONS')){
+            return true;  
+        }
+        else{
             return false;
         }
 	}
