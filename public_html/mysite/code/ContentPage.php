@@ -57,7 +57,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig2->addComponent(new GridFieldOrderableRows('SortOrder'));
-		$gridFieldConfig2->addComponent(new GridFieldEditableColumns());
 		
 		
 		$gridFieldConfig = new GridFieldConfig();
@@ -73,7 +72,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
-		$gridFieldConfig->addComponent(new GridFieldEditableColumns());
 		
 		$gridFieldSlideShowImages = new GridField("SlideShowImages", "Background Slides", $this->SlideShowImages()->sort("SortOrder"), $gridFieldConfig2);
 		$gridFieldContentSections = new GridField("ContentSections", "Page Content Sections", $this->ContentSections()->sort("SortOrder"), $gridFieldConfig);
