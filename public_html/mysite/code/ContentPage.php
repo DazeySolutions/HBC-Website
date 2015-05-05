@@ -46,7 +46,7 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		
 		$gridFieldConfig2 = new GridFieldConfig();
         $gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
-        $gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+        $gridFieldConfig2->addComponent($addButton = new GridFieldAddNewInlineButton('buttons-before-left'));
         $addButton->setButtonName('Add Background Slide');
 		
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
@@ -58,12 +58,13 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig2->addComponent(new GridFieldPageCount('toolbar-header-right'));
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
-		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
+		$gridFieldConfig2->addComponent(new GridFieldOrderableRows('SortOrder'));
+		$gridFieldConfig2->addComponent(new GridFieldEditableColumns());
+		
 		
 		$gridFieldConfig = new GridFieldConfig();
-        
         $gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
-        $gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+        $gridFieldConfig->addComponent($addButton = new GridFieldAddNewInlineButton('buttons-before-left'));
         $addButton->setButtonName('Add Content Section');
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableHeader());
@@ -74,17 +75,18 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig->addComponent(new GridFieldPageCount('toolbar-header-right'));
 		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig->addComponent(new GridFieldDetailForm());
-		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
+		$gridFieldConfig->addComponent(new GridFieldOrderableRows('SortOrder'));
+		$gridFieldConfig->addComponent(new GridFieldEditableColumns());
+		
 		$gridFieldSlideShowImages = new GridField("SlideShowImages", "Background Slides", $this->SlideShowImages()->sort("SortOrder"), $gridFieldConfig2);
-
 		$gridFieldContentSections = new GridField("ContentSections", "Page Content Sections", $this->ContentSections()->sort("SortOrder"), $gridFieldConfig);
         
         if(!Permission::check("PAGE_ADD_BACKGROUND_BUTTONS")){
-		    $gridFieldConfig2->removeComponentsByType('GridFieldAddNewButton');
+		    $gridFieldConfig2->removeComponentsByType('GridFieldAddNewInlineButton');
 		}
         
 		if(!Permission::check("PAGE_ADD_CONTENT_BUTTONS")){
-		    $gridFieldConfig->removeComponentsByType('GridFieldAddNewButton');
+		    $gridFieldConfig->removeComponentsByType('GridFieldAddNewInlineButton');
 		}
 		
 		$fields->addFieldToTab("Root.Main", $gridFieldContentSections, 'Content');
