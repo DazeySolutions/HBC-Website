@@ -33,6 +33,18 @@ class SlideShowImage extends DataObject{
 		return $this->Image()->CMSThumbnail();
 	}
 	
+	public function canCreate($member = null){
+	    if(Permission::check('SITETREE_EDIT_ALL')){
+            return true;  
+        }
+        else if(Permission::check('PAGE_ADD_BACKGROUND_BUTTONS')){
+            return true;  
+        }
+        else{
+            return false;
+        }
+	}
+	
 	public function canEdit($member = null){
 	    if(Permission::check('SITETREE_EDIT_ALL')){
             return true;  
