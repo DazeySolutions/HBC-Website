@@ -1,5 +1,5 @@
 <?php
-class HomePage extends ContentPage {
+class HomePage extends ContentPage implements PermissionProvider {
 
 	private static $db = array(
 			);
@@ -24,6 +24,13 @@ class HomePage extends ContentPage {
 	public function canCreate($member=null){
     	return false; 
     }
+    public function canEdit($member = null){
+	    return parent::canEdit($member);
+	}
+    
+    public function canView($member = null){
+	    return parent::canView($member);
+	}
 
 }
 class HomePage_Controller extends ContentPage_Controller {

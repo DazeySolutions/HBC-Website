@@ -1,5 +1,5 @@
 <?php
-class ContentPage extends SiteTree {
+class ContentPage extends SiteTree implements PermissionProvider {
 
 	private static $db = array(
 	    "ImagePath"=>"Varchar",
@@ -88,6 +88,14 @@ class ContentPage extends SiteTree {
 		$fields->removeFieldFromTab("Root.Main", 'Content');
 
 		return $fields;
+	}
+	
+	public function canEdit($member = null){
+	    return parent::canEdit($member);
+	}
+    
+    public function canView($member = null){
+	    return parent::canView($member);
 	}
 
 }
