@@ -119,7 +119,7 @@ class ContentPage_Controller extends ContentController {
 	        $counter = 0;
 	        $images = $this->SlideShowImages()->sort("SortOrder");
 	        foreach($images as $bgImage){
-	            $imageUrlArray[$counter] = array("image"=>$bgImage->Image()->setWidth($width), "link"=>$bgImage->Link, "description"=>$bgImage->Description);
+	            $imageUrlArray[$counter] = array("image"=>$bgImage->Image()->setWidth($width)->FileName(), "link"=>$bgImage->Link, "description"=>$bgImage->Description);
 	            $counter++;
 	        }
 	        $arList = new ArrayList($imageUrlArray);
