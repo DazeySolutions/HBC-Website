@@ -47,8 +47,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig2 = new GridFieldConfig();
         $gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
         $gridFieldConfig2->addComponent($addButton = new GridFieldAddNewInlineButton('buttons-before-left'));
-        $addButton->setTitle('Add Background Slide');
-		
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig2->addComponent($sort = new GridFieldSortableHeader());
 		$gridFieldConfig2->addComponent($filter = new GridFieldFilterHeader());
@@ -65,7 +63,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		$gridFieldConfig = new GridFieldConfig();
         $gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
         $gridFieldConfig->addComponent($addButton = new GridFieldAddNewInlineButton('buttons-before-left'));
-        $addButton->setTitle('Add Content Section');
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableHeader());
 		$gridFieldConfig->addComponent($filter = new GridFieldFilterHeader());
