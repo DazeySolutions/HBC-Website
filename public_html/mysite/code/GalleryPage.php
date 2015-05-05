@@ -38,9 +38,12 @@ class GalleryPage_Controller extends ContentPage_Controller {
 		parent::init();
 	}
 	private static $allowed_actions = array (
-			'ajax'
-			);
-
+		'ajax',
+		'JSON'
+	);
+    public function JSON() {
+        
+    }
 	public function ajax() {
 		return $this->renderWith('AngularGallery');
 	}
