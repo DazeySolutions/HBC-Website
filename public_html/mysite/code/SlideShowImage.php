@@ -1,6 +1,6 @@
 <?php
 
-class SlideShowImage extends DataObject {
+class SlideShowImage extends DataObject implements PermissionProvider {
 	private static $db = array(
 		'SortOrder' => 'Int',
 		'Description' => 'Text',
@@ -31,5 +31,15 @@ class SlideShowImage extends DataObject {
 	);
 	public function getThumbnail(){
 		return $this->Image()->CMSThumbnail();
+	}
+	
+	public function canEdit($member = null){
+	    if(Permission::check('SITETREE_EDIT_ALL')) return true;
+	    return parent::canEdit($member);
+	}
+    
+    public function canView($member = null){
+        if(Permission::check('SITETREE_VIEW_ALL')) return true;
+	    return parent::canView($member);
 	}
 }
