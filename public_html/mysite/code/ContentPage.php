@@ -46,8 +46,10 @@ class ContentPage extends SiteTree {
 		
 		$gridFieldConfig2 = new GridFieldConfig();
 		$gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
-		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
-		$addButton->setButtonName('Add Background Slide');
+		if(Permission::check("PAGE_ADD_BACKGROUND_BUTTONS")){
+    		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+    		$addButton->setButtonName('Add Background Slide');
+		}
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig2->addComponent($sort = new GridFieldSortableHeader());
 		$gridFieldConfig2->addComponent($filter = new GridFieldFilterHeader());
@@ -61,8 +63,10 @@ class ContentPage extends SiteTree {
 		
 		$gridFieldConfig = new GridFieldConfig();
 		$gridFieldConfig->addComponent(new GridFieldButtonRow('before'));
-		$gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
-		$addButton->setButtonName('Add Content Section');
+		if(Permission::check("PAGE_ADD_CONTENT_BUTTONS")){
+		    $gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
+		    $addButton->setButtonName('Add Content Section');
+		}
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig->addComponent($sort = new GridFieldSortableHeader());
 		$gridFieldConfig->addComponent($filter = new GridFieldFilterHeader());
@@ -88,7 +92,24 @@ class ContentPage extends SiteTree {
 
 }
 
-class ContentPage_Controller extends ContentController {
+class ContentPage_Controller extends ContentController implements PermissionProvider {
+
+    public function providePermissions() {
+        return array(
+            'PAGE_ADD_CONTENT_BUTTONS' => array(
+                'name' => 'Add content sections to pages',
+                'help' => 'Allow adding of content sections to page in the "Pages" section.',
+                'category' => 'Content permission',
+                'sort' => 100
+            ),
+            'PAGE_ADD_BACKGROUND_BUTTONS' => array(
+                'name' => 'Add background header images to pages',
+                'help' => 'Allow adding of background header images to page in the "Pages" section.',
+                'category' => 'Content permission',
+                'sort' => 100
+            ),
+        );
+    }
 
 	public function getSlideShowImages(){
 		return $this->SlideShowImages()->sort("SortOrder");
