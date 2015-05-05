@@ -99,14 +99,14 @@ class ContentPage_Controller extends ContentController implements PermissionProv
             'PAGE_ADD_CONTENT_BUTTONS' => array(
                 'name' => 'Add content sections to pages',
                 'help' => 'Allow adding of content sections to page in the "Pages" section.',
-                'category' => 'Content permission',
-                'sort' => 100
+                'category' => 'Content permissions',
+                'sort' => 900
             ),
             'PAGE_ADD_BACKGROUND_BUTTONS' => array(
                 'name' => 'Add background header images to pages',
                 'help' => 'Allow adding of background header images to page in the "Pages" section.',
-                'category' => 'Content permission',
-                'sort' => 100
+                'category' => 'Content permissions',
+                'sort' => 901
             ),
         );
     }
