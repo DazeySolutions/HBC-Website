@@ -43,8 +43,8 @@
                     "height":$scope.divHeight+"px",
                     "background": bgColor
                 };
-                if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].Filename !== '' || $scope.images[$scope.curImageNum].Filename !== null || $scope.images[$scope.curImageNum].Filename !== undefined)){
-                    data["background-image"] = "url('"+$scope.images[$scope.curImageNum].Filename+"')";
+                if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].image !== '' || $scope.images[$scope.curImageNum].image !== null || $scope.images[$scope.curImageNum].image !== undefined)){
+                    data["background-image"] = "url('"+$scope.images[$scope.curImageNum].image+"')";
                 }
                 
                 return data;
