@@ -1,6 +1,6 @@
 <?php
 
-class ContentSection extends DataObject implements PermissionProvider{
+class ContentSection extends DataObject{
 	private static $db = array(
 		'SortOrder' => 'Int',
 	        'Title' => 'Varchar',
@@ -22,12 +22,18 @@ class ContentSection extends DataObject implements PermissionProvider{
 		'Title.UpperCase'=>'Title',
 	);
 	public function canEdit($member = null){
-	    if(Permission::check('SITETREE_EDIT_ALL')) return true;
-	    return parent::canEdit($member);
+	    if(Permission::check('SITETREE_EDIT_ALL')){
+            return true;  
+        } else{
+            return false;
+        }
 	}
     
     public function canView($member = null){
-        if(Permission::check('SITETREE_VIEW_ALL')) return true;
-	    return parent::canView($member);
+        if(Permission::check('SITETREE_VIEW_ALL')){
+            return true;  
+        } else{
+            return false;
+        }
 	}
 }

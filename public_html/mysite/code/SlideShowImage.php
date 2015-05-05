@@ -1,6 +1,6 @@
 <?php
 
-class SlideShowImage extends DataObject implements PermissionProvider {
+class SlideShowImage extends DataObject{
 	private static $db = array(
 		'SortOrder' => 'Int',
 		'Description' => 'Text',
@@ -34,12 +34,18 @@ class SlideShowImage extends DataObject implements PermissionProvider {
 	}
 	
 	public function canEdit($member = null){
-	    if(Permission::check('SITETREE_EDIT_ALL')) return true;
-	    return parent::canEdit($member);
+	    if(Permission::check('SITETREE_EDIT_ALL')){
+            return true;  
+        } else{
+            return false;
+        }
 	}
     
     public function canView($member = null){
-        if(Permission::check('SITETREE_VIEW_ALL')) return true;
-	    return parent::canView($member);
+        if(Permission::check('SITETREE_VIEW_ALL')){
+            return true;  
+        } else{
+            return false;
+        }
 	}
 }
