@@ -1,6 +1,7 @@
 <?php
 class HomePage extends ContentPage implements PermissionProvider {
 
+    private static $icon = "mysite/images/icon/home.png";
 	private static $db = array(
 			);
 	private static $has_many = array(
