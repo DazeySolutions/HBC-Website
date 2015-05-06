@@ -61,14 +61,14 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             resolve: {
                 jsonData: function($stateParams, $http){
                     var location = "";
-                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
-                        location += "/"+stateParams.page;
-                        if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
-                            location += "/"+stateParams.sub1;
-                            if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub2) && typeof(stateParams.sub2) === "string"){
-                                location += "/"+stateParams.sub2;
-                                if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub3) && typeof(stateParams.sub3) === "string"){
-                                    location += "/"+stateParams.sub3;
+                    if(!angular.isUndefinedOrNullOrEmpty($stateParams.page)){
+                        location += "/"+$stateParams.page;
+                        if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub1) && typeof($stateParams.sub1) === "string"){
+                            location += "/"+$stateParams.sub1;
+                            if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub2) && typeof($stateParams.sub2) === "string"){
+                                location += "/"+$stateParams.sub2;
+                                if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub3) && typeof($stateParams.sub3) === "string"){
+                                    location += "/"+$stateParams.sub3;
                                 }
                             }
                         }
