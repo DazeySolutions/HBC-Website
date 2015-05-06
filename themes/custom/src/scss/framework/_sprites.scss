@@ -111,6 +111,10 @@
 		@extend .fa;
 		@extend .fa-exclamation-triangle;
 	}
+    &.icon-eventsleftandmain {
+		@extend .fa;
+		@extend .fa-calendar;
+	}
 	&.icon-commentadmin {
 		@extend .fa;
 		@extend .fa-comment;
