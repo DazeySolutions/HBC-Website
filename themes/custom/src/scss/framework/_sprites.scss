@@ -66,6 +66,11 @@
         @extend .fa-fw;
         @extend .fa-floppy-o;
     }
+    .btn-icon-pencil{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-pencil;
+    }
 }
 
 //$icon24: sprite-map("menu-icons/24x24/*.png");
