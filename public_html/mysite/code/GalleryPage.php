@@ -37,7 +37,7 @@ class GalleryPage_Controller extends ContentPage_Controller {
 		'ajax',
 		'JSON'
 	);
-	public function IMAGES(){
+	public function IMAGES($request = null){
 	    if(null !== ($this->SlideShowImages())){
 	        $imageUrlArray = array();
 	        $counter = 0;
