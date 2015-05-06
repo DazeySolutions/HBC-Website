@@ -37,9 +37,25 @@ class GalleryPage_Controller extends ContentPage_Controller {
 		'ajax',
 		'JSON'
 	);
+	public function IMAGES(){
+	    if(null !== ($this->SlideShowImages())){
+	        $imageUrlArray = array();
+	        $counter = 0;
+	        $images = $this->SlideShowImages()->sort("SortOrder");
+	        foreach($images as $bgImage){
+	            $imageUrlArray[$counter] = array("image"=>$bgImage->Image()->Filename, "link"=>$bgImage->Link, "description"=>$bgImage->Description);
+	            $counter++;
+	        }
+	        $arList = new ArrayList($imageUrlArray);
+	        return $arList->toNestedArray();
+	    }else{
+	        return array();
+	    }
+	}
     public function JSON() {
         $retval = array();
         $retval["controller"] = "GalleryPageController";
+        $retval["images"] = IMAGES();
         return json_encode($retval, JSON_FORCE_OBJECT);
     }
 	public function ajax() {

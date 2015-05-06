@@ -380,13 +380,14 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
     
 }]);
 
-hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', 'jsonData', function($scope, $http, $stateParams, jsonData){
     $scope.selectedImage = '';
+    $scope.images = jsonData.data.images;
     $scope.init =  function init(){
-        $scope.selectedImage = angular.element(".image-padding:first img")[0].src;
+        $scope.selectedImage = $scope.images[0].image;
     };
-    $scope.select = function($event){
-        $scope.selectedImage = $event.currentTarget[0].src;
+    $scope.select = function(img){
+        $scope.selectedImage = img.image;
     };
     $scope.init();
     

@@ -9,9 +9,9 @@
             </div>
             <div class="col-xs-12">
             <% loop getSlideShowImages %>
-                <div class="col-xs-12 col-sm-6 col-md-2">
+                <div class="col-xs-12 col-sm-6 col-md-2" data-ng-repeat="image in images">
                     <div class="image-padding">
-                        <img src="$Image.SetWidth(600).Filename" ng-click="select($event)">
+                        <img src="image.image" ng-click="select(image)">
                     </div>
                 </div>
             <% end_loop %>
