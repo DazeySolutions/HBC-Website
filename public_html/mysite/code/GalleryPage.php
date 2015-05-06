@@ -38,7 +38,9 @@ class GalleryPage_Controller extends ContentPage_Controller {
 		'JSON'
 	);
     public function JSON() {
-        
+        $retval = array();
+        $retval["controller"] = "GalleryPageController";
+        return json_encode($retval, JSON_FORCE_OBJECT);
     }
 	public function ajax() {
 		return $this->renderWith('AngularGallery');
