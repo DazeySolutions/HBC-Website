@@ -71,6 +71,11 @@
         @extend .fa-fw;
         @extend .fa-pencil;
     }
+    .btn-icon-back{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-arrow-left;
+    }
 }
 
 //$icon24: sprite-map("menu-icons/24x24/*.png");
