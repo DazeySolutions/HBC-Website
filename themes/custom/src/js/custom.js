@@ -55,12 +55,25 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                     }
                 }
                 
-                location += +"/ajax";
+                location += "/ajax";
                 return location;
             },
             resolve: {
                 jsonData: function($stateParams, $http){
-                    return $http.get("/"+$stateParams.page+"/JSON");
+                    var location = "";
+                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
+                        location += "/"+stateParams.page;
+                        if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
+                            location += "/"+stateParams.sub1;
+                            if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub2) && typeof(stateParams.sub2) === "string"){
+                                location += "/"+stateParams.sub2;
+                                if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub3) && typeof(stateParams.sub3) === "string"){
+                                    location += "/"+stateParams.sub3;
+                                }
+                            }
+                        }
+                    }
+                    return $http.get(location+"/JSON");
                 }
             },
             controllerProvider: function(jsonData){
