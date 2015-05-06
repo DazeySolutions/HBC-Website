@@ -1,6 +1,7 @@
 <?php
 
 class DocumentHolder extends Page {
+    private static $icon = "mysite/images/icon/docs.png";
     private static $db = array(
         'Header'=>'Varchar',
         'ImagePath'=>'Varchar'
