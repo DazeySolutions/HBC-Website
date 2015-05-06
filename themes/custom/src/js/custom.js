@@ -57,9 +57,8 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             }
             
         })
-        .state('site.level2', {
-            url: "/:sub1",
-            params: { page: '' },
+        .state('level2', {
+            url: "#/:page/:sub1",
             templateUrl: function(stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.level2) && !angular.isUndefinedOrNullOrEmpty(stateParams.sub1)){
