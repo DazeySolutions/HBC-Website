@@ -38,21 +38,16 @@ class DocumentHolder extends Page {
 		$fields = parent::getCMSFields();
     	
     	$gridFieldConfig2 = new GridFieldConfig();
-		$gridFieldConfig2->addComponent(new GridFieldButtonRow('before'));
-		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('buttons-before-left'));
-		$addButton->setButtonName('Add Document');
+		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-rightt'));
+		$addButton->setButtonName('New');
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
-		$gridFieldConfig2->addComponent($sort = new GridFieldSortableHeader());
-		$gridFieldConfig2->addComponent($filter = new GridFieldFilterHeader());
 		$gridFieldConfig2->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig2->addComponent(new GridFieldEditButton());
 		$gridFieldConfig2->addComponent(new GridFieldDeleteAction());
-		$gridFieldConfig2->addComponent(new GridFieldPageCount('toolbar-header-right'));
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
-		//$gridFieldConfig2->addComponent(new GridFieldSortableRows('Date.Format("U")'));
-		
 		$gridFieldDocuments = new GridField("DocumentPages", "Documents", $this->DocumentPages(), $gridFieldConfig2);
+		
 		$fields->addFieldToTab("Root.Main", $headTextField = new TextField("Header","Header"), "Content");
 		$headTextField->RightTitle("Enter header i.e. \"Bulletins\" or \"Forms\"");
 		$fields->addFieldToTab("Root.Main", $gridFieldDocuments, 'Content');
