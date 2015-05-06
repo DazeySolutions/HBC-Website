@@ -1,6 +1,5 @@
 <?php
 class ContentPage extends SiteTree implements PermissionProvider {
-    private static $icon = "mysite/images/icon/page.png";
 
 	private static $db = array(
 	    "ImagePath"=>"Varchar",
@@ -52,7 +51,7 @@ class ContentPage extends SiteTree implements PermissionProvider {
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig2->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig2->addComponent(new GridFieldEditButton());
-		$gridFieldConfig2->addComponent(new GridFieldDeleteAction());
+// 		$gridFieldConfig2->addComponent(new GridFieldDeleteAction());
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig2->addComponent(new GridFieldSortableRows('SortOrder'));
@@ -64,7 +63,7 @@ class ContentPage extends SiteTree implements PermissionProvider {
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig->addComponent(new GridFieldEditButton());
-		$gridFieldConfig->addComponent(new GridFieldDeleteAction());
+// 		$gridFieldConfig->addComponent(new GridFieldDeleteAction());
 		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));

@@ -43,7 +43,7 @@ class DocumentHolder extends Page {
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig2->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig2->addComponent(new GridFieldEditButton());
-		$gridFieldConfig2->addComponent(new GridFieldDeleteAction());
+ 		$gridFieldConfig2->addComponent(new GridFieldSortableHeader());
 		$gridFieldConfig2->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig2->addComponent(new GridFieldDetailForm());
 		$gridFieldDocuments = new GridField("DocumentPages", "Documents", $this->DocumentPages(), $gridFieldConfig2);
