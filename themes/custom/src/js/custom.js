@@ -30,25 +30,20 @@ hbcWebApp.filter('to_trusted', ['$sce', function($sce){
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.when('',['$state', function($state){
-        $state.go('site',{page:'home', subpage:''});
+        $state.go('site',{page:'home'});
     }]);
     $urlRouterProvider.when('/',['$state', function($state){
-        $state.go('site',{page:'home', subpage:''});
+        $state.go('site',{page:'home'});
     }]);
     $urlRouterProvider.otherwise('/home');
     var controlName = 'HomePageController';
     $stateProvider
         .state('site', {
             url: "/:page",
-            params: {subpage: ''},
             templateUrl: function(stateParams){
                 var location = "/home/ajax";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
-                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.subpage)){
-                        location = "/"+stateParams.page+"/"+stateParams.subpage+"/ajax";
-                    }else{
-                        location = "/"+stateParams.page+"/ajax";
-                    }
+                    location = "/"+stateParams.page+"/ajax";
                 }
                 return location;
             },
@@ -61,6 +56,42 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                 return jsonData.data.controller;
             }
             
+        })
+        .state('level2', {
+            url: "/:page/:sub1",
+            templateUrl: function(stateParams){
+                var location = "/home/ajax";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page) && !angular.isUndefinedOrNullOrEmpty(stateParams.sub1)){
+                    location = "/"+stateParams.page+"/"+stateParams.sub1+"/ajax";
+                }
+                return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    return $http.get("/"+stateParams.page+"/"+stateParams.sub1+"/JSON");
+                }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.data.controller;
+            }
+        })
+        .state('level3', {
+            url: "/:page/:sub1/:sub2",
+            templateUrl: function(stateParams){
+                var location = "/home/ajax";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page) && !angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && !angular.isUndefinedOrNullOrEmpty(stateParams.sub2)){
+                    location = "/"+stateParams.page+"/"+stateParams.sub1+"/"+stateParams.sub1+"/ajax";
+                }
+                return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    return $http.get("/"+stateParams.page+"/"+stateParams.sub1+"/"+stateParams.sub2+"/JSON");
+                }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.data.controller;
+            }
         });
 }] );
 
