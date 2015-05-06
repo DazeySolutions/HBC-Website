@@ -55,7 +55,7 @@ class GalleryPage_Controller extends ContentPage_Controller {
     public function JSON() {
         $retval = array();
         $retval["controller"] = "GalleryPageController";
-        $retval["images"] = IMAGES();
+        $retval["images"] = $this->IMAGES();
         return json_encode($retval, JSON_FORCE_OBJECT);
     }
 	public function ajax() {
