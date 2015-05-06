@@ -147,22 +147,12 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             }
         })
         .state('site', {
-            url: "/:page/:sub1/:sub2/:sub3",
+            url: "/:page",
             templateUrl: function(stateParams){
                 var location = "";
                 if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
                     location += "/"+stateParams.page;
-                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
-                        location += "/"+stateParams.sub1;
-                        if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub2) && typeof(stateParams.sub2) === "string"){
-                            location += "/"+stateParams.sub2;
-                            if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub3) && typeof(stateParams.sub3) === "string"){
-                                location += "/"+stateParams.sub3;
-                            }
-                        }
-                    }
                 }
-                
                 location += "/ajax";
                 return location;
             },
@@ -171,15 +161,6 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
                     var location = "";
                     if(!angular.isUndefinedOrNullOrEmpty($stateParams.page)){
                         location += "/"+$stateParams.page;
-                        if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub1) && typeof($stateParams.sub1) === "string"){
-                            location += "/"+$stateParams.sub1;
-                            if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub2) && typeof($stateParams.sub2) === "string"){
-                                location += "/"+$stateParams.sub2;
-                                if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub3) && typeof($stateParams.sub3) === "string"){
-                                    location += "/"+$stateParams.sub3;
-                                }
-                            }
-                        }
                     }
                     return $http.get(location+"/JSON");
                 }
