@@ -136,7 +136,7 @@
 			};
 		}]);
 	app.run(['$templateCache', function ($templateCache) {
-		$templateCache.put('iamgepre.html', 
+		$templateCache.put('imagepre.html', 
             '<div class="holder" style="height:{{divHeight}}px; z-index: -2;"></div>'+
 			'<div class="imagePreview" ng-style="imageStyle()">'+
 			'</div>'
