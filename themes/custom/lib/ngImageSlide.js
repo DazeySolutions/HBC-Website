@@ -82,3 +82,64 @@
             );
         }]);
 }));
+
+(function(angular, factory) {
+    'use strict';
+
+    if (typeof define === 'function' && define.amd) {
+        define(['angular'], function(angular) {
+            return factory(angular);
+        });
+    } else {
+        return factory(angular);
+    }
+}(window.angular || null, function(angular) {
+    'use strict';
+	
+	var app = angular.module('ngImagePreview', []);
+	
+	app.controller('ngImagePreviewController', ['$scope', '$interval', '$http', '$window',
+		function($scope, $interval, $http, $window){
+			$scope.curImageNum = 0;
+			$scope.divHeight = 800;
+			$scope.init = function init(){
+				
+			};
+			var bgColor = "black";
+			$scope.imageStyle = function imageStyle(){
+                var data = {
+                    "background-size":"contain",
+                    "height":$scope.divHeight+"px",
+                    "background": bgColor
+                };
+                if($scope.image !== '' && $scope.image !== null && $scope.image !== undefined){
+                    data["background-image"] = "url('"+$scope.image+"')";
+                }
+                
+                return data;
+			};
+			
+			$scope.init();
+		}
+	]);
+	
+	
+	app.directive('ngImagePreview', ['$q', '$parse',
+		function($q, $parse) {
+			return {
+				restrict: 'AEC',
+				scope: {
+					image: '@'
+				},
+				controller: 'ngImagePreviewController',
+				templateUrl: 'imagepre.html'
+			};
+		}]);
+	app.run(['$templateCache', function ($templateCache) {
+		$templateCache.put('iamgepre.html', 
+            '<div class="holder" style="height:{{divHeight}}px; z-index: -2;"></div>'+
+			'<div class="imagePreview" ng-style="imageStyle()">'+
+			'</div>'
+            );
+        }]);
+}));

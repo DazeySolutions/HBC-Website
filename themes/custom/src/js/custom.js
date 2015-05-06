@@ -381,7 +381,13 @@ hbcWebApp.controller('DocumentHolderController', ['$scope', '$http', '$statePara
 }]);
 
 hbcWebApp.controller('GalleryPageController', ['$scope', '$http', '$stateParams', function($scope, $http, $stateParams){
+    $scope.selectedImage = '';
     $scope.init =  function init(){
-      
+        $scope.selectedImage = angular.element(".image-padding:first img")[0].src;
     };
+    $scope.select = function($event){
+        $scope.selectedImage = $event.currentTarget[0].src;
+    };
+    $scope.init();
+    
 }]);
