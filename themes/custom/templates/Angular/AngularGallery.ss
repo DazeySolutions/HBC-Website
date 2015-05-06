@@ -11,7 +11,7 @@
             <% loop getSlideShowImages %>
                 <div class="col-xs-12 col-sm-6 col-md-2" data-ng-repeat="image in images">
                     <div class="image-padding">
-                        <img src="image.image" ng-click="select(image)">
+                        <img ng-src="{{image.image}}" ng-click="select(image)">
                     </div>
                 </div>
             <% end_loop %>
