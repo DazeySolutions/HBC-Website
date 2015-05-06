@@ -30,10 +30,10 @@ hbcWebApp.filter('to_trusted', ['$sce', function($sce){
 */
 hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider, $urlRouterProvider){
     $urlRouterProvider.when('',['$state', function($state){
-        $state.go('site',{page:'home',controller:'HomePageController'});
+        $state.go('site',{page:'home', subpage:''});
     }]);
     $urlRouterProvider.when('/',['$state', function($state){
-        $state.go('site',{page:'home',controller:'HomePageController'});
+        $state.go('site',{page:'home', subpage:''});
     }]);
     $urlRouterProvider.otherwise('/home');
     var controlName = 'HomePageController';
