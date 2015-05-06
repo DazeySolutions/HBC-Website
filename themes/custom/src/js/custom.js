@@ -1,4 +1,4 @@
-var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf', 'ngChurchManagement', 'ngMap'];
+var appDependencies = ['ui.router', 'toaster', 'ngAnimate', 'ngLodash', 'ngImageSlider', 'ngContact', 'pdf', 'ngChurchManagement', 'ngMap', 'ngImagePreview'];
 
 var objectSize = function countProperties(obj) {
     var count = 0;
