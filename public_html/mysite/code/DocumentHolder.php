@@ -38,7 +38,7 @@ class DocumentHolder extends Page {
 		$fields = parent::getCMSFields();
     	
     	$gridFieldConfig2 = new GridFieldConfig();
-		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-rightt'));
+		$gridFieldConfig2->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-right'));
 		$addButton->setButtonName('New');
         $gridFieldConfig2->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig2->addComponent(new GridFieldDataColumns());
