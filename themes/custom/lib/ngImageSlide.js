@@ -101,19 +101,21 @@
 	app.controller('ngImagePreviewController', ['$scope', '$interval', '$http', '$window',
 		function($scope, $interval, $http, $window){
 			$scope.curImageNum = 0;
-			$scope.divHeight = 800;
+			$scope.divHeight = 500;
 			$scope.init = function init(){
 				
 			};
 			var bgColor = "black";
 			$scope.imageStyle = function imageStyle(){
                 var data = {
-                    "background-size":"contain",
                     "height":$scope.divHeight+"px",
                     "background": bgColor
                 };
                 if($scope.image !== '' && $scope.image !== null && $scope.image !== undefined){
                     data["background-image"] = "url('"+$scope.image+"')";
+                    data["background-size"] = "contain"
+                    data["background-repeat"] = "no-repeat";
+                    data["background-position-x"] = "center";
                 }
                 
                 return data;
