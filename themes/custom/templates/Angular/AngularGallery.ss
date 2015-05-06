@@ -7,7 +7,7 @@
         </div>
         <div class="col-xs-12">
         <% loop getSlideShowImages %>
-            <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="col-xs-12 col-sm-6 col-md-2">
                 <div class="image-padding">
                     $Image.SetWidth(600)
                 </div>
