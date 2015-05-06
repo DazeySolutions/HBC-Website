@@ -38,6 +38,114 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
     $urlRouterProvider.otherwise('/home');
     var controlName = 'HomePageController';
     $stateProvider
+        .state('site3', {
+            url: "/:page/:sub1/:sub2/:sub3",
+            templateUrl: function(stateParams){
+                var location = "";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
+                    location += "/"+stateParams.page;
+                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
+                        location += "/"+stateParams.sub1;
+                        if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub2) && typeof(stateParams.sub2) === "string"){
+                            location += "/"+stateParams.sub2;
+                            if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub3) && typeof(stateParams.sub3) === "string"){
+                                location += "/"+stateParams.sub3;
+                            }
+                        }
+                    }
+                }
+                
+                location += "/ajax";
+                return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    var location = "";
+                    if(!angular.isUndefinedOrNullOrEmpty($stateParams.page)){
+                        location += "/"+$stateParams.page;
+                        if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub1) && typeof($stateParams.sub1) === "string"){
+                            location += "/"+$stateParams.sub1;
+                            if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub2) && typeof($stateParams.sub2) === "string"){
+                                location += "/"+$stateParams.sub2;
+                                if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub3) && typeof($stateParams.sub3) === "string"){
+                                    location += "/"+$stateParams.sub3;
+                                }
+                            }
+                        }
+                    }
+                    return $http.get(location+"/JSON");
+                }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.data.controller;
+            }
+        })
+        .state('site2', {
+            url: "/:page/:sub1/:sub2",
+            templateUrl: function(stateParams){
+                var location = "";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
+                    location += "/"+stateParams.page;
+                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
+                        location += "/"+stateParams.sub1;
+                        if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub2) && typeof(stateParams.sub2) === "string"){
+                            location += "/"+stateParams.sub2;
+                        }
+                    }
+                }
+                
+                location += "/ajax";
+                return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    var location = "";
+                    if(!angular.isUndefinedOrNullOrEmpty($stateParams.page)){
+                        location += "/"+$stateParams.page;
+                        if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub1) && typeof($stateParams.sub1) === "string"){
+                            location += "/"+$stateParams.sub1;
+                            if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub2) && typeof($stateParams.sub2) === "string"){
+                                location += "/"+$stateParams.sub2;
+                            }
+                        }
+                    }
+                    return $http.get(location+"/JSON");
+                }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.data.controller;
+            }
+        })
+        .state('site1',{
+            url: "/:page/:sub1",
+            templateUrl: function(stateParams){
+                var location = "";
+                if(!angular.isUndefinedOrNullOrEmpty(stateParams.page)){
+                    location += "/"+stateParams.page;
+                    if(!angular.isUndefinedOrNullOrEmpty(stateParams.sub1) && typeof(stateParams.sub1) === "string"){
+                        location += "/"+stateParams.sub1;
+                    }
+                }
+                
+                location += "/ajax";
+                return location;
+            },
+            resolve: {
+                jsonData: function($stateParams, $http){
+                    var location = "";
+                    if(!angular.isUndefinedOrNullOrEmpty($stateParams.page)){
+                        location += "/"+$stateParams.page;
+                        if(!angular.isUndefinedOrNullOrEmpty($stateParams.sub1) && typeof($stateParams.sub1) === "string"){
+                            location += "/"+$stateParams.sub1;
+                        }
+                    }
+                    return $http.get(location+"/JSON");
+                }
+            },
+            controllerProvider: function(jsonData){
+                return jsonData.data.controller;
+            }
+        })
         .state('site', {
             url: "/:page/:sub1/:sub2/:sub3",
             templateUrl: function(stateParams){
@@ -79,7 +187,6 @@ hbcWebApp.config(['$stateProvider','$urlRouterProvider', function($stateProvider
             controllerProvider: function(jsonData){
                 return jsonData.data.controller;
             }
-            
         });
 }] );
 
