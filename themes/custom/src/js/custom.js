@@ -181,11 +181,12 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 */
 hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI){
     
-    var marker, map;
+    var marker;
+    $scope.map;
     $scope.$on('mapInitialized', function(evt, evtMap) {
-      map = evtMap;
-      map.setCenter({lat:38.203040, lng:-85.203772});
-      marker = map.markers[0];
+      $scope.map = evtMap;
+      $scope.map.setCenter({lat:38.203040, lng:-85.203772});
+      marker = $scope.map.markers[0];
     });
     
     $scope.evenOdd = false;
@@ -211,6 +212,9 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
            }
         });
     };
+    $scope.$watch('map', function(){
+        $scope.map.setCenter({lat:38.203040, lng:-85.203772});
+    });
     $scope.done = false;
     $scope.init();
 }]);
