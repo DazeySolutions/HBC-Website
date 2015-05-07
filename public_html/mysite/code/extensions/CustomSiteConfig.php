@@ -6,6 +6,11 @@ class CustomSiteConfig extends DataExtension {
 		"Logo" => "Image"
 	);
 	
+	private static $db = array(
+	    'FooterContent'=>'HTMLText',
+	    'ConnectionContent'=>'HTMLText',
+	);
+	
 
 	/**
 	 * Get the fields that are sent to the CMS. In
@@ -17,7 +22,12 @@ class CustomSiteConfig extends DataExtension {
 		$uploadField = new UploadField('Logo', 'Logo:');
 		$uploadField->setAllowedFileCategories('image');
 		$uploadField->setFolderName('Brand-Folder');
-		$fields->addFieldToTab("Root.Main",$uploadField);
+		$fields->addFieldToTab("Root.Content",$uploadField);
+		
+		$footerField = new HTMLEditorField('FooterContent', "Footer");
+		$connectionField = new HTMLEditorField('ConnectionContent', "Social");
+		$fields->addFieldToTab("Root.Content", $connectionField);
+		$fields->addFieldToTab("Root.Content", $footerField);
 
 	}
 	
