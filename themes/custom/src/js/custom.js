@@ -215,7 +215,7 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     $scope.$watch('map', function(){
         if(!angular.isUndefinedOrNullOrEmpty($scope.map)){
             var curCenter = $scope.map.getCenter();
-            if((Math.abs(curCenter.A-38.203040) > .000001)||(Math.abs(Math.abs(curCenter.F)-85.203772) > .000001)){
+            if((Math.abs(curCenter.A-38.203040) > 0.000001)||(Math.abs(Math.abs(curCenter.F)-85.203772) > 0.000001)){
                 $scope.map.setCenter({lat:38.203040, lng:-85.203772});
             }
         }
