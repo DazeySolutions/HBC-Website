@@ -218,6 +218,8 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
             if((Math.abs(curCenter.A-38.203040) > 0.000001)||(Math.abs(Math.abs(curCenter.F)-85.203772) > 0.000001)){
                 $scope.map.setCenter({lat:38.203040, lng:-85.203772});
             }
+            //make sure it is centered
+            $scope.map.scope.google.maps.event.trigger($scope.map, 'resize');
         }
     });
     $scope.done = false;
