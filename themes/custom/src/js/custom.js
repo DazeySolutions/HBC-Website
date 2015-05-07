@@ -213,7 +213,9 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
         });
     };
     $scope.$watch('map', function(){
-        $scope.map.setCenter({lat:38.203040, lng:-85.203772});
+        if(!angular.isUndefinedOrNullOrEmpty($scope.map)){
+            $scope.map.setCenter({lat:38.203040, lng:-85.203772});
+        }
     });
     $scope.done = false;
     $scope.init();
