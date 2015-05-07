@@ -182,7 +182,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI){
     
     var marker;
-    $scope.map;
+    $scope.map = undefined;
     $scope.$on('mapInitialized', function(evt, evtMap) {
       $scope.map = evtMap;
       $scope.map.setCenter({lat:38.203040, lng:-85.203772});
