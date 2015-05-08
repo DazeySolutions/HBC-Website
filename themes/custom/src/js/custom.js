@@ -199,8 +199,8 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
             lodash.each(data, function(item){
                 toaster.pop({
                    type: 'success',
-                   title: data.title,
-                   body: data.description,
+                   title: data.Title,
+                   body: data.Description,
                    showCloseButton: true,
                    timeout: 0
                 });
