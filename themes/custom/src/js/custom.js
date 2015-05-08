@@ -198,9 +198,9 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
         $http.get("/home/validAlerts").success(function(data){
             lodash.each(data, function(item){
                 toaster.pop({
-                   type: 'success',
-                   title: data.Title,
-                   body: data.Description,
+                   type: item.Severity,
+                   title: item.Title,
+                   body: item.Description,
                    showCloseButton: true,
                    timeout: 0
                 });
