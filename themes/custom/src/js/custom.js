@@ -201,7 +201,8 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
                    type: 'success',
                    title: data.title,
                    body: data.description,
-                   showCloseButton: true
+                   showCloseButton: true,
+                   timeout: 0
                 });
             });
         }); 
