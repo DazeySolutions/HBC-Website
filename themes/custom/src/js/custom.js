@@ -179,7 +179,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 * CONTROLLERS FILE
 * controllers.js
 */
-hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI){
+hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', 'lodash', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI, lodash){
     
     var marker;
     $scope.map = undefined;
@@ -196,7 +196,14 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
     loadGoogleMapAPI.then(function () { $scope.mapsLoaded = true;});
     $scope.init = function init(){
         $http.get("/home/validAlerts").success(function(data){
-            $scope.toastData = data;
+            lodash.each(data, function(item){
+                toaster.pop({
+                   type: 'success',
+                   title: data.title,
+                   body: data.description,
+                   showCloseButton: true
+                });
+            });
         }); 
         
         angular.element(".navbar-inverse").css("background-color", "rgba(0,0,0,0)");
