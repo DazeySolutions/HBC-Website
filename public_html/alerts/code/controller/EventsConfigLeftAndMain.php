@@ -23,7 +23,7 @@ class EventsLeftAndMain extends LeftAndMain {
 	/**
 	 * @var string
 	 */
-	private static $menu_title = 'Events';
+	private static $menu_title = 'Events & Sermons';
 
 	/**
 	 * @var string
