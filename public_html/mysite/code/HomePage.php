@@ -40,11 +40,18 @@ class HomePage_Controller extends ContentPage_Controller {
 			'ajax',
 			'JSON',
 			'IMAGES',
-			'validAlerts'
+			'validAlerts',
+			'employees'
 			);
 
     public function validAlerts() {
         return json_encode(Alerts::get()->where("Start <= CURDATE() AND END >= CURDATE()")->sort("End DESC")->toNestedArray());
+    }
+    
+    public function employees(){
+        $group = DataObject::get_one("Group", "Code = 'employees'");
+	    $records = $group->Members();
+	    return json_encode($records->toNestedArray(), JSON_FORCE_OBJECT);
     }
     
     public function ajax() {
