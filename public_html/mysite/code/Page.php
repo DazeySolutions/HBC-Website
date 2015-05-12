@@ -16,6 +16,14 @@ class Page extends SiteTree {
 	public function AngularController(){
 	    return "PageController";
 	}
+	
+	public function canCreate($member = null, $parent = false){
+	    if($parent){
+	        return parent::canCreate($member);
+	    }else{
+	        return false;
+	    }
+	}
 
 }
 class Page_Controller extends ContentController {
@@ -35,3 +43,9 @@ class Page_Controller extends ContentController {
 	}
 
 }
+class NoVirtualPage extends VirtualPage implements HiddenClass {
+	static $hide_ancestor = 'VirtualPage';
+} 
+class NoRedirectorPage extends RedirectorPage implements HiddenClass {
+	static $hide_ancestor = 'RedirectorPage';
+} 

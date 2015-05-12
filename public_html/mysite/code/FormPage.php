@@ -71,6 +71,11 @@ class FormPage extends UserDefinedForm {
         $fields->addFieldToTab("Root.FormContent", $preview);
         return $fields;
     }
+    
+	public function canCreate($member = null){
+	    return parent::canCreate($member,true);
+	}
+    
 	private static $can_be_root = false;
 	
 	private static $show_in_sitetree = false;

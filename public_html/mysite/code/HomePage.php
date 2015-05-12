@@ -25,6 +25,7 @@ class HomePage extends ContentPage implements PermissionProvider {
 	public function canCreate($member=null){
     	return false; 
     }
+    
     public function canEdit($member = null){
 	    return parent::canEdit($member);
 	}

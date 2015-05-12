@@ -4,7 +4,13 @@ class GalleryPage extends ContentPage {
 	private static $db = array(
 	    "GalleryTitle"=>"Text"
 	);
+	
+	public function canCreate($member = null){
+	    return parent::canCreate($member,true);
+	}
+	
 	private static $allowed_children = array();
+    
     public function getCMSFields(){
 		$fields = parent::getCMSFields();
 		$gridFieldConfig = new GridFieldConfig();

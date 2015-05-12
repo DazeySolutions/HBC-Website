@@ -59,9 +59,11 @@ class DocumentHolder extends Page {
 	public function AngularController(){
 	    return "DocumentHolderController";
 	}
-// 	public function getHeader(){
-// 	    return $this->Header()->getValue();
-// 	}
+	
+	public function canCreate($member = null){
+	    return parent::canCreate($member,true);
+	}
+	
 	public function getOrganizeDocuments(){
 	    $retarr = array();
 	    foreach($this->DocumentPages() as $doc) {
