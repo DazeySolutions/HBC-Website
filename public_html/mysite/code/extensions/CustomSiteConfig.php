@@ -38,6 +38,10 @@ class CustomSecurityExtension extends Extension {
   public function updateEditForm($form) {
    	
 	$gf = $form->Fields()->fieldByName('Root.Users.Members');
+	$tab = $form->Fields()->fieldByName('Root.Users');
+	$tab->addExtraClass('fa');
+	$tab->addExtraClass('fa-lg');
+	$tab->addExtraClass('fa-user');
   	$gfConfig = $gf->getConfig();
 	$gfConfig->removeComponentsByType('GridFieldAddNewButton');
 	$gfConfig->removeComponentsByType('GridFieldPageCount');
@@ -45,6 +49,10 @@ class CustomSecurityExtension extends Extension {
 	$addButton->setButtonName('New User');
 	
 	$gfG = $form->Fields()->fieldByName('Root.Groups.Groups');
+	$tabG = $form->Fields()->fieldByName('Root.Groups');
+	$tabG->addExtraClass('fa');
+	$tabG->addExtraClass('fa-lg');
+	$tabG->addExtraClass('fa-users');
   	$gfgConfig = $gfG->getConfig();
 	$gfgConfig->removeComponentsByType('GridFieldAddNewButton');
 	$gfgConfig->removeComponentsByType('GridFieldPageCount');
@@ -52,6 +60,10 @@ class CustomSecurityExtension extends Extension {
 	$addGButton->setButtonName('New Group');
 	
     $gfR = $form->Fields()->fieldByName('Root.Roles.Roles');
+    $tabR = $form->Fields()->fieldByName('Root.Roles');
+	$tabR->addExtraClass('fa');
+	$tabR->addExtraClass('fa-lg');
+	$tabR->addExtraClass('fa-user-secret');
   	$gfrConfig = $gfR->getConfig();
 	$gfrConfig->removeComponentsByType('GridFieldAddNewButton');
 	$gfrConfig->removeComponentsByType('GridFieldPageCount');
