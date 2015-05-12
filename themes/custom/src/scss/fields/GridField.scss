@@ -24,6 +24,17 @@
 //imported compass/support file and enables svg gradients in IE9. 
 //This is needed for the background gradients to work as desired with 
 //multiple images. 
+
+
+.cms-logo-header{
+      @include box-sizing(content-box);
+}
+
+.cms-content-header{
+      @include box-sizing(content-box);
+}
+
+
 $experimental-support-for-svg: true; 
 
 
@@ -529,7 +540,7 @@ $gf_grid_x:	16px;
 			td {
 				padding: $gf_grid_x/2 $gf_grid_x/2;
 				&.bottom-all {
-			        background: $color-dark-grey;
+			        background: $color-darker-bg;
 					padding: $gf_grid_x/4 $gf_grid_y;
 					.datagrid-footer-message {
 					    text-align: center;
