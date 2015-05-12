@@ -305,8 +305,9 @@ $gf_grid_x:	16px;
 		tr {	
 			&.title {
 				th {
-					background: $color-darker-bg;
+					background: $color-dark-bg;
 					color: $color-text-light;
+					border-bottom: 0px !important;
 				h2{
 						padding: 0px;
 						font-size: $gf_grid_y*1.4;
@@ -318,7 +319,7 @@ $gf_grid_x:	16px;
 				}
 			}	
 			&.sortable-header {		
-				background: $color-dark-bg;	
+				background: $color-darker-bg;	
 				color: $color-text-light;
 				th{
 					padding: 0; // Should be padding: 0 1em; like td
@@ -380,12 +381,6 @@ $gf_grid_x:	16px;
 					select {
 						margin: 0;
 					}
-				}
-				&.first {
-					@include border-top-left-radius($gf_border_radius);
-				}
-				&.last {
-					@include border-top-right-radius($gf_border_radius);
 				}
 
 
@@ -544,12 +539,9 @@ $gf_grid_x:	16px;
 			}
 
 			td {
-				border-right: 1px solid $gf_colour_border;
 				padding: $gf_grid_x/2 $gf_grid_x/2;
-				color: $gf_colour_font;
 				&.bottom-all {
-					@include border-bottom-radius($gf_border_radius);
-					@include background-image(linear-gradient($color-base, $gf_colour_gradient_dark));
+			        background: ;
 					padding: $gf_grid_x/4 $gf_grid_y;
 					
 					.datagrid-footer-message {
