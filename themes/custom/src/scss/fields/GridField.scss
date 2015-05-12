@@ -11,6 +11,10 @@
 @import "compass/css3/images";
 @import "compass/css3/text-shadow";
 @import "compass/css3/border-radius";
+@import "../bootstrap/assets/stylesheets/_bootstrap.scss";
+@import "../bootstrap/assets/stylesheets/_bootstrap-compass.scss";
+@import "../bootstrap/assets/stylesheets/_bootstrap-sprockets.scss";
+@import "../bootstrap/assets/stylesheets/_bootstrap-mincer.scss";
 @import "../framework/themes/default";
 @import "../framework/_mixins";
 @import "_elementMixins";
