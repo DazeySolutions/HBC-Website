@@ -39,7 +39,7 @@ class CustomSecurityExtension extends Extension {
    	
 	$gf = $form->Fields()->fieldByName('Root.Users.Members');
 	$tab = $form->Fields()->fieldByName('Root.Users');
-	$tab->addFieldToTab(new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-user'></i>&nbsp;Users</h2>"));
+	$form->addFieldToTab("Root.Users", new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-user'></i>&nbsp;Users</h2>"));
 	$tab->addExtraClass('fa');
 	$tab->addExtraClass('fa-lg');
 	$tab->addExtraClass('fa-user');
@@ -51,7 +51,7 @@ class CustomSecurityExtension extends Extension {
 	
 	$gfG = $form->Fields()->fieldByName('Root.Groups.Groups');
 	$tabG = $form->Fields()->fieldByName('Root.Groups');
-	$tabG->addFieldToTab(new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-users'></i>&nbsp;Groups</h2>"));
+	$form->addFieldToTab("Root.Groups", new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-users'></i>&nbsp;Groups</h2>"));
 	$tabG->addExtraClass('fa');
 	$tabG->addExtraClass('fa-lg');
 	$tabG->addExtraClass('fa-users');
@@ -63,7 +63,7 @@ class CustomSecurityExtension extends Extension {
 	
     $gfR = $form->Fields()->fieldByName('Root.Roles.Roles');
     $tabR = $form->Fields()->fieldByName('Root.Roles');
-    $tabR->addFieldToTab(new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-user-secret'></i>&nbsp;Roles</h2>"));
+    $form->addFieldToTab("Root.Roles", new LiteralField('Title',"<h2><i class='fa fa-fw fa-2x fa-user-secret'></i>&nbsp;Roles</h2>"));
 	$tabR->addExtraClass('fa');
 	$tabR->addExtraClass('fa-lg');
 	$tabR->addExtraClass('fa-user-secret');
