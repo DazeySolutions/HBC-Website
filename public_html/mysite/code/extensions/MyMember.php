@@ -11,7 +11,7 @@ class MyMember extends DataExtension {
 		$fields->addFieldToTab("Root.OtherAccounts",$ftpField);
 		$fields->addFieldToTab("Root.OtherAccounts",$eventField);
 		$group = DataObject::get_one("Group", "Code = 'employees'");
-		if($this->inGroup($group->ID)){
+		if($this->owner->inGroup($group->ID)){
             $titleField = new TextField('EmployeeTitle', 'Title');
             $detailField = new TextareaField('EmployeeDetail', 'About');
             $detailField->setColumns(40);
