@@ -1,5 +1,5 @@
 <?php
-class Page extends SiteTree {
+class Page extends SiteTree implements HiddenClass{
 
 	private static $db = array(
 	);
@@ -16,8 +16,6 @@ class Page extends SiteTree {
 	public function AngularController(){
 	    return "PageController";
 	}
-	
-	private static $can_be_root = false;
 	
 
 }
