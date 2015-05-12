@@ -8,10 +8,16 @@
 		<div class="cms-content-header-tabs">
 			<ul class="cms-tabset-nav-primary">
 				<li class="content-treeview<% if ViewState == tree %> ui-tabs-active ss-tabs-force-active<% end_if %> cms-tabset-icon tree">
-					<a href="#cms-content-treeview" class="cms-panel-link" data-href="$LinkTreeView"><% _t('CMSPagesController.TreeView', 'Tree View') %></a>
+					<a href="#cms-content-treeview" class="cms-panel-link" data-href="$LinkTreeView">
+					    <i clas"tree"></i>
+					    <span><% _t('CMSPagesController.TreeView', 'Tree View') %></span>
+					</a>
 				</li>
 				<li class="content-listview<% if ViewState == list %> ui-tabs-active ss-tabs-force-active<% end_if %> cms-tabset-icon list">
-					<a href="#cms-content-listview" class="cms-panel-link" data-href="$LinkListView"><% _t('CMSPagesController.ListView', 'List View') %></a>
+				    <a href="#cms-content-listview" class="cms-panel-link" data-href="$LinkListView">
+				        <i clas"list"></i>  
+				        <span><% _t('CMSPagesController.ListView', 'List View') %></span>
+				    </a>
 				</li>
 				<!--
 				<li class="content-galleryview cms-tabset-icon gallery">
