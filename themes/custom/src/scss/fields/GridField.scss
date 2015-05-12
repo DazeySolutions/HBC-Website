@@ -34,6 +34,9 @@
       @include box-sizing(content-box);
 }
 
+.cms-panel-content{
+      @include box-sizing(content-box);
+}
 
 $experimental-support-for-svg: true; 
 
