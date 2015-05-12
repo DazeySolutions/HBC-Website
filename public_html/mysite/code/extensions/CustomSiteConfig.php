@@ -55,8 +55,8 @@ class CustomSecurityExtension extends Extension {
   	$gfrConfig = $gfR->getConfig();
 	$gfrConfig->removeComponentsByType('GridFieldAddNewButton');
 	$gfrConfig->removeComponentsByType('GridFieldPageCount');
-	$gfgronfig->addComponent($addGButton = new GridFieldAddNewButton('toolbar-header-right'));
-	$addGButton->setButtonName('New Role');
+	$gfrConfig->addComponent($addRButton = new GridFieldAddNewButton('toolbar-header-right'));
+	$addRButton->setButtonName('New Role');
 	
   }
 
