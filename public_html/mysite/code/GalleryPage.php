@@ -16,9 +16,9 @@ class GalleryPage extends ContentPage {
 		$gridFieldConfig->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-right'));
 		$addButton->setButtonName('New');
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
-		$gridFieldConfig->addComponent(new GridFieldSortableHeader());
 		$gridFieldConfig->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig->addComponent(new GridFieldEditButton());
+		$gridFieldConfig->addComponent(new GridFieldDeleteAction());
 		$gridFieldConfig->addComponent($pagination = new GridFieldPaginator(10));
 		$gridFieldConfig->addComponent(new GridFieldDetailForm());
 		$gridFieldConfig->addComponent(new GridFieldSortableRows('SortOrder'));
