@@ -174,35 +174,26 @@ $gf_grid_x:	16px;
 		}
 		
 		tbody {
-			background: #FFF;
 			tr {
-				// This lets iOS Safari know that these elements are clickable
-				// and so to send the click events.
 				cursor: pointer;
 			}
 			td {
 				width: auto;
 				max-width: 500px; //This number is semi-arbitary. It is acting as a percentage limit, rather than actually constricting the width to 500px.
 				word-wrap:break-word;
-				// Give browser some hints on which cols take priority:
-				// The last column (buttons) should always shrink to fit.
-				// Overwritten for IE7, which doesnt support this.			
 				&.col-buttons {
 					width: 1px;
-					padding:0 $gf_grid_x/2;
-					text-align: right;
-					white-space: nowrap;
 				}
-				&.col-listChildrenLink {
-					width:$gf_grid_x;
-					border-right:none;
-					text-indent:-9999em;
-					padding:0;
-					.list-children-link {
-						background: transparent url(../images/sitetree_ss_default_icons.png) no-repeat 3px -4px;
-						display:block;
-					}
-				}
+				// &.col-listChildrenLink {
+				// 	width:$gf_grid_x;
+				// 	border-right:none;
+				// 	text-indent:-9999em;
+				// 	padding:0;
+				// 	.list-children-link {
+				// 		background: transparent url(../images/sitetree_ss_default_icons.png) no-repeat 3px -4px;
+				// 		display:block;
+				// 	}
+				// }
 
 				&.col-getTreeTitle {
 					span.item {
