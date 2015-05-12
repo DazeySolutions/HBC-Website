@@ -42,7 +42,22 @@ class CustomSecurityExtension extends Extension {
 	$gfConfig->removeComponentsByType('GridFieldAddNewButton');
 	$gfConfig->removeComponentsByType('GridFieldPageCount');
 	$gfConfig->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-right'));
-	$addButton->setButtonName('New');
+	$addButton->setButtonName('New User');
+	
+	$gfG = $form->Fields()->fieldByName('Root.Users.Groups');
+  	$gfgConfig = $gfG->getConfig();
+	$gfgConfig->removeComponentsByType('GridFieldAddNewButton');
+	$gfgConfig->removeComponentsByType('GridFieldPageCount');
+	$gfgConfig->addComponent($addGButton = new GridFieldAddNewButton('toolbar-header-right'));
+	$addGButton->setButtonName('New Group');
+	
+    $gfR = $form->Fields()->fieldByName('Root.Users.Roles');
+  	$gfrConfig = $gfR->getConfig();
+	$gfrConfig->removeComponentsByType('GridFieldAddNewButton');
+	$gfrConfig->removeComponentsByType('GridFieldPageCount');
+	$gfgronfig->addComponent($addGButton = new GridFieldAddNewButton('toolbar-header-right'));
+	$addGButton->setButtonName('New Role');
+	
   }
 
 }
