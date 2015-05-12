@@ -42,3 +42,22 @@ class NoVirtualPage extends VirtualPage implements HiddenClass {
 class NoRedirectorPage extends RedirectorPage implements HiddenClass {
 	static $hide_ancestor = 'RedirectorPage';
 } 
+class NoBlogPost extends BlogPost implements HiddenClass {
+	static $hide_ancestor = 'BlogPost';
+} 
+class NoErrorPage extends ErrorPage implements HiddenClass {
+	static $hide_ancestor = 'ErrorPage';
+} 
+class NoGalleryPage extends GalleryPage implements HiddenClass {
+	static $hide_ancestor = 'GalleryPage';
+} 
+class NoHomePage extends HomePage implements HiddenClass {
+	static $hide_ancestor = 'HomePage';
+} 
+class NoFormPage extends FormPage implements HiddenClass {
+	static $hide_ancestor = 'FormPage';
+} 
+class NoUSERFORMPage extends UserDefinedForm implements HiddenClass {
+	static $hide_ancestor = 'UserDefinedForm';
+} 
+
