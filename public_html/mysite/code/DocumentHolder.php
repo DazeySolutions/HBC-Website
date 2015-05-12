@@ -23,6 +23,8 @@ class DocumentHolder extends Page {
         
     }
 	
+	static $hide_ancestor = 'Page';
+	
 	function getSettingsFields() {
         $fields = parent::getSettingsFields();
         $fieldGroup = new FieldGroup(

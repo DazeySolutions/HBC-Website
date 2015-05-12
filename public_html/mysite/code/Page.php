@@ -1,5 +1,5 @@
 <?php
-class Page extends SiteTree implements HiddenClass{
+class Page extends SiteTree{
 
 	private static $db = array(
 	);
