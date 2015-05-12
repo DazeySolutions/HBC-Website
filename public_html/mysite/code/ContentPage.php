@@ -1,6 +1,6 @@
 <?php
 class ContentPage extends SiteTree implements PermissionProvider {
-
+    private static $icon = "mysite/images/icon/page.png";
 	private static $db = array(
 	    "ImagePath"=>"Varchar",
 	    "OverrideImagePath"=>"Boolean"
