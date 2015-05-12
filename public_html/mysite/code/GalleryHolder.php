@@ -4,9 +4,11 @@ class GalleryHolder extends Page{
     private static $allowed_children = array(
 	    "GalleryPage"	
 	);
-	
+	static $defaults = array(
+        'ShowInMenus' => false
+    );
 }
 
-class FormHolderController extends Page_Controller{
+class GalleryHolderController extends Page_Controller{
     
 }
