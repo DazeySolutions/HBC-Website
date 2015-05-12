@@ -12,6 +12,13 @@ module.exports = {
             cssDir: 'dist/css/cms',
             environment: 'development'
         },
+    },
+    frameworkields: {
+        options: {
+            sassDir: 'src/scss/fields',
+            cssDir: 'dist/css/fields',
+            environment: 'development'
+        },
     }
 
 };
