@@ -10,7 +10,6 @@
 @import "compass/css3";
 @import "compass/css3/images";
 @import "compass/css3/text-shadow";
-@import "compass/css3/border-radius";
 @import "../bootstrap/assets/stylesheets/_bootstrap.scss";
 @import "../bootstrap/assets/stylesheets/_bootstrap-compass.scss";
 @import "../bootstrap/assets/stylesheets/_bootstrap-sprockets.scss";
@@ -45,7 +44,6 @@ $gf_grid_x:	16px;
     @extend .table;
     @extend .table-striped;
     @extend .table-condensed;
-    @extend .table-bordered;
     @extend .table-hover;
 }
 .cms {
@@ -173,14 +171,6 @@ $gf_grid_x:	16px;
 					}
 				}
 			}
-			tr:first-child { //sets 7px border-radius on the top row in the thead - accounts for edgecase where there is no title row.
-				th:first-child {
-					@include border-top-left-radius($gf_border_radius);
-				}
-				th:last-child {
-					@include border-top-right-radius($gf_border_radius);
-				}
-			} 
 		}
 		
 		tbody {
@@ -228,7 +218,6 @@ $gf_grid_x:	16px;
 						margin-left: 10px;
 						margin-right: 6px;
 						margin-top:  -1px;
-						@include border-radius(2px, 2px);
 					}
 					
 					span.badge.status-modified {
@@ -425,8 +414,7 @@ $gf_grid_x:	16px;
 						line-height: 1;
 						@include box-shadow-none; 
 						position: relative;
-						border-bottom-width: 0;	
-						@include border-radius(2px, 2px);			
+						border-bottom-width: 0;			
 					}
 
 					select {
@@ -461,7 +449,6 @@ $gf_grid_x:	16px;
 						padding: 2px 8px 2px 0; // Doesn't need to be so big now that filter has moved
 						@include single-text-shadow($gf_colour_text_shadow, 0px, -1px, 0);
 						color: #fff;
-						@include border-radius(0);
 						&:hover {
 							background-position: right -34px;
 						}
