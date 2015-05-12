@@ -1,8 +1,8 @@
 @import "compass/css3";
 
 // TODO we need a seperated file for styles that are used in both cms and front end (such as buttons)
-@import "../admin/scss/themes/default.scss";
-@import "../admin/scss/_mixins";
+@import "../framework/themes/default.scss";
+@import "../framework/_mixins";
 
 .ss-uploadfield {
 
