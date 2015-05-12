@@ -307,7 +307,7 @@ $gf_grid_x:	16px;
 				th {
 					background: $color-dark-bg;
 					color: $color-text-light;
-					border-bottom: 0px !important;
+					border-bottom: none !important;
 				h2{
 						padding: 0px;
 						font-size: $gf_grid_y*1.4;
@@ -541,9 +541,8 @@ $gf_grid_x:	16px;
 			td {
 				padding: $gf_grid_x/2 $gf_grid_x/2;
 				&.bottom-all {
-			        background: ;
+			        background: $color-dark-grey;
 					padding: $gf_grid_x/4 $gf_grid_y;
-					
 					.datagrid-footer-message {
 					    text-align: center;
 						padding-top: 6px;
