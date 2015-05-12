@@ -321,6 +321,7 @@ $gf_grid_x:	16px;
 			&.sortable-header {		
 				background: $color-darker-bg;	
 				color: $color-text-light;
+				border-top: none !important;
 				th{
 					padding: 0; // Should be padding: 0 1em; like td
 					font-weight: normal;
