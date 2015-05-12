@@ -305,13 +305,8 @@ $gf_grid_x:	16px;
 		tr {	
 			&.title {
 				th {
-					position: relative;					
-					background: $gf_colour_gradient_dark;
-					border-bottom: 1px solid darken($gf_colour_gradient_dark,5%);
-					padding: 5px;
-					min-height: 40px; //this is to accomodate the add new button.
-					@include background-image(linear-gradient($color-base, $gf_colour_gradient_dark));
-					@include single-text-shadow($gf_colour_text_shadow_dark, 0px, -1px, 0);
+					background: $color-darker-bg;
+					color: $color-text-light;
 				h2{
 						padding: 0px;
 						font-size: $gf_grid_y*1.4;
@@ -323,7 +318,8 @@ $gf_grid_x:	16px;
 				}
 			}	
 			&.sortable-header {		
-				background: $gf_colour_subheader;					
+				background: $color-dark-bg;	
+				color: $color-text-light;
 				th{
 					padding: 0; // Should be padding: 0 1em; like td
 					font-weight: normal;
@@ -331,31 +327,12 @@ $gf_grid_x:	16px;
 						font-weight: normal;
 					}
 				}			
-			}			
-			&:hover {
-				background: #FFFAD6 !important;
 			}
-			&:first-child {
-				background: transparent;
-			}
-			&.ss-gridfield-even {
-				background: $gf_colour_zebra;
-
-				&.ss-gridfield-last {
-					border-bottom: none;
-				}
-			}
-			&.even {
-				background: $gf_colour_zebra;
-			}
-			
 			th {
 				font-weight: bold;
 				font-size: $gf_grid_y;
 				color: #FFF;
 				padding: 5px;
-				border-right: 1px solid $gf_colour_border;
-				
 				div { 
 					&.fieldgroup,&.fieldgroup-field {
 						width: 100%;
@@ -376,23 +353,6 @@ $gf_grid_x:	16px;
 					}
 				}
 				&.main{
-					white-space:nowrap;
-					border-top: 1px solid darken($color-base,4%);
-					border-left: 1px solid darken($color-base,4%);
-					color:#fff;
-					background: $gf_colour_gradient_dark;
-					border-bottom: 1px solid $gf_colour_border;
-					span{
-						@include single-text-shadow($gf_colour_text_shadow, 0px, -1px, 0);
-						padding-left: $gf_grid_x/2;
-						padding-right: $gf_grid_x/2;
-						@include hide-text-overflow; // Add ellipses to overflowing text
-						margin-right: 8px;
-
-					}
-					&.col-listChildrenLink {
-						border-right:none;
-					}
 				}
 				&.extra,&.action {
 					padding: 0;
