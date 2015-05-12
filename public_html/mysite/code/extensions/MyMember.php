@@ -21,6 +21,10 @@ class MyMember extends DataExtension {
             $fields->addFieldToTab("Root.Employee", $titleField);
             $fields->addFieldToTab("Root.Employee", $detailField);
             $fields->addFieldToTab("Root.Employee", $orderField);
+		}else{
+		    $fields->removeFieldFromTab("Root.Main","EmployeeOrder");
+		    $fields->removeFieldFromTab("Root.Main","EmployeeTitle");
+		    $fields->removeFieldFromTab("Root.Main","EmployeeDetail");
 		}
     }
 
