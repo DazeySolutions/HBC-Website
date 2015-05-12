@@ -10,12 +10,27 @@ class MyMember extends DataExtension {
         $eventField = new TextField('eventsUser', 'Events User Name');
 		$fields->addFieldToTab("Root.OtherAccounts",$ftpField);
 		$fields->addFieldToTab("Root.OtherAccounts",$eventField);
+		$group = DataObject::get_one("Group", "Code = 'employees'");
+		if($this->inGroup($group->ID)){
+            $titleField = new TextField('EmployeeTitle', 'Title');
+            $detailField = new TextareaField('EmployeeDetail', 'About');
+            $detailField->setColumns(40);
+            $detailField->setRows(10);
+            $orderField = new NumericField('EmployeeOrder', 'Display Order');
+            $orderField->setRightTitle("In the event of a tie will be listed alpahbetically");
+            $field->addFieldToTab("Root.Employee", $titleField);
+            $field->addFieldToTab("Root.Employee", $detailField);
+            $field->addFieldToTab("Root.Employee", $orderField);
+		}
     }
 
     // define additional properties
     private static $db = array(
         'ftpUser'=>'Text',
-        'eventsUser'=>'Text'
+        'eventsUser'=>'Text',
+        'EmployeeTitle'=>'Text',
+        'EmployeeOrder'=>'Int',
+        'EmployeeDetail'=>'Text'
         ); 
     private static $has_one = array(); 
     private static $has_many = array(); 
