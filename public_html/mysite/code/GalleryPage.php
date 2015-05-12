@@ -5,9 +5,6 @@ class GalleryPage extends ContentPage {
 	    "GalleryTitle"=>"Text"
 	);
 	
-	public function canCreate($member = null){
-	    return parent::canCreate($member,true);
-	}
 	
 	private static $allowed_children = array();
     

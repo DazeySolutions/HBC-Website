@@ -5,9 +5,6 @@ class FormHolder extends Page{
 	    "FormPage"	
 	);
 	
-	public function canCreate($member = null){
-	    return parent::canCreate($member,true);
-	}
 }
 
 class FormHolderController extends Page_Controller{

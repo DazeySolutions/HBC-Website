@@ -93,9 +93,6 @@ class ContentPage extends SiteTree implements PermissionProvider {
     public function canView($member = null){
 	    return parent::canView($member);
 	}
-	public function canCreate($member = null){
-	    return parent::canCreate($member,true);
-	}
 	
     public function providePermissions() {
         return array(

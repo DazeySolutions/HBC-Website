@@ -60,9 +60,6 @@ class DocumentHolder extends Page {
 	    return "DocumentHolderController";
 	}
 	
-	public function canCreate($member = null){
-	    return parent::canCreate($member,true);
-	}
 	
 	public function getOrganizeDocuments(){
 	    $retarr = array();
