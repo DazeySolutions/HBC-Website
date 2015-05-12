@@ -17,13 +17,8 @@ class Page extends SiteTree {
 	    return "PageController";
 	}
 	
-	public function canCreate($member = null, $parent = false){
-	    if($parent){
-	        return parent::canCreate($member);
-	    }else{
-	        return false;
-	    }
-	}
+	private static $can_be_root = false;
+	
 
 }
 class Page_Controller extends ContentController {
