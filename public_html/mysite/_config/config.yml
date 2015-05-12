@@ -17,6 +17,9 @@ Director:
 SiteConfig:
   extensions:
     - CustomSiteConfig
+SecurityAdmin:
+  extensions:
+    - CustomSecurityExtension
 Injector:
   ChangePasswordForm:
     class: BootstrapChangePasswordForm

@@ -32,3 +32,17 @@ class CustomSiteConfig extends DataExtension {
 	}
 	
 }
+
+class CustomSecurityExtension extends Extension {
+
+  public function updateEditForm($form) {
+   	
+	$gf = $form->Fields()->fieldByName('Root.Users.Members');
+  	$gfConfig = $gf->getConfig();
+	$gfConfig->removeComponentsByType('GridFieldAddNewButton');
+	$gfConfig->removeComponentsByType('GridFieldPageCount');
+	$gFConfig->addComponent($addButton = new GridFieldAddNewButton('toolbar-header-right'));
+	$addButton->setButtonName('New');
+  }
+
+}
