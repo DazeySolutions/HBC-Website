@@ -7,6 +7,7 @@ class GalleryHolder extends Page{
 	static $defaults = array(
         'ShowInMenus' => false
     );
+    private static $can_be_root = true;
 }
 
 class GalleryHolderController extends Page_Controller{

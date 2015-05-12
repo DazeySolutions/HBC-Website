@@ -7,6 +7,7 @@ class FormHolder extends Page{
 	static $defaults = array(
         'ShowInMenus' => false
     );
+    private static $can_be_root = true;
 }
 
 class FormHolderController extends Page_Controller{

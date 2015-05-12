@@ -1,10 +1,12 @@
 <?php
 class GalleryPage extends ContentPage {
     private static $icon = "mysite/images/icon/gallery.png";
+    
 	private static $db = array(
 	    "GalleryTitle"=>"Text"
 	);
 	
+	private static $can_be_root = false;
 	
 	private static $allowed_children = array();
     

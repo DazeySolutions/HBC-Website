@@ -56,6 +56,8 @@ class DocumentHolder extends Page {
 		return $fields;
 	}
 	
+	private static $can_be_root = true;
+	
 	public function AngularController(){
 	    return "DocumentHolderController";
 	}
