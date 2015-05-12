@@ -893,7 +893,7 @@ div.tab:before{
 	display: block;
 
 	.view-mode-batchactions-wrapper {
-		height: 18px;
+		height: 26px;
 		float: left;
 		padding: 4px 6px;
 		border: 1px solid #aaa;
@@ -966,7 +966,7 @@ div.tab:before{
 		.Actions .ss-ui-button {
 			padding-top: 4px;
 			padding-bottom: 4px;
-			height: 28px;
+			height: 26px;
 			margin-left: -1px;
 			border-top-left-radius: 0;
 			border-bottom-left-radius: 0;
@@ -974,6 +974,7 @@ div.tab:before{
 			&.ui-state-disabled {
 				opacity: 1;
 				color: #ccc;
+				height: 26px;
 			}
 		}
 	}
