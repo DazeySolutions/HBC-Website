@@ -196,7 +196,7 @@ $gf_grid_x:	16px;
 				max-width: 500px; //This number is semi-arbitary. It is acting as a percentage limit, rather than actually constricting the width to 500px.
 				word-wrap:break-word;
 				&.col-buttons {
-					width: 1px;
+					max-width: 1px;
 				}
 				// &.col-listChildrenLink {
 				// 	width:$gf_grid_x;
