@@ -321,8 +321,8 @@ $gf_grid_x:	16px;
 			&.sortable-header {		
 				background: $color-darker-bg;	
 				color: $color-text-light;
-				border-top: none !important;
 				th{
+				    border-top: none !important;
 					padding: 0; // Should be padding: 0 1em; like td
 					font-weight: normal;
 					.ss-ui-button {
@@ -331,10 +331,6 @@ $gf_grid_x:	16px;
 				}			
 			}
 			th {
-				font-weight: bold;
-				font-size: $gf_grid_y;
-				color: #FFF;
-				padding: 5px;
 				div { 
 					&.fieldgroup,&.fieldgroup-field {
 						width: 100%;
