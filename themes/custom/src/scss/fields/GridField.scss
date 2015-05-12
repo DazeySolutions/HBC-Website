@@ -44,8 +44,9 @@
 .ss-gridfield-table{
     @extend .table;
     @extend .table-striped;
-    @extend .table-condesed;
+    @extend .table-condensed;
     @extend .table-bordered;
+    @extend .table-hover;
 }
 // .cms {
 // 	.ss-gridfield {
