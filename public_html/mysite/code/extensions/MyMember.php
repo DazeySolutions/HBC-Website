@@ -18,9 +18,9 @@ class MyMember extends DataExtension {
             $detailField->setRows(10);
             $orderField = new NumericField('EmployeeOrder', 'Display Order');
             $orderField->setRightTitle("In the event of a tie will be listed alpahbetically");
-            $field->addFieldToTab("Root.Employee", $titleField);
-            $field->addFieldToTab("Root.Employee", $detailField);
-            $field->addFieldToTab("Root.Employee", $orderField);
+            $fields->addFieldToTab("Root.Employee", $titleField);
+            $fields->addFieldToTab("Root.Employee", $detailField);
+            $fields->addFieldToTab("Root.Employee", $orderField);
 		}
     }
 
