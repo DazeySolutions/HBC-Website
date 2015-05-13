@@ -5,6 +5,7 @@ module.exports = {
     },
 
     main: [
-        'src/js/*.js'
+        'src/js/custom.js',
+        'src/js/instagram.js'
     ]
 };
