@@ -56,7 +56,7 @@
 			var curSermon = 0;
 			var totalSermons = 0;
 			$scope.nextDisable = false;
-			$scope.prevDisable = true;
+			$scope.prevDisable = false;
 			$scope.loading = false;
 			
 			$scope.init = function init(){
@@ -143,8 +143,8 @@ angular.monthString = function(curdate){
 			$scope.events = undefined;
 			var curPage = 0;
 			var totalPages = 1;
-			$scope.nextDisable = true;
-			$scope.prevDisable = true;
+			$scope.nextDisable = false;
+			$scope.prevDisable = false;
 			$scope.loading = false;
 			
 			$scope.init = function init(){
