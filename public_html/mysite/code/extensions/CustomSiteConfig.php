@@ -20,7 +20,7 @@ class CustomSiteConfig extends DataExtension {
 	 */
 	public function updateCMSFields(FieldList $fields) {
 		$uploadField = new FileAttachmentField('Logo', 'Logo:');
-		$uploadField->setAllowedFileCategories('image');
+		$uploadField->setAcceptedFiles(array('jpg','JPG','png','gif','bmp'));
 		$uploadField->setFolderName('Brand-Folder');
 		$uploadField->setMultiple(false);
 		$uploadField->setView('grid');
