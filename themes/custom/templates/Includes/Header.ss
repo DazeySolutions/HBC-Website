@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" bs-collapse start-collapsed="true">
+<nav class="navbar navbar-inverse navbar-fixed-top" bs-collapse>
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" bs-collapse-toggle>
@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand" href="#">$SiteConfig.Logo.SetWidth(64)</a>
         </div>
-        <div bs-collapse-target>
+        <div class="collapse navbar-collapse" bs-collapse-target>
             <ul class="nav navbar-nav navbar-right">
                 <% include Navigation %>
             </ul>
