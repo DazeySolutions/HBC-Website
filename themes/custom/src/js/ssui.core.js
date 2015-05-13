@@ -148,6 +148,9 @@
 
 			var self = this;
 
+			var title = self.uiDialogTitlebar.children()[0];
+			self.uiDialogTitlebar.html("");
+            setTitleBar(title,self.uiDialogTitlebar, self);
             
 
 			// Create iframe
@@ -170,9 +173,6 @@
 			$.ui.dialog.prototype.open.call(this);
 			
 			var self = this, iframe = this.element.children('iframe');
-			var title = self.uiDialogTitlebar.children()[0];
-			self.uiDialogTitlebar.html("");
-            setTitleBar(title,self.uiDialogTitlebar);
 			// Load iframe
 			if(this.options.iframeUrl && (!iframe.hasClass('loaded') || this.options.reloadOnOpen)) {
 				iframe.hide();
