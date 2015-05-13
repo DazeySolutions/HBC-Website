@@ -248,7 +248,7 @@ angular.monthString = function(curdate){
             '       </div>'+
             '   </div>'+
             '</div>'+
-            '<div ng-cloak class="col-xs-10 col-xs-offset-1 col-md-offset-0 col-md-6" ng-repeat="event in events">'+
+            '<div ng-cloak class="col-xs-12 col-md-6" ng-repeat="event in events">'+
             '  <a ng-href="{{event.url}}">                                                               '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <div class="start text-center">                                                     '+
