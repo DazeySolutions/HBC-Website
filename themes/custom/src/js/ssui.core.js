@@ -234,7 +234,7 @@
 			}
 		}
 	});
-	function setTitleBar(title, uiDialogTitlebar){
+	function setTitleBar(title, uiDialogTitlebar, self){
 				if(true) {
 					var uiDialogTitlebarClose = $('<a href="#"/>')
 						.addClass(
@@ -242,26 +242,12 @@
 							'ui-corner-all'
 						)
 						.attr('role', 'button')
-						.hover(
-							function() {
-								uiDialogTitlebarClose.addClass('ui-state-hover');
-							},
-							function() {
-								uiDialogTitlebarClose.removeClass('ui-state-hover');
-							}
-						)
-						.focus(function() {
-							uiDialogTitlebarClose.addClass('ui-state-focus');
-						})
-						.blur(function() {
-							uiDialogTitlebarClose.removeClass('ui-state-focus');
-						})
 						.mousedown(function(ev) {
 							ev.stopPropagation();
 						})
 						.click(function( event ) {
                             event.preventDefault();
-                            that.close( event );
+                            self.close( event );
                         })
 						.appendTo(uiDialogTitlebar);
 
