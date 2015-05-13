@@ -9,7 +9,7 @@
             </button>
             <a class="navbar-brand" href="#">$SiteConfig.Logo.SetWidth(64)</a>
         </div>
-        <div class="collapse navbar-collapse" bs-collape-target id="nav-collapse">
+        <div class="collapse navbar-collapse" bs-collapse-target id="nav-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <% include Navigation %>
             </ul>
