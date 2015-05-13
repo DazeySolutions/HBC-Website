@@ -31,10 +31,10 @@ class ContentPage extends SiteTree implements PermissionProvider {
     public function doPublish(){
         $retval = parent::doPublish();
         foreach($this->SlideShowImages() as $page){
-            $page->doPublish();
+            $page->publish('Stage', 'Live');
         }
         foreach($this->ContentSections() as $page){
-            $page->doPublish();
+            $page->publish('Stage', 'Live');
         }
         return $retval;
     }
