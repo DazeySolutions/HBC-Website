@@ -57,13 +57,16 @@
 			var totalSermons = 0;
 			$scope.nextDisable = false;
 			$scope.prevDisable = true;
+			$scope.loading = false;
 			
 			$scope.init = function init(){
+                $scope.loading = true;
                 ngChurchManagementService.get($scope.basePath);
 			};
 			
 			var setSermon =  function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                    $scope.loading = false;
                     $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
                     totalSermons = ngChurchManagementService.model.sermons.length; 
                     $scope.prevDisable = curSermon > 0;
@@ -142,13 +145,16 @@ angular.monthString = function(curdate){
 			var totalPages = 1;
 			$scope.nextDisable = true;
 			$scope.prevDisable = true;
+			$scope.loading = false;
 			
 			$scope.init = function init(){
+                $scope.loading = true;
                 ngChurchManagementService.get($scope.basePath);
 			};
 			
 			var setEvents = function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
+                    $scope.loading = false;
                     if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
                         $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
                     }else{
@@ -231,6 +237,17 @@ angular.monthString = function(curdate){
 	]);
 	app.run(['$templateCache', function ($templateCache) {
         $templateCache.put('cmEvent.html', 
+            '<div class="row" ng-if="loading">'+
+            '   <div class="col-xs-12">'+
+            '       <div class="spinner">'+
+            '           <div class="rect1"></div>'+
+            '           <div class="rect2"></div>'+
+            '           <div class="rect3"></div>'+
+            '           <div class="rect4"></div>'+
+            '           <div class="rect5"></div>'+
+            '       </div>'+
+            '   </div>'+
+            '</div>'+
             '<div ng-cloak class="col-xs-10 col-xs-offset-1 col-md-offset-0 col-md-6" ng-repeat="event in events">'+
             '  <a ng-href="{{event.url}}">                                                               '+
             '    <div class="well" style="padding: 0px;">                                                '+
@@ -266,6 +283,17 @@ angular.monthString = function(curdate){
             '</div>                                                                                      '
             );
 		$templateCache.put('cmSermon.html', 
+            '<div class="row" ng-if="loading">'+
+            '   <div class="col-xs-12">'+
+            '       <div class="spinner">'+
+            '           <div class="rect1"></div>'+
+            '           <div class="rect2"></div>'+
+            '           <div class="rect3"></div>'+
+            '           <div class="rect4"></div>'+
+            '           <div class="rect5"></div>'+
+            '       </div>'+
+            '   </div>'+
+            '</div>'+
             '<div ng-cloak class="col-xs-12 col-md-6 col-md-offset-3">                                   '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <img ng-src="{{basePath+sermon.image}}" style="width:100%;">                        '+
