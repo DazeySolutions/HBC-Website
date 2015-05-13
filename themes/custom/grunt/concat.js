@@ -40,5 +40,9 @@ module.exports = {
     inst: {
       src: ['src/js/instagram.js'],
       dest: 'dist/js/instagram.min.js',
+    },
+    ssuicore: {
+        src: ['src/js/ssui.core.js'],
+        dest: 'dist/js/ssui.core.js',
     }
 };
