@@ -83,6 +83,21 @@
         @extend .fa-lg;
         color: #bb0000;
     }
+    .btn-icon-network-cloud{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-cloud-upload;
+    }
+    .btn-icon-minus-circle{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-trash;
+    }
+    .btn-icon-plug-disconnect-prohibition{
+        @extend .fa;
+        @extend .fa-fw;
+        @extend .fa-times;
+    }
 }
 
 //$icon24: sprite-map("menu-icons/24x24/*.png");
