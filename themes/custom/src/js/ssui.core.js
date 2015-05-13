@@ -251,7 +251,7 @@
                         })
 						.appendTo(uiDialogTitlebar);
 
-					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg ui-icon ui-icon-closethick"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
+					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg ui-icon ui-icon-closethick" style="background-image: initial !important; color: #bb0000;"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
 						.appendTo(uiDialogTitlebarClose);
 				}
 					uiDialogTitlebar.prepend(title);
