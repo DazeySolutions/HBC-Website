@@ -19,9 +19,11 @@ class CustomSiteConfig extends DataExtension {
 	 * @return FieldList
 	 */
 	public function updateCMSFields(FieldList $fields) {
-		$uploadField = new UploadField('Logo', 'Logo:');
+		$uploadField = new FileAttachmentField('Logo', 'Logo:');
 		$uploadField->setAllowedFileCategories('image');
 		$uploadField->setFolderName('Brand-Folder');
+		$uploadField->setMultiple(false);
+		$uploadField->setView('grid');
 		$fields->addFieldToTab("Root.Content",$uploadField);
 		
 		$footerField = new HTMLEditorField('FooterContent', "Footer");
