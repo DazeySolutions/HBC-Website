@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" bs-collapse>
+<nav class="navbar navbar-inverse navbar-fixed-top" bs-collapse start-collapsed="true">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" bs-collapse-toggle>
