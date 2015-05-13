@@ -21,6 +21,8 @@ module.exports = {
               'bower_components/angular-pdf-viewer/dist/angular-pdf-viewer.min.js',
               'bower_components/angular-animate/angular-animate.js', 
               'bower_components/angularjs-toaster/toaster.js',
+              'bower_components/angular-strap/dist/angular-strap.js',
+              'bower_components/angular-strap/dist/angular-strap.tpl.js',
               'bower_components/ng-lodash/build/ng-lodash.js'],
       dest: 'dist/js/libraries.min.js',
     },
