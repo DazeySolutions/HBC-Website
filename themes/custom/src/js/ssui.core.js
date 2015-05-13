@@ -235,7 +235,7 @@
 		}
 	});
 	function setTitleBar(title, uiDialogTitlebar){
-				if(options.closeButton) {
+				if(true) {
 					var uiDialogTitlebarClose = $('<a href="#"/>')
 						.addClass(
 							'ui-dialog-titlebar-close ' +
@@ -261,7 +261,7 @@
 						})
 						.appendTo(uiDialogTitlebar);
 
-					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
+					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg ui-icon ui-icon-closethick"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
 						.appendTo(uiDialogTitlebarClose);
 				}
 					uiDialogTitlebar.prepend(title);
