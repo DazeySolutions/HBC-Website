@@ -28,7 +28,16 @@ class ContentPage extends SiteTree implements PermissionProvider {
         }
         
     }
-    
+    public function doPublish(){
+        $retval = parent::doPublish();
+        foreach($this->SlideShowImages() as $page){
+            $page->doPublish();
+        }
+        foreach($this->ContentSections() as $page){
+            $page->doPublish();
+        }
+        return $retval;
+    }
     function getSettingsFields() {
         $fields = parent::getSettingsFields();
         $fieldGroup = new FieldGroup(
