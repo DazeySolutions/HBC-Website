@@ -297,16 +297,16 @@ angular.monthString = function(curdate){
             '<div ng-cloak class="col-xs-12 col-md-6 col-md-offset-3">                                   '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <img ng-src="{{basePath+sermon.image}}" style="width:100%;">                        '+
-            '        <div class="row">                                                                   '+
-            '            <div class="col-xs-12">                                                         '+
-            '                <div class="col-xs-12">                                                     '+
-            '                    <h4 class="col-xs-12">{{sermon.title}}</h4>                             '+
-            '                    <p class="small">Start: {{getFormattedDate(sermon.start)}}</p>          '+
-            '                    <p class="small">End: {{getFormattedDate(sermon.end)}}</p>              '+
-            '                    <p class="col-xs-12">{{sermon.description}}</p>                         '+
-            '                </div>                                                                      '+
-            '            </div>                                                                          '+
-            '        </div>                                                                              '+
+            //'        <div class="row">                                                                   '+
+            // '            <div class="col-xs-12">                                                         '+
+            // '                <div class="col-xs-12">                                                     '+
+            //'                    <h4 class="col-xs-12">{{sermon.title}}</h4>                             '+
+            //'                    <p class="small">Start: {{getFormattedDate(sermon.start)}}</p>          '+
+            // '                    <p class="small">End: {{getFormattedDate(sermon.end)}}</p>              '+
+            // '                    <p class="col-xs-12">{{sermon.description}}</p>                         '+
+            // '                </div>                                                                      '+
+            // '            </div>                                                                          '+
+            // '        </div>                                                                              '+
             '    </div>                                                                                  '+
             '</div>                                                                                      '+
             '<div class="row"  ng-if="prevDisable || nextDisable">                                       '+
