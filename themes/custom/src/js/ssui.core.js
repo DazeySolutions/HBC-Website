@@ -259,6 +259,10 @@
 						.mousedown(function(ev) {
 							ev.stopPropagation();
 						})
+						.click(function( event ) {
+                            event.preventDefault();
+                            that.close( event );
+                        })
 						.appendTo(uiDialogTitlebar);
 
 					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg ui-icon ui-icon-closethick"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
