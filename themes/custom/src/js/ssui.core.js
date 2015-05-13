@@ -148,6 +148,8 @@
 
 			var self = this;
 
+            
+
 			// Create iframe
 			var iframe = $('<iframe marginWidth="0" marginHeight="0" frameBorder="0" scrolling="auto"></iframe>');
 			iframe.bind('load', function(e) {
@@ -168,7 +170,9 @@
 			$.ui.dialog.prototype.open.call(this);
 			
 			var self = this, iframe = this.element.children('iframe');
-
+			var title = self.uiDialogTitlebar.children()[0];
+			self.uiDialogTitlebar.html("");
+            setTitleBar(title,self.uiDialogTitlebar);
 			// Load iframe
 			if(this.options.iframeUrl && (!iframe.hasClass('loaded') || this.options.reloadOnOpen)) {
 				iframe.hide();
@@ -230,7 +234,40 @@
 			}
 		}
 	});
-	
+	function setTitleBar(title, uiDialogTitlebar){
+				if(options.closeButton) {
+					var uiDialogTitlebarClose = $('<a href="#"/>')
+						.addClass(
+							'ui-dialog-titlebar-close ' +
+							'ui-corner-all'
+						)
+						.attr('role', 'button')
+						.hover(
+							function() {
+								uiDialogTitlebarClose.addClass('ui-state-hover');
+							},
+							function() {
+								uiDialogTitlebarClose.removeClass('ui-state-hover');
+							}
+						)
+						.focus(function() {
+							uiDialogTitlebarClose.addClass('ui-state-focus');
+						})
+						.blur(function() {
+							uiDialogTitlebarClose.removeClass('ui-state-focus');
+						})
+						.mousedown(function(ev) {
+							ev.stopPropagation();
+						})
+						.appendTo(uiDialogTitlebar);
+
+					var uiDialogTitlebarCloseText = (this.uiDialogTitlebarCloseText = $('<span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x" style="color: #fafafa;"></i><i class="fa fa-circle-o fa-stack-2x text-danger"></i><i class="fa fa-times fa-stack-1x text-danger"></i></span>'))
+						.appendTo(uiDialogTitlebarClose);
+				}
+					uiDialogTitlebar.prepend(title);
+
+				uiDialogTitlebar.find("*").add(uiDialogTitlebar).disableSelection();
+	}
 	$.widget("ssui.titlebar", {
 		_create: function() {
 			this.originalTitle = this.element.attr('title');
