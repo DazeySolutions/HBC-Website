@@ -9,12 +9,12 @@ class CustomSiteConfig extends DataExtension {
 	private static $db = array(
 	    'FooterContent'=>'HTMLText',
 	    'ConnectionContent'=>'HTMLText',
-	    "HeaderColor"=>"Color",
-		"HeaderTextColor"=>"Color",
-		"BackgroundOneColor"=>"Color",
-		"TextOneColor"=>"Color",
-		"BackgroundTwoColor"=>"Color",
-		"TextTwoColor"=>"Color"
+	    "HeaderColor"=>"Varchar",
+		"HeaderTextColor"=>"Varchar",
+		"BackgroundOneColor"=>"Varchar",
+		"TextOneColor"=>"Varchar",
+		"BackgroundTwoColor"=>"Varchar",
+		"TextTwoColor"=>"Varchar"
 	);
 	
 	public function onBeforeWrite(){
