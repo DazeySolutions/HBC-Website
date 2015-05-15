@@ -24,6 +24,7 @@ class CustomSiteConfig extends DataExtension {
 	    $txt +=     "@odd-text      ".$this->owner->TextOneColor.";\n";
 	    $txt +=     "@even-text     ".$this->owner->TextTwoColor.";\n";
 	    $txt +=     "@header-text   ".$this->owner->HeaderTextColor.";\n";
+	    echo $txt;
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
