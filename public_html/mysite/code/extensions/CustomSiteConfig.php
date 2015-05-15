@@ -28,7 +28,11 @@ class CustomSiteConfig extends DataExtension {
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
-	    shell_exec("cd /home/hbc/web/site/themes/custom/ && grunt less");
+	    $output = array();
+	    exec("cd /home/hbc/web/site/themes/custom/ && grunt less" , $output);
+	    foreach($output as $out){
+	        user_error($out, E_USER_WARNING);
+	    }
 	}
 	
 	/**
