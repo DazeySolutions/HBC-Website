@@ -30,9 +30,6 @@ class CustomSiteConfig extends DataExtension {
 	    fclose($myfile);
 	    $output = array();
 	    exec("whoami && cd /home/hbc/web/site/themes/custom/ && grunt less" , $output);
-	    foreach($output as $out){
-	        user_error($out, E_USER_WARNING);
-	    }
 	}
 	
 	/**
