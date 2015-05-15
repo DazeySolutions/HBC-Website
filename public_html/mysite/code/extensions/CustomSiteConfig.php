@@ -4,12 +4,12 @@ class CustomSiteConfig extends DataExtension {
 	
 	private static $has_one = array(	
 		"Logo" => "Image",
-		"HeaderColor"=>"Color",
-		"HeaderTextColor"=>"Color",
-		"BackgroundOneColor"=>"Color",
-		"TextOneColor"=>"Color",
-		"BackgroundTwoColor"=>"Color",
-		"TextTwoColor"=>"Color"
+		"HeaderColor"=>"Varchar",
+		"HeaderTextColor"=>"Varchar",
+		"BackgroundOneColor"=>"Varchar",
+		"TextOneColor"=>"Varchar",
+		"BackgroundTwoColor"=>"Varchar",
+		"TextTwoColor"=>"Varchar"
 	);
 	
 	private static $db = array(
@@ -18,12 +18,12 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:          ".$this->owner->BackgroundOneColor()->CSSColor().";\n";
-	    $txt +=     "@even:         ".$this->owner->BackgroundTwoColor()->CSSColor().";\n";
-	    $txt +=     "@header        ".$this->owner->HeaderColor()->CSSColor().";\n";
-	    $txt +=     "@odd-text      ".$this->owner->TextOneColor()->CSSColor().";\n";
-	    $txt +=     "@even-text     ".$this->owner->TextTwoColor()->CSSColor().";\n";
-	    $txt +=     "@header-text   ".$this->owner->HeaderTextColor()->CSSColor().";\n";
+	    $txt =      "@odd:          #".$this->owner->BackgroundOneColor.";\n";
+	    $txt +=     "@even:         #".$this->owner->BackgroundTwoColor.";\n";
+	    $txt +=     "@header        #".$this->owner->HeaderColor.";\n";
+	    $txt +=     "@odd-text      #".$this->owner->TextOneColor.";\n";
+	    $txt +=     "@even-text     #".$this->owner->TextTwoColor.";\n";
+	    $txt +=     "@header-text   #".$this->owner->HeaderTextColor.";\n";
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
