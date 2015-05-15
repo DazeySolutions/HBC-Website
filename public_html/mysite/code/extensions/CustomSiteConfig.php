@@ -17,7 +17,19 @@ class CustomSiteConfig extends DataExtension {
 	    'ConnectionContent'=>'HTMLText',
 	);
 	
-
+	public function onBeforeWrite(){
+	    $txt =      "@odd: ".BackgroundOneColor()->CSSColor().";\n";
+	    $txt +=     "@even: ".BackgroundTwoColor()->CSSColor().";\n";
+	    $txt +=     "@header ".HeaderColor()->CSSColor().";\n";
+	    $txt +=     "@odd-text ".TextOneColor()->CSSColor().";\n";
+	    $txt +=     "@even-text ".TextTwoColor()->CSSColor().";\n";
+	    $txt +=     "@header-text ".HeaderTextColor()->CSSColor().";\n";
+	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
+	    fwrite($myfile, $txt);
+	    fclose($myfile);
+	    exec("/home/hbc/web/site/themes/custom/buildless.sh");
+	}
+	
 	/**
 	 * Get the fields that are sent to the CMS. In
 	 * your extensions: updateCMSFields($fields)
