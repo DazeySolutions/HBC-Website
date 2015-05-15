@@ -18,7 +18,7 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:          ".$this->owner->BackgroundOneColor->CSSColor().";\n";
+	    $txt =      "@odd:          ".$this->owner->BackgroundOneColor()->CSSColor().";\n";
 	    $txt +=     "@even:         ".$this->owner->BackgroundTwoColor->CSSColor().";\n";
 	    $txt +=     "@header        ".$this->owner->HeaderColor->CSSColor().";\n";
 	    $txt +=     "@odd-text      ".$this->owner->TextOneColor->CSSColor().";\n";
