@@ -11,19 +11,31 @@ class CustomSiteConfig extends DataExtension {
 	    'ConnectionContent'=>'HTMLText',
 	    "HeaderColor"=>"Varchar",
 		"HeaderTextColor"=>"Varchar",
+		"HeaderLinkColor"=>"Varchar",
+		"HeaderActiveLinkColor"=>"Varchar",
 		"BackgroundOneColor"=>"Varchar",
 		"TextOneColor"=>"Varchar",
+		"LinkOneColor"=>"Varchar",
+		"ActiveLinkOneColor"=>"Varchar",
 		"BackgroundTwoColor"=>"Varchar",
-		"TextTwoColor"=>"Varchar"
+		"TextTwoColor"=>"Varchar",
+		"LinkTwoColor"=>"Varchar",
+		"ActiveLinkTwoColor"=>"Varchar"
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:          #".$this->owner->BackgroundOneColor.";\n";
-	    $txt .=     "@even:         #".$this->owner->BackgroundTwoColor.";\n";
-	    $txt .=     "@header:       #".$this->owner->HeaderColor.";\n";
-	    $txt .=     "@odd-text:     #".$this->owner->TextOneColor.";\n";
-	    $txt .=     "@even-text:    #".$this->owner->TextTwoColor.";\n";
-	    $txt .=     "@header-text:  #".$this->owner->HeaderTextColor.";\n";
+	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor.";\n";
+	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor.";\n";
+	    $txt .=     "@header:               #".$this->owner->HeaderColor.";\n";
+	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor.";\n";
+	    $txt .=     "@even-text:            #".$this->owner->TextTwoColor.";\n";
+	    $txt .=     "@header-text:          #".$this->owner->HeaderTextColor.";\n";
+	    $txt .=     "@odd-link:             #".$this->owner->LinkOneColor.";\n";
+	    $txt .=     "@even-link:            #".$this->owner->LinkTwoColor.";\n";
+	    $txt .=     "@header-link:          #".$this->owner->HeaderLinkColor.";\n";
+	    $txt .=     "@odd-link-active:      #".$this->owner->ActiveLinkOneColor.";\n";
+	    $txt .=     "@even-link-active:     #".$this->owner->ActiveLinkTwoColor.";\n";
+	    $txt .=     "@header-link-active:   #".$this->owner->HeaderActiveLinkColor.";\n";
 	    
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
@@ -49,17 +61,23 @@ class CustomSiteConfig extends DataExtension {
 		$fields->addFieldToTab("Root.Content",$uploadField);
 		$hGroup = new FieldGroup(
 		    new ColorField("HeaderColor", "Background Color"),
-		    new ColorField("HeaderTextColor", "Text Color")
+		    new ColorField("HeaderTextColor", "Text Color"),
+		    new ColorField("HeaderActiveLinkColor", "Active Link Color"),
+		    new ColorField("HeaderLinkColor", "Link Color")
 		);
 		$hGroup->setTitle("Header");
 		$oGroup = new FieldGroup(
 		    new ColorField("BackgroundOneColor", "Background Color"),
-		    new ColorField("TextOneColor", "Text Color")
+		    new ColorField("TextOneColor", "Text Color"),
+		    new ColorField("ActiveLinkOneColor", "Active Link Color"),
+		    new ColorField("LinkOneColor", "Link Color")
 		);
 		$oGroup->setTitle("Content Section (odd)");
 		$eGroup = new FieldGroup(
 		    new ColorField("BackgroundTwoColor", "Background Color"),
-		    new ColorField("TextTwoColor", "Text Color")
+		    new ColorField("TextTwoColor", "Text Color"),
+		    new ColorField("ActiveLinkTwoColor", "Active Link Color"),
+		    new ColorField("LinkTwoColor", "Link Color")
 		);
 		$eGroup->setTitle("Content Section (even)");
 		$fields->addFieldToTab("Root.Color",$hGroup);
