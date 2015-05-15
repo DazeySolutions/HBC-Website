@@ -18,12 +18,12 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:          #".$this->owner->BackgroundOneColor->CSSColor().";\n";
-	    $txt +=     "@even:         #".$this->owner->BackgroundTwoColor->CSSColor().";\n";
-	    $txt +=     "@header        #".$this->owner->HeaderColor->CSSColor().";\n";
-	    $txt +=     "@odd-text      #".$this->owner->TextOneColor->CSSColor().";\n";
-	    $txt +=     "@even-text     #".$this->owner->TextTwoColor->CSSColor().";\n";
-	    $txt +=     "@header-text   #".$this->owner->HeaderTextColor->CSSColor().";\n";
+	    $txt =      "@odd:          ".$this->owner->BackgroundOneColor->CSSColor().";\n";
+	    $txt +=     "@even:         ".$this->owner->BackgroundTwoColor->CSSColor().";\n";
+	    $txt +=     "@header        ".$this->owner->HeaderColor->CSSColor().";\n";
+	    $txt +=     "@odd-text      ".$this->owner->TextOneColor->CSSColor().";\n";
+	    $txt +=     "@even-text     ".$this->owner->TextTwoColor->CSSColor().";\n";
+	    $txt +=     "@header-text   ".$this->owner->HeaderTextColor->CSSColor().";\n";
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
