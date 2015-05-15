@@ -20,10 +20,10 @@ class CustomSiteConfig extends DataExtension {
 	public function onBeforeWrite(){
 	    $txt =      "@odd:          #".$this->owner->BackgroundOneColor.";\n";
 	    $txt .=     "@even:         #".$this->owner->BackgroundTwoColor.";\n";
-	    $txt .=     "@header        #".$this->owner->HeaderColor.";\n";
-	    $txt .=     "@odd-text      #".$this->owner->TextOneColor.";\n";
-	    $txt .=     "@even-text     #".$this->owner->TextTwoColor.";\n";
-	    $txt .=     "@header-text   #".$this->owner->HeaderTextColor.";\n";
+	    $txt .=     "@header:       #".$this->owner->HeaderColor.";\n";
+	    $txt .=     "@odd-text:     #".$this->owner->TextOneColor.";\n";
+	    $txt .=     "@even-text:    #".$this->owner->TextTwoColor.";\n";
+	    $txt .=     "@header-text:  #".$this->owner->HeaderTextColor.";\n";
 	    
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
