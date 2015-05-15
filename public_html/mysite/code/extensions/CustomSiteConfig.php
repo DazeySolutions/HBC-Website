@@ -28,7 +28,7 @@ class CustomSiteConfig extends DataExtension {
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
-	    shell_exec("./home/hbc/web/site/themes/custom/buildless.sh");
+	    shell_exec("cd /home/hbc/web/site/themes/custom/ && grunt less");
 	}
 	
 	/**
