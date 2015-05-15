@@ -3,18 +3,18 @@
 class CustomSiteConfig extends DataExtension {
 	
 	private static $has_one = array(	
-		"Logo" => "Image",
-		"HeaderColor"=>"Varchar",
-		"HeaderTextColor"=>"Varchar",
-		"BackgroundOneColor"=>"Varchar",
-		"TextOneColor"=>"Varchar",
-		"BackgroundTwoColor"=>"Varchar",
-		"TextTwoColor"=>"Varchar"
+		"Logo" => "Image"
 	);
 	
 	private static $db = array(
 	    'FooterContent'=>'HTMLText',
 	    'ConnectionContent'=>'HTMLText',
+	    "HeaderColor"=>"Color",
+		"HeaderTextColor"=>"Color",
+		"BackgroundOneColor"=>"Color",
+		"TextOneColor"=>"Color",
+		"BackgroundTwoColor"=>"Color",
+		"TextTwoColor"=>"Color"
 	);
 	
 	public function onBeforeWrite(){
