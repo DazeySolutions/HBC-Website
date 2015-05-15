@@ -25,6 +25,8 @@ class CustomSiteConfig extends DataExtension {
 	 * @return FieldList
 	 */
 	public function updateCMSFields(FieldList $fields) {
+	    $fields->insertBefore(new Tab("Root.Content", "Content"), "Root.Access");
+	    $fields->insertBefore(new Tab("Root.Color", "Color"), "Root.Access");
 	    $uploadField = new FileAttachmentField('Logo', 'Logo:');
 		$uploadField->setAcceptedFiles(array('jpg','JPG','png','gif','bmp'));
 		$uploadField->setFolderName('Brand-Folder');
