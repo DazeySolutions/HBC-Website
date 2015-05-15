@@ -3,7 +3,13 @@
 class CustomSiteConfig extends DataExtension {
 	
 	private static $has_one = array(	
-		"Logo" => "Image"
+		"Logo" => "Image",
+		"HeaderColor"=>"Color",
+		"HeaderTextColor"=>"Color",
+		"BackgroundOneColor"=>"Color",
+		"TextOneColor"=>"Color",
+		"BackgroundTwoColor"=>"Color",
+		"TextTwoColor"=>"Color"
 	);
 	
 	private static $db = array(
@@ -19,13 +25,32 @@ class CustomSiteConfig extends DataExtension {
 	 * @return FieldList
 	 */
 	public function updateCMSFields(FieldList $fields) {
-		$uploadField = new FileAttachmentField('Logo', 'Logo:');
+	    $fields->insertBefore(new Tab("Root.Content", "Content"), "Root.Access");
+	    $fields->insertBefore(new Tab("Root.Color", "Color"), "Root.Access");
+	    $uploadField = new FileAttachmentField('Logo', 'Logo:');
 		$uploadField->setAcceptedFiles(array('jpg','JPG','png','gif','bmp'));
 		$uploadField->setFolderName('Brand-Folder');
 		$uploadField->setMultiple(false);
 		$uploadField->setView('grid');
 		$fields->addFieldToTab("Root.Content",$uploadField);
-		
+		$hGroup = new FieldGroup(
+		    new ColorField("HeaderColor", "Background Color"),
+		    new ColorField("HeaderTextColor", "Text Color")
+		);
+		$hGroup->setTitle("Header");
+		$oGroup = new FieldGroup(
+		    new ColorField("BackgroundOneColor", "Background Color"),
+		    new ColorField("TextOneColor", "Text Color")
+		);
+		$oGroup->setTitle("Content Section (odd)");
+		$eGroup = new FieldGroup(
+		    new ColorField("BackgroundTwoColor", "Background Color"),
+		    new ColorField("TextTwoColor", "Text Color")
+		);
+		$eGroup->setTitle("Content Section (even)");
+		$fields->addFieldToTab("Root.Color",$hGroup);
+		$fields->addFieldToTab("Root.Color",$eGroup);
+		$fields->addFieldToTab("Root.Color",$oGroup);
 		$footerField = new HTMLEditorField('FooterContent', "Footer");
 		$connectionField = new HTMLEditorField('ConnectionContent', "Social");
 		$fields->addFieldToTab("Root.Content", $connectionField);
