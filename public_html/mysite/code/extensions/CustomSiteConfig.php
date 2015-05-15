@@ -29,7 +29,7 @@ class CustomSiteConfig extends DataExtension {
 	    fwrite($myfile, $txt);
 	    fclose($myfile);
 	    $output = array();
-	    exec("cd /home/hbc/web/site/themes/custom/ && grunt less" , $output);
+	    exec("whoami && cd /home/hbc/web/site/themes/custom/ && grunt less" , $output);
 	    foreach($output as $out){
 	        user_error($out, E_USER_WARNING);
 	    }
