@@ -2,17 +2,17 @@
 @import "bower_components/fontawesome/less/font-awesome.less";
 @import "bower_components/angularjs-toaster/toaster.less";
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700,300italic,400italic,600italic,700italic);
-
+@import "colors.less";
 @fa-font-path:          "../assets/fonts";
 @icon-font-path:        "../assets/fonts";
 
 @brand-blue:            darken(rgb(0,150,255), 10%);
-@offblack:              #222222;
-@odd-bg:                #eaeaea;
-@even-bg:               @brand-blue;
+@offblack:              @header;
+@odd-bg:                @odd;
+@even-bg:               @even;
 
-@light-text:            #f2f2f2;
-@dark-text:             @offblack;
+@light-text:            @even-text;
+@dark-text:             @odd-text;
 @transparent:           rgba(0,0,0,0);
 
 @navbar-height:         57px;
@@ -72,6 +72,7 @@ body{
 .nav{
     li{
         a{
+            color: @header-text;
             p{
                 margin: -2px !important;
             }
@@ -80,8 +81,8 @@ body{
     li.active{
         a{
             p{
-		padding-bottom: 2px;
-                border-bottom: 2px solid @brand-blue;
+		        padding-bottom: 2px;
+                border-bottom: 2px solid @even-bg;
             }
         }
     }
