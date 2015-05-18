@@ -7,23 +7,29 @@
 @icon-font-path:        "../assets/fonts";
 
 @brand-blue:            darken(rgb(0,150,255), 10%);
-@offblack:              @header;
-@odd-bg:                @odd;
-@even-bg:               @even;
 
-@light-text:            @even-text;
-@dark-text:             @odd-text;
 @transparent:           rgba(0,0,0,0);
+
+@navbar-inverse-bg:                 @header;
+@navbar-inverse-border:             @header;
+@navbar-inverse-color:              @header-text;
+@navbar-inverse-link-color:         @header-link;
+@navbar-inverse-link-hover-color:   lighten(@header-link, 15%);
+@navbar-inverse-link-active-color:  @header-link-active;
+@navbar-inverse-link-active-bg:     @transparent;
+
 
 @navbar-height:         57px;
 @border-radius-base:    0px;
+
+
 
 @font-family-sans-serif:  'Josefin Sans', 'Helvetica Neue', sans-serif;
 
 @media (max-width: 767px){
     .navbar-inverse{
-        background-color:   @offblack !important;
-        border-color:       @offblack !important;
+        background-color:   @header !important;
+        border-color:       @header !important;
     }
     .fixed-margin{
         margin-top: 58px !important;   
@@ -33,11 +39,14 @@
     }
 }
 body{
-    background: @offblack;
+    background: @header;
+}
+.transparent{
+    background-color:   @transparent !important;
+    border-color:       @transparent !important;
 }
 .navbar-inverse{
     margin: 0px;
-
     li {
         text-transform: uppercase;
         font-weight: 900;
@@ -82,7 +91,7 @@ body{
         a{
             p{
 		        padding-bottom: 2px;
-                border-bottom: 2px solid @even-bg;
+                border-bottom: 2px solid @even;
             }
         }
     }
@@ -113,27 +122,45 @@ body{
         border: 0; 
         margin: 35px 0; 
         padding: 0;
-        border-top: 1px solid @dark-text;
+        border-top: 1px solid @odd-text;
     }
     &.odd {
-        background: @odd-bg;
-        color:      @dark-text;
+        background: @odd;
+        color:      @odd-text;
+        a{
+            color:  @odd-link;
+            &.active{
+                color: @odd-link-active;
+            }
+            &:hover{
+                color: lighten(@odd-link, 15%);
+            }
+        }
         hr{
-            border-color: lighten(@dark-text, 5%);
+            border-color: lighten(@odd-text, 5%);
         }
     }
     &.even{
-        background: @even-bg;
-        color:      @light-text;
+        background: @even;
+        color:      @even-text;
+        a{
+            color:  @even-link;
+            &.active{
+                color: @even-link-active;
+            }
+            &:hover{
+                color: lighten(@even-link, 15%);
+            }
+        }
         hr{
-            border-color: lighten(@odd-bg, 10%);
+            border-color: lighten(@odd, 10%);
         }
     }
     &.dark{
-        background: @offblack;
-        color:      @light-text;
+        background: @header;
+        color:      @even-text;
         hr{
-            border-color: lighten(@odd-bg, 10%);
+            border-color: lighten(@odd, 10%);
         }
     }
 }
@@ -166,7 +193,7 @@ body{
 
 .start {
       background:           @brand-blue;
-      color:                @light-text;
+      color:                @even-text;
       position:             absolute;
       width:                64px;
       height:               64px;
@@ -184,10 +211,10 @@ body{
     }
 }
 .even #instafeed a div img {
-    border: 1px solid @light-text;
+    border: 1px solid @even-text;
 }
 .odd #instafeed a div img {
-    border: 1px solid @dark-text;
+    border: 1px solid @odd-text;
 }
 #instafeed {
     .heartsTable{
@@ -239,16 +266,16 @@ body{
 }
 
 .nav-pills > li > a{
-    color: @dark-text !important;
-    background-color: @odd-bg;
+    color: @odd-text !important;
+    background-color: @odd;
     &:hover{
-        color: @light-text !important;
-        background-color: @offblack;
+        color: @even-text !important;
+        background-color: @header;
     }
 }
 .nav-pills > li.open > a{
-    color: @light-text !important;
-    background-color: @offblack;
+    color: @even-text !important;
+    background-color: @header;
 }
 
 .pdf{
