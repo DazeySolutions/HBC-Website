@@ -24,7 +24,7 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor.";\n";
+	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor::HEX().";\n";
 	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor.";\n";
 	    $txt .=     "@header:               #".$this->owner->HeaderColor.";\n";
 	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor.";\n";
