@@ -9,33 +9,33 @@ class CustomSiteConfig extends DataExtension {
 	private static $db = array(
 	    'FooterContent'=>'HTMLText',
 	    'ConnectionContent'=>'HTMLText',
-	    "HeaderColor"=>"Varchar",
-		"HeaderTextColor"=>"Varchar",
-		"HeaderLinkColor"=>"Varchar",
-		"HeaderActiveLinkColor"=>"Varchar",
-		"BackgroundOneColor"=>"Varchar",
-		"TextOneColor"=>"Varchar",
-		"LinkOneColor"=>"Varchar",
-		"ActiveLinkOneColor"=>"Varchar",
-		"BackgroundTwoColor"=>"Varchar",
-		"TextTwoColor"=>"Varchar",
-		"LinkTwoColor"=>"Varchar",
-		"ActiveLinkTwoColor"=>"Varchar"
+	    "HeaderColor"=>"Color",
+		"HeaderTextColor"=>"Color",
+		"HeaderLinkColor"=>"Color",
+		"HeaderActiveLinkColor"=>"Color",
+		"BackgroundOneColor"=>"Color",
+		"TextOneColor"=>"Color",
+		"LinkOneColor"=>"Color",
+		"ActiveLinkOneColor"=>"Color",
+		"BackgroundTwoColor"=>"Color",
+		"TextTwoColor"=>"Color",
+		"LinkTwoColor"=>"Color",
+		"ActiveLinkTwoColor"=>"Color"
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor.";\n";
-	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor.";\n";
-	    $txt .=     "@header:               #".$this->owner->HeaderColor.";\n";
-	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor.";\n";
-	    $txt .=     "@even-text:            #".$this->owner->TextTwoColor.";\n";
-	    $txt .=     "@header-text:          #".$this->owner->HeaderTextColor.";\n";
-	    $txt .=     "@odd-link:             #".$this->owner->LinkOneColor.";\n";
-	    $txt .=     "@even-link:            #".$this->owner->LinkTwoColor.";\n";
-	    $txt .=     "@header-link:          #".$this->owner->HeaderLinkColor.";\n";
-	    $txt .=     "@odd-link-active:      #".$this->owner->ActiveLinkOneColor.";\n";
-	    $txt .=     "@even-link-active:     #".$this->owner->ActiveLinkTwoColor.";\n";
-	    $txt .=     "@header-link-active:   #".$this->owner->HeaderActiveLinkColor.";\n";
+	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor->HEX().";\n";
+	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor->HEX().";\n";
+	    $txt .=     "@header:               #".$this->owner->HeaderColor->HEX().";\n";
+	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor->HEX().";\n";
+	    $txt .=     "@even-text:            #".$this->owner->TextTwoColor->HEX().";\n";
+	    $txt .=     "@header-text:          #".$this->owner->HeaderTextColor->HEX().";\n";
+	    $txt .=     "@odd-link:             #".$this->owner->LinkOneColor->HEX().";\n";
+	    $txt .=     "@even-link:            #".$this->owner->LinkTwoColor->HEX().";\n";
+	    $txt .=     "@header-link:          #".$this->owner->HeaderLinkColor->HEX().";\n";
+	    $txt .=     "@odd-link-active:      #".$this->owner->ActiveLinkOneColor->HEX().";\n";
+	    $txt .=     "@even-link-active:     #".$this->owner->ActiveLinkTwoColor->HEX().";\n";
+	    $txt .=     "@header-link-active:   #".$this->owner->HeaderActiveLinkColor->HEX().";\n";
 	    
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
