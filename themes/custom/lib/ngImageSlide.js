@@ -19,6 +19,7 @@
 			$scope.curImageNum = 0;
 			$scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
 			$scope.init = function init(){
+                $scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
 				$http.get($scope.path+"?width="+$window.innerWidth)
 					.success(function(data){
 						$scope.images = data;
@@ -36,6 +37,10 @@
 						}
 					});
 			};
+			//reload image on orientation change to ensure proper sizing
+			angular.element($window).bind('orientationchange', function () {
+                $scope.init();
+            });
 			var bgColor = "black";
 			$scope.imageStyle = function imageStyle(){
                 var data = {
