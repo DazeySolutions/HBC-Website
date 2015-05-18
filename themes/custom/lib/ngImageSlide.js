@@ -19,8 +19,7 @@
 			$scope.curImageNum = 0;
 			$scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
 			$scope.init = function init(){
-                $scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
-				$http.get($scope.path+"?width="+$window.innerWidth)
+                $http.get($scope.path+"?width="+$window.innerWidth)
 					.success(function(data){
 						$scope.images = data;
 						if($scope.images.length > 1){
@@ -37,9 +36,20 @@
 						}
 					});
 			};
-			//reload image on orientation change to ensure proper sizing
+			//reload image on orientation change or resize to ensure proper sizing
 			angular.element($window).bind('orientationchange', function () {
-                $scope.init();
+                var newHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
+                if(newHeight !== $scope.divHeight){
+                    $scope.divHeight = newHeight;
+                    $scope.init();
+                }
+            });
+            angular.element($window).bind('resize', function () {
+                var newHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
+                if(newHeight !== $scope.divHeight){
+                    $scope.divHeight = newHeight;
+                    $scope.init();
+                }
             });
 			var bgColor = "black";
 			$scope.imageStyle = function imageStyle(){
