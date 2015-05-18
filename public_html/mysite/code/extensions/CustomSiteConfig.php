@@ -24,7 +24,7 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor->HEX().";\n";
+	    $txt =      "@odd:                  #".$this->owner->BackgroundOneColor()->HEX().";\n";
 	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor->HEX().";\n";
 	    $txt .=     "@header:               #".$this->owner->HeaderColor->HEX().";\n";
 	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor->HEX().";\n";
@@ -59,30 +59,37 @@ class CustomSiteConfig extends DataExtension {
 		$uploadField->setMultiple(false);
 		$uploadField->setView('grid');
 		$fields->addFieldToTab("Root.Content",$uploadField);
-		$hGroup = new FieldGroup(
-		    new ColorField("HeaderColor", "Background Color"),
-		    new ColorField("HeaderTextColor", "Text Color"),
-		    new ColorField("HeaderActiveLinkColor", "Active Link Color"),
-		    new ColorField("HeaderLinkColor", "Link Color")
-		);
-		$hGroup->setTitle("Header");
-		$oGroup = new FieldGroup(
-		    new ColorField("BackgroundOneColor", "Background Color"),
-		    new ColorField("TextOneColor", "Text Color"),
-		    new ColorField("ActiveLinkOneColor", "Active Link Color"),
-		    new ColorField("LinkOneColor", "Link Color")
-		);
-		$oGroup->setTitle("Content Section (odd)");
-		$eGroup = new FieldGroup(
-		    new ColorField("BackgroundTwoColor", "Background Color"),
-		    new ColorField("TextTwoColor", "Text Color"),
-		    new ColorField("ActiveLinkTwoColor", "Active Link Color"),
-		    new ColorField("LinkTwoColor", "Link Color")
-		);
-		$eGroup->setTitle("Content Section (even)");
-		$fields->addFieldToTab("Root.Color",$hGroup);
-		$fields->addFieldToTab("Root.Color",$eGroup);
-		$fields->addFieldToTab("Root.Color",$oGroup);
+	    
+	    $hbc =  new ColorField("HeaderColor", "Background Color");
+	    $htc =  new ColorField("HeaderTextColor", "Text Color");
+	    $hac =  new ColorField("HeaderActiveLinkColor", "Active Link Color");
+	    $hlc =  new ColorField("HeaderLinkColor", "Link Color");
+	    
+	    $obc =  new ColorField("BackgroundOneColor", "Background Color");
+	    $otc =  new ColorField("TextOneColor", "Text Color");
+	    $oac =  new ColorField("ActiveLinkOneColor", "Active Link Color");
+	    $olc =  new ColorField("LinkOneColor", "Link Color");
+		
+		$ebc =  new ColorField("BackgroundTwoColor", "Background Color");
+	    $etc =  new ColorField("TextTwoColor", "Text Color");
+	    $eac =  new ColorField("ActiveLinkTwoColor", "Active Link Color");
+	    $elc =  new ColorField("LinkTwoColor", "Link Color");
+		
+		$fields->addFieldToTab("Root.Color.Header",$hbc);
+		$fields->addFieldToTab("Root.Color.Header",$htc);
+		$fields->addFieldToTab("Root.Color.Header",$hac);
+		$fields->addFieldToTab("Root.Color.Header",$hlc);
+		
+		$fields->addFieldToTab("Root.Color.ContentSection(odd)",$obc);
+		$fields->addFieldToTab("Root.Color.ContentSection(odd)",$otc);
+		$fields->addFieldToTab("Root.Color.ContentSection(odd)",$oac);
+		$fields->addFieldToTab("Root.Color.ContentSection(odd)",$olc);
+		
+        $fields->addFieldToTab("Root.Color.ContentSection(even)",$ebc);
+		$fields->addFieldToTab("Root.Color.ContentSection(even)",$etc);
+		$fields->addFieldToTab("Root.Color.ContentSection(even)",$eac);
+		$fields->addFieldToTab("Root.Color.ContentSection(even)",$elc);
+		
 		$footerField = new HTMLEditorField('FooterContent', "Footer");
 		$connectionField = new HTMLEditorField('ConnectionContent', "Social");
 		$fields->addFieldToTab("Root.Content", $connectionField);
