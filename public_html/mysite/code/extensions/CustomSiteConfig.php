@@ -24,18 +24,18 @@ class CustomSiteConfig extends DataExtension {
 	);
 	
 	public function onBeforeWrite(){
-	    $txt =      "@odd:                  #".Color::extractHex($this->owner->BackgroundOneColor).";\n";
-	    $txt .=     "@even:                 #".$this->owner->BackgroundTwoColor.";\n";
-	    $txt .=     "@header:               #".$this->owner->HeaderColor.";\n";
-	    $txt .=     "@odd-text:             #".$this->owner->TextOneColor.";\n";
-	    $txt .=     "@even-text:            #".$this->owner->TextTwoColor.";\n";
-	    $txt .=     "@header-text:          #".$this->owner->HeaderTextColor.";\n";
-	    $txt .=     "@odd-link:             #".$this->owner->LinkOneColor.";\n";
-	    $txt .=     "@even-link:            #".$this->owner->LinkTwoColor.";\n";
-	    $txt .=     "@header-link:          #".$this->owner->HeaderLinkColor.";\n";
-	    $txt .=     "@odd-link-active:      #".$this->owner->ActiveLinkOneColor.";\n";
-	    $txt .=     "@even-link-active:     #".$this->owner->ActiveLinkTwoColor.";\n";
-	    $txt .=     "@header-link-active:   #".$this->owner->HeaderActiveLinkColor.";\n";
+	    $txt =      "@odd:                  #".substr($this->owner->BackgroundOneColor, 0, 6).";\n";
+	    $txt .=     "@even:                 #".substr($this->owner->BackgroundTwoColor, 0, 6).";\n";
+	    $txt .=     "@header:               #".substr($this->owner->HeaderColor, 0, 6).";\n";
+	    $txt .=     "@odd-text:             #".substr($this->owner->TextOneColor, 0, 6).";\n";
+	    $txt .=     "@even-text:            #".substr($this->owner->TextTwoColor, 0, 6).";\n";
+	    $txt .=     "@header-text:          #".substr($this->owner->HeaderTextColor, 0, 6).";\n";
+	    $txt .=     "@odd-link:             #".substr($this->owner->LinkOneColor, 0, 6).";\n";
+	    $txt .=     "@even-link:            #".substr($this->owner->LinkTwoColor, 0, 6).";\n";
+	    $txt .=     "@header-link:          #".substr($this->owner->HeaderLinkColor, 0, 6).";\n";
+	    $txt .=     "@odd-link-active:      #".substr($this->owner->ActiveLinkOneColor, 0, 6).";\n";
+	    $txt .=     "@even-link-active:     #".substr($this->owner->ActiveLinkTwoColor, 0, 6).";\n";
+	    $txt .=     "@header-link-active:   #".substr($this->owner->HeaderActiveLinkColor, 0, 6).";\n";
 	    
 	    $myfile =   fopen("/home/hbc/web/site/themes/custom/src/less/colors.less", "w");
 	    fwrite($myfile, $txt);
