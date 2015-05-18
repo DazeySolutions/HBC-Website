@@ -18,12 +18,16 @@
 			$scope.images = [];
 			$scope.curImageNum = 0;
 			$scope.divHeight = Math.min($window.innerHeight-50, $window.innerWidth/(16/9));
+			var intPromise = null;
 			$scope.init = function init(){
                 $http.get($scope.path+"?width="+$window.innerWidth)
 					.success(function(data){
 						$scope.images = data;
 						if($scope.images.length > 1){
-							$interval(function(){
+                            if(intPromise !== null){
+                                $interval.cancel(intPromise);    
+                            }
+							intPromise = $interval(function(){
 								var tempNum = $scope.curImageNum + 1;
 								if(tempNum>=$scope.images.length){
 									tempNum = 0;
