@@ -181,7 +181,7 @@ hbcWebApp.config(['$locationProvider', function($locationProvider){
 */
 hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http', '$stateParams', '$state','loadGoogleMapAPI', 'lodash', function ($scope, toaster, $window, $http, $stateParams, $state, loadGoogleMapAPI, lodash){
     
-    var marker;
+    var marker, firstTime = true;
     $scope.map = undefined;
     $scope.$on('mapInitialized', function(evt, evtMap) {
       $scope.map = evtMap;
@@ -215,6 +215,13 @@ hbcWebApp.controller('SiteController', ['$scope', 'toaster', '$window', '$http',
            }else{
                 angular.element(".navbar-inverse").addClass("transparent");
            }
+           if(!angular.isUndefinedOrNullOrEmpty($scope.map) && firstTime){
+                //make sure it is centered
+                firstTime = false;
+                $scope.map.scope.google.maps.event.trigger($scope.map, 'resize');
+                $scope.map.setCenter({lat:38.203040, lng:-85.203772});
+                $scope.map.setZoom(15);
+            }
         });
     };
     $scope.$watch('map', function(){
