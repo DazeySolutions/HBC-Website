@@ -66,6 +66,9 @@ $gf_grid_x:	16px;
 }
 .cms {
 	.ss-gridfield {
+	    .chzn-drop {
+            color: #444;
+        }
 		& > div {
 			margin-bottom: $gf_grid_y*3;
 			&.addNewGridFieldButton{
