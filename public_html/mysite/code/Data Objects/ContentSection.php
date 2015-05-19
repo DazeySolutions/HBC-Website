@@ -65,9 +65,9 @@ class ContentSectionTwoColumn extends ContentSection{
 	    
 	    $fields->removeFieldFromTab("Root.Main","Column2Title");
 		$fields->removeFieldFromTab("Root.Main","Column2Content");
-	    $fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnTwo", "Column Two"));
-		$fields->addFieldToTab("Root.Main.ColumnTwo",new TextField("Column2Title","Title"));
-		$fields->addFieldToTab("Root.Main.ColumnTwo",new HtmlEditorField("Column2Content","Content"));
+	    $fields->addFieldToTab("Root", new Tab("Root.ColumnTwo", "Column Two"));
+		$fields->addFieldToTab("Root.ColumnTwo",new TextField("Column2Title","Title"));
+		$fields->addFieldToTab("Root.ColumnTwo",new HtmlEditorField("Column2Content","Content"));
         
         return $fields;
 	}
@@ -87,9 +87,9 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
 
 		$fields->removeFieldFromTab("Root.Main","Column3Title");
 		$fields->removeFieldFromTab("Root.Main","Column3Content");
-$fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnThree", "Column Three"));
-		$fields->addFieldToTab("Root.Main.ColumnThree",new TextField("Column3Title","Title"));
-		$fields->addFieldToTab("Root.Main.ColumnThree",new HtmlEditorField("Column3Content","Content"));
+$fields->addFieldToTab("Root", new Tab("Root.ColumnThree", "Column Three"));
+		$fields->addFieldToTab("Root.ColumnThree",new TextField("Column3Title","Title"));
+		$fields->addFieldToTab("Root.ColumnThree",new HtmlEditorField("Column3Content","Content"));
 
         return $fields;
 	}
