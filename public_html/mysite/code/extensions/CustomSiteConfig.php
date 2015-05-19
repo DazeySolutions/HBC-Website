@@ -58,7 +58,7 @@ class CustomSiteConfig extends DataExtension {
 		$uploadField->setFolderName('Brand-Folder');
 		$uploadField->setMultiple(false);
 		$uploadField->setView('grid');
-		$fields->addFieldToTab("Root.Content",$uploadField);
+		$fields->addFieldToTab("Root.Content.Logo",$uploadField);
 	    
 	    $hbc =  new ColorField("HeaderColor", "Background Color");
 	    $htc =  new ColorField("HeaderTextColor", "Text Color");
@@ -92,8 +92,8 @@ class CustomSiteConfig extends DataExtension {
 		
 		$footerField = new HTMLEditorField('FooterContent', "Footer");
 		$connectionField = new HTMLEditorField('ConnectionContent', "Social");
-		$fields->addFieldToTab("Root.Content", $connectionField);
-		$fields->addFieldToTab("Root.Content", $footerField);
+		$fields->addFieldToTab("Root.Content.Social", $connectionField);
+		$fields->addFieldToTab("Root.Content.Footer", $footerField);
 
 	}
 	
