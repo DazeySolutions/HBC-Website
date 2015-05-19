@@ -171,6 +171,15 @@ body{
     &.dark{
         background: @header;
         color:      @even-text;
+       a{
+            color:  @even-link;
+            &.active{
+                color: @even-link-active;
+            }
+            &:hover{
+                color: lighten(@even-link, 15%);
+            }
+        }
         hr{
             border-color: lighten(@odd, 10%);
         }
