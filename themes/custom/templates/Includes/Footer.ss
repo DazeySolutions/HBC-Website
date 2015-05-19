@@ -8,6 +8,11 @@
                 <p class="small col-xs-12">Have a question? A prayer request?  Or something else?  Send us an email and let us know how we can help you!</p>
                 <div class="contactForm" data-ng-contact data-path="/forms/contact-form/ajax"></div>
             </div>
+            <div class="col-xs-12 col-sm-6">
+                <div class="row">
+                    $SiteConfig.FooterContent
+                </div>
+            </div>
             <div class="col-xs-12 col-sm-3">
                 <hr class="hidden-xs col-sm-3 h4" />
                 <h4 class="col-xs-12 col-sm-6 text-center">Location</h4>
@@ -25,11 +30,6 @@
                     <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}' scrollwheel="false" disable-default-u-i="true" draggable="false">
                         <marker position="38.203040, -85.203772" icon="$ThemeDir/assets/images/church.png"></marker>
                     </map>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6">
-                <div class="row">
-                    $SiteConfig.FooterContent
                 </div>
             </div>
         </div>
