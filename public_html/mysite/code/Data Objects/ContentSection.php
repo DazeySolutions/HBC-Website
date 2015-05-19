@@ -66,6 +66,7 @@ class ContentSectionTwoColumn extends ContentSection{
 	    
 	    $fields->removeFieldFromTab("Root.Main","Column2Title");
 		$fields->removeFieldFromTab("Root.Main","Column2Content");
+		$fields->removeFieldFromTab("Root", "Main");
 		$fields->addFieldToTab("Root.ColumnTwo",new TextField("Column2Title","Title"));
 		$fields->addFieldToTab("Root.ColumnTwo",new HtmlEditorField("Column2Content","Content"));
         
@@ -87,6 +88,7 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
 
 		$fields->removeFieldFromTab("Root.Main","Column3Title");
 		$fields->removeFieldFromTab("Root.Main","Column3Content");
+		$fields->removeFieldFromTab("Root", "Main");
 		$fields->addFieldToTab("Root.ColumnThree",new TextField("Column3Title","Title"));
 		$fields->addFieldToTab("Root.ColumnThree",new HtmlEditorField("Column3Content","Content"));
 
