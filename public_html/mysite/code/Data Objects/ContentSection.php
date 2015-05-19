@@ -18,6 +18,7 @@ class ContentSection extends DataObject{
 		$fields->removeFieldFromTab("Root.Main","Title");
 		$fields->removeFieldFromTab("Root.Main","Content");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");
+		$fields->addFieldToTab("Root", new Tab("Main", "Content"));
 		$fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnOne", "Column One"));
 		$fields->addFieldToTab("Root.Main.ColumnOne",new TextField("Title","Title"));
 		$fields->addFieldToTab("Root.Main.ColumnOne",new HtmlEditorField("Content","Content"));
