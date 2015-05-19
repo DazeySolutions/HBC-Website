@@ -14,12 +14,13 @@ class ContentSection extends DataObject{
 	);
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-		$fields->addFieldToTab("Root.Main.ColumnOne",new TextField("Title","Title"));
-		$fields->addFieldToTab("Root.Main.ColumnOne",new HtmlEditorField("Content","Content"));
 		$fields->removeFieldFromTab("Root.Main","ContentPageID");
 		$fields->removeFieldFromTab("Root.Main","Title");
 		$fields->removeFieldFromTab("Root.Main","Content");
 		$fields->removeFieldFromTab("Root.Main","SortOrder");
+		$fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnOne", "Column One"));
+		$fields->addFieldToTab("Root.Main.ColumnOne",new TextField("Title","Title"));
+		$fields->addFieldToTab("Root.Main.ColumnOne",new HtmlEditorField("Content","Content"));
         return $fields;
 	}
 	private static $summary_fields = array(
@@ -69,7 +70,7 @@ class ContentSectionTwoColumn extends ContentSection{
 	    
 	    $fields->removeFieldFromTab("Root.Main","Column2Title");
 		$fields->removeFieldFromTab("Root.Main","Column2Content");
-	
+	    $fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnTwo", "Column Two"));
 		$fields->addFieldToTab("Root.Main.ColumnTwo",new TextField("Column2Title","Title"));
 		$fields->addFieldToTab("Root.Main.ColumnTwo",new HtmlEditorField("Column2Content","Content"));
         
@@ -91,7 +92,7 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
 
 		$fields->removeFieldFromTab("Root.Main","Column3Title");
 		$fields->removeFieldFromTab("Root.Main","Column3Content");
-
+$fields->addFieldToTab("Root.Main", new Tab("Root.Main.ColumnThree", "Column Three"));
 		$fields->addFieldToTab("Root.Main.ColumnThree",new TextField("Column3Title","Title"));
 		$fields->addFieldToTab("Root.Main.ColumnThree",new HtmlEditorField("Column3Content","Content"));
 
