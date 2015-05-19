@@ -76,7 +76,7 @@
                         if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model.noSermonsMessage)){
                             $scope.noSermonsMessage = ngChurchManagementService.model.noSermonsMessage;
                         }else{
-                            $scope.noSermonsMessage = "There are no current or upcoming Sermon Series, check back for updates!";
+                            $scope.noSermonsMessage = "There are no current or upcoming sermon series, check back for updates!";
                         }
                     }
                 }
@@ -177,7 +177,7 @@ angular.monthString = function(curdate){
                         if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model.noEventsMessage)){
                             $scope.noEventsMessage = ngChurchManagementService.model.noEventsMessage;
                         }else{
-                            $scope.noEventsMessage = "There are currently no upcoming events.  Check back for updates!";
+                            $scope.noEventsMessage = "There are no current or upcoming events, check back for updates!";
                         }
                     }
                 }
