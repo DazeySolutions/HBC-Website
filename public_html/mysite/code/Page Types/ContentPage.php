@@ -68,7 +68,7 @@ class ContentPage extends SiteTree implements PermissionProvider {
 		
 		$gridFieldConfig = new GridFieldConfig();
         $gridFieldConfig->addComponent($addButton2 = new GridFieldAddNewMultiClass('toolbar-header-right'));
-        $addButton2->setButtonName("New");
+        $addButton2->setTitle("New");
         $gridFieldConfig->addComponent(new GridFieldToolbarHeader());
 		$gridFieldConfig->addComponent(new GridFieldDataColumns());
 		$gridFieldConfig->addComponent(new GridFieldEditButton());
