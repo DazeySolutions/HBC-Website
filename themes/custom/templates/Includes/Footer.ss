@@ -12,7 +12,7 @@
                 <hr class="hidden-xs col-sm-3 h4" />
                 <h4 class="col-xs-12 col-sm-6 text-center">Location</h4>
                 <hr class="hidden-xs col-sm-3 h4" />
-                <address class="">
+                <address class="col-xs-12">
                     <em>
                         <strong>Highland Baptist Church</strong><br>
                         511 Mount Eden Road<br>

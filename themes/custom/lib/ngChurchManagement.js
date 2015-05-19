@@ -67,10 +67,18 @@
 			var setSermon =  function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
                     $scope.loading = false;
-                    $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
-                    totalSermons = ngChurchManagementService.model.sermons.length; 
-                    $scope.prevDisable = curSermon > 0;
-                    $scope.nextDisable = (curSermon+1) < totalSermons;
+                    if(ngChurchManagementService.model.sermons.length > 0){
+                        $scope.sermon = ngChurchManagementService.model.sermons[curSermon];
+                        totalSermons = ngChurchManagementService.model.sermons.length; 
+                        $scope.prevDisable = curSermon > 0;
+                        $scope.nextDisable = (curSermon+1) < totalSermons;
+                    }else{
+                        if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model.noSermonsMessage)){
+                            $scope.noSermonsMessage = ngChurchManagementService.model.noSermonsMessage;
+                        }else{
+                            $scope.noSermonsMessage = "There are no current or upcoming Sermon Series, check back for updates!";
+                        }
+                    }
                 }
 			};
 			
@@ -155,14 +163,23 @@ angular.monthString = function(curdate){
 			var setEvents = function(){
                 if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model)){
                     $scope.loading = false;
-                    if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
-                        $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                    if(ngChurchManagementService.model.events.length>0){
+                        if(ngChurchManagementService.model.events.length>=(1+curPage)*2){
+                            $scope.events = {0:ngChurchManagementService.model.events[curPage],1:ngChurchManagementService.model.events[curPage+1]};
+                        }else{
+                            $scope.events = {0:ngChurchManagementService.model.events[curPage]};
+                        }
+                        totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2; 
+                        $scope.prevDisable = curPage > 0;
+                        $scope.nextDisable = (curPage+1) < totalPages;
                     }else{
-                        $scope.events = {0:ngChurchManagementService.model.events[curPage]};
+                        $scope.events = [];
+                        if(!angular.isUndefinedOrNullOrEmpty(ngChurchManagementService.model.noEventsMessage)){
+                            $scope.noEventsMessage = ngChurchManagementService.model.noEventsMessage;
+                        }else{
+                            $scope.noEventsMessage = "There are currently no upcoming events.  Check back for updates!";
+                        }
                     }
-                    totalPages = parseInt(""+ngChurchManagementService.model.events.length/2) + ngChurchManagementService.model.events.length%2; 
-                    $scope.prevDisable = curPage > 0;
-                    $scope.nextDisable = (curPage+1) < totalPages;
                 }
 			};
 			
@@ -248,6 +265,9 @@ angular.monthString = function(curdate){
             '       </div>'+
             '   </div>'+
             '</div>'+
+            '<div ng-if="!loading && events.length == 0" class="col-xs-12">'+
+            '   <h3 class="text-center">{{noEventsMessage}}</h3>'+
+            '</div>'+
             '<div ng-cloak class="col-xs-12 col-md-6" ng-repeat="event in events">'+
             '  <a ng-href="{{event.url}}">                                                               '+
             '    <div class="well" style="padding: 0px;">                                                '+
@@ -294,7 +314,10 @@ angular.monthString = function(curdate){
             '       </div>'+
             '   </div>'+
             '</div>'+
-            '<div ng-cloak class="col-xs-12 col-md-6 col-md-offset-3">                                   '+
+            '<div ng-if="!loading && sermon === undefined" class="col-xs-12">'+
+            '   <h3 class="text-center">{{noSermonsMessage}}</h3>'+
+            '</div>'+
+            '<div ng-if="sermon" class="col-xs-12 col-md-6 col-md-offset-3">                                   '+
             '    <div class="well" style="padding: 0px;">                                                '+
             '        <img ng-src="{{basePath+sermon.image}}" style="width:100%;">                        '+
             //'        <div class="row">                                                                   '+
