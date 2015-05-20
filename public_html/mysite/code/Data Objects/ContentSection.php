@@ -4,7 +4,11 @@ class ContentSection extends DataObject{
 	private static $db = array(
 		'SortOrder' => 'Int',
         'Title' => 'Varchar',
-		'Content' => 'HTMLText'
+		'Content' => 'HTMLText',
+		'Column2Title' => 'Varchar',
+		'Column2Content' => 'HTMLText',
+		'Column3Title' => 'Varchar',
+		'Column3Content' => 'HTMLText'
 	);
     private  static $extensions = array(
         "Versioned('Stage', 'Live')"
@@ -19,17 +23,12 @@ class ContentSection extends DataObject{
 		$fields->addFieldToTab("Root.ColumnOne",new HtmlEditorField("Content","Content"));
         return $fields;
 	}
-	private static $searchable_fields = array(
-	    'Title'
-	);
+	
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
-		'blank'=>'ColumnTwo',
-		'blank'=>'ColumnThree'
+		'Column2Title'=>'ColumnTwo',
+		'Column3Title'=>'ColumnThree'
 	);
-	public function blank(){
-	    return ' ';
-	}
 	
 	public function canCreate($member = null){
 	    if(Permission::check('SITETREE_EDIT_ALL')){
@@ -65,60 +64,22 @@ class ContentSection extends DataObject{
 }
 
 class ContentSectionTwoColumn extends ContentSection{
-	private static $db = array(
-		'Column2Title' => 'Varchar',
-		'Column2Content' => 'HTMLText'
-	);
+    
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-	    
-	    $fields->removeFieldFromTab("Root.Main","Column2Title");
-		$fields->removeFieldFromTab("Root.Main","Column2Content");
-		$fields->removeFieldFromTab("Root", "Main");
 		$fields->addFieldToTab("Root.ColumnTwo",new TextField("Column2Title","Title"));
 		$fields->addFieldToTab("Root.ColumnTwo",new HtmlEditorField("Column2Content","Content"));
         
         return $fields;
 	}
-	private static $searchable_fields = array(
-	    'Title',
-	    'Column2Title'
-	);
-	private static $summary_fields = array(
-		'Title'=>'ColumnOne',
-		'Column2Title'=>'ColumnTwo',
-		'blank'=>'ColumnThree'
-	);
-	public function blank(){
-	    return ' ';
-	}
 }
 
 class ContentSectionThreeColumn extends ContentSectionTwoColumn{
-	private static $db = array(
-		'Column3Title' => 'Varchar',
-		'Column3Content' => 'HTMLText'
-	);
-   
 	public function getCMSFields(){
 		$fields = parent::getCMSFields();
-
-		$fields->removeFieldFromTab("Root.Main","Column3Title");
-		$fields->removeFieldFromTab("Root.Main","Column3Content");
-		$fields->removeFieldFromTab("Root", "Main");
 		$fields->addFieldToTab("Root.ColumnThree",new TextField("Column3Title","Title"));
 		$fields->addFieldToTab("Root.ColumnThree",new HtmlEditorField("Column3Content","Content"));
 
         return $fields;
 	}
-	private static $searchable_fields = array(
-	    'Title',
-	    'Column2Title',
-	    'Column3Title'
-	);
-	private static $summary_fields = array(
-		'Title'=>'ColumnOne',
-		'Column2Title'=>'ColumnTwo',
-		'Column3Title'=>'ColumnThree'
-	);
 }
