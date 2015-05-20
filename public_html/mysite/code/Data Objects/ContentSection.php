@@ -20,7 +20,7 @@ class ContentSection extends DataObject{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Title.UpperCase'
+		'Title'
 	);
 	
 	public function canCreate($member = null){
@@ -73,7 +73,7 @@ class ContentSectionTwoColumn extends ContentSection{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Title.UpperCase & Column2Title.UpperCase'
+		'Column2Title'
 	);
 }
 
@@ -95,6 +95,6 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Title.UpperCase & Column2Title.UpperCase & Column3Title.UpperCase'
+		'Column3Title'
 	);
 }
