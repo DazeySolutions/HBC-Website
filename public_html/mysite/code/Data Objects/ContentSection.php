@@ -20,7 +20,9 @@ class ContentSection extends DataObject{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Title'
+		'Title'=>'ColumnOne',
+		''=>'ColumnTwo',
+		''=>'ColumnThree'
 	);
 	
 	public function canCreate($member = null){
@@ -73,7 +75,9 @@ class ContentSectionTwoColumn extends ContentSection{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Column2Title'
+		'Title'=>'ColumnOne',
+		'Column2Title'=>'ColumnTwo',
+		''=>'ColumnThree'
 	);
 }
 
@@ -95,6 +99,8 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
         return $fields;
 	}
 	private static $summary_fields = array(
-		'Column3Title'
+		'Title'=>'ColumnOne',
+		'Column2Title'=>'ColumnTwo',
+		'Column3Title'=>'ColumnThree'
 	);
 }
