@@ -1,10 +1,10 @@
 <div class="content">
+    <!-- Start Image Slider -->
     <div ng-image-slider path="{{imagePath}}">
     </div>
-    <div data-ng-repeat="section in content" class="row section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
-        <div class="content">
-    <div ng-image-slider path="{{imagePath}}">
-    </div>
+    <!-- End Image Slider -->
+    
+    <!-- Start Content Sections -->
     <div data-ng-repeat="section in content" class="row section-row" data-ng-class-even="'even'" data-ng-class-odd="'odd'">
         <div ng-if="section.ClassName==='ContentSection'">
             <div class="col-xs-12 col-md-10 col-md-offset-1">
@@ -55,5 +55,6 @@
             </div>
         </div>
     </div>
+    <!-- End Content Sections -->
 </div>
 $Form
