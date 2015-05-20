@@ -71,6 +71,9 @@ $gf_grid_x:	16px;
         }
 		& > div {
 			margin-bottom: $gf_grid_y*3;
+			&.btn-group{
+                margin-bottom: 0px;
+            }   
 			&.addNewGridFieldButton{
 				margin-bottom: 0;
 				.action {
