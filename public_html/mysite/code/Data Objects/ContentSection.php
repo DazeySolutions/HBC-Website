@@ -19,6 +19,9 @@ class ContentSection extends DataObject{
 		$fields->addFieldToTab("Root.ColumnOne",new HtmlEditorField("Content","Content"));
         return $fields;
 	}
+	private static $searchable_fields = array(
+	    'Title'
+	);
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
 		''=>'ColumnTwo',
@@ -74,10 +77,14 @@ class ContentSectionTwoColumn extends ContentSection{
         
         return $fields;
 	}
+	private static $searchable_fields = array(
+	    'Title',
+	    'Column2Title'
+	);
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
 		'Column2Title'=>'ColumnTwo',
-		''=>'ColumnThree'
+		' '=>'ColumnThree'
 	);
 }
 
@@ -98,6 +105,11 @@ class ContentSectionThreeColumn extends ContentSectionTwoColumn{
 
         return $fields;
 	}
+	private static $searchable_fields = array(
+	    'Title',
+	    'Column2Title',
+	    'Column3Title'
+	);
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
 		'Column2Title'=>'ColumnTwo',
