@@ -24,9 +24,12 @@ class ContentSection extends DataObject{
 	);
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
-		''=>'ColumnTwo',
-		''=>'ColumnThree'
+		'blank'=>'ColumnTwo',
+		'blank'=>'ColumnThree'
 	);
+	public function blank(){
+	    return ' ';
+	}
 	
 	public function canCreate($member = null){
 	    if(Permission::check('SITETREE_EDIT_ALL')){
@@ -84,8 +87,11 @@ class ContentSectionTwoColumn extends ContentSection{
 	private static $summary_fields = array(
 		'Title'=>'ColumnOne',
 		'Column2Title'=>'ColumnTwo',
-		' '=>'ColumnThree'
+		'blank'=>'ColumnThree'
 	);
+	public function blank(){
+	    return ' ';
+	}
 }
 
 class ContentSectionThreeColumn extends ContentSectionTwoColumn{
