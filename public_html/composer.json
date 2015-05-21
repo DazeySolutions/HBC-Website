@@ -13,7 +13,8 @@
     "unclecheese/bootstrap-forms": "*",
     "colymba/gridfield-bulk-editing-tools": "*",
     "silverstripe/widgets": "*",
-    "undefinedoffset/sortablegridfield": "dev-master"
+    "undefinedoffset/sortablegridfield": "dev-master",
+    "unclecheese/dropzone": "dev-master"
   },
   "config": {
     "process-timeout": 600
