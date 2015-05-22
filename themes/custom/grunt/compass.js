@@ -19,6 +19,13 @@ module.exports = {
             cssDir: 'dist/css/fields',
             environment: 'development'
         },
+    },
+    responseive:{
+        options: {
+            sassDir: 'src/scss/responsive-ui',
+            cssDir: 'dist/css/framework',
+            environment: 'development'
+        },
     }
 
 };
