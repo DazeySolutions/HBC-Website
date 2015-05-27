@@ -1,40 +1,42 @@
-<div class="cms-menu cms-panel cms-panel-layout west" id="cms-menu" data-layout-type="border">
-	<div class="cms-logo-header north">
-		<div class="cms-logo">
-			<a href="$ApplicationLink" target="_blank" title="$ApplicationName (Version - $CMSVersion)">
-				$ApplicationName <% if $CMSVersion %><abbr class="version">$CMSVersion</abbr><% end_if %>
-			</a>
-			<span><% if $SiteConfig %>$SiteConfig.Title<% else %>$ApplicationName<% end_if %></span>
-		</div>
-	
-		<div class="cms-login-status">
-			<a href="Security/logout" class="logout-link" title="<% _t('LeftAndMain_Menu_ss.LOGOUT','Log out') %>"><i class="fa fa-fw fa-lg fa-sign-out"></i></a>
-			<% with $CurrentMember %>
-				<div class="greeting">
+<div class="sidebar">
+    <div class="header">
+        <div class="col-xs-12">
+            <div class="media">
+                <div class="media-left media-middle">
+                    <a href="$ApplicationLink" target="_blank" title="$ApplicationName (Version - $CMSVersion)">
+                        <img src="http://beta.hbc-ky.com/framework/admin/images/logo_small.png">
+                    </a>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading"><% if $SiteConfig %>$SiteConfig.Title<% else %>$ApplicationName<% end_if %></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login">
+        <h5 class="text-center">
+           <a href="Security/logout" class="logout-link" title="<% _t('LeftAndMain_Menu_ss.LOGOUT','Log out') %>"><i class="glyphicon glyphicon-log-out"></i></a>
+           <% with $CurrentMember %>
+				<span>
 					<% _t('LeftAndMain_Menu_ss.Hello','Hi') %>
 					<a href="{$AbsoluteBaseURL}admin/myprofile" class="profile-link">
 						<% if $FirstName && $Surname %>$FirstName $Surname<% else_if $FirstName %>$FirstName<% else %>$Email<% end_if %>
 					</a>
-				</div>
+				</span>
 			<% end_with %>
-		</div>
-	</div>
-		
-	<div class="cms-panel-content center">
-		<ul class="cms-menu-list">
-		<% loop $MainMenu %>
-			<li class="$LinkingMode $FirstLast <% if $LinkingMode == 'link' %><% else %>opened<% end_if %>" id="Menu-$Code" title="$Title.ATT">
-				<a href="$Link" $AttributesHTML>
-					<span class="icon icon-16 icon-{$Code.LowerCase}">&nbsp;</span>
-					<span class="text">$Title</span>
-				</a>
-			</li>
+        </h5>
+    </div>
+    <div class="menu">
+        <ul class="nav nav-pills nav-stacked">
+        <% loop $MainMenu %>
+            <li class="<% if $LinkingMode != 'link' %> active <% end_if %>" id="Menu-$Code"  title="$Title.ATT">
+                <a href="$Link">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>&nbsp;$Title</span>
+                </a>
+            </li>
 		<% end_loop %>
-		</ul>
-	</div>
-		
-	<div class="cms-panel-toggle south">
-		<a class="toggle-expand" href="#"><span>&raquo;</span></a>
-		<a class="toggle-collapse" href="#"><span>&laquo;</span></a>
-	</div>
+            <li><a onclick="$('body').toggleClass('min');"><i class="glyphicon glyphicon-minus"></i><span>Minify</span></a></li>
+        </ul>
+    </div>
 </div>

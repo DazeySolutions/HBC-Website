@@ -1,19 +1,33 @@
 <% if $IncludeFormTag %>
 <form $FormAttributes data-layout-type="border">
 <% end_if %>
-	<div class="cms-content-header north">
-		<div class="cms-content-header-info">
-			<% include BackLink_Button %>			
+<nav class="navbar navbar-inverse navbar-fixed-top offset-left">
+  <div class="container-fluid">
+        <div class="navbar-header">
+            <% include BackLink_Button %>			
 			<% with $Controller %>
 				<% include CMSBreadcrumbs %>
-			<% end_with %>			
+			<% end_with %>
+        </div>
+        <div id="navbar" class="">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+	<div class="cms-content-header north">
+		<div class="cms-content-header-info">
+						
 		</div>
 		<% if $Fields.hasTabset %>
 			<% with $Fields.fieldByName('Root') %>
 			<div class="cms-content-header-tabs cms-tabset-nav-primary">
 				<ul>
 				<% loop $Tabs %>
-					<li class="cms-tabset-icon"><a href="#$id"><i <% if $extraClass %> class="$extraClass"<% end_if %>></i><span>$Title</span></a></li>
+					<li<% if $extraClass %> class="$extraClass"<% end_if %>><a href="#$id">$Title</a></li>
 				<% end_loop %>
 				</ul>
 			</div>
