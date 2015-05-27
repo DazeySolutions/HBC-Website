@@ -6,6 +6,70 @@
 $border-radius-base: 0px;
 $icon-font-path:        "/framework/admin/assets/fonts";
 
+.nav-pills>li>a{
+    border-radius: 0px;
+    color: white;
+}
+.sidebar{
+    width: 200px;
+    position: fixed;
+    background: #555555;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    .header{
+      	width: 100%;
+        background: #333;
+        display: inline-block;
+        color: white;
+        padding-top: 8px;
+        min-height: 51px;
+    }
+}
+.min{
+    .media-body{
+        display: none;
+    }
+    .media-left.media-middle{
+        width: 50px !important;
+    }
+   .sidebar{
+        width: 50px;
+   }
+    .offset-left{
+        margin-left: 50px;
+    }
+    .nav{
+        span{
+            display: none;
+        }
+    }
+    .login{ 
+        span{
+            display: none;
+        }
+    }
+}
+.offset-left{
+    margin-left: 200px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+.login{
+    a{
+       color: white; 
+    }
+    color: white;
+}
+
 
 /*Tree Styles*/
 
