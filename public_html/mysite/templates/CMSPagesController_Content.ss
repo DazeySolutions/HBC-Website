@@ -20,7 +20,7 @@
 	        </div><!--/.nav-collapse -->
 	    </div>
 	</nav>
-	<div class="offset-left">
+	<div class="offset-left cms-content">
 		<div class="container-fluid">
 		    <div class="row">
 		        <div class="col-xs-12">
