@@ -5,14 +5,14 @@
 				<% include CMSBreadcrumbs %>
 	        </div>
 	        <div id="navbar" class="">
-	            <ul class="nav navbar-nav navbar-right">
+	            <ul class="nav navbar-nav navbar-right" role="tablist">
 	                <li class="<% if ViewState == tree %>active<% end_if %>">
-						<a href="#cms-content-treeview" class="cms-panel-link" data-href="$LinkTreeView">
+						<a href="#cms-content-treeview" aria-controls="cms-content-treeview" class="cms-panel-link" data-href="$LinkTreeView" role="tab" data-toggle="tab">
 						    <i class="glyphicon glyphicon-grain"></i>
 						</a>
 					</li>
-					<li class="<% if ViewState == tree %>active<% end_if %>">
-					    <a href="#cms-content-listview" class="cms-panel-link" data-href="$LinkListView">
+					<li class="<% if ViewState == list %>active<% end_if %>">
+					    <a href="#cms-content-listview" aria-controls="cms-content-listview" class="cms-panel-link" data-href="$LinkListView" role="tab" data-toggle="tab">
 					        <i class="glyphicon glyphicon-align-justify"></i>  
 					    </a>
 					</li>
@@ -24,12 +24,14 @@
 		<div class="container-fluid">
 		    <div class="row">
 		        <div class="col-xs-12">
-		            <div class="cms-content-view cms-panel-deferred" id="cms-content-treeview" data-url="$LinkTreeView">
-		                <%-- Lazy-loaded via ajax --%>
-		            </div>
-		            <div class="cms-content-view cms-panel-deferred" id="cms-content-listview" data-url="$LinkListView" data-deferred-no-cache="true">
-		                <%-- Lazy-loaded via ajax --%>
-		            </div>
+		        	<div class="tab-content">
+			            <div role="tabpanel" class="tab-pane <% if ViewState == tree %>active<% end_if %> cms-content-view cms-panel-deferred" id="cms-content-treeview" data-url="$LinkTreeView">
+			                <%-- Lazy-loaded via ajax --%>
+			            </div>
+			            <div role="tabpanel" class="tab-pane <% if ViewState == list %>active<% end_if %> cms-content-view cms-panel-deferred" id="cms-content-listview" data-url="$LinkListView" data-deferred-no-cache="true">
+			                <%-- Lazy-loaded via ajax --%>
+			            </div>
+			    	</div>
 		        </div>
 	        </div>
 	    </div>
