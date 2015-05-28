@@ -7,12 +7,12 @@
 	        <div id="navbar" class="">
 	            <ul class="nav navbar-nav navbar-right" role="tablist">
 	                <li class="<% if ViewState == tree %>active<% end_if %>">
-						<a href="#cms-content-treeview" aria-controls="cms-content-treeview" class="cms-panel-link" data-href="$LinkTreeView" role="tab" data-toggle="tab">
+						<a href="#cms-content-treeview" aria-controls="cms-content-treeview" data-href="$LinkTreeView" role="tab" data-toggle="tab">
 						    <i class="glyphicon glyphicon-grain"></i>
 						</a>
 					</li>
 					<li class="<% if ViewState == list %>active<% end_if %>">
-					    <a href="#cms-content-listview" aria-controls="cms-content-listview" class="cms-panel-link" data-href="$LinkListView" role="tab" data-toggle="tab">
+					    <a href="#cms-content-listview" aria-controls="cms-content-listview" data-href="$LinkListView" role="tab" data-toggle="tab">
 					        <i class="glyphicon glyphicon-align-justify"></i>  
 					    </a>
 					</li>
