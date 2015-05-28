@@ -5,15 +5,23 @@
 
 $border-radius-base: 0px;
 $icon-font-path:        "/mysite/fonts";
-
+$sidebar: #555555;
+$tool-sidebar: lighten($sidebar, 25%);
 .nav-pills>li>a{
     border-radius: 0px;
     color: white;
 }
+.tool-sidebar{
+	width: 200px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: $tool-sidebar;
+}
 .sidebar{
     width: 200px;
     position: fixed;
-    background: #555555;
+    background: $sidebar;
     top: 0px;
     bottom: 0px;
     left: 0px;
