@@ -14,8 +14,10 @@
 	<title>$Title</title>
 </head>
 <body lang="$Locale.RFC1766" data-frameworkpath="$ModulePath(framework)" data-member-tempid="$CurrentMember.TempIDHash.ATT" class="cms">
-	$Menu
-    $Content
-	$EditorToolbar
+	<div class="cms-container">
+		$Menu
+    	$Content
+		$EditorToolbar
+	</div>
 </body>
 </html>
