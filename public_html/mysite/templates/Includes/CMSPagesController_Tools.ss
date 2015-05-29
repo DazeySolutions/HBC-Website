@@ -1,7 +1,7 @@
 <div class="cms-content-tools tool-sidebar" id="cms-content-tools-CMSPagesController">
 	<div class="cms-panel-content">
 		<h3 class="cms-panel-header rotate-min"><% _t('CMSPagesController_Tools_ss.FILTER', 'Filter') %></h3>
-		<div class="no-show-min">
+		<div class="col-xs-12 no-show-min">
 			$SearchForm
 		</div>
 		<ul class="nav nav-pills nav-stacked bottom full-width">
