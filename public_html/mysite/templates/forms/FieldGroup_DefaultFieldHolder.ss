@@ -1,4 +1,4 @@
-<div class="<% if $extraClass %>$extraClass<% else %>fieldgroup<% end_if %><% if $Zebra %> fieldgroup-zebra<% end_if %>" <% if ID %>id="$ID"<% end_if %>>
+<div class="fieldgroup from-group <% if $Zebra %> fieldgroup-zebra<% end_if %>" <% if ID %>id="$ID"<% end_if %>>
 	<% loop $FieldList %>
 		<div class="fieldgroup-field $FirstLast $EvenOdd">
 			$FieldHolder
