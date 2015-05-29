@@ -1,4 +1,4 @@
-<div id="$Name" class="field form-group">
+<div id="$Name" class="field form-group $Type">
 	<% if $Title %><label class="left" for="$ID">$Title</label><% end_if %>
 	<div class="middleColumn">
 		$Field
