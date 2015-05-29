@@ -4,6 +4,10 @@
 		<div class="no-show-min">
 			$SearchForm
 		</div>
-		<a onclick="jQuery19('.with-tools').toggleClass('min'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-minus'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-plus');"><i class="tool-glyphicon glyphicon glyphicon-minus"></i><span>&nbsp;Minify</span></a>
+		<ul class="nav nav-pills nav-stacked">
+			<li>
+				<a onclick="jQuery19('.with-tools').toggleClass('min'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-minus'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-plus');"><i class="tool-glyphicon glyphicon glyphicon-minus"></i><span>&nbsp;Minify</span></a>
+			</li>
+		</ul>
 	</div>
 </div>

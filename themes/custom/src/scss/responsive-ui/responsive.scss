@@ -67,7 +67,7 @@ $tool-sidebar: lighten($sidebar, 50%);
         min-height: 51px;
     }
 }
-.min{
+body.min{
     .media-body{
         display: none;
     }
@@ -94,6 +94,17 @@ $tool-sidebar: lighten($sidebar, 50%);
         }
     }
 }
+
+.tab-content{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.cms-content{
+	padding-top: 51px;
+	padding-bottom: 51px;
+}
+
 .offset-left{
     margin-left: 200px;
     -webkit-transition: all 0.3s;
