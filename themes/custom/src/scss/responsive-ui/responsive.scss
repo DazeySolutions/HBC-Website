@@ -20,6 +20,15 @@ $tool-sidebar: lighten($sidebar, 50%);
     color: $dark-text;
 }
 
+.bottom{
+	position: absolute;
+	bottom: 0;
+	&.full-width{
+		left: 0;
+		right: 0;
+	}
+	
+}
 .tool-sidebar{
 	width: 200px;
 	position: fixed;
