@@ -36,7 +36,7 @@
                 </a>
             </li>
 		<% end_loop %>
-            <li><a onclick="$('body').toggleClass('min');"><i class="glyphicon glyphicon-minus"></i><span>Minify</span></a></li>
+            <li><a onclick="jQuery19('body').toggleClass('min');"><i class="glyphicon glyphicon-minus"></i><span>&nbsp;Minify</span></a></li>
         </ul>
     </div>
 </div>

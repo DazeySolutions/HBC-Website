@@ -17,12 +17,13 @@
 					    </a>
 					</li>
 	            </ul>
-	        </div><!--/.nav-collapse -->
+	        </div>
 	    </div>
 	</nav>
 	<div class="offset-left cms-content">
-		<div class="container-fluid">
-		    <div class="row">
+		<div class="container-fluid with-tools">
+			$Tools
+		    <div class="row inner-offset-left">
 		        <div class="col-xs-12">
 		        	<div class="tab-content">
 			            <div role="tabpanel" class="tab-pane <% if ViewState == tree %>active<% end_if %> cms-content-view cms-panel-deferred" id="cms-content-treeview" data-url="$LinkTreeView">
@@ -36,5 +37,4 @@
 	        </div>
 	    </div>
     </div>
-    <!--$Tools-->
 </div>
