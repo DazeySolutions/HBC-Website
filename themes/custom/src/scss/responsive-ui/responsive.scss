@@ -13,10 +13,12 @@ $tool-sidebar: lighten($sidebar, 50%);
 }
 .tool-sidebar{
 	width: 200px;
-	position: absolute;
-	top: 0px;
-	left: 0px;
+	position: fixed;
+	top: 51px;
+	left: 200px;
+	bottom: 0px;
 	background: $tool-sidebar;
+	overflow: hidden;
 }
 .with-tools{
 	&.min{
@@ -75,6 +77,9 @@ $tool-sidebar: lighten($sidebar, 50%);
    .sidebar{
         width: 50px;
    }
+   .tool-sidebar{
+		left: 50px;
+   	}
     .offset-left{
         margin-left: 50px;
     }
