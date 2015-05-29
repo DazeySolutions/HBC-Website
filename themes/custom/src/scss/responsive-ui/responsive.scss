@@ -6,11 +6,20 @@
 $border-radius-base: 0px;
 $icon-font-path:        "/mysite/fonts";
 $sidebar: #555555;
+
+$dark-text: #222222;
+
 $tool-sidebar: lighten($sidebar, 50%);
 .nav-pills>li>a{
     border-radius: 0px;
     color: white;
 }
+
+.tool-sidebar .nav-pills>li>a{
+    border-radius: 0px;
+    color: $dark-text;
+}
+
 .tool-sidebar{
 	width: 200px;
 	position: fixed;
