@@ -30,7 +30,10 @@ $tool-sidebar: lighten($sidebar, 50%);
 			display: none;
 		}
 		.rotate-min{
-			.rotate(90);
+			-webkit-transform: rotate(270deg);
+			-moz-transform: rotate(270deg);
+			-o-transform: rotate(270deg);
+			writing-mode: lr-tb;
 		}
 		.cms-panel-content{
 			a{
