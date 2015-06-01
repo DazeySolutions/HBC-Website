@@ -1,1 +1,1 @@
-<input $AttributesHTML("class") />
+<input $getAttributesHTML('class') />
