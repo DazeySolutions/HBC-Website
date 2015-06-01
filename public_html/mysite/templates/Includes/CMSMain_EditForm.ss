@@ -1,6 +1,6 @@
-<form $FormAttributes data-layout-type="border">
+<form $FormAttributes>
 
-	<div class="cms-content-fields center">
+	<div class="cms-content-fields">
 		<% if $Message %>
 		<p id="{$FormName}_error" class="message $MessageType">$Message</p>
 		<% else %>

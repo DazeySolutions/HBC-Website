@@ -8,12 +8,12 @@
 	            <ul class="nav navbar-nav navbar-right" role="tablist">
 	                <li class="<% if ViewState == tree %>active<% end_if %>">
 						<a href="#cms-content-treeview" aria-controls="cms-content-treeview" data-href="$LinkTreeView" role="tab" data-toggle="tab">
-						    <i class="glyphicon glyphicon-grain"></i>
+						    <i class="fa fa-fw fa-lg fa-leaf"></i>
 						</a>
 					</li>
 					<li class="<% if ViewState == list %>active<% end_if %>">
 					    <a href="#cms-content-listview" aria-controls="cms-content-listview" data-href="$LinkListView" role="tab" data-toggle="tab">
-					        <i class="glyphicon glyphicon-align-justify"></i>  
+					        <i class="fa fa-fw fa-lg fa-bars"></i>  
 					    </a>
 					</li>
 	            </ul>
