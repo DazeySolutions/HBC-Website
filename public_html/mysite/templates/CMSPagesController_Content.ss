@@ -21,7 +21,7 @@
 	    </div>
 	</nav>
 	<div class="offset-left cms-content">
-		<div class="container-fluid with-tools">
+		<div class="container-fluid with-tools min">
 			$Tools
 		    <div class="row inner-offset-left">
 		        <div class="col-xs-12">

@@ -50,9 +50,9 @@ $tool-sidebar: lighten($sidebar, 50%);
 			display: none;
 		}
 		.rotate-min{
-			-webkit-transform: rotate(270deg);
-			-moz-transform: rotate(270deg);
-			-o-transform: rotate(270deg);
+			-webkit-transform: rotate(90deg);
+			-moz-transform: rotate(90deg);
+			-o-transform: rotate(90deg);
 			writing-mode: lr-tb;
 		}
 		.cms-panel-content{

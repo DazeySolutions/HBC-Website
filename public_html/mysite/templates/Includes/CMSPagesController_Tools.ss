@@ -6,7 +6,7 @@
 		</div>
 		<ul class="nav nav-pills nav-stacked bottom full-width">
 			<li>
-				<a onclick="jQuery19('.with-tools').toggleClass('min'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-minus'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-plus');"><i class="tool-glyphicon glyphicon glyphicon-minus"></i><span>&nbsp;Minify</span></a>
+				<a onclick="jQuery19('.with-tools').toggleClass('min'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-minus'); jQuery19('.tool-glyphicon').toggleClass('glyphicon-plus');"><i class="tool-glyphicon glyphicon glyphicon-plus"></i><span>&nbsp;Minify</span></a>
 			</li>
 		</ul>
 	</div>
