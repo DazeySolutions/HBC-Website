@@ -256,7 +256,7 @@ li{
 	&.class-FormHolder > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
-		@extend .fa-text;
+		@extend .fa-file-text;
 	}
 	&.class-ErrorPage > a .jstree-pageicon{
     	@extend .fa;
