@@ -549,9 +549,7 @@
 			text-shadow: none;
 			text-decoration: none;    
 			background: #333;
-			a{
-				color: #f2f2f2;
-			}
+			color: #f2f2f2 !important;
 		}	
 		.jstree-closed > ins { 
 			background-position:0 0; 
@@ -564,6 +562,9 @@
 
 
 a .jstree-pageicon {
+	display: block;
+	width: 16px;
+	height: 16px;
 	float: left;
 	margin-right: 4px;
 	li.class-HomePage > &{
