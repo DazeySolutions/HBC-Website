@@ -56,7 +56,6 @@
 		a {
 			display: inline-block;
 			line-height: 16px;
-			height: 16px;
 			color: black;
 			white-space: nowrap;
 			text-decoration: none;
@@ -465,7 +464,7 @@
 			}
 		}	
 		a, a:link {
-			color:  $color-text-blue-link;
+			color:  #333333;
 			padding: 3px 6px 3px 3px;
 			border: none;
 			display:  inline-block;
@@ -549,6 +548,10 @@
 		.jstree-hovered {
 			text-shadow: none;
 			text-decoration: none;    
+			background: #333;
+			a{
+				color: #f2f2f2;
+			}
 		}	
 		.jstree-closed > ins { 
 			background-position:0 0; 
