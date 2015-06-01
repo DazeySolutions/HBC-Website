@@ -231,41 +231,55 @@ li{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-home;
+	  	background: none ! important
 	}
 	
 	&.class-ContentPage > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
     	@extend .fa-file;
+    	background: none ! important
 	}
 	&.class-GalleryPage > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-camera-retro;
+		background: none ! important
 	}
 	&.class-GalleryHolder > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-photo;
+		background: none ! important
 	}
 	&.class-FormPage > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-pencil-square;
+		background: none ! important
 	}
 	&.class-FormHolder > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-file-text;
+		background: none ! important
 	}
 	&.class-ErrorPage > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-exclamation-triangle;
+		background: none ! important
 	}
 	&.class-Blog > a .jstree-pageicon{
     	@extend .fa;
     	@extend .fa-fw;
 		@extend .fa-comments;
+		background: none ! important
+	}
+	&.class-DocumentHolder > a .jstree-pageicon{
+    	@extend .fa;
+    	@extend .fa-fw;
+		@extend .fa-folder-open;
+		background: none ! important
 	}
 }
