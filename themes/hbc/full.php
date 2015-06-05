@@ -4,8 +4,8 @@
     <body>
     <script>
         $(document).ready(function(){
-            $("body .section-row:odd").addClass("odd");
-            $("body .section-row:even").addClass("even");
+            $("body .section-row:odd").addClass("even");
+            $("body .section-row:even").addClass("odd");
         });
     </script>
     <div class="<?php echo $c->getPageWrapperClass()?>">
