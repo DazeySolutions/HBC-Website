@@ -7,7 +7,7 @@
                 <h4 class="col-xs-12 col-sm-6 text-center">Connect With Us</h4>
                 <hr class="hidden-xs col-sm-3 h4" />
                 <p class="small col-xs-12">Have a question? A prayer request?  Or something else?  Send us an email and let us know how we can help you!</p>
-                <div class="contactForm small">
+                <div class="contactForm col-xs-12">
                  <?php
                     $a = new GlobalArea('Footer Contact');
                     $a->display();
