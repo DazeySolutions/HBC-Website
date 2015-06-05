@@ -7,10 +7,9 @@
                 <h4 class="col-xs-12 col-sm-6 text-center">Connect With Us</h4>
                 <hr class="hidden-xs col-sm-3 h4" />
                 <p class="small col-xs-12">Have a question? A prayer request?  Or something else?  Send us an email and let us know how we can help you!</p>
-                <div class="contactForm">
+                <div class="contactForm small">
                  <?php
                     $a = new GlobalArea('Footer Contact');
-                    $a->enableGridContainer(); 
                     $a->display();
                 ?>
 
@@ -18,11 +17,12 @@
             </div>
             <div class="col-xs-12 col-sm-6">
                 <div class="row">
-                <?php
-                    $a = new GlobalArea('Footer Content');
-                    $a->enableGridContainer(); 
-                    $a->display();
-                ?>
+                	<div class="col-xs-12">
+		                <?php
+		                    $a = new GlobalArea('Footer Content'); 
+		                    $a->display();
+		                ?>
+		             </div>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-3">
@@ -38,10 +38,11 @@
                         <abbr title="Phone">P:</abbr> <a href="tel:+15026333516">502-633-3516</a><br>
                     </em>
                 </address>
-                <div ng-if="mapsLoaded">
-                    <map  center="38.203040, -85.203772" zoom="15" styles='{{mapStyle}}' scrollwheel="false" disable-default-u-i="true" draggable="false">
-                        <marker position="38.203040, -85.203772" icon="<?php echo $view->getThemePath() ?>/assets/images/church.png"></marker>
-                    </map>
+                <div class="map">
+                    <?php
+	                    $a = new GlobalArea('Footer Map'); 
+	                    $a->display();
+	                ?>
                 </div>
             </div>
         </div>
