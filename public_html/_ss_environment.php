@@ -1,1 +1,0 @@
-/home/hbc/web/shared/_ss_environment.php

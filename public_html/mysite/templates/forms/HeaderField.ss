@@ -1,1 +1,0 @@
-<h$HeadingLevel $getAttributesHTML('class')>$Title</h$HeadingLevel>

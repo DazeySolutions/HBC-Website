@@ -1,1 +1,0 @@
-<textarea $getAttributesHTML('class') class="form-control">$Value</textarea>

@@ -1,1 +1,0 @@
-<input $getAttributesHTML('class') class="form-control $Type" />
