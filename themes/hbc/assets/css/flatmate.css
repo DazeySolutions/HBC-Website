@@ -6550,8 +6550,20 @@ button.close {
     display: none !important;
   }
 }
+div.ccm-notification-help-launcher {
+  z-index: 1040 !important;
+}
+div#ccm-toolbar {
+  z-index: 1041 !important;
+}
 .ccm-toolbar-visible .navbar-fixed-top {
   top: 49px;
+}
+.ccm-toolbar-visible .imageSlider {
+  top: 49px;
+}
+.ccm-toolbar-visible.ccm-panel-open .navbar-fixed-top {
+  top: 0px;
 }
 body {
   padding-top: 51px;
@@ -6578,6 +6590,12 @@ body {
   .imageSlider {
     top: 51px !important;
   }
+  .holder {
+    margin-top: 0px;
+  }
+}
+.holder {
+  margin-top: -51px;
 }
 body {
   background: #222222;
