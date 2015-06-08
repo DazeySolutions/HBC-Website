@@ -16,7 +16,7 @@ class Controller extends BlockController
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = false;
-	protected $btDefaultSet = 'Navigation';
+	protected $btDefaultSet = 'navigation';
 	
     public $title = "";
     public $location = "";
