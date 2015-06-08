@@ -16,6 +16,9 @@ class Controller extends BlockController
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = false;
+	protected $btFeatures = array(
+        'image'
+    );
 
     public $title = "";
     public $location = "";
@@ -80,11 +83,12 @@ class Controller extends BlockController
         if (!is_object($f) || !$f->getFileID()) {
             return false;
         }
+        $this->set('f', $f);
     }
 
     public function save($data)
     {
-    	$args['fMarkerID'] = ($args['fMarkerID'] != '') ? $args['fMarkerID'] : 0;
+    	$args['fMarkerID'] = ($data['fMarkerID'] != '') ? $data['fMarkerID'] : 0;
         $args['title'] = isset($data['title']) ? trim($data['title']) : '';
         $args['location'] = isset($data['location']) ? trim($data['location']) : '';
         $args['zoom'] = (intval($data['zoom']) >= 0 && intval($data['zoom']) <= 21) ? intval($data['zoom']) : 14;
