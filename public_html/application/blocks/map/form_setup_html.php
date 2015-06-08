@@ -95,7 +95,7 @@ $args = array();
           		});
           	</script>
     	</div>
-    	<div class="form-group styles" style="display: none;">
+    	<div class="form-group styles" <?php if(!$customstyle) { ?> style="display: none;" <?php } ?>>
             <?php echo $form->label('styles', t('Style'));?>
             <?php echo $form->textarea('styles', $mapObj->styles, array("rows"=>10,"placeholder"=>"Insert style here (in javascript array notation)"));?>
         </div>
