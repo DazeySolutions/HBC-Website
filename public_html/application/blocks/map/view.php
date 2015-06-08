@@ -23,13 +23,21 @@ if ($c->isEditMode()) { ?>
     function googleMapInit<?php echo $unique_identifier?>() {
         try{
             var latlng = new google.maps.LatLng(<?php echo $latitude?>, <?php echo $longitude?>);
+            <?php if($customstyle) { ?>
+            	var styleAr = <?php echo $styles; ?>;
+            <?php } ?>
             var mapOptions = {
                 zoom: <?php echo $zoom?>,
                 center: latlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 streetViewControl: false,
                 scrollwheel: <?php echo !!$scrollwheel ? "true" : "false"?>,
-                mapTypeControl: false
+                mapTypeControl: false,
+                draggable: <?php echo !!$draggable ? "true" : "false"?>,
+                <?php if($customstyle){ ?>
+                styles: styleAr,	
+                <?php } ?> 
+                disableDefaultUI: <?php echo !!$defaultui ? "true" : "false"?>
             };
             var map = new google.maps.Map(document.getElementById('googleMapCanvas<?php echo $unique_identifier?>'), mapOptions);
             <?php if (is_object($f)) { ?>

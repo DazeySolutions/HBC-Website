@@ -16,14 +16,30 @@
         <field name="height" type="C" size="8">
             <default value="400px"/>
         </field>
-            <field name="scrollwheel" type="I1">
+        <field name="scrollwheel" type="I1">
             <unsigned />
             <notnull />
             <default value="1" />
+        </field>
+        <field name="draggable" type="I1">
+            <unsigned />
+            <notnull />
+            <default value="1" />
+        </field>
+        <field name="defaultui" type="I1">
+            <unsigned />
+            <notnull />
+            <default value="0" />
+        </field>
+        <field name="customstyle" type="I1">
+            <unsigned />
+            <notnull />
+            <default value="0" />
         </field>
 		<field name="fMarkerID" type="I">
 			<unsigned />
 			<default value="0" />
 		</field>
+		<field name="styles" type="XL"></field>
 	</table>
 </schema>

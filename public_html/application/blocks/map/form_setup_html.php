@@ -69,10 +69,30 @@ $args = array();
 
     <div class="col-xs-12">
         <div class="form-group">
-          <label>
-            <?php echo $form->checkbox('scrollwheel', 1, (is_null($scrollwheel) || $scrollwheel)); ?>
-            <?php echo t("Enable Scroll Wheel")?>
-          </label>
+			<label class="checkbox-inline">
+				<?php echo $form->checkbox('scrollwheel', 1, (is_null($scrollwheel) || $scrollwheel)); ?>
+				<?php echo t("Enable Scroll Wheel")?>
+			</label>
+			<label class="checkbox-inline">
+            	<?php echo $form->checkbox('draggable', 1, (is_null($draggable) || $draggable)); ?>
+            	<?php echo t("Enable Draggable Map")?>
+          	</label>
+  			<label class="checkbox-inline">
+            	<?php echo $form->checkbox('defaultui', 1, (is_null($defaultui) || $defaultui)); ?>
+            	<?php echo t("Disable Default UI")?>
+          	</label>
+        </div>
+    </div>
+    <div class="col-xs-12">
+    	<div class="form-group">
+    		<label>
+            	<?php echo $form->checkbox('customstyle', 1, (is_null($customstyle) || $customstyle)); ?>
+            	<?php echo t("Enable Custom Map Style")?>
+          	</label>
+    	</div>
+    	<div class="form-group styles">
+            <?php echo $form->label('styles', t('Style'));?>
+            <?php echo $form->text('styles', $mapObj->styles);?>
         </div>
     </div>
 </div>

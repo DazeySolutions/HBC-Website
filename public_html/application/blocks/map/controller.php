@@ -22,8 +22,12 @@ class Controller extends BlockController
     public $latitude = "";
     public $longitude = "";
     public $scrollwheel = true;
+    public $draggable = true;
+    public $defaultui = false;
+    public $customstyle = false;
     public $zoom = 14;
     public $fMarkerID = 0;
+    public $styles = "";
 
     /**
      * Used for localization. If we want to localize the name/description we have to include this
@@ -73,6 +77,10 @@ class Controller extends BlockController
         $this->set('longitude', $this->longitude);
         $this->set('zoom', $this->zoom);
         $this->set('scrollwheel', $this->scrollwheel);
+        $this->set('defaultui', $this->defaultui);
+        $this->set('draggable', $this->draggable);
+        $this->set('customstyle', $this->customstyle);
+        $this->set('styles', $this->styles);
         $f = File::getByID($this->fMarkerID);
         if (!is_object($f) || !$f->getFileID()) {
             return false;
@@ -91,6 +99,8 @@ class Controller extends BlockController
         $args['width'] = $data['width'];
         $args['height'] = $data['height'];
         $args['scrollwheel'] = $data['scrollwheel'] ? 1 : 0;
+        $args['draggable'] = $data['draggable'] ? 1 : 0;
+        $args['defaultui'] = $data['defaultui'] ? 1 : 0;
         parent::save($args);
     }
     function getFileID() {return $this->fMarkerID;}
