@@ -86,7 +86,7 @@ $args = array();
             	<?php echo t("Enable Custom Map Style")?>
           	</label>
           	<script>
-          		$("customstyle").change(function(){
+          		$("#customstyle").change(function(){
           			if($(this).is(":checked")){
           				$(".styles").show();
           			}else{
