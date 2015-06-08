@@ -33,7 +33,7 @@ if ($c->isEditMode()) { ?>
             };
             var map = new google.maps.Map(document.getElementById('googleMapCanvas<?php echo $unique_identifier?>'), mapOptions);
             <?php if (is_object($f)) { ?>
-	            var img = <?php echo $f->getRelativePath(); ?>;
+	            var img = '<?php echo $f->getRelativePath(); ?>';
             <?php } ?>
             
             var marker = new google.maps.Marker({
