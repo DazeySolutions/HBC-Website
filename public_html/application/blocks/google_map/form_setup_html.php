@@ -29,7 +29,7 @@ $args = array();
 
 	<div class="form-group">
 		<label class="control-label"><?php echo t('Image')?></label>
-		<?php echo $al->image('ccm-b-image', 'fID', t('Choose Image'), $bf, $args);?>
+		<?php echo $al->image('ccm-b-image', 'fMarkerID', t('Choose Image'), $bf, $args);?>
 	</div>
 
     <div class="col-xs-4">
