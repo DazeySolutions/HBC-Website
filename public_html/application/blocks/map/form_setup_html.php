@@ -81,18 +81,23 @@ $args = array();
             	<?php echo $form->checkbox('defaultui', 1, (is_null($defaultui) || $defaultui)); ?>
             	<?php echo t("Disable Default UI")?>
           	</label>
-        </div>
-    </div>
-    <div class="col-xs-12">
-    	<div class="form-group">
-    		<label>
+    		<label class="checkbox-inline">
             	<?php echo $form->checkbox('customstyle', 1, (is_null($customstyle) || $customstyle)); ?>
             	<?php echo t("Enable Custom Map Style")?>
           	</label>
+          	<script>
+          		$("customstyle").change(function(){
+          			if($(this).is(":checked")){
+          				$(".styles").show();
+          			}else{
+          				$(".styles").hide();
+          			}
+          		});
+          	</script>
     	</div>
-    	<div class="form-group styles">
+    	<div class="form-group styles" style="display: none;">
             <?php echo $form->label('styles', t('Style'));?>
-            <?php echo $form->text('styles', $mapObj->styles);?>
+            <?php echo $form->textarea('styles', $mapObj->styles, array("rows"=>10,"placeholder"=>"Insert style here (in javascript array notation)"));?>
         </div>
     </div>
 </div>
