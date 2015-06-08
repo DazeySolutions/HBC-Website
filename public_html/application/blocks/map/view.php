@@ -7,7 +7,7 @@ if ($c->isEditMode()) { ?>
 	</div>
 <?php  } else { ?>
 	<?php  if( strlen($title)>0){ ?><h3><?php echo $title?></h3><?php  } ?>
-	<div id="googleMapCanvas<?php echo $unique_identifier?>" class="googleMapCanvas" style="width: <?php echo $width; ?>; height: <?php echo $height; ?>"></div>
+	<div id="googleMapCanvas<?php echo $unique_identifier?>" class="googleMapCanvas" style="margin: auto; width: <?php echo $width; ?>; height: <?php echo $height; ?>"></div>
 <?php  } ?>
 
 
