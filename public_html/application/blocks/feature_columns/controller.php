@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Block\FeatureColumnsController;
+namespace Application\Block\FeatureColumns;
 use Page;
 use Loader;
 
