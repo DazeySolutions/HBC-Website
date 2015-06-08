@@ -30,8 +30,6 @@
             $a = new Area('Main');
             $a->display($c);
         ?>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="<?php echo $view->getThemePath()?>/assets/js/bootstrap.min.js"></script>
       </div>
       <div class="section-row">
         <?php
