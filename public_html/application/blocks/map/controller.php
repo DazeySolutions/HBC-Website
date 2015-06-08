@@ -1,5 +1,5 @@
 <?php
-namespace Application\Block\GoogleMap;
+namespace Application\Block\Map;
 
 use Loader;
 use Page;
@@ -9,9 +9,9 @@ use \File;
 class Controller extends BlockController
 {
 
-    protected $btTable = 'btGoogleMap';
-    protected $btInterfaceWidth = "400";
-    protected $btInterfaceHeight = "320";
+    protected $btTable = 'btMap';
+    protected $btInterfaceWidth = "600";
+    protected $btInterfaceHeight = "480";
     protected $btCacheBlockRecord = true;
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
@@ -23,6 +23,7 @@ class Controller extends BlockController
     public $longitude = "";
     public $scrollwheel = true;
     public $zoom = 14;
+    public $fMarkerID = 0;
 
     /**
      * Used for localization. If we want to localize the name/description we have to include this
@@ -73,7 +74,6 @@ class Controller extends BlockController
         $this->set('longitude', $this->longitude);
         $this->set('zoom', $this->zoom);
         $this->set('scrollwheel', $this->scrollwheel);
-        echo $this->fMarkerID;
         $f = File::getByID($this->fMarkerID);
         if (!is_object($f) || !$f->getFileID()) {
             return false;
@@ -82,9 +82,7 @@ class Controller extends BlockController
 
     public function save($data)
     {
-    	echo $args['fMarkerID'];
     	$args['fMarkerID'] = ($args['fMarkerID'] != '') ? $args['fMarkerID'] : 0;
-    	echo $args['fMarkerID'];
         $args['title'] = isset($data['title']) ? trim($data['title']) : '';
         $args['location'] = isset($data['location']) ? trim($data['location']) : '';
         $args['zoom'] = (intval($data['zoom']) >= 0 && intval($data['zoom']) <= 21) ? intval($data['zoom']) : 14;
