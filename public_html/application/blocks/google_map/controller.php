@@ -92,5 +92,8 @@ class Controller extends BlockController
         $args['scrollwheel'] = $data['scrollwheel'] ? 1 : 0;
         parent::save($args);
     }
-
+    function getFileID() {return $this->fMarkerID;}
+    public function getFileObject() {
+        return File::getByID($this->fMarkerID);
+    }
 }
