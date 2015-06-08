@@ -1,5 +1,5 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
-<?php if($numberOfColumns == 1) { ?>
+<?php if($numberOfColumns == 0) { ?>
 <div class="ccm-one-column section-row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
         <div class="col-xs-12 col-md-6 col-md-offset-3">
@@ -12,7 +12,7 @@
     	</div>
     </div>
 </div>
-<?php }else if($numberOfColumns == 2){ ?>
+<?php }else if($numberOfColumns == 1){ ?>
 <div class="ccm-two-column row section-row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
         <div class="col-xs-12 col-md-6">
