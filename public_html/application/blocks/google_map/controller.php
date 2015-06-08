@@ -1,5 +1,5 @@
 <?php
-namespace Concrete\Block\GoogleMap;
+namespace Application\Block\GoogleMap;
 
 use Loader;
 use Page;
