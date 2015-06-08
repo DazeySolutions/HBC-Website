@@ -7,10 +7,10 @@
         <script>
         	$(".num-cols select").change(function(){
         		var numCols = $(".num-cols select option:selected").val();
-        		if(numCols == 1){
+        		if(numCols == 0){
         			$(".col-two").hide
         			$(".col-three").hide();
-        		}else if(numCols == 2){
+        		}else if(numCols == 1){
         			$(".col-two").show();
         			$(".col-three").hide();
         		}else{
