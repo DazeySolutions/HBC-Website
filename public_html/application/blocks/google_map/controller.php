@@ -73,6 +73,7 @@ class Controller extends BlockController
         $this->set('longitude', $this->longitude);
         $this->set('zoom', $this->zoom);
         $this->set('scrollwheel', $this->scrollwheel);
+        echo $this->fMarkerID;
         $f = File::getByID($this->fMarkerID);
         if (!is_object($f) || !$f->getFileID()) {
             return false;
