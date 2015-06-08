@@ -22,7 +22,7 @@ class Controller extends BlockController
     protected $btCacheBlockOutputForRegisteredUsers = true;
     protected $btInterfaceHeight = 600;
     protected $btTable = 'btFeatureColumnSection';
-
+	protected $btDefaultSet = 'basic';
     public function getBlockTypeDescription()
     {
         return t("Displays Feature Section with specified number of columns.");
@@ -30,7 +30,7 @@ class Controller extends BlockController
 
     public function getBlockTypeName()
     {
-        return t("Feature (Column)");
+        return t("Feature");
     }
 
     public function add()
