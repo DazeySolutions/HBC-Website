@@ -8,7 +8,9 @@
     </div>
     <div class="form-group">
         <?php echo $form->label('columnOneContnet', t('Content'));?>
-        <?php echo $form->textarea('columnOneContnet', $columnOneContnet); ?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnOneContnet', $columnOneContnet); ?>
     </div>
 </fieldset>
 
@@ -20,7 +22,9 @@
     </div>
     <div class="form-group">
         <?php echo $form->label('columnTwoContnet', t('Content'));?>
-        <?php echo $form->textarea('columnTwoContnet', $columnTwoContnet); ?>
+         <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnTwoContnet', $columnTwoContnet); ?>
     </div>
 </fieldset>
 
@@ -32,6 +36,8 @@
     </div>
     <div class="form-group">
         <?php echo $form->label('columnThreeTitle', t('Content'));?>
-        <?php echo $form->textarea('columnThreeTitle', $columnThreeTitle); ?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnThreeTitle', $columnThreeTitle); ?>
     </div>
 </fieldset>
