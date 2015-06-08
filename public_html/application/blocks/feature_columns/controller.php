@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Block\ThreeColumnRow;
+namespace Application\Block\FeatureColumnsController;
 use Page;
 use Loader;
 
