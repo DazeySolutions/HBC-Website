@@ -7,6 +7,21 @@
             $("body .section-row:odd").addClass("even");
             $("body .section-row:even").addClass("odd");
         });
+        <?php if($c->isEditMode()){ ?>
+        	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+
+			var observer = new MutationObserver(function(mutations, observer) {
+			    console.log(mutations, observer);
+		        $("body .section-row:odd").addClass("even");
+	            $("body .section-row:even").addClass("odd");
+			});
+			// define what element should be observed by the observer
+			// and what types of mutations trigger the callback
+			observer.observe(document, {
+			  subtree: true,
+			  attributes: true
+			});
+        <?php } ?>
     </script>
     <div class="<?php echo $c->getPageWrapperClass()?>">
         <?php $this->inc('elements/navigation.php'); ?> 
