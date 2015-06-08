@@ -6,7 +6,7 @@
 			<unsigned ></unsigned>
 		</field>
 		<field name="numberOfColumns" type="I1">
-			<default value="1"/>
+			<default value="0"/>
 		</field>
 		<field name="columnOneTitle" type="C"></field>
 		<field name="columnOneContent" type="XL"></field>
