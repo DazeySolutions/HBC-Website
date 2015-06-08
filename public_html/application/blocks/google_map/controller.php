@@ -82,7 +82,9 @@ class Controller extends BlockController
 
     public function save($data)
     {
+    	echo $args['fMarkerID'];
     	$args['fMarkerID'] = ($args['fMarkerID'] != '') ? $args['fMarkerID'] : 0;
+    	echo $args['fMarkerID'];
         $args['title'] = isset($data['title']) ? trim($data['title']) : '';
         $args['location'] = isset($data['location']) ? trim($data['location']) : '';
         $args['zoom'] = (intval($data['zoom']) >= 0 && intval($data['zoom']) <= 21) ? intval($data['zoom']) : 14;
