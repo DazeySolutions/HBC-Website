@@ -28,8 +28,11 @@
         <?php echo $form->text('columnOneTitle', $columnOneTitle); ?>
     </div>
     <div class="form-group">
-        <?php echo $form->label('columnOneContnet', t('Content'));?>
-        <?php echo $form->textarea('columnOneContnet', $columnOneContnet); ?>
+        <?php echo $form->label('columnOneContent', t('Content'));?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnOneContent', $columnOneContent);
+        ?>
     </div>
 </fieldset>
 
@@ -40,8 +43,11 @@
         <?php echo $form->textarea('columnTwoTitle', $columnTwoTitle); ?>
     </div>
     <div class="form-group">
-        <?php echo $form->label('columnTwoContnet', t('Content'));?>
-        <?php echo $form->textarea('columnTwoContnet', $columnTwoContnet); ?>
+        <?php echo $form->label('columnTwoContent', t('Content'));?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnTwoContent', $columnTwoContent);
+        ?>
     </div>
 </fieldset>
 
@@ -52,7 +58,10 @@
         <?php echo $form->textarea('columnThreeTitle', $columnThreeTitle); ?>
     </div>
     <div class="form-group">
-        <?php echo $form->label('columnThreeTitle', t('Content'));?>
-        <?php echo $form->textarea('columnThreeTitle', $columnThreeTitle); ?>
+        <?php echo $form->label('columnThreeContent', t('Content'));?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnThreeContent', $columnThreeContent);
+        ?>
     </div>
 </fieldset>
