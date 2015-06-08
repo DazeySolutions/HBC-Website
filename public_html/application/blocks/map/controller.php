@@ -51,7 +51,7 @@ class Controller extends BlockController
             $error->add(t('Please enter a zoom number from 0 to 21.'));
         }
 		if(empty($args['fMarkerID'])){
-			$error(add(t('Please Select a file')));
+			$error->add(t('Please Select a file'));
 		}
         if ($error->has()) {
             return $error;
