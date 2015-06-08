@@ -8,7 +8,7 @@
         	$(".num-cols select").change(function(){
         		var numCols = $(".num-cols select option:selected").val();
         		if(numCols == 0){
-        			$(".col-two").hide
+        			$(".col-two").hide();
         			$(".col-three").hide();
         		}else if(numCols == 1){
         			$(".col-two").show();
@@ -33,7 +33,7 @@
     </div>
 </fieldset>
 
-<fieldset class="col-two">
+<fieldset class="col-two" style="display: none;">
 	<legend><?php echo t('Column Two')?></legend>
     <div class="form-group">
         <?php echo $form->label('columnTwoTitle', t('Title'));?>
@@ -45,7 +45,7 @@
     </div>
 </fieldset>
 
-<fieldset class="col-three">
+<fieldset class="col-three"  style="display: none;">
 	<legend><?php echo t('Column Three')?></legend>
     <div class="form-group">
         <?php echo $form->label('columnThreeTitle', t('Title'));?>
