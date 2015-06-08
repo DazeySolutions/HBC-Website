@@ -35,8 +35,11 @@
         ?>
     </div>
 </fieldset>
-
-<fieldset class="col-two" style="display: none;">
+<?php if($numberOfColumns == 0) {?>
+	<fieldset class="col-two" style="display: none;">
+<?php } else { ?>
+	<fieldset class="col-two">
+<?php } ?>
 	<legend><?php echo t('Column Two')?></legend>
     <div class="form-group">
         <?php echo $form->label('columnTwoTitle', t('Title'));?>
@@ -51,7 +54,11 @@
     </div>
 </fieldset>
 
-<fieldset class="col-three"  style="display: none;">
+<?php if($numberOfColumns == 0 || $numberOfColumns == 1) {?>
+	<fieldset class="col-three"  style="display: none;">
+<?php } else { ?>
+	<fieldset class="col-three">
+<?php } ?>
 	<legend><?php echo t('Column Three')?></legend>
     <div class="form-group">
         <?php echo $form->label('columnThreeTitle', t('Title'));?>
