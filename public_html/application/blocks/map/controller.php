@@ -16,9 +16,6 @@ class Controller extends BlockController
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = false;
-	protected $btFeatures = array(
-        'image'
-    );
 
     public $title = "";
     public $location = "";
@@ -53,9 +50,6 @@ class Controller extends BlockController
         if (!is_numeric($args['zoom'])) {
             $error->add(t('Please enter a zoom number from 0 to 21.'));
         }
-		if(empty($args['fMarkerID'])){
-			$error->add(t('Please Select a file'));
-		}
         if ($error->has()) {
             return $error;
         }
