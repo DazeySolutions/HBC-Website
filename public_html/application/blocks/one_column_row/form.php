@@ -8,6 +8,9 @@
     </div>
     <div class="form-group">
         <?php echo $form->label('columnOneContnet', t('Content'));?>
-        <?php echo $form->textarea('columnOneContnet', $columnOneContnet); ?>
+        <?php
+            $editor = Core::make('editor');
+            echo $editor->outputStandardEditor('columnOneContent', $columnOneContent);
+        ?>
     </div>
 </fieldset>
