@@ -5,7 +5,7 @@ use Loader;
 use Page;
 use \Concrete\Core\Block\BlockController;
 use Core;
-
+use \File;
 class Controller extends BlockController
 {
 
