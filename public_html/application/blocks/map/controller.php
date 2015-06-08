@@ -101,6 +101,8 @@ class Controller extends BlockController
         $args['scrollwheel'] = $data['scrollwheel'] ? 1 : 0;
         $args['draggable'] = $data['draggable'] ? 1 : 0;
         $args['defaultui'] = $data['defaultui'] ? 1 : 0;
+        $args['customstyle'] = $data['customstyle'] ? 1 : 0;
+        $args['styles'] = isset($data['styles']) ? trim($data['styles']) : '';
         parent::save($args);
     }
     function getFileID() {return $this->fMarkerID;}
