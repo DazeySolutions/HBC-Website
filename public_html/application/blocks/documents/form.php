@@ -22,7 +22,7 @@ $al = Loader::helper('concrete/asset_library');  ?>
 	<script>
 		$(".add-file").click(function( event ) {
   			event.preventDefault();
-			if($("input[name=fID]").val() != 0){
+			if($("input[name=fID]").val() != 0 && $("table tbody td input[name='fTitle["+$("input[name=fID]").val()+"]']").length == 0){
 				var newRow = "<tr>";
 				newRow += "<td class='col-xs-2'>"+$(".ccm-file-selector-file-selected-thumbnail").html()+"</td>";
 				newRow += "<td class='col-xs-5'><input type='text' class='form-control' name='fTitle["+$("input[name=fID]").val()+"]'></td>";
@@ -32,6 +32,10 @@ $al = Loader::helper('concrete/asset_library');  ?>
 				$("table.docs tbody").append(newRow);
 				$("#ccm-menu-click-proxy").click();
 				$("a[data-file-manager-action=clear]:first").click();
+			}else if($("table tbody td input[name='fTitle["+$("input[name=fID]").val()+"]']").length != 0){
+				$("#ccm-menu-click-proxy").click();
+				$("a[data-file-manager-action=clear]:first").click();
+				alert("Select a different file!");
 			}
 		});
 		
