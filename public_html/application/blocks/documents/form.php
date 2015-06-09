@@ -26,12 +26,18 @@ $al = Loader::helper('concrete/asset_library');  ?>
 				var newRow = "<tr>";
 				newRow += "<td class='col-xs-2'>"+$(".ccm-file-selector-file-selected-thumbnail").html()+"</td>";
 				newRow += "<td class='col-xs-5'><input type='text' class='form-control' name='fTitle["+$("input[name=fID]").val()+"]'></td>";
-				newRow += "<td class='col-xs-5'>"+$(".ccm-file-selector-file-selected-title").text()+"</td>";
+				newRow += "<td class='col-xs-4'>"+$(".ccm-file-selector-file-selected-title").text()+"</td>";
+				newRow += "<td class='col-xs-1'><button class='btn btn-danger deleterow'>X</button></td>";
 				newRow += "</tr>";
 				$("table.docs tbody").append(newRow);
 				$("#ccm-menu-click-proxy").click();
 				$("a[data-file-manager-action=clear]:first").click();
 			}
+		});
+		
+		$(".delterow").click(function(event){
+			event.preventDefault();
+			$(this).parent().parent().remove();
 		});
 	</script>
 </div>
