@@ -1,5 +1,5 @@
 <?php
-namespace Concrete\Block\Documents;
+namespace Application\Block\Documents;
 use Loader;
 use File;
 use \Concrete\Core\Block\BlockController;
