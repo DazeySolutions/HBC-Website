@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Block\Socail;
+namespace Application\Block\Social;
 use Page;
 use Loader;
 
