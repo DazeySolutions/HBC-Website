@@ -102,7 +102,7 @@ class Controller extends BlockController
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
     	$socialData = json_decode($this->sData, true);
-        $this->set('socialData', $scoialData);
+		$this->set('socialData', $socialData);
     }
     
     public function on_start(){
