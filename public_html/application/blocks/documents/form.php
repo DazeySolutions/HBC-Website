@@ -12,7 +12,7 @@ $al = Loader::helper('concrete/asset_library');  ?>
  	</select>
 </div>
 <div class="form-group">
- 	<?php echo $form->label('title', t('Section Title ex(Bulletins)'));?>
+ 	<label for="title">Section Title <small>ex(Bulletins)</small></label>
 	<?php echo $form->text('title', $title);?>
 </div>
 <div class="form-group">
@@ -29,6 +29,7 @@ $al = Loader::helper('concrete/asset_library');  ?>
 				newRow += "<td class='col-xs-5'>"+$(".ccm-file-selector-file-selected-title").text()+"</td>";
 				newRow += "</tr>";
 				$("table.docs tbody").append(newRow);
+				$("a[data-file-manager-action=clear]:first").click()
 			}
 		});
 	</script>
