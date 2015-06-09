@@ -43,7 +43,7 @@ class Controller extends BlockController
     	$socialData = array();
     	foreach($links as $link){
     		$service = $link->getServiceObject();
-     		$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false);
+     		$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"");
     	}
     	$this->set('socialData', $socialData);
     }
@@ -73,8 +73,10 @@ class Controller extends BlockController
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
-    		$service = $link->getServiceObject();
-     		$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false);
+    		if(!isset($socialData[$link->getID()])){
+    			$service = $link->getServiceObject();
+     			$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"");
+    		}
     	}
     	foreach($socialData as $key => $value){
     	
