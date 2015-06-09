@@ -70,7 +70,9 @@ class Controller extends BlockController
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
+		openlog("SOCIAL_CONTROLLER", LOG_PID | LOG_PERROR, LOG_LOCAL0);
 		syslog(LOG_ALERT, print_r($data));
+		closelog();
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
