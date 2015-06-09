@@ -13,6 +13,8 @@ class Controller extends BlockController {
 	protected $btInterfaceHeight = 600;
 	protected $btTable = 'btDocuments';
 	
+	protected $btDefaultSet = 'basic';
+	
 	protected $files = array();
 	
 	/** 
