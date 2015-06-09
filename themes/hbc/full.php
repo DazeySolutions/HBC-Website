@@ -32,7 +32,6 @@
 	        ?>
 	        <?php
 	          $a = new GlobalArea('Connection');
-	          $a->enableGridContainer(); 
 	          $a->display();
 	        ?>
 	      	<?php $this->inc('elements/footer.php'); ?> 
