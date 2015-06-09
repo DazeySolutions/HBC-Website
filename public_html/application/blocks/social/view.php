@@ -31,7 +31,7 @@ if ($c->isEditMode()) { ?>
 									function loadInstafeed(){
 										var feed = new Instafeed({
 											get:'user',
-											userId: 1678475616,
+											userId: <?php echo $data['userid']?>,
 											accessToken: '<?php echo $data['access']?>',
 											limit: 9,
 											resolution: 'standard_resolution',
