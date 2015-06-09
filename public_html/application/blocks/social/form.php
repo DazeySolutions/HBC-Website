@@ -6,6 +6,7 @@
     <?php if (count($socialData) == 0) { ?>
         <p><?php echo t('You have not added any social links.')?></p>
     <?php } else { ?>
+    	<input type="hidden" name="socialData" id="socialData" value="<?php json_encode($scoialData)?>"> 
     	<ul class="nav nav-tabs" role="tablist">
     	<?php $index = 0; ?>
     	<?php foreach($socialData as $slID => $data) {?>
