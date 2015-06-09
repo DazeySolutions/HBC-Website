@@ -1,6 +1,5 @@
 <?php
 defined('C5_EXECUTE') or die("Access Denied.");
-?>
 $c = Page::getCurrentPage();
 if ($c->isEditMode()) { ?>
     <div class="ccm-edit-mode-disabled-item row section-row">
