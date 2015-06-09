@@ -2,12 +2,10 @@
 <div class="page-header">
 	<h2><?php echo t('Choose Social Links to Show')?></h2>
 </div>
-<hr />
 <div class="form-group">
  	<?php echo $form->label('title', t('Section Title'));?>
 	<?php echo $form->text('title', $title);?>
 </div>
-<hr />
 <div role="tabpanel">
     <?php if (count($socialData) == 0) { ?>
         <p><?php echo t('You have not added any social links.')?></p>

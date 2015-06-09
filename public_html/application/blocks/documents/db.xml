@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btDocuments">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="sortType" type="I1">
+			<default>0</default>
+		</field>
+		<field name="fileData" type="XL"></field>
+		<field name="title" type="C"></field>
+	</table>
+</schema>
