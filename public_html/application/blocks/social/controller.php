@@ -67,6 +67,7 @@ class Controller extends BlockController
     
     public function save($data)
     {
+    	$socialData = json_decode($this->social);
     	foreach($socialData as $key=>$value){
     		$showIDs = $data['showID'];
     		$feedIDs = $data['feedID'];
