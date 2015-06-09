@@ -49,6 +49,4 @@
     </div>
 
 </footer>
-<?php Loader::element('footer_required')?>
-
 <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-bottom-right'}"></toaster-container>
