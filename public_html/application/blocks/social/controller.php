@@ -46,7 +46,7 @@ class Controller extends BlockController
      		$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"", "userid"=>"");
     	}
     	$this->set('socialData', $socialData);
-    	$this->set('socialData', $this->title);
+    	$this->set('title', $this->title);
     }
 
     public function edit()
@@ -64,7 +64,7 @@ class Controller extends BlockController
     	}
     	
 		$this->set('socialData', $socialData);
-		$this->set('socialData', $this->title);
+		$this->set('title', $this->title);
     }
     
     public function save($data)
@@ -92,7 +92,9 @@ class Controller extends BlockController
     		if(isset($access[$key])){
     			$value['access'] = $access[$key];
     		}
-    	
+    		if(isset($users[$key])){
+    			$value['userid'] = $users[$key];
+    		}
     		$socialData[$key] = $value;
     	}
     	
@@ -115,7 +117,7 @@ class Controller extends BlockController
     	}
     	
 		$this->set('socialData', $socialData);
-		$this->set('socialData', $this->title);
+		$this->set('title', $this->title);
     }
     
     public function on_start(){
