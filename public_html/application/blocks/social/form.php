@@ -10,7 +10,9 @@
     	<?php $index = 0; ?>
     	<?php foreach($socialData as $slID => $data) {?>
 			<li role="presentation" <?php if($index==0) { ?> class="active" <?php }?> >
-				<a href="#<?php echo $data['name']?>" aria-controls="<?php echo $data['name']?>" role="tab" data-toggle="tab"><i class="fa fa-fw fa-lg fa-<?php echo $data['icon'] ?>"</i> &nbsp;<?php echo $data['name']?></a>
+				<a href="#<?php echo $data['name']?>" aria-controls="<?php echo $data['name'] ?>" role="tab" data-toggle="tab">
+					<i class="fa fa-fw fa-lg fa-<?php echo $data['icon'] ?>"></i>&nbsp;<?php echo $data['name']?>
+				</a>
 			</li>
 			<?php $index = 1; ?>
 		<?php } ?>
