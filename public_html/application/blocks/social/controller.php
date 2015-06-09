@@ -70,6 +70,7 @@ class Controller extends BlockController
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
+		print_r($access);
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
@@ -87,7 +88,7 @@ class Controller extends BlockController
     			$value['feed'] = true;
     		}
     		if(isset($access[$key])){
-    			$value['access'] = $access[$key];
+    			$value['access'] = "".$access[$key];
     		}
     	}
     	$args['social'] = json_encode($socialData);
