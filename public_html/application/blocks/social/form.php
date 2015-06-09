@@ -2,6 +2,12 @@
 <div class="page-header">
 	<h2><?php echo t('Choose Social Links to Show')?></h2>
 </div>
+<hr />
+<div class="form-group">
+ 	<?php echo $form->label('title', t('Section Title'));?>
+	<?php echo $form->text('title', $title);?>
+</div>
+<hr />
 <div role="tabpanel">
     <?php if (count($socialData) == 0) { ?>
         <p><?php echo t('You have not added any social links.')?></p>
@@ -39,9 +45,15 @@
 			            		}
 			            	});
 			            </script>
-			            <div class="form-group" id="access<?php echo $data['name'] ?>" <?php if(!$data['feed']) { ?> style="display:none;"<?php } ?>>
-				            <?php echo $form->label('access['.$slID.']', t('Feed Access'));?>
-	            			<?php echo $form->text('access['.$slID.']', $data['access']);?>
+			            <div id="access<?php echo $data['name'] ?>" <?php if(!$data['feed']) { ?> style="display:none;"<?php } ?>>
+			            	<div class="form-group">
+				            	<?php echo $form->label('user['.$slID.']', t('Feed User ID'));?>
+	            				<?php echo $form->text('user['.$slID.']', $data['userid']);?>
+	            			</div>
+			            	<div class="form-group">
+				            	<?php echo $form->label('access['.$slID.']', t('Feed Access'));?>
+	            				<?php echo $form->text('access['.$slID.']', $data['access']);?>
+	            			</div>
 			            </div>
 					</div>
 				</div>

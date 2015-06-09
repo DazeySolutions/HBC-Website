@@ -9,5 +9,6 @@
         <field name="sData" type="XL">
             <default value="{}"/>
         </field>
+        <field name="title" type="C"></field>
 	</table>
 </schema>
