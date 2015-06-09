@@ -2,6 +2,7 @@
 defined('C5_EXECUTE') or die("Access Denied.");
 ?>
 <div class="row section-row connection">
+<?php if(count($socialData != 0)){ ?>
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<?php 
 		$feedCount = 0;
@@ -37,4 +38,6 @@ defined('C5_EXECUTE') or die("Access Denied.");
 			</div>
 			<?php }?>
 		<?php }?>
+	</div>
+	<?php } ?>
 </div>
