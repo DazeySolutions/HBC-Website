@@ -23,15 +23,17 @@ defined('C5_EXECUTE') or die("Access Denied.");
 						<?php if($data['name'] == "Instagram") { ?>
 							<div id="instafeed"></div>
 							<script>
-								var feed = new Instafeed({
-									get:'user',
-									userId: 1678475616,
-									accessToken: '<?php echo $data['access']?>',
-									limit: 9,
-									resolution: 'standard_resolution',
-									template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" /><div class="likes"><span class="heartsTable"><i class="heartsCell">&hearts; {{likes}}</i></span></div></div></a></div>'
-								});
-								feed.run();
+								function loadInstafeed(){
+									var feed = new Instafeed({
+										get:'user',
+										userId: 1678475616,
+										accessToken: '<?php echo $data['access']?>',
+										limit: 9,
+										resolution: 'standard_resolution',
+										template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" /><div class="likes"><span class="heartsTable"><i class="heartsCell">&hearts; {{likes}}</i></span></div></div></a></div>'
+									});
+									feed.run();
+								}
 							</script>
 						<?php } ?>
 					</div>
