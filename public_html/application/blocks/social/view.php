@@ -29,7 +29,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 									accessToken: '<?php echo $data['access']?>',
 									limit: 9,
 									resolution: 'standard_resolution',
-									template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" 
+									template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" /><div class="likes"><span class="heartsTable"><i class="heartsCell">&hearts; {{likes}}</i></span></div></div></a></div>'
 								});
 								feed.run();
 							</script>
