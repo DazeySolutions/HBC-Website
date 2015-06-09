@@ -101,7 +101,16 @@ class Controller extends BlockController
     {
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
+    	$all = Link::getList();
     	$socialData = json_decode($this->sData, true);
+    
+    	foreach($all as $link){
+    		if(!isset($socialData[$link->getID()])){
+    			$service = $link->getServiceObject();
+     			$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"");
+    		}
+    	}
+    	
 		$this->set('socialData', $socialData);
     }
     
