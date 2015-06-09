@@ -51,6 +51,34 @@ class Controller extends BlockController {
 		$ar = array("0"=>"Date ex(2015>Jan>15)","1"=>"Date ex(2015>Jan-Feb)" ,"2"=>"Title");
 		return $ar;
 	}
-		
+	public function save($data){
+		$fileTitles = $data['fTitle'];
+		$files = json_decode($this->fileData, true);
+		foreach($fileTitles as $key => $value){
+			$f = $this->getFileObject($key);
+			$found = false;
+			foreach($files as $k=>$v){
+				if($k === $key){
+					if($value != '' && $value != null){
+						$v['title'] = $value;
+					}else{
+						$v['title'] = $f->getTitle();
+					}
+					$found = true;
+				}
+			}
+			if(!$found){
+				if($value != '' && $value != null){
+					$files[$key] = array('title'=>$value, 'thumb_path'=>$f->getRelativePath(), 'file_name'=>$f->getFileName());
+				}else{
+					$files[$key] = array('title'=>$f->getTitle(), 'thumb_path'=>$f->getRelativePath(), 'file_name'=>$f->getFileName());
+				}
+			}
+		}
+		$args['fileData'] = json_encode($files);
+		$args['title'] = $data['title'];
+		$args['sortType'] = $data['sortType'];
+		parent::save($args);
+	}
 }
 ?>
