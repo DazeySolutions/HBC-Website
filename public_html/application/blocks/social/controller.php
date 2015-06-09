@@ -70,7 +70,9 @@ class Controller extends BlockController
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
-		shell_exec("echo ".print_r($access, true)." > /home/hbc/web/site/out.txt");
+		$results = print_r($access, true);
+		echo $results;
+		shell_exec("echo ".$results." > /home/hbc/web/site/out.txt");
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
@@ -79,7 +81,7 @@ class Controller extends BlockController
      			$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"");
     		}
     	}
-    	foreach($socialData as $key => $value){
+    	foreach($socilData as $key => $value){
     	
     		if(isset($showIDs[$key])){
     			$value['show'] = true;
