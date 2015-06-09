@@ -16,24 +16,26 @@ defined('C5_EXECUTE') or die("Access Denied.");
 					}else{
 						$colwidth = 12%$feedCount;
 					}?>
-			<?php for($i=0; $i<$feedCount; $i++){ ?>
-				<div class="col-xs-12 col-md-<?php echo $colwidth ?>">
-					<h4 class="col-xs-12"><?php echo $data['name'] ?></h4>
-					<?php if($data['name'] == "Instagram") { ?>
-						<div id="instafeed"></div>
-						<script>
-							var feed = new Instafeed({
-								get:'user',
-								userId: 1678475616,
-								accessToken: '<?php $data['access']?>',
-								limit: 9,
-								resolution: 'standard_resolution',
-								template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" 
-							});
-							feed.run();
-						</script>
-					<?php } ?>
-				</div>
+			<?php foreach($socialData as $data){ ?>
+				<?php if($data['feed']) {?>
+					<div class="col-xs-12 col-md-<?php echo $colwidth ?>">
+						<h4 class="col-xs-12"><?php echo $data['name'] ?></h4>
+						<?php if($data['name'] == "Instagram") { ?>
+							<div id="instafeed"></div>
+							<script>
+								var feed = new Instafeed({
+									get:'user',
+									userId: 1678475616,
+									accessToken: '<?php $data['access']?>',
+									limit: 9,
+									resolution: 'standard_resolution',
+									template: '<div class="col-xs-12 col-sm-6 col-md-4"><a href="{{link}}" target="_blank"><div style="width:100%; height: 100%; position: relative;"><img src="{{image}}" 
+								});
+								feed.run();
+							</script>
+						<?php } ?>
+					</div>
+				<?php } ?>
 			<?php }?>
 		<?php }?>
 		</div>
