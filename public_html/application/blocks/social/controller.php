@@ -69,11 +69,11 @@ class Controller extends BlockController
     {
     	echo "here";
     	$socialData = json_decode($this->social, true);
-    	echo "here 2";
+    	print_r($this->social);
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
-		echo "here 3";
+		
     	foreach($socialData as $key => $value){
     	
     		if(isset($showIDs[$key])){
