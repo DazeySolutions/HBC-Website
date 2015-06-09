@@ -20,7 +20,8 @@ $al = Loader::helper('concrete/asset_library');  ?>
 	<?php echo $al->file('ccm-b-file', 'fID', t('Choose File'));?>
 	<button class="btn btn-success add-file">Confirm File</button>
 	<script>
-		$(".add-file").click(function(){
+		$(".add-file").click(function( event ) {
+  			event.preventDefault();
 			if($("input[name=fID]").val() != 0){
 				var newRow = "<tr>";
 				newRow += "<td class='col-xs-2'>"+$(".ccm-file-selector-file-selected-thumbnail").html()+"</td>";
