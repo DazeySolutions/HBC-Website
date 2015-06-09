@@ -70,7 +70,6 @@ class Controller extends BlockController
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
-		print_r($data);
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
@@ -88,9 +87,12 @@ class Controller extends BlockController
     			$value['feed'] = true;
     		}
     		if(isset($access[$key])){
-    			$value['access'] = "".$access[$key];
+    			$value['access'] = $access[$key];
     		}
+    	
+    		$socialData[$key] = $value;
     	}
+    	
     	$args['sData'] = json_encode($socialData);
         parent::save($args);
     }
@@ -99,7 +101,8 @@ class Controller extends BlockController
     {
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
-        $this->set('socialData', json_decode($this->sData, true));
+    	$socialData = json_decode($this->sData, true);
+        $this->set('socialData', $scoialData);
     }
     
     public function on_start(){
