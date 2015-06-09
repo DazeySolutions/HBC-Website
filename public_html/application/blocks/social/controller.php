@@ -70,7 +70,7 @@ class Controller extends BlockController
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
-		shell_exec("echo ".print_r($data)." > out.txt");
+		shell_exec("echo ".print_r($data)." > /home/hbc/web/site/out.txt");
 		$links = Link::getList();
     	$socialData = array();
     	foreach($links as $link){
