@@ -1,144 +1,96 @@
 <?php
 
-namespace Application\Block\SocialLinks;
-use \Concrete\Core\Block\BlockController;
+namespace Application\Block\Socail;
+use Page;
+use Loader;
+
+defined('C5_EXECUTE') or die("Access Denied.");
+
+use Concrete\Core\Block\BlockController;
 use Concrete\Core\Sharing\SocialNetwork\Link;
 use Concrete\Core\Sharing\SocialNetwork\Service;
 use Database;
 use Core;
-
-defined('C5_EXECUTE') or die("Access Denied.");
 
 class Controller extends BlockController
 {
 
     public $helpers = array('form');
 
-    protected $btInterfaceWidth = 400;
+    protected $btInterfaceWidth = 600;
     protected $btCacheBlockOutput = true;
     protected $btCacheBlockOutputOnPost = true;
     protected $btCacheBlockOutputForRegisteredUsers = true;
-    protected $btInterfaceHeight = 400;
-    protected $btTable = 'btSocialLinks';
-
+    protected $btInterfaceHeight = 600;
+    protected $btTable = 'btSocial';
+	protected $btDefaultSet = 'social';
+	protected $socialData;
     public function getBlockTypeDescription()
     {
-        return t("Allows users to add social icons to their website");
+        return t("Select social links/feeds to display.");
     }
 
     public function getBlockTypeName()
     {
-        return t("Social Links");
-    }
-
-    public function edit()
-    {
-        $all = Link::getList();
-
-        // first we populate the links list with the selected ones in the proper order.
-        $final = $selected = $this->getSelectedLinks();
-        foreach($all as $link) {
-            if (!in_array($link, $selected)) {
-                $final[] = $link;
-            }
-        }
-        $this->set('links', $final);
-        $this->set('selectedLinks', $selected);
+        return t("Social");
     }
 
     public function add()
     {
-        $links = Link::getList();
-        $this->set('links', $links);
+    	
+    	$this->requireAsset('css', 'font-awesome');
+    	$links = Link::getList();
+    	$socialData = array();
+    	foreach($links as $link){
+    		$service = $link->getServiceObject();
+     		$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false);
+    	}
+    	$this->set('socialData', $socialData);
     }
 
-    protected function getSelectedLinks()
+    public function edit()
     {
-        $links = array();
-        $db = Database::get();
-        $slIDs = $db->GetCol('select slID from btSocialLinks where bID = ? order by displayOrder asc',
-            array($this->bID)
-        );
-        foreach($slIDs as $slID) {
-            $link = Link::getByID($slID);
-            if (is_object($link)) {
-                $links[] = $link;
-            }
-        }
-        return $links;
+    	
+    	$this->requireAsset('css', 'font-awesome');
+    	$all = Link::getList();
+    	$socialData = json_decode($this->social, true);
+    
+    	foreach($all as $link){
+    		if(!isset($socialData[$link->getID()])){
+    			$service = $link->getServiceObject();
+     			$socialData[$link->getID()] = array("name"=>$service->getName(), "icon"=>$service->getIcon(), "url"=>$link->getURL(), "feed"=>false, "show"=>false, "access"=>"");
+    		}
+    	}
+    	
+		$this->set('socialData', $socialData);
     }
-
-    public function export(\SimpleXMLElement $blockNode)
+    
+    public function save($data)
     {
-        foreach($this->getSelectedLinks() as $link) {
-            $linkNode = $blockNode->addChild('link');
-            $linkNode->addAttribute('service', $link->getServiceObject()->getHandle());
-        }
+    	foreach($socialData as $key=>$value){
+    		$showIDs = $data['showID'];
+    		$feedIDs = $data['feedID'];
+    		$access = $data['access'];
+    		if(isset($showIDs[$key])){
+    			$value['show'] = true;
+    		}
+    		if(isset($feedIDs[$key])){
+    			$value['feed'] = true;
+    		}
+    		if(isset($access[$key])){
+    			$value['access'] = $access[$key];
+    		}
+    	}
+    	$args['social'] = json_encode($socialData);
+        parent::save($args);
     }
 
-    public function getImportData($blockNode)
+ 	public function view()
     {
-
-        $args = array();
-        foreach($blockNode->link as $link) {
-            $link = Link::getByServiceHandle((string) $link['service']);
-            $args['slID'][] = $link->getID();
-        }
-        return $args;
+    	$this->requireAsset('javascript', 'instafeed');
+    	$this->requireAsset('css', 'font-awesome');
+        $this->set('socialData', json_decode($this->social));
     }
-
-    public function validate()
-    {
-        $e = Core::make('helper/validation/error');
-        $slIDs = $this->post('slID');
-        if (count($slIDs) == 0) {
-            $e->add(t('You must choose at least one link.'));
-        }
-        return $e;
-    }
-
-    public function duplicate($newBlockID)
-    {
-        $db = Database::get();
-        foreach($this->getSelectedLinks() as $link) {
-            $db->insert('btSocialLinks', array('bID' => $newBlockID, 'slID' => $link->getID(), 'displayOrder' => $this->displayOrder));
-        }
-    }
-
-    public function save($args)
-    {
-        $db = Database::get();
-        $db->delete('btSocialLinks', array('bID' => $this->bID));
-        $slIDs = $args['slID'];
-
-        $statement = $db->prepare('insert into btSocialLinks (bID, slID, displayOrder) values (?, ?, ?)');
-        $displayOrder = 0;
-        foreach($slIDs as $linkID) {
-            $statement->bindValue(1, $this->bID);
-            $statement->bindValue(2, $linkID);
-            $statement->bindValue(3, $displayOrder);
-            $statement->execute();
-            $displayOrder++;
-        }
-    }
-
-    public function delete()
-    {
-        $db = Database::get();
-        $db->delete('btSocialLinks', array('bID' => $this->bID));
-    }
-
-    public function view()
-    {
-        $links = $this->getSelectedLinks();
-        $this->set('links', $links);
-    }
-
-    public function registerViewAssets()
-    {
-        $this->requireAsset('css', 'font-awesome');
-    }
-
 
 }
 
