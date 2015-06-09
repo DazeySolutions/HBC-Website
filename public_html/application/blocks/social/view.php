@@ -5,7 +5,7 @@ defined('C5_EXECUTE') or die("Access Denied.");
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<?php 
 		$feedCount = 0;
-		foreach($socialData as $key=>$data){
+		foreach($socialData as $slID => $data){
 			if($data['feed']){
 				$feedCount += 1;
 			}	
