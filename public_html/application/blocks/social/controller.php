@@ -37,7 +37,7 @@ class Controller extends BlockController
 
     public function add()
     {
-    	
+    	$this->requireAsset('javascript', 'bootstrap-tab');
     	$this->requireAsset('css', 'font-awesome');
     	$links = Link::getList();
     	$socialData = array();
@@ -50,7 +50,7 @@ class Controller extends BlockController
 
     public function edit()
     {
-    	
+    	$this->requireAsset('javascript', 'bootstrap-tab');
     	$this->requireAsset('css', 'font-awesome');
     	$all = Link::getList();
     	$socialData = json_decode($this->social, true);
@@ -90,6 +90,12 @@ class Controller extends BlockController
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
         $this->set('socialData', json_decode($this->social));
+    }
+    
+    public function on_start(){
+    	$al = \Concrete\Core\Asset\AssetList::getInstance();
+    	$al->register('javascript', 'instafeed', 'blocks/social/assets/instafeed.min.js');
+    	$al->register('javascript', 'bootstrap-tab', 'blocks/social/assets/tab.js');
     }
 
 }
