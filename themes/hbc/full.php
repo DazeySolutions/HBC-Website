@@ -34,6 +34,7 @@
 	          $a = new GlobalArea('Connection');
 	          $a->display();
 	        ?>
+	        <?php $this->inc('elements/footer.php'); ?> 
 	    </div>
 	    <?php Loader::element('footer_required')?>
     </body>
