@@ -67,10 +67,13 @@ class Controller extends BlockController
     
     public function save($data)
     {
-    	$socialData = $data['socialData'];
+    	echo "here";
+    	$socialData = json_decode($this->social, true);
+    	echo "here 2";
 		$showIDs = $data['showID'];
 		$feedIDs = $data['feedID'];
 		$access = $data['access'];
+		echo "here 3";
     	foreach($socialData as $key => $value){
     	
     		if(isset($showIDs[$key])){
