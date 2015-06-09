@@ -29,7 +29,8 @@ $al = Loader::helper('concrete/asset_library');  ?>
 				newRow += "<td class='col-xs-5'>"+$(".ccm-file-selector-file-selected-title").text()+"</td>";
 				newRow += "</tr>";
 				$("table.docs tbody").append(newRow);
-				$("a[data-file-manager-action=clear]:first").click()
+				$("#ccm-menu-click-proxy").click();
+				$("a[data-file-manager-action=clear]:first").click();
 			}
 		});
 	</script>
