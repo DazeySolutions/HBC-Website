@@ -27,7 +27,7 @@ $al = Loader::helper('concrete/asset_library');  ?>
 				newRow += "<td class='col-xs-2'>"+$(".ccm-file-selector-file-selected-thumbnail").html()+"</td>";
 				newRow += "<td class='col-xs-5'><input type='text' class='form-control' name='fTitle["+$("input[name=fID]").val()+"]'></td>";
 				newRow += "<td class='col-xs-4'>"+$(".ccm-file-selector-file-selected-title").text()+"</td>";
-				newRow += "<td class='col-xs-1'><button class='btn btn-danger deleterow'>X</button></td>";
+				newRow += "<td class='col-xs-1'><button class='btn btn-sm btn-danger deleterow'>X</button></td>";
 				newRow += "</tr>";
 				$("table.docs tbody").append(newRow);
 				$("#ccm-menu-click-proxy").click();
@@ -54,5 +54,15 @@ $al = Loader::helper('concrete/asset_library');  ?>
 		</tr>
 	</thead>
 	<tbody>
+	<?php if(count($files)!=0){ ?>
+		<?php foreach($files as $file) { ?>
+			<tr>
+				<td class="col-xs-2"><img src="<?php echo $file['thumb_path']?>"></td>
+				<td class="col-xs-5"><input type="text" class='form-control' name='fTitle[<?php echo $file['id'] ?>]'></td>";
+				<td class="col-xs-4"><?php echo $file['file_name']?></td>
+				<td class='col-xs-1'><button class='btn btn-danger btn-sm deleterow'>X</button></td>";
+			</tr>
+		<?php } ?>
+	<?php } ?>
 	</tbody>
 </table>
