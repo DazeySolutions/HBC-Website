@@ -7,7 +7,11 @@ defined('C5_EXECUTE') or die("Access Denied.");
 	<div class="col-xs-12 col-md-10 col-md-offset-1">
 		<?php 
 		$feedCount = 0;
-		 ?>
+		foreach($socialData as $data) {
+			if($data['feed']){
+				$feedCount += 1;
+			}	
+		} ?>
 		<?php if($feedCount>0){ ?>
 			<?php if(12 % $feedCount == 0){
 				$colwidth = 12/$feedCount;
