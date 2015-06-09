@@ -53,7 +53,7 @@ class Controller extends BlockController
     	$this->requireAsset('javascript', 'bootstrap-tab');
     	$this->requireAsset('css', 'font-awesome');
     	$all = Link::getList();
-    	$socialData = json_decode($this->social, true);
+    	$socialData = json_decode($this->sData, true);
     
     	foreach($all as $link){
     		if(!isset($socialData[$link->getID()])){
@@ -91,7 +91,7 @@ class Controller extends BlockController
     			$value['access'] = "".$access[$key];
     		}
     	}
-    	$args['social'] = json_encode($socialData);
+    	$args['sData'] = json_encode($socialData);
         parent::save($args);
     }
 
@@ -99,7 +99,7 @@ class Controller extends BlockController
     {
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
-        $this->set('socialData', json_decode($this->social));
+        $this->set('socialData', json_decode($this->sData));
     }
     
     public function on_start(){

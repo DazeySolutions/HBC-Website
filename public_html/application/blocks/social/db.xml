@@ -6,7 +6,7 @@
 			<unsigned />
             <autoincrement />
 		</field>
-        <field name="social" type="XL">
+        <field name="sData" type="XL">
             <default value="{}"/>
         </field>
 	</table>
