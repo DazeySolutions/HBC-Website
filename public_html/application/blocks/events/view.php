@@ -14,14 +14,16 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-    var appDependencies = ['ngChurchManagement'];
-    var eventApp<?php echo $bID ?> = angular.module("eventApp<?php echo $bID ?>", appDependencies);
-    angular.isUndefinedOrNull = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null;
-    };
-    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null || value === "";
-    };
+	function loadEvent(){
+    	var appDependencies = ['ngChurchManagement'];
+    	var eventApp<?php echo $bID ?> = angular.module("eventApp<?php echo $bID ?>", appDependencies);
+    	angular.isUndefinedOrNull = function undefinedOrNull(value){
+        	return angular.isUndefined(value) || value === null;
+    	};
+    	angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+        	return angular.isUndefined(value) || value === null || value === "";
+    	};
+	}
 </script>
 <div ng-app="eventApp<?php echo $bID ?>">
 	<div ng-church-event data-base-path="<?php echo $eventURL ?>"></div>
