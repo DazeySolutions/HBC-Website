@@ -1,5 +1,5 @@
 <?php  defined('C5_EXECUTE') or die("Access Denied."); ?>
-<div class="row section-row">
+<div class="row section-row" style="z-index: 2000;">
 	<?php $c = Page::getCurrentPage(); ?>
 	<?php
         $a = new Area($areaName);
