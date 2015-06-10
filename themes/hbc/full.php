@@ -30,11 +30,27 @@
 	            $a = new Area('Main');
 	            $a->display($c);
 	        ?>
+	        <div class="section-row">
 	        <?php
-	            $a = new Area('MainC');
+	            $a = new Area('Main0');
 	            $a->setAreaGridMaximumColumns(12);
 	            $a->display($c);
 	        ?>
+	        </div>
+	        <div class="section-row">
+	        <?php
+	            $a = new Area('Main1');
+	            $a->setAreaGridMaximumColumns(12);
+	            $a->display($c);
+	        ?>
+	        </div>
+	        <div class="section-row">
+	        <?php
+	            $a = new Area('Main2');
+	            $a->setAreaGridMaximumColumns(12);
+	            $a->display($c);
+	        ?>
+	        </div>
 	        <?php
 	          $a = new GlobalArea('Connection');
 	          $a->display();
