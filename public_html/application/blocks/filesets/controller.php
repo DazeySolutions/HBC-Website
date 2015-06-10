@@ -36,7 +36,7 @@ class Controller extends BlockController {
 		$this->common();
 	}
 	public function view(){
-		$this->common();
+		
 	}
 	
 	protected function common(){
