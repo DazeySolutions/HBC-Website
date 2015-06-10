@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btFeatureArea">
+		<field name="bID" type="I">
+			<key ></key>
+			<unsigned ></unsigned>
+		</field>
+		<field name="areaName" type="C"></field>
+		<field name="bootstrap3" type="L">
+			<default value="1"></default>
+		</field>
+	</table>
+</schema>
