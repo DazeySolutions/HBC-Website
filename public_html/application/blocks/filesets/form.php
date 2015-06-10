@@ -19,8 +19,8 @@ $filesets = FileSet::getMySets();
 <div class="form-group">
 	<?php echo $form->label('fileSetName', t('Select File Set Name')); ?>
 	<select name="fileSetName">
-		<?php foreach($filesets as $fileset) { ?>
-			<option value="<?php echo $fileset-getFileSetName()?>"><?php echo $fileset-getFileSetName()?></option>
-		<?php } ?>
+		<?php foreach($filesets as $fileset) { 
+			print_r($fileset);
+		} ?>
 	</select>
 </div>
