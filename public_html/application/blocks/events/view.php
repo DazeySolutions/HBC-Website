@@ -26,6 +26,6 @@ if ($c->isEditMode()) { ?>
 	}
 </script>
 <div ng-app="eventApp<?php echo $bID ?>">
-	<div ng-church-event data-base-path="<?php echo $eventURL ?>"></div>
+	<div class="ng-church-event" data-base-path="<?php echo $eventURL ?>"></div>
 </div>
 <?php } ?>
