@@ -53,7 +53,7 @@ if ($c->isEditMode()) { ?>
 		
 	}
 	var count = 0;
-	while(loadSermon() && count != 15){
+	while(loadSermon() && count != 100){
 		console.log("loading");
 		count ++;
 	};
