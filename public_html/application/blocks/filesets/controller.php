@@ -40,7 +40,7 @@ class Controller extends BlockController {
 		$dispArray = array();
 		foreach($files as $file){
 			$date = $file->getAttribute('service');
-			$d = new DateTime($date);
+			$d = new \DateTime($date);
 			print_r($d);
 			$dispArray[] = $date;
 		}
