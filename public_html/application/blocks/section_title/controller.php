@@ -37,12 +37,12 @@ class Controller extends BlockController
 
     public function getTitleText()
     {
-        return $title;
+        return $this->titleText;
     }
 
     public function view()
     {
-        $this->set('title', $this->getTitleText());
+        $this->set('title', $this->titleText);
     }
 
     public function save($data)
