@@ -14,18 +14,29 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-	function loadEvent(){
-    	var appDependencies = ['ngChurchManagement'];
-    	var eventApp<?php echo $bID ?> = angular.module("eventApp<?php echo $bID ?>", appDependencies);
-    	angular.isUndefinedOrNull = function undefinedOrNull(value){
-        	return angular.isUndefined(value) || value === null;
+	var appDependencies = ['ngChurchManagement'];
+	var eventApp<?php echo $bID ?> = angular.module("eventApp<?php echo $bID ?>", appDependencies);
+	angular.isUndefinedOrNull = function undefinedOrNull(value){
+    	return angular.isUndefined(value) || value === null;
+	};
+	angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+    	return angular.isUndefined(value) || value === null || value === "";
+	};
+ 	eventApp<?php echo $bID ?>.controller('eventController<?php echo $bID ?>', ['$scope', '$compile', function($scope, $compile){
+    	$scope.init = function init(){
+    		  var item = angular.element('<div class="ng-church-event" base-path="<?php echo $eventURL ?>"></div>');
+		      var el = $compile( item )( $scope );
+		      
+		      //where do you want to place the new element?
+		      angular.element("#content<?php echo $bID?>").append(item);
+		      	
     	};
-    	angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-        	return angular.isUndefined(value) || value === null || value === "";
-    	};
-	}
+    	
+    	$scope.init();
+    }]);
+	angular.bootstrap(document.getElementById("event"), ['"eventApp<?php echo $bID ?>"']);
 </script>
-<div ng-app="eventApp<?php echo $bID ?>">
-	<div class="ng-church-event" data-base-path="<?php echo $eventURL ?>"></div>
+<div id="event" ng-app="eventApp<?php echo $bID ?>" ng-controller="eventController<?php echo $bID ?>">
+	<div id="content<?php echo $bID?>"></div>
 </div>
 <?php } ?>

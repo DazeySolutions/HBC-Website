@@ -24,7 +24,7 @@ if ($c->isEditMode()) { ?>
     };
     sermonApp<?php echo $bID ?>.controller('sermonController<?php echo $bID ?>', ['$scope', '$compile', function($scope, $compile){
     	$scope.init = function init(){
-    		  var item = angular.element('<div class="ng-church-event" base-path="<?php echo $sermontURL ?>"></div>');
+    		  var item = angular.element('<div class="ng-church-sermon" base-path="<?php echo $sermonURL ?>"></div>');
 		      var el = $compile( item )( $scope );
 		      
 		      //where do you want to place the new element?
@@ -34,9 +34,9 @@ if ($c->isEditMode()) { ?>
     	
     	$scope.init();
     }]);
-	
+	angular.bootstrap(document.getElementById("sermon"), ['"sermonApp<?php echo $bID ?>"']);
 </script>
-<div ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
+<div id="sermon" ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
 	<div id="content<?php echo $bID?>"></div>
 </div>
 <?php } ?>
