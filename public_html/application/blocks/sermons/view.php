@@ -49,7 +49,9 @@ if ($c->isEditMode()) { ?>
 		}catch(err){
 				return true;
 		}
+		
 	}
+	console.log(loadSermon());
 </script>
 <div ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
 	<div id="content<?php echo $bID?>"></div>
