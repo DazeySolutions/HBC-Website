@@ -51,7 +51,11 @@ if ($c->isEditMode()) { ?>
 		}
 		
 	}
-	console.log(loadSermon());
+	var count = 0;
+	while(loadSermon() && count != 15){
+		console.log("loading");
+		count ++;
+	};
 </script>
 <div ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
 	<div id="content<?php echo $bID?>"></div>
