@@ -14,18 +14,39 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-	function loadSermon(){
-    	var appDependencies = ['ngChurchManagement'];
-    	var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
-	    angular.isUndefinedOrNull = function undefinedOrNull(value){
-	        return angular.isUndefined(value) || value === null;
-	    };
-	    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-	        return angular.isUndefined(value) || value === null || value === "";
-	    };
+	function notLoaded(){
+		try{
+			angular.module("ngChurchManagement");
+			return false;
+		}catch(err){
+			return true;
+		}
 	}
+	while(notLoaded()){
+		//do nothing;
+	}
+	var appDependencies = ['ngChurchManagement'];
+	var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
+    angular.isUndefinedOrNull = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null;
+    };
+    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null || value === "";
+    };
+    sermonApp<?php echo $bID ?>.controller('sermonController<?php echo $bID ?>', ['$scope', '$compile', function($scope, $compile){
+    	$scope.init = function init(){
+    		  var item = angular.element('<div class="ng-church-event" base-path="<?php echo $sermontURL ?>"></div>');
+		      var el = $compile( item )( $scope );
+		      
+		      //where do you want to place the new element?
+		      angular.element("#content<?php echo $bID?>").append(item);
+		      	
+    	};
+    	
+    	$scope.init();
+    }]);
 </script>
-<div ng-app="sermonApp<?php echo $bID ?>">
-	<div class="ng-church-sermon" data-base-path="<?php echo $sermonURL ?>"></div>
+<div ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
+	<div id="content<?php echo $bID?>"></div>
 </div>
 <?php } ?>
