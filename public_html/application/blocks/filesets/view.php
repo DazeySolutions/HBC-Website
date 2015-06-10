@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die("Access Denied.");
-		$files = FileSet::getFilesBySetName($this->fileSetName);
-		foreach($files as $file){
-			$date = $file->getAttribute('service');
+		$fileAr = FileSet::getFilesBySetName($this->fileSetName);
+		foreach($fileAr as $fil){
+			$date = $fil->getAttribute('service');
 			echo $date;	
 		}?>
