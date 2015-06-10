@@ -4,7 +4,7 @@
 	</div>
 <?php } ?>
 
-<div class="row section-row" style="z-index: 2000;">
+<div class="section-row">
 
 	<?php
         $a = new Area($areaName);

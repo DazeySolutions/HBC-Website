@@ -27,11 +27,13 @@
 	            $a->display($c);
 	        ?>
 	        <div class="container-fluid">
-		        <?php
-		            $a = new Area('Main');
-		            $a->setAreaGridMaximumColumns(12);
-		            $a->display($c);
-		        ?>
+	        	<div class="row">
+		        	<?php
+		            	$a = new Area('Main');
+		            	$a->setAreaGridMaximumColumns(12);
+		            	$a->display($c);
+		        	?>
+		        </div>
 		    </div>
 	        <?php
 	          $a = new GlobalArea('Connection');
