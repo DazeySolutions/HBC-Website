@@ -35,7 +35,7 @@ if ($c->isEditMode()) { ?>
     	$scope.init();
     }]);
 </script>
-<div id="sermon" ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
+<div id="sermon" ng-controller="sermonController<?php echo $bID ?>">
 	<div id="content<?php echo $bID?>">
 		<div class="row">
 	       <div class="col-xs-12">
