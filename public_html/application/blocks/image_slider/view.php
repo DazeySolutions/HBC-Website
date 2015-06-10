@@ -7,15 +7,8 @@ if ($c->isEditMode()) { ?>
     </div>
 <?php  } else { ?>
 <script>
-    var appDependencies = ['ngImageSlider'];
-    var imageApp = angular.module("imageApp", appDependencies);
-    angular.isUndefinedOrNull = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null;
-    };
-    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-        return angular.isUndefined(value) || value === null || value === "";
-    };
-imageApp.controller('SlideController', ['$scope', function($scope){
+    var imageApp = angular.module("hbcAPP");
+	imageApp.controller('SlideController', ['$scope', function($scope){
         $scope.images = [];
         <?php if(count($rows) > 0) { ?>
             <?php foreach($rows as $row) { ?>
@@ -33,7 +26,7 @@ imageApp.controller('SlideController', ['$scope', function($scope){
         <?php } ?>
     }]);
 </script>
-<div ng-app="imageApp" ng-controller="SlideController">
+<div ng-controller="SlideController">
     <div ng-image-slider data="images">
     </div>
 </div>
