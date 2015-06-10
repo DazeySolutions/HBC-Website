@@ -36,7 +36,13 @@ class Controller extends BlockController {
 		$this->common();
 	}
 	public function view(){
-		
+		$files = FileSet::getFilesBySetName($this->fileSetName);
+		$dispArray = array();
+		foreach($files as $file){
+			$date = $file->getAttribute('service');
+			$dispArray[] = $date;
+		}
+		$this->set('dates', $dispArray);
 	}
 	
 	protected function common(){
