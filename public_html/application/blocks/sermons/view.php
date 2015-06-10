@@ -23,7 +23,7 @@ if ($c->isEditMode()) { ?>
 		}
 	}
 	while(notLoaded()){
-		//do nothing;
+		setTimeout(notLoaded(), 3000);
 	}
 	var appDependencies = ['ngChurchManagement'];
 	var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
