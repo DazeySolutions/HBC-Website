@@ -7,10 +7,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-9 col-lg-10">
-                <?php
-                    $a = new Area('Main');
-                    $a->display($c);
-                ?>
+                	<div class="container-fluid">
+			        	<div class="row">
+				        	<?php
+				            	$a = new Area('Main');
+				            	$a->setAreaGridMaximumColumns(12);
+				            	$a->display($c);
+				        	?>
+				        </div>
+				    </div>
                 </div>
                 <div class="off-canvas-right col-sm-3 col-lg-2">
                 <?php
