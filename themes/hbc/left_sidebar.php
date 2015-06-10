@@ -24,10 +24,12 @@
 				    </div>
                 </div>
             </div>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script src="<?php echo $view->getThemePath()?>/assets/js/bootstrap.min.js"></script>
-      </div>
-      <?php $this->inc('elements/footer.php'); ?> 
+			<?php
+	          $a = new GlobalArea('Connection');
+	          $a->display();
+	        ?>
+	        <?php $this->inc('elements/footer.php'); ?> 
+	    </div>
+	    <?php Loader::element('footer_required')?>
     </body>
 </html>
