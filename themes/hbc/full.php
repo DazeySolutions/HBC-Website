@@ -32,6 +32,7 @@
 	        ?>
 	        <?php
 	          $a = new GlobalArea('Connection');
+	          $a->setAreaGridMaximumColumns(12);
 	          $a->display();
 	        ?>
 	        <?php $this->inc('elements/footer.php'); ?> 
