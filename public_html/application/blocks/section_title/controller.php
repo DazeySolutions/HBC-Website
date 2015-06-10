@@ -18,7 +18,8 @@ class Controller extends BlockController
     protected $btCacheBlockOutputForRegisteredUsers = false;
     protected $btInterfaceHeight = 400;
     protected $btTable = 'btSectionTitle';
-
+	protected $btDefaultSet = 'basic';
+	
     public function getBlockTypeDescription()
     {
         return t("Displays a Section's Title");
