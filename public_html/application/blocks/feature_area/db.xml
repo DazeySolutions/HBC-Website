@@ -6,8 +6,5 @@
 			<unsigned ></unsigned>
 		</field>
 		<field name="areaName" type="C"></field>
-		<field name="bootstrap3" type="L">
-			<default value="1"></default>
-		</field>
 	</table>
 </schema>

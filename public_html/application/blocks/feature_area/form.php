@@ -5,9 +5,4 @@
         <?php echo $form->label('areaName', t('Name'));?>
         <?php echo $form->text('areaName', $areaName); ?>
     </div>
-    <div class="checkbox">
-    	<label>
-        <?php echo $form->checkbox('bootstrap3', $bootstrap3, $bootstrap3 == 1); ?> Enable Bootstrap
-        </label>
-    </div>
 </fieldset>
