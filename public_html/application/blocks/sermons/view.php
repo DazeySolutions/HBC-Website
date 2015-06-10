@@ -14,40 +14,27 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-	function loadSermon(){
-		try{
-			var m = angular.module("ngChurchManagement");
-			var appDependencies = ['ngChurchManagement'];
-			var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
-		    angular.isUndefinedOrNull = function undefinedOrNull(value){
-		        return angular.isUndefined(value) || value === null;
-		    };
-		    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
-		        return angular.isUndefined(value) || value === null || value === "";
-		    };
-		    sermonApp<?php echo $bID ?>.controller('sermonController<?php echo $bID ?>', ['$scope', '$compile', function($scope, $compile){
-		    	$scope.init = function init(){
-		    		  var item = angular.element('<div class="ng-church-event" base-path="<?php echo $sermontURL ?>"></div>');
-				      var el = $compile( item )( $scope );
-				      
-				      //where do you want to place the new element?
-				      angular.element("#content<?php echo $bID?>").append(item);
-				      	
-		    	};
-		    	
-		    	$scope.init();
-		    }]);
-		    return false;
-		}catch(err){
-				return true;
-		}
-		
-	}
-	var count = 0;
-	while(loadSermon() && count != 100){
-		console.log("loading");
-		count ++;
-	};
+	var appDependencies = ['ngChurchManagement'];
+	var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
+    angular.isUndefinedOrNull = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null;
+    };
+    angular.isUndefinedOrNullOrEmpty = function undefinedOrNull(value){
+        return angular.isUndefined(value) || value === null || value === "";
+    };
+    sermonApp<?php echo $bID ?>.controller('sermonController<?php echo $bID ?>', ['$scope', '$compile', function($scope, $compile){
+    	$scope.init = function init(){
+    		  var item = angular.element('<div class="ng-church-event" base-path="<?php echo $sermontURL ?>"></div>');
+		      var el = $compile( item )( $scope );
+		      
+		      //where do you want to place the new element?
+		      angular.element("#content<?php echo $bID?>").append(item);
+		      	
+    	};
+    	
+    	$scope.init();
+    }]);
+	
 </script>
 <div ng-app="sermonApp<?php echo $bID ?>" ng-controller="sermonController<?php echo $bID ?>">
 	<div id="content<?php echo $bID?>"></div>
