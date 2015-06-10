@@ -14,7 +14,7 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-	function loadEvent(){
+	function loadSermon(){
     	var appDependencies = ['ngChurchManagement'];
     	var sermonApp<?php echo $bID ?> = angular.module("sermonApp<?php echo $bID ?>", appDependencies);
 	    angular.isUndefinedOrNull = function undefinedOrNull(value){
