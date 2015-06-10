@@ -46,6 +46,7 @@ if ($c->isEditMode()) { ?>
 		    	
 		    	$scope.init();
 		    }]);
+		    return false;
 		}catch(err){
 				return true;
 		}
