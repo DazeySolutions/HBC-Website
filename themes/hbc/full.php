@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php $this->inc('elements/head.php'); ?> 
-    <body>
+    <body ng-app="hbcAPP">
 	    <script>
 	        $(document).ready(function(){
 	            $("body .section-row:odd").addClass("even");
