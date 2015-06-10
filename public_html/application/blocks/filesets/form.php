@@ -6,7 +6,7 @@ $filesets = FileSet::getMySets();
 </div>
 <div class="form-group">
  	<?php echo $form->label('sortType', t('Select Sort Type'));?>
- 	<select id="sortType" name="sortType">
+ 	<select id="sortType" name="sortType" class="form-control">
  		<option value="0" <?php if ($sortType == 0) { ?>selected<?php } ?>>Date ex(2015>Jan>15)</option>
  		<option value="1" <?php if ($sortType == 1) { ?>selected<?php } ?>>Date ex(2015>Jan-Feb)</option>
  		<option value="2" <?php if ($sortType == 2) { ?>selected<?php } ?>>Title</option>
@@ -18,7 +18,7 @@ $filesets = FileSet::getMySets();
 </div>
 <div class="form-group">
 	<?php echo $form->label('fileSetName', t('Select File Set Name')); ?>
-	<select name="fileSetName">
+	<select name="fileSetName" class="form-control">
 		<?php foreach($filesets as $fileset) { ?>
 			<option value="<?php echo $fileset->getFileSetName()?>"><?php echo $fileset->getFileSetName()?> </option>
 		<?php } ?>
