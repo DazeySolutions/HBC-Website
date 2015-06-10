@@ -14,15 +14,6 @@ if ($c->isEditMode()) { ?>
 
 <?php  } else { ?>
 <script>
-	function notLoaded(){
-		try{
-			angular.module("ngChurchManagement");
-			return false;
-		}catch(err){
-			return true;
-		}
-	}
-	
 	function loadSermon(){
 		try{
 			var m = angular.module("ngChurchManagement");

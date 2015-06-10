@@ -31,7 +31,7 @@ class Controller extends BlockController
 
 	public function view()
     {
-    	$this->requireAsset('javascript', 'ngChurchManagement');
+    	//$this->requireAsset('javascript', 'ngChurchManagement');
     }
     
     public function save($data)
@@ -39,7 +39,7 @@ class Controller extends BlockController
         parent::save($data);
     }
    public function on_start(){
-    	$al = \Concrete\Core\Asset\AssetList::getInstance();
-    	$al->register('javascript', 'ngChurchManagement', 'blocks/events/assets/ngChurchManagement.js');
+    	// $al = \Concrete\Core\Asset\AssetList::getInstance();
+    	// $al->register('javascript', 'ngChurchManagement', 'blocks/events/assets/ngChurchManagement.js');
     }
 }
