@@ -29,8 +29,17 @@ class Controller extends BlockController
         return t("Sermon Series");
     }
 
+	public function view()
+    {
+    	$this->requireAsset('javascript', 'ngChurchManagement');
+    }
+    
     public function save($data)
     {
         parent::save($data);
+    }
+   public function on_start(){
+    	$al = \Concrete\Core\Asset\AssetList::getInstance();
+    	$al->register('javascript', 'ngChurchManagement', 'blocks/events/assets/ngChurchManagement.js');
     }
 }
