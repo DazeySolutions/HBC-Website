@@ -2,6 +2,7 @@
 namespace Application\Block\Filesets;
 use Loader;
 use File;
+use FileSet;
 use \Concrete\Core\Block\BlockController;
 class Controller extends BlockController {
 	
