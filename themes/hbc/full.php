@@ -11,8 +11,8 @@
 	        	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	
 				var observer = new MutationObserver(function(mutations, observer) {
-			        $("body .section-row:odd").addClass("even");
-		            $("body .section-row:even").addClass("odd");
+			        $("body .section>.row:odd").addClass("even");
+		            $("body .section>.row:even").addClass("odd");
 				});
 				observer.observe(document, {
 				  subtree: true,
