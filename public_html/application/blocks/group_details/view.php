@@ -7,12 +7,13 @@
 		<?php foreach($userData as $user){ ?>
 		<div class="col-xs-12 col-sm-4">
 			<?php $im = $user->getAttribute('profile_image'); ?>
-			<img src="<?php echo $im->getRelativePath(); ?>" style="width: 100%;">
+			<a data-toggle="collapse" href="#<?php echo $user->getUserID()?>Details">
+				<img data-toggle="tooltip" data-placement="top" title="<h3>Click for more info</h3>" src="<?php echo $im->getRelativePath(); ?>" style="width: 100%;">
+			</a>
 			<div class="text-center col-xs-12">
 				<h4><?php echo $user->getAttribute('real_name'); ?></h4>
 				<h5><?php echo $user->getAttribute('title'); ?></h5>
-				<p data-toggle="collapse" data-target="#<?php echo $user->getUserID()?>Details">Details</p>
-				<p id="<?php echo $user->getUserID()?>Details"><?php echo $user->getAttribute('details'); ?></p>
+				<div id="<?php echo $user->getUserID()?>Details"><?php echo $user->getAttribute('details'); ?></div>
 			</div>
 		</div>
 		<?php } ?>
