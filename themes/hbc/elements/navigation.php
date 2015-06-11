@@ -15,9 +15,9 @@
         <p class="navbar-text navbar-right">
 	        <?php $u = new User();
 	        if($u->isLoggedIn()){ ?>
-	        	Hello, <a class="navbar-link" href="<?php echo $this->url('/account')?>"><?php echo $u->getUserName() ?></a> <a class="navbar-link" href="<?php $this->url('/login/logout')?>"><i class="fa fa-sign-out"></i></a>
+	        	Hello, <a class="navbar-link" href="<?php echo $this->url('/account')?>"><?php echo $u->getUserName() ?></a> <a class="navbar-link" href="<?php echo $this->url('/login/logout')?>"><i class="fa fa-sign-out"></i></a>
 	        <?php }else{?>
-	    		<a class="navbar-link" href="<?php $this->url('/login')?>">Log In</a>
+	    		<a class="navbar-link" href="<?php echo $this->url('/login')?>">Log In</a>
 	        <?php } ?>
         </p>
         <div id="toggle-navbar" class="collapse navbar-collapse">
