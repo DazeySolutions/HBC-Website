@@ -4,8 +4,8 @@
     <body ng-app="hbcAPP">
 	    <script>
 	        $(document).ready(function(){
-	            $("body .section-row:odd").addClass("even");
-	            $("body .section-row:even").addClass("odd");
+	            $("body .section>.row:odd").addClass("even");
+	            $("body .section>.row:even").addClass("odd");
 	        });
 	        <?php if($c->isEditMode()){ ?>
 	        	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
@@ -28,17 +28,19 @@
 	        ?>
 	        <div class="container-fluid">
 	        	<div class="row">
-		        	<?php
-		            	$a = new Area('Main');
-		            	$a->setAreaGridMaximumColumns(12);
-		            	$a->display($c);
-		        	?>
+	        		<div class="section">
+			        	<?php
+			            	$a = new Area('Main');
+			            	$a->setAreaGridMaximumColumns(12);
+			            	$a->display($c);
+			        	?>
+				        <?php
+				          $a = new GlobalArea('Connection');
+				          $a->display();
+				        ?>
+			        </div>
 		        </div>
 		    </div>
-	        <?php
-	          $a = new GlobalArea('Connection');
-	          $a->display();
-	        ?>
 	        <?php $this->inc('elements/footer.php'); ?> 
 	    </div>
 	    <?php Loader::element('footer_required')?>
