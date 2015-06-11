@@ -4,15 +4,15 @@
     <body ng-app="hbcAPP">
 	    <script>
 	        $(document).ready(function(){
-	            $("body .section>.row:odd").addClass("even");
-	            $("body .section>.row:even").addClass("odd");
+	            $("body .section:odd").addClass("even");
+	            $("body .section:even").addClass("odd");
 	        });
 	        <?php if($c->isEditMode()){ ?>
 	        	MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
 	
 				var observer = new MutationObserver(function(mutations, observer) {
-			        $("body .section .block>.row:odd").addClass("even");
-		            $("body .section .block>.row:even").addClass("odd");
+			        $("body .section:odd").addClass("even");
+		            $("body .section:even").addClass("odd");
 				});
 				observer.observe(document, {
 				  subtree: true,
@@ -28,19 +28,17 @@
 	        ?>
 	        <div class="container-fluid">
 	        	<div class="row">
-	        		<div class="section">
-			        	<?php
-			            	$a = new Area('Main');
-			            	$a->setAreaGridMaximumColumns(12);
-			            	$a->display($c);
-			        	?>
-				        <?php
-				          $a = new GlobalArea('Connection');
-				          $a->display();
-				        ?>
-			        </div>
+		        	<?php
+		            	$a = new Area('Main');
+		            	$a->setAreaGridMaximumColumns(12);
+		            	$a->display($c);
+		        	?>
 		        </div>
 		    </div>
+	        <?php
+	          $a = new GlobalArea('Connection');
+	          $a->display();
+	        ?>
 	        <?php $this->inc('elements/footer.php'); ?> 
 	    </div>
 	    <?php Loader::element('footer_required')?>
