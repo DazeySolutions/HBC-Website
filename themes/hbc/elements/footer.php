@@ -1,6 +1,6 @@
 <?php defined('C5_EXECUTE') or die("Access Denied."); ?>
 <footer id="bottom" class="footer">
-    	<div class="row section-row dark">
+    	<div class="row section dark">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
     		<div class="col-xs-12 col-sm-3">
                 <hr class="hidden-xs col-sm-3 h4" />
