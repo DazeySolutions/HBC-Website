@@ -11,7 +11,7 @@
 				<h4><?php echo $user->getAttribute('real_name'); ?></h4>
 				<h5><?php echo $user->getAttribute('title'); ?></h5>
 			</div>
-			<img src="<?php echo $im->getRelativePath(); ?>" style="width: 100%;">
+			<img src="<?php echo $im->getRelativePath(); ?>" class="col-xs-10 col-xs-offset-1">
 			<div class="text-center col-xs-12">
 				<?php echo $user->getAttribute('details'); ?>
 			</div>
