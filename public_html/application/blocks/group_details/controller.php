@@ -32,7 +32,14 @@ class Controller extends BlockController {
 		$this->common();
 	}
 	public function view(){
-	
+		$group = Group::getByName($this->groupName);
+		$users = $group->getGroupMembers();
+		$userData = array();
+		foreach($users as $user){
+			$userData[$user->getAttribute('sort_order').$user->getAttribute('real_name')] = $user;
+		}
+		ksort($userData);
+		$this->set('userData', $userData);
 	}
 	
 	protected function common(){
