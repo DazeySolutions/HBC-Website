@@ -6,7 +6,9 @@
 		<hr class="hidden-xs col-sm-3">
 		<?php foreach($userData as $user){ ?>
 		<div class="col-xs-12 col-sm-4">
-			<?php echo $user->getAttribute('real_name') ?>
+			<?php echo $user->getAttribute('real_name'); ?>
+			<?php $av = Loader::helper('concrete/avatar'); ?>
+			<?php $av->outputUserAvatar($user); ?>
 		</div>
 		<?php } ?>
 	</div>
