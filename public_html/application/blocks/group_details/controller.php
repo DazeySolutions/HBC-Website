@@ -18,11 +18,11 @@ class Controller extends BlockController {
 	 * Used for localization. If we want to localize the name/description we have to include this
 	 */
 	public function getBlockTypeDescription() {
-		return t("List files by set");
+		return t("Display Group Bios");
 	}
 	
 	public function getBlockTypeName() {
-		return t("File Sets");
+		return t("Group Bios");
 	}
 
 	public function add(){
