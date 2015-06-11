@@ -7,8 +7,9 @@
 		<?php foreach($userData as $user){ ?>
 		<div class="col-xs-12 col-sm-4">
 			<?php echo $user->getAttribute('real_name'); ?>
-			<?php $av = Loader::helper('concrete/avatar'); ?>
-			<img src="<?php echo $av->getImagePath($user); ?>" >
+			<?php $im = $user->getAttribute('profile_image'); ?>
+			<img src="<?php echo $im->getRelativePath(); ?>" >
+			<?php echo $user->getAttribute('details'); ?>
 		</div>
 		<?php } ?>
 	</div>
