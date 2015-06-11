@@ -18,5 +18,13 @@
                 $a->display();
             ?>
         </div><!--/.nav-collapse -->
+        <p class="navbar-text navbar-right">
+	        <?php $u = new User();
+	        if($u->isLoggedIn()){ ?>
+	        	Hello, <a href="<?php echo $this->url('/account')?>"><?php echo $u->getUserDisplayName() ?></a> <a href="<?php $this->url('/login/logout')?>"><i class="fa fa-sign-out"></i></a>
+	        <?php }else{?>
+	    		<a href="<?php $this->url('/login')?>">Log In</a>
+	        <?php } ?>
+        </p>
     </div>
 </nav>
