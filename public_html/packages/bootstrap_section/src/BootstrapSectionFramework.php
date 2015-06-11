@@ -1,10 +1,10 @@
 <?php
-namespace Concrete\Package\DazeySolutions\Src;
+namespace Concrete\Package\BootstrapSection\Src;
 
 use Loader;
 use Concrete\Core\Page\Theme\GridFramework\GridFramework;
 
-class BootstrapSection extends GridFramework
+class BootstrapSectionFramework extends GridFramework
 {
 
     public function getPageThemeGridFrameworkName()
