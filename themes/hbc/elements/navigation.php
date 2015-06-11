@@ -12,19 +12,19 @@
                 <img src="<?php echo $view->getThemePath() ?>/assets/images/logo.png" height="49">
             </a>
         </div>
+        <p class="navbar-text navbar-right">
+	        <?php $u = new User();
+	        if($u->isLoggedIn()){ ?>
+	        	Hello, <a class="navbar-link" href="<?php echo $this->url('/account')?>"><?php echo $u->getUserName() ?></a> <a class="navbar-link" href="<?php $this->url('/login/logout')?>"><i class="fa fa-sign-out"></i></a>
+	        <?php }else{?>
+	    		<a class="navbar-link" href="<?php $this->url('/login')?>">Log In</a>
+	        <?php } ?>
+        </p>
         <div id="toggle-navbar" class="collapse navbar-collapse">
             <?php
                 $a = new GlobalArea('Header Navigation');
                 $a->display();
             ?>
         </div><!--/.nav-collapse -->
-        <p class="navbar-text navbar-right">
-	        <?php $u = new User();
-	        if($u->isLoggedIn()){ ?>
-	        	Hello, <a href="<?php echo $this->url('/account')?>"><?php echo $u->getUserName() ?></a> <a href="<?php $this->url('/login/logout')?>"><i class="fa fa-sign-out"></i></a>
-	        <?php }else{?>
-	    		<a href="<?php $this->url('/login')?>">Log In</a>
-	        <?php } ?>
-        </p>
     </div>
 </nav>
