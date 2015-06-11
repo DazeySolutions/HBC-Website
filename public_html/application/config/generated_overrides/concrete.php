@@ -2,9 +2,9 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Generated 2015-06-07T18:44:34-04:00
+ * Generated 2015-06-11T08:00:45-04:00
  *
- * @item      misc.latest_version
+ * @item      misc.access_entity_updated
  * @group     concrete
  * @namespace null
  * -----------------------------------------------------------------------------
@@ -13,7 +13,7 @@ return array(
     'site' => 'Highland Baptist Church',
     'version_installed' => '5.7.4.2',
     'misc' => array(
-        'access_entity_updated' => 1433618443,
+        'access_entity_updated' => 1434024045,
         'do_page_reindex_check' => false,
         'login_redirect' => 'HOMEPAGE',
         'login_redirect_cid' => 0,
@@ -70,5 +70,9 @@ return array(
     ),
     'permissions' => array(
         'model' => 'advanced'
+    ),
+    'debug' => array(
+        'detail' => 'debug',
+        'display_errors' => true
     )
 );
