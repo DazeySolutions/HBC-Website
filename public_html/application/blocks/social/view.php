@@ -6,7 +6,7 @@ if ($c->isEditMode()) { ?>
         <div style="padding: 40px 0px 40px 0px"><?php echo t('Social (Link/Feed) disabled in edit mode.')?></div>
     </div>
 <?php  } else { ?>
-	<div class="row connection">
+	<div class="section row connection">
 		<?php if(count($socialData != 0)){ ?>
 			<div class="col-xs-12 col-md-10 col-md-offset-1">
 			<?php $feedCount = 0;
