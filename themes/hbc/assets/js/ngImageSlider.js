@@ -54,7 +54,7 @@
                                        var data = {
                                                "background-size":"cover",
                                                "height":$scope.divHeight+"px",
-                                               "background": bgColor
+                                               "background-color": bgColor
                                        };
                                        if($scope.images.length > 0 && ($scope.images[$scope.curImageNum].image !== '' || $scope.images[$scope.curImageNum].image !== null || $scope.images[$scope.curImageNum].image !== undefined)){
                                                data["background-image"] = "url('"+$scope.images[$scope.curImageNum].image+"')";
