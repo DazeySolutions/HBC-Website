@@ -8,7 +8,7 @@
 		<div class="col-xs-12 col-sm-4">
 			<?php echo $user->getAttribute('real_name'); ?>
 			<?php $av = Loader::helper('concrete/avatar'); ?>
-			<?php echo $av->outputUserAvatar($user); ?>
+			<img src="<?php echo $av->getImagePath($user); ?>" >
 		</div>
 		<?php } ?>
 	</div>
