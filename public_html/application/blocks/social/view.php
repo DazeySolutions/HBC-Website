@@ -2,7 +2,7 @@
 defined('C5_EXECUTE') or die("Access Denied.");
 $c = Page::getCurrentPage();
 if ($c->isEditMode()) { ?>
-    <div class="ccm-edit-mode-disabled-item row section-row">
+    <div class="ccm-edit-mode-disabled-item row section">
         <div style="padding: 40px 0px 40px 0px"><?php echo t('Social (Link/Feed) disabled in edit mode.')?></div>
     </div>
 <?php  } else { ?>
