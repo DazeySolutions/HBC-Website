@@ -9,6 +9,7 @@ $.getScript("<?php echo $view->getThemePath() ?>/assets/js/bootstrap-treeview.mi
 			<?php if(is_array($doc)) {?>
 			"nodes": [
 				<?php foreach($doc as $sub_key=>$doc_2){?>	
+				{
 					"text": "<?php echo $sub_key ?>",
 					<?php if(is_array($doc_2)) {?>
 					"nodes": [
@@ -22,6 +23,7 @@ $.getScript("<?php echo $view->getThemePath() ?>/assets/js/bootstrap-treeview.mi
 					<?php } else {?>
 					"href": "<?php echo $doc_2?>"
 					<?php } ?>
+				},
 				<?php } ?>	
 			]
 			<?php } else {?>
