@@ -39,12 +39,48 @@ class Controller extends BlockController {
 		$files = FileSet::getFilesBySetName($this->fileSetName);
 		$dispArray = array();
 		foreach($files as $file){
-			$date = $file->getAttribute('service');
-			$d = new \DateTime($date);
-			print_r($d);
-			$dispArray[] = $date;
+			switch($this->sortType){
+				case 0:
+					$date = $file->getAttribute('service');
+					$d = new \DateTime($date);
+					$year = $d->format('YY');
+					$month = $d->format('MM');
+					$day = $d->format('DD');
+					
+					
+					if(isset($dispArray[$year])){
+						if(isset($dispArray[$year][$month])){
+							$dispArray[$year][$month][$day] = $file->getRelativePath();
+						}else{
+							$dispArray[$year][$month] = array($day=>$file->getRelativePath());
+						}
+					}else{
+						$dispArray[$year] = array($month=>array($day=>$file->getRelativePath()));
+					}
+					break;
+				case 1:
+					$date = $file->getAttribute('service');
+					$d = new \DateTime($date);
+					$year = $d->format('YY');
+					$month = $d->format('MM');
+					$day = $d->format('DD');
+					
+					if($day > 27){
+						$d->sub(new DateInterval('P'.$day-27.'D'));
+					}
+					$d->add(new DateInterval('P1M'));
+					$month .= $d->format('MM');
+					if(isset($dispArray[$year])){
+						$dispArray[$year][$month]= $file->getRelativePath();
+					}else{
+						$dispArray[$year] = array($month=>$file->getRelativePath());
+					}
+					break;
+				case 2:
+					break;
+			}
 		}
-		$this->set('dates', $dispArray);
+		$this->set('docs', $dispArray);
 	}
 	
 	protected function common(){
