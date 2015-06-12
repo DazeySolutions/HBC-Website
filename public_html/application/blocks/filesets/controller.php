@@ -45,7 +45,7 @@ class Controller extends BlockController {
 					$d = new \DateTime($date);
 					$year = $d->format('Y');
 					$month = $d->format('M');
-					$day = $d->format('D');
+					$day = $d->format('dS');
 					
 					
 					if(isset($dispArray[$year])){
@@ -63,7 +63,7 @@ class Controller extends BlockController {
 					$d = new \DateTime($date);
 					$year = $d->format('Y');
 					$month = $d->format('M');
-					$day = $d->format('D');
+					$day = $d->format('d');
 					if($day > 27){
 						$sub = $day-27;
 						$d->sub(new \DateInterval("P".$sub."D"));
