@@ -32,6 +32,6 @@ $.getScript("<?php echo $view->getThemePath() ?>/assets/js/bootstrap-treeview.mi
 		},
 	<?php } ?>
 	];
-	$("#tree").treeview({data: tree});
+	$("#tree").treeview({data: tree, enableLinks: true});
 });
 </script>
