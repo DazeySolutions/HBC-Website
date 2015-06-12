@@ -66,9 +66,9 @@ class Controller extends BlockController {
 					$day = $d->format('DD');
 					
 					if($day > 27){
-						$d->sub(new DateInterval('P'.$day-27.'D'));
+						$d->sub(new \DateInterval("P".$day-27."D"));
 					}
-					$d->add(new DateInterval('P1M'));
+					$d->add(new \DateInterval('P1M'));
 					$month .= $d->format('MM');
 					if(isset($dispArray[$year])){
 						$dispArray[$year][$month]= $file->getRelativePath();
