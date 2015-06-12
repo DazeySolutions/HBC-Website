@@ -118,7 +118,7 @@ foreach ($navItems as $ni) {
     if ($ni->level === 1){
         echo '<li class="' . $ni->classes . '">'; //opens a nav item
         $name = (isset($translate) && $translate == true) ? t($ni->name) : $ni->name;
-        echo '<a href="' . $ni->url . '" target="' . $ni->target . '" class="' . $ni->classes . '">' . $name . '</a>';
+        echo '<a href="' . $ni->url . '" target="' . $ni->target . '"><p>' . $name . '</p></a>';
         echo '</li>'; //closes a nav item
     }
 }
