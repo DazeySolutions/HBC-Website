@@ -64,9 +64,9 @@ class Controller extends BlockController {
 					$year = $d->format('YY');
 					$month = $d->format('MM');
 					$day = $d->format('DD');
-					
 					if($day > 27){
-						$d->sub(new \DateInterval("P".$day-27."D"));
+						$sub = $day-27;
+						$d->sub(new \DateInterval("P".$sub."D"));
 					}
 					$d->add(new \DateInterval('P1M'));
 					$month .= $d->format('MM');
