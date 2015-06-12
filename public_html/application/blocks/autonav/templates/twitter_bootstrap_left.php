@@ -62,7 +62,7 @@ foreach ($navItems as $ni) {
 
     if ($ni->inPath) {
         //class for parent items of the page currently being viewed
-        $classes[] = 'nav-path-selected';
+        $classes[] = 'active';
     }
 
     /*
