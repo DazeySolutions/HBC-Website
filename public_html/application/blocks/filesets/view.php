@@ -16,7 +16,7 @@ $.getScript("<?php echo $view->getThemePath() ?>/assets/js/bootstrap-treeview.mi
 						<?php foreach($doc_2 as $sub_sub_key=>$doc_3){?>	
 						{
 							"text": "<?php echo $sub_sub_key ?>",
-							"href": "<?php echo $doc_3 ?>""
+							"href": "<?php echo $doc_3 ?>"
 						},
 						<?php } ?>		
 					]
