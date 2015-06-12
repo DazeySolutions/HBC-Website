@@ -7,6 +7,9 @@ $.getScript("<?php echo $view->getThemePath() ?>/assets/js/bootstrap-treeview.mi
 		{
 			"text": "<?php echo $key ?>",
 			<?php if(is_array($doc)) {?>
+			"state":{
+				"expanded": false
+			}
 			"nodes": [
 				<?php foreach($doc as $sub_key=>$doc_2){?>	
 				{
