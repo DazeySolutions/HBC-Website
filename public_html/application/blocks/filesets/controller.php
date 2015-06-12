@@ -43,9 +43,9 @@ class Controller extends BlockController {
 				case 0:
 					$date = $file->getAttribute('service');
 					$d = new \DateTime($date);
-					$year = $d->format('YY');
-					$month = $d->format('MM');
-					$day = $d->format('DD');
+					$year = $d->format('Y');
+					$month = $d->format('M');
+					$day = $d->format('D');
 					
 					
 					if(isset($dispArray[$year])){
@@ -61,15 +61,15 @@ class Controller extends BlockController {
 				case 1:
 					$date = $file->getAttribute('service');
 					$d = new \DateTime($date);
-					$year = $d->format('YY');
-					$month = $d->format('MM');
-					$day = $d->format('DD');
+					$year = $d->format('Y');
+					$month = $d->format('M');
+					$day = $d->format('D');
 					if($day > 27){
 						$sub = $day-27;
 						$d->sub(new \DateInterval("P".$sub."D"));
 					}
 					$d->add(new \DateInterval('P1M'));
-					$month .= $d->format('MM');
+					$month .= " - " . $d->format('M');
 					if(isset($dispArray[$year])){
 						$dispArray[$year][$month]= $file->getRelativePath();
 					}else{
