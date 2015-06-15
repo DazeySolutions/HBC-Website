@@ -117,7 +117,7 @@ class Controller extends BlockController
     	}
     	
 		$this->set('socialData', $socialData);
-		$this->set('title', $this->title);
+    	$this->set('title', $this->title);
     }
     
     public function on_start(){

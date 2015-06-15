@@ -20,7 +20,7 @@ if ($c->isEditMode()) { ?>
 					if($data['show']){ ?>
 						<span class="fa-stack fa-2x">
 							<i class="fa fa-fw fa-stack-2x fa-circle" style="color: white;"> </i> 
-							<i class="fa fa-fw fa-stack-1x fa-<?php $data['icon'] ?>"> </i>
+							<i class="fa fa-fw fa-stack-1x fa-<?php echo $data['icon'] ?>"> </i>
 						</span> 
 			<?php  }
 				} ?>
