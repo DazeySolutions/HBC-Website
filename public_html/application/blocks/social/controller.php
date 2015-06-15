@@ -97,7 +97,7 @@ class Controller extends BlockController
     		}
     		$socialData[$key] = $value;
     	}
-    	
+    	$args['title'] = $data['title'];
     	$args['sData'] = json_encode($socialData);
         parent::save($args);
     }
