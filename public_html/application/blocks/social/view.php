@@ -18,10 +18,12 @@ if ($c->isEditMode()) { ?>
 						$feedCount += 1;
 					}
 					if($data['show']){ ?>
-						<span class="fa-stack fa-2x">
-							<i class="fa fa-fw fa-stack-2x fa-circle" style="color: white;"> </i> 
-							<i class="fa fa-fw fa-stack-1x fa-<?php echo $data['icon'] ?>"> </i>
-						</span> 
+						<a href="<?php echo $data['url']?>">
+							<span class="fa-stack fa-2x">
+								<i class="fa fa-fw fa-stack-2x fa-circle" style="color: white;"> </i> 
+								<i class="fa fa-fw fa-stack-1x fa-<?php echo $data['icon'] ?> <?php echo $data['icon'] ?>-color"> </i>
+							</span> 
+						</a>
 			<?php  }
 				} ?>
 			</div>
