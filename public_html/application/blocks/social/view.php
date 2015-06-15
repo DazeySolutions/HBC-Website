@@ -7,14 +7,27 @@ if ($c->isEditMode()) { ?>
     </div>
 <?php  } else { ?>
 	<div class="row section connection">
-		<?php if(count($socialData != 0)){ ?>
-			<div class="col-xs-12 col-md-10 col-md-offset-1">
+		<hr class="hidden-xs col-sm-3">
+		<h2> class="col-xs-12 col-sm-6"><?php echo h($title)?></h2>
+		<hr class="hidden-xs col-sm-3">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
 			<?php $feedCount = 0;
 			foreach($socialData as $data) {
-						if($data['feed']){
-				$feedCount += 1;
-			}	
-		} ?>
+					if($data['feed']){
+						$feedCount += 1;
+					}
+					if($data['show']){ ?>
+						<span class="fa-stack fa-2x">
+							<i class="fa fa-fw fa-stack-2x fa-circle" style="color: white;"> </i> 
+							<i class="fa fa-fw fa-stack-1x fa-<?php $data['icon'] ?>"> </i>
+						</span> 
+			<?php  }
+				} ?>
+			</div>
+		</div>
+		<?php if(count($socialData != 0)){ ?>
+			<div class="col-xs-12 col-md-10 col-md-offset-1">
 			<?php if($feedCount>0){ ?>
 				<?php 	if(12 % $feedCount == 0){
 							$colwidth = 12/$feedCount;
