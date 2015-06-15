@@ -8,7 +8,7 @@ if ($c->isEditMode()) { ?>
 <?php  } else { ?>
 	<div class="row section connection">
 		<hr class="hidden-xs col-sm-3">
-		<h2> class="col-xs-12 col-sm-6"><?php echo h($title)?></h2>
+		<h2 class="col-xs-12 col-sm-6"><?php echo h($title)?></h2>
 		<hr class="hidden-xs col-sm-3">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
