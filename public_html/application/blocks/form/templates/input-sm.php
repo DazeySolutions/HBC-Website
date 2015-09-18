@@ -28,7 +28,7 @@ while ($questionRow = $questionsRS->fetchRow()) {
 	} else {
 		$question['type'] = $questionRow['inputType'];
 	}
-	
+    $question['input'] = str_replace('class="form-control', 'class="form-control input-sm', $question['input']);	
 	//Construct label "for" (and misc. hackery for checkboxlist / radio lists)
 	if ($question['type'] == 'checkboxlist') {
 		$question['input'] = str_replace('<div class="checkboxPair">', '<div class="checkboxPair"><label>', $question['input']);

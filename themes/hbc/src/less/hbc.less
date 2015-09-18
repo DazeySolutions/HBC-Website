@@ -1,19 +1,28 @@
 //to be determined
 @import "../../bower_components/bootstrap/less/bootstrap.less";
+@import "../../../../public_html/concrete/css/build/core/include/mixins.less";
+
 @import "colors.less";
 @import "variables.less";
+@import "fb-stream.less";
+@import "defaults.less";
+@import "feature.less";
+@import "feature-hover.less";
+
 div.ccm-notification-help-launcher{
 	z-index: 1040 !important;
 }
+
 div#ccm-toolbar{
     z-index: 1041 !important;
 }
+
 .ccm-toolbar-visible{
         .navbar-fixed-top{
-                top: 49px;
+                top: 79px;
         }
         .imageSlider{
-        	top: 49px;
+        	top: 79px;
         }
         &.ccm-panel-open{
         	.navbar-fixed-top{
@@ -23,7 +32,7 @@ div#ccm-toolbar{
 }
 
 body{
-        padding-top: 51px;
+        padding-top: 81px;
 }
 
 .imageSlider {
@@ -45,17 +54,17 @@ body{
         border-color:       @header !important;
     }
     .fixed-margin{
-        margin-top: 51px !important;   
+        margin-top: 81px !important;   
     }
     .imageSlider{
-        top: 51px !important;
+        top: 81px !important;
     }
     .holder{
 		margin-top: 0px;
 	}
 }
 .holder{
-	margin-top: -51px;
+	margin-top: -81px;
 }
 body{
     background: @header;
@@ -87,7 +96,7 @@ body{
 
 .imagePreview{
     position: fixed;
-    top: 51px; //navbarheight + border
+    top: 81px; //navbarheight + border
     left: 0px;
     z-index: -1;
     right: 0px;
@@ -180,23 +189,23 @@ body{
             }
         }
         hr{
-            border-color: lighten(@odd, 10%);
+            border-color: lighten(@even-text, 10%);
         }
     }
     &.dark{
         background: @header;
-        color:      @even-text;
+        color:      @header-text;
         a{
-            color:  @even-link;
+            color:  @header-link;
             &.active{
-                color: @even-link-active;
+                color: @header-link-active;
             }
             &:hover{
-                color: lighten(@even-link, 15%);
+                color: lighten(@header-link, 15%);
             }
         }
         hr{
-            border-color: lighten(@odd, 10%);
+            border-color: lighten(@header-text, 10%);
         }
     }
 }
@@ -226,23 +235,31 @@ body{
         }
     }
 }
-
-.start {
-      background:           @brand-blue;
-      color:                @even-text;
-      position:             absolute;
-      width:                64px;
-      height:               64px;
+.ng-church-event{
+    .event-title {
+        background:             @brand-blue;
+        color:                  @event-text;
+    }
     p{
-       margin:              0;
-       margin-bottom:       4px;
-        &.num {
-            font-size:      32px;
-            line-height:    32px;
-        }
-        &.month {
-            font-size:      24px;
-            line-height:    24px;
+        margin: 0px;
+    }
+    .start {
+          background:           @brand-blue;
+          color:                @event-text;
+          position:             absolute;
+          width:                64px;
+          height:               64px;
+        p{
+           margin:              0;
+           margin-bottom:       4px;
+            &.num {
+                font-size:      32px;
+                line-height:    32px;
+            }
+            &.month {
+                font-size:      24px;
+                line-height:    24px;
+            }
         }
     }
 }

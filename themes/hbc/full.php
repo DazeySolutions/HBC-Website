@@ -27,18 +27,12 @@
 	            $a->display($c);
 	        ?>
 	        <div class="container-fluid">
-	        	<div class="row">
 		        	<?php
 		            	$a = new Area('Main');
 		            	$a->setAreaGridMaximumColumns(12);
 		            	$a->display($c);
 		        	?>
-		        </div>
 		    </div>
-	        <?php
-	          $a = new GlobalArea('Connection');
-	          $a->display();
-	        ?>
 	        <?php $this->inc('elements/footer.php'); ?> 
 	    </div>
 	    <?php Loader::element('footer_required')?>

@@ -7,7 +7,7 @@ if ($c->isEditMode()) { ?>
 	</div>
 <?php  } else { ?>
 	<?php  if( strlen($title)>0){ ?><h3><?php echo $title?></h3><?php  } ?>
-	<div id="googleMapCanvas<?php echo $unique_identifier?>" class="googleMapCanvas" style="margin: auto; width: <?php echo $width; ?>; height: <?php echo $height; ?>"></div>
+    <div onclick="window.open('http://maps.google.com/maps?daddr=<?php echo $location?>&amp;ll=','_blank')" id="googleMapCanvas<?php echo $unique_identifier?>" class="googleMapCanvas" style="margin: auto; width: <?php echo $width; ?>; height: <?php echo $height; ?>; cursor:pointer;" data-toggle="tooltip" data-placement="bottom" title="Click for Directions!"></div>
 <?php  } ?>
 
 
@@ -20,6 +20,11 @@ if ($c->isEditMode()) { ?>
 ?>
 
 <script type="text/javascript">
+    $(document).ready(function(){
+
+        $('[data-toggle="tooltip"]').tooltip(); 
+
+    });
     function googleMapInit<?php echo $unique_identifier?>() {
         try{
             var latlng = new google.maps.LatLng(<?php echo $latitude?>, <?php echo $longitude?>);

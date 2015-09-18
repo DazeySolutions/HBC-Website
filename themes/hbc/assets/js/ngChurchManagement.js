@@ -275,13 +275,12 @@ angular.monthString = function(curdate){
             '            <p class="num">{{getDay(event.start)}}</p>                                      '+
             '            <p class="month">{{getMonth(event.start)}}</p>                                  '+
             '        </div>                                                                              '+
-            '        <div>                                                                               '+
-            '           <img ng-src="{{basePath+event.image}}" style="width:100%;">                      '+
+            '        <div style="background-image: url(\'{{basePath+event.image}}\'); background-size: cover; background-position: center; width: 100%; padding-bottom: 41.84100418%;">'+
             '        </div>                                                                              '+
             '        <div class="row">                                                                   '+
             '            <div class="col-xs-12">                                                         '+
             '                <div class="col-xs-12">                                                     '+
-            '                    <h4 class="col-xs-12">{{event.title}}</h4>                              '+
+            '                <div class="row event-title"><h4 class="col-xs-12">{{event.title}}</h4></div>'+
             '                    <p class="small">Start: {{getFormattedDate(event.start)}}</p>           '+
             '                    <p class="small">End: {{getFormattedDate(event.end)}}</p>               '+
             '                    <p class="col-xs-12">{{event.description}}</p>                          '+

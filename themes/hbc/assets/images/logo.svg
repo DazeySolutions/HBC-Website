@@ -1,0 +1,11 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <g>
+        <title>HBC LOGO</title>
+        <polygon stroke="null" stroke-width="0px" fill="gray" points="0.2162933647632599,53.21815872192383 47.751224517822266,51.9625244140625 47.78112030029297,99.10880279541016 38.33393096923828,61.200443267822266 " id="e5_polygon"/>
+        <polygon stroke="null" stroke-width="0px" fill="gray" points="100.05400085449219,46.13683319091797 53.41595458984375,47.15330123901367 53.41595458984375,0.2162933647632599 62.68376922607422,37.70610809326172 " id="e7_polygon"/>
+        <polygon stroke="null" stroke-width="0px" fill="dodgerblue" points="1.0524303913116455,45.83260726928711 47.451297760009766,47.148040771484375 47.75025939941406,0.3904077708721161 38.42265319824219,37.76063919067383 " id="e8_polygon"/>
+        <circle stroke="null" stroke-width="0px" fill="dodgerblue" r="2.7" cy="29.90618" cx="30.8314" id="e9_circle"/>
+        <circle stroke="null" stroke-width="0px" fill="gray" r="2.7" cy="29.90618" cx="70.50158" id="e10_circle"/>
+        <circle stroke="null" stroke-width="0px" fill="#7f7f7f" r="2.7" cy="69.20011" cx="30.8314" id="e11_circle"/>
+    </g>
+</svg>

@@ -106,6 +106,8 @@ class Controller extends BlockController
     {
     	$this->requireAsset('javascript', 'instafeed');
     	$this->requireAsset('css', 'font-awesome');
+    	$this->requireAsset('javascript', 'slick');
+    	$this->requireAsset('css', 'slick');
     	$all = Link::getList();
     	$socialData = json_decode($this->sData, true);
     
@@ -123,6 +125,8 @@ class Controller extends BlockController
     public function on_start(){
     	$al = \Concrete\Core\Asset\AssetList::getInstance();
     	$al->register('javascript', 'instafeed', 'blocks/social/assets/instafeed.min.js');
+    	$al->register('css', 'slick', 'blocks/social/assets/slick.css');
+    	$al->register('javascript', 'slick', 'blocks/social/assets/slick.js');
     	$al->register('javascript', 'bootstrap-tab', 'blocks/social/assets/tab.js');
     }
 

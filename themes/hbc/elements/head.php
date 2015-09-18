@@ -22,4 +22,5 @@
     <script src="<?php echo $view->getThemePath() ?>/assets/js/ngImageSlider.js"></script>
     <script src="<?php echo $view->getThemePath() ?>/assets/js/ngChurchManagement.js"></script>
     <script src="<?php echo $view->getThemePath() ?>/assets/js/hbc.js"></script>
+    <script src="<?php echo $view->getThemePath() ?>/assets/js/fb.js"></script>
 </head>
